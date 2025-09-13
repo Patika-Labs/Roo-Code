@@ -1,0 +1,95 @@
+import { Anthropic } from "@anthropic-ai/sdk";
+import type { ApiHandlerOptions } from "../../shared/api";
+import { ApiStream, ApiStreamUsageChunk } from "../transform/stream";
+import type { SingleCompletionHandler, ApiHandlerCreateMessageMetadata } from "../index";
+import { RouterProvider } from "./router-provider";
+export declare class DeepInfraHandler extends RouterProvider implements SingleCompletionHandler {
+    constructor(options: ApiHandlerOptions);
+    fetchModel(): Promise<{
+        format: "openai";
+        reasoning: import("../transform/reasoning").OpenAiReasoningParams | undefined;
+        maxTokens: number | undefined;
+        temperature: number | undefined;
+        reasoningEffort: import("@roo-code/types").ReasoningEffortWithMinimal | undefined;
+        reasoningBudget: number | undefined;
+        verbosity: import("@roo-code/types").VerbosityLevel | undefined;
+        id: string;
+        info: {
+            contextWindow: number;
+            supportsPromptCache: boolean;
+            maxTokens?: number | null | undefined;
+            maxThinkingTokens?: number | null | undefined;
+            supportsImages?: boolean | undefined;
+            supportsComputerUse?: boolean | undefined;
+            supportsVerbosity?: boolean | undefined;
+            supportsReasoningBudget?: boolean | undefined;
+            supportsTemperature?: boolean | undefined;
+            requiredReasoningBudget?: boolean | undefined;
+            supportsReasoningEffort?: boolean | undefined;
+            supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
+            inputPrice?: number | undefined;
+            outputPrice?: number | undefined;
+            cacheWritesPrice?: number | undefined;
+            cacheReadsPrice?: number | undefined;
+            description?: string | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            minTokensPerCachePoint?: number | undefined;
+            maxCachePoints?: number | undefined;
+            cachableFields?: string[] | undefined;
+            deprecated?: boolean | undefined;
+            tiers?: {
+                contextWindow: number;
+                name?: "default" | "flex" | "priority" | undefined;
+                inputPrice?: number | undefined;
+                outputPrice?: number | undefined;
+                cacheWritesPrice?: number | undefined;
+                cacheReadsPrice?: number | undefined;
+            }[] | undefined;
+        };
+    }>;
+    getModel(): {
+        format: "openai";
+        reasoning: import("../transform/reasoning").OpenAiReasoningParams | undefined;
+        maxTokens: number | undefined;
+        temperature: number | undefined;
+        reasoningEffort: import("@roo-code/types").ReasoningEffortWithMinimal | undefined;
+        reasoningBudget: number | undefined;
+        verbosity: import("@roo-code/types").VerbosityLevel | undefined;
+        id: string;
+        info: {
+            contextWindow: number;
+            supportsPromptCache: boolean;
+            maxTokens?: number | null | undefined;
+            maxThinkingTokens?: number | null | undefined;
+            supportsImages?: boolean | undefined;
+            supportsComputerUse?: boolean | undefined;
+            supportsVerbosity?: boolean | undefined;
+            supportsReasoningBudget?: boolean | undefined;
+            supportsTemperature?: boolean | undefined;
+            requiredReasoningBudget?: boolean | undefined;
+            supportsReasoningEffort?: boolean | undefined;
+            supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
+            inputPrice?: number | undefined;
+            outputPrice?: number | undefined;
+            cacheWritesPrice?: number | undefined;
+            cacheReadsPrice?: number | undefined;
+            description?: string | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            minTokensPerCachePoint?: number | undefined;
+            maxCachePoints?: number | undefined;
+            cachableFields?: string[] | undefined;
+            deprecated?: boolean | undefined;
+            tiers?: {
+                contextWindow: number;
+                name?: "default" | "flex" | "priority" | undefined;
+                inputPrice?: number | undefined;
+                outputPrice?: number | undefined;
+                cacheWritesPrice?: number | undefined;
+                cacheReadsPrice?: number | undefined;
+            }[] | undefined;
+        };
+    };
+    createMessage(systemPrompt: string, messages: Anthropic.Messages.MessageParam[], _metadata?: ApiHandlerCreateMessageMetadata): ApiStream;
+    completePrompt(prompt: string): Promise<string>;
+    protected processUsageMetrics(usage: any, modelInfo?: any): ApiStreamUsageChunk;
+}

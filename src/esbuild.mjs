@@ -103,6 +103,14 @@ async function main() {
 		external: ["vscode"],
 	}
 
+  const apiConfig = {
+    ...buildOptions,
+    plugins,
+    entryPoints: ["exports.ts"],
+    outfile: "dist/exports.js",
+    external: ["vscode"],
+  }
+
 	/**
 	 * @type {import('esbuild').BuildOptions}
 	 */
@@ -112,18 +120,19 @@ async function main() {
 		outdir: "dist/workers",
 	}
 
-	const [extensionCtx, workerCtx] = await Promise.all([
+	const [extensionCtx, workerCtx, apiCtx] = await Promise.all([
 		esbuild.context(extensionConfig),
 		esbuild.context(workerConfig),
+		esbuild.context(apiConfig),
 	])
 
 	if (watch) {
-		await Promise.all([extensionCtx.watch(), workerCtx.watch()])
+		await Promise.all([extensionCtx.watch(), workerCtx.watch(), apiCtx.watch()])
 		copyLocales(srcDir, distDir)
 		setupLocaleWatcher(srcDir, distDir)
 	} else {
-		await Promise.all([extensionCtx.rebuild(), workerCtx.rebuild()])
-		await Promise.all([extensionCtx.dispose(), workerCtx.dispose()])
+		await Promise.all([extensionCtx.rebuild(), workerCtx.rebuild(), apiCtx.rebuild()])
+		await Promise.all([extensionCtx.dispose(), workerCtx.dispose(), apiCtx.dispose()])
 	}
 }
 
