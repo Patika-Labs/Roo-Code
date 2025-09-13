@@ -4,6 +4,15 @@
 	"engines": {
 		"node": "20.19.2"
 	},
+	"main": "./src/dist/_index.js",
+	"types": "./src/dist/_index.d.ts",
+	"exports": {
+		".": {
+			"types": "./src/dist/_index.d.ts",
+			"import": "./src/dist/_index.js",
+			"require": "./src/dist/_index.js"
+		}
+	},
 	"scripts": {
 		"preinstall": "node scripts/bootstrap.mjs",
 		"prepare": "husky",
