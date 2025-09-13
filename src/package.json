@@ -49,7 +49,7 @@
 		"onLanguage",
 		"onStartupFinished"
 	],
-	"main": "./dist/extension.js",
+	"main": "./dist/exports.js",
 	"contributes": {
 		"viewsContainers": {
 			"activitybar": [
@@ -422,7 +422,9 @@
 		"test": "vitest run",
 		"format": "prettier --write .",
 		"bundle": "node esbuild.mjs",
-		"vscode:prepublish": "pnpm bundle --production",
+        "emit:decl": "tsc --emitDeclarationOnly --outDir dist",
+		"bundle:emit:decl": "pnpm bundle && pnpm emit:decl",
+		"vscode:prepublish": "pnpm bundle --production && pnpm emit:decl",
 		"vsix": "mkdirp ../bin && vsce package --no-dependencies --out ../bin",
 		"publish:marketplace": "vsce publish --no-dependencies && ovsx publish --no-dependencies",
 		"watch:bundle": "pnpm bundle --watch",
