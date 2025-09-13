@@ -1,0 +1,74 @@
+import { Anthropic, ClientOptions } from "@anthropic-ai/sdk";
+import { CacheControlEphemeral } from "@anthropic-ai/sdk/resources";
+import type { ApiHandlerOptions } from "../../shared/api";
+import { ApiStream } from "../transform/stream";
+import { BaseProvider } from "./base-provider";
+import type { SingleCompletionHandler, ApiHandlerCreateMessageMetadata } from "../index";
+export declare class AnthropicHandler extends BaseProvider implements SingleCompletionHandler {
+    private options;
+    private client;
+    constructor(options: ApiHandlerOptions, extras?: ClientOptions);
+    createMessage(systemPrompt: string, messages: Anthropic.Messages.MessageParam[], metadata?: ApiHandlerCreateMessageMetadata): ApiStream;
+    protected buildSystemPrompt(systemPrompt: string, cache_control?: CacheControlEphemeral): string | Array<Anthropic.TextBlockParam>;
+    getModel(): {
+        format: "anthropic";
+        reasoning: import("../transform/reasoning").AnthropicReasoningParams | undefined;
+        maxTokens: number | undefined;
+        temperature: number | undefined;
+        reasoningEffort: import("@roo-code/types").ReasoningEffortExtended | undefined;
+        reasoningBudget: number | undefined;
+        verbosity: import("@roo-code/types").VerbosityLevel | undefined;
+        tools?: boolean;
+        id: "claude-sonnet-4-5" | "claude-sonnet-4-20250514" | "claude-opus-4-5-20251101" | "claude-opus-4-1-20250805" | "claude-opus-4-20250514" | "claude-3-7-sonnet-20250219" | "claude-3-5-sonnet-20241022" | "claude-3-5-haiku-20241022" | "claude-3-opus-20240229" | "claude-3-haiku-20240307" | "claude-haiku-4-5-20251001";
+        info: {
+            contextWindow: number;
+            supportsPromptCache: boolean;
+            maxTokens?: number | null | undefined;
+            maxThinkingTokens?: number | null | undefined;
+            supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
+            supportsVerbosity?: boolean | undefined;
+            supportsReasoningBudget?: boolean | undefined;
+            supportsReasoningBinary?: boolean | undefined;
+            supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
+            requiredReasoningBudget?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "xhigh" | "disable")[] | undefined;
+            requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
+            supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
+            inputPrice?: number | undefined;
+            outputPrice?: number | undefined;
+            cacheWritesPrice?: number | undefined;
+            cacheReadsPrice?: number | undefined;
+            description?: string | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "xhigh" | undefined;
+            minTokensPerCachePoint?: number | undefined;
+            maxCachePoints?: number | undefined;
+            cachableFields?: string[] | undefined;
+            deprecated?: boolean | undefined;
+            isStealthModel?: boolean | undefined;
+            isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
+            excludedTools?: string[] | undefined;
+            includedTools?: string[] | undefined;
+            tiers?: {
+                contextWindow: number;
+                name?: "default" | "flex" | "priority" | undefined;
+                inputPrice?: number | undefined;
+                outputPrice?: number | undefined;
+                cacheWritesPrice?: number | undefined;
+                cacheReadsPrice?: number | undefined;
+            }[] | undefined;
+        };
+        betas: string[] | undefined;
+    };
+    /**
+     * Converts OpenAI tool_choice to Anthropic ToolChoice format
+     * @param toolChoice - OpenAI tool_choice parameter
+     * @param parallelToolCalls - When true, allows parallel tool calls. When false (default), disables parallel tool calls.
+     */
+    private convertOpenAIToolChoice;
+    completePrompt(prompt: string): Promise<string>;
+}

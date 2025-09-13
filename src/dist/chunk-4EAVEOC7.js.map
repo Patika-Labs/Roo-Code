@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": ["../../node_modules/.pnpm/node-domexception@1.0.0/node_modules/node-domexception/index.js"],
+  "mappings": "+CAAA,IAAAA,EAAAC,EAAA,CAAAC,EAAAC,IAAA,CAEA,GAAI,CAAC,WAAW,aACd,GAAI,CACF,GAAM,CAAE,eAAAC,CAAe,EAAI,EAAQ,gBAAgB,EACnDC,EAAO,IAAID,EAAe,EAAE,MAC5BE,EAAK,IAAI,YACTD,EAAK,YAAYC,EAAI,CAACA,EAAIA,CAAE,CAAC,CAC/B,OAASC,EAAK,CACZA,EAAI,YAAY,OAAS,iBACvB,WAAW,aAAeA,EAAI,YAElC,CAGFJ,EAAO,QAAU,WAAW",
+  "names": ["require_node_domexception", "__commonJSMin", "exports", "module", "MessageChannel", "port", "ab", "err"]
+}
