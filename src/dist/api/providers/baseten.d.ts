@@ -1,0 +1,6 @@
+import { type BasetenModelId } from "@roo-code/types";
+import type { ApiHandlerOptions } from "../../shared/api";
+import { BaseOpenAiCompatibleProvider } from "./base-openai-compatible-provider";
+export declare class BasetenHandler extends BaseOpenAiCompatibleProvider<BasetenModelId> {
+    constructor(options: ApiHandlerOptions);
+}
