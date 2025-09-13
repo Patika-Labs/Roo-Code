@@ -18,7 +18,9 @@
 		"strict": true,
 		"target": "ES2022",
 		"useDefineForClassFields": true,
-		"useUnknownInCatchVariables": false
+		"useUnknownInCatchVariables": false,
+		"declaration": true,
+		"emitDeclarationOnly": true
 	},
 	"include": ["."],
 	"exclude": ["node_modules"],
