@@ -49,7 +49,7 @@
 		"onLanguage",
 		"onStartupFinished"
 	],
-	"main": "./dist/extension.js",
+	"main": "./dist/exports.js",
 	"contributes": {
 		"viewsContainers": {
 			"activitybar": [
@@ -417,7 +417,7 @@
 		"pretest": "turbo run bundle --cwd ..",
 		"test": "vitest run",
 		"format": "prettier --write .",
-		"bundle": "node esbuild.mjs",
+		"bundle": "node esbuild.mjs && tsc --emitDeclarationOnly --outDir dist",
 		"vscode:prepublish": "pnpm bundle --production",
 		"vsix": "mkdirp ../bin && vsce package --no-dependencies --out ../bin",
 		"publish:marketplace": "vsce publish --no-dependencies && ovsx publish --no-dependencies",
