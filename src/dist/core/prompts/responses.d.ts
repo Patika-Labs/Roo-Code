@@ -1,0 +1,22 @@
+import { Anthropic } from "@anthropic-ai/sdk";
+import { RooIgnoreController } from "../ignore/RooIgnoreController";
+import { RooProtectedController } from "../protect/RooProtectedController";
+import { ToolProtocol } from "@roo-code/types";
+export declare const formatResponse: {
+    toolDenied: (protocol?: ToolProtocol) => string;
+    toolDeniedWithFeedback: (feedback?: string, protocol?: ToolProtocol) => string;
+    toolApprovedWithFeedback: (feedback?: string, protocol?: ToolProtocol) => string;
+    toolError: (error?: string, protocol?: ToolProtocol) => string;
+    rooIgnoreError: (path: string, protocol?: ToolProtocol) => string;
+    noToolsUsed: (protocol?: ToolProtocol) => string;
+    tooManyMistakes: (feedback?: string, protocol?: ToolProtocol) => string;
+    missingToolParameterError: (paramName: string, protocol?: ToolProtocol) => string;
+    lineCountTruncationError: (actualLineCount: number, isNewFile: boolean, diffStrategyEnabled?: boolean, protocol?: ToolProtocol) => string;
+    invalidMcpToolArgumentError: (serverName: string, toolName: string, protocol?: ToolProtocol) => string;
+    unknownMcpToolError: (serverName: string, toolName: string, availableTools: string[], protocol?: ToolProtocol) => string;
+    unknownMcpServerError: (serverName: string, availableServers: string[], protocol?: ToolProtocol) => string;
+    toolResult: (text: string, images?: string[]) => string | Array<Anthropic.TextBlockParam | Anthropic.ImageBlockParam>;
+    imageBlocks: (images?: string[]) => Anthropic.ImageBlockParam[];
+    formatFilesList: (absolutePath: string, files: string[], didHitLimit: boolean, rooIgnoreController: RooIgnoreController | undefined, showRooIgnoredFiles: boolean, rooProtectedController?: RooProtectedController) => string;
+    createPrettyPatch: (filename?: string, oldStr?: string, newStr?: string) => string;
+};
