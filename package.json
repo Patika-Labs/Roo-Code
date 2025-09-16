@@ -4,15 +4,14 @@
 	"engines": {
 		"node": "20.19.2"
 	},
-	"main": "./src/dist/exports.js",
-	"types": "./src/dist/exports.d.ts",
+	"main": "./src/dist/_index.js",
+	"types": "./src/dist/_index.d.ts",
 	"exports": {
 		".": {
-			"types": "./src/dist/exports.d.ts",
-			"import": "./src/dist/exports.js",
-			"require": "./src/dist/exports.js"
-		},
-		"./package.json": "./src/package.json"
+			"types": "./src/dist/_index.d.ts",
+			"import": "./src/dist/_index.js",
+			"require": "./src/dist/_index.js"
+		}
 	},
 	"scripts": {
 		"preinstall": "node scripts/bootstrap.mjs",
