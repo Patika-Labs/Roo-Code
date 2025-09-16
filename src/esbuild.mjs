@@ -25,9 +25,11 @@ async function main() {
 		minify,
 		sourcemap,
 		logLevel: "silent",
-		format: "cjs",
+		format: "esm",
 		sourcesContent: false,
 		platform: "node",
+		outdir: "dist",
+		splitting: true,
 	}
 
 	const srcDir = __dirname
@@ -95,44 +97,24 @@ async function main() {
 	/**
 	 * @type {import('esbuild').BuildOptions}
 	 */
-	const extensionConfig = {
-		...buildOptions,
-		plugins,
-		entryPoints: ["extension.ts"],
-		outfile: "dist/extension.js",
-		external: ["vscode"],
-	}
-
-  const apiConfig = {
+  const exportsConfig = {
     ...buildOptions,
     plugins,
-    entryPoints: ["exports.ts"],
-    outfile: "dist/exports.js",
+    entryPoints: ["_index.ts"],
     external: ["vscode"],
   }
 
-	/**
-	 * @type {import('esbuild').BuildOptions}
-	 */
-	const workerConfig = {
-		...buildOptions,
-		entryPoints: ["workers/countTokens.ts"],
-		outdir: "dist/workers",
-	}
-
-	const [extensionCtx, workerCtx, apiCtx] = await Promise.all([
-		esbuild.context(extensionConfig),
-		esbuild.context(workerConfig),
-		esbuild.context(apiConfig),
+	const [exportsCtx] = await Promise.all([
+		esbuild.context(exportsConfig),
 	])
 
 	if (watch) {
-		await Promise.all([extensionCtx.watch(), workerCtx.watch(), apiCtx.watch()])
+		await Promise.all([exportsCtx.watch()])
 		copyLocales(srcDir, distDir)
 		setupLocaleWatcher(srcDir, distDir)
 	} else {
-		await Promise.all([extensionCtx.rebuild(), workerCtx.rebuild(), apiCtx.rebuild()])
-		await Promise.all([extensionCtx.dispose(), workerCtx.dispose(), apiCtx.dispose()])
+		await Promise.all([exportsCtx.rebuild()])
+		await Promise.all([exportsCtx.dispose()])
 	}
 }
 
