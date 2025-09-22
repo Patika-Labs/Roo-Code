@@ -496,7 +496,7 @@
 		"turndown": "^7.2.0",
 		"uuid": "^11.1.0",
 		"vscode-material-icons": "^0.1.1",
-		"web-tree-sitter": "^0.25.6",
+		"web-tree-sitter": "^0.26.0",
 		"workerpool": "^9.2.0",
 		"yaml": "^2.8.0",
 		"zod": "^3.25.61"
