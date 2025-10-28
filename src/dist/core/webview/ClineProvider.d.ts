@@ -45,7 +45,7 @@ export declare class ClineProvider extends EventEmitter<TaskProviderEvents> impl
     private static readonly PENDING_OPERATION_TIMEOUT_MS;
     isViewLaunched: boolean;
     settingsImportedAt?: number;
-    readonly latestAnnouncementId = "sep-2025-code-supernova-1m";
+    readonly latestAnnouncementId = "oct-2025-v3.29.0-cloud-agents";
     readonly providerSettingsManager: ProviderSettingsManager;
     readonly customModesManager: CustomModesManager;
     constructor(context: vscode.ExtensionContext, outputChannel: vscode.OutputChannel, renderContext: "sidebar" | "editor" | undefined, contextProxy: ContextProxy, mdmService?: MdmService);
@@ -243,8 +243,6 @@ export declare class ClineProvider extends EventEmitter<TaskProviderEvents> impl
         metadata?: {
             gpt5?: {
                 previous_response_id?: string | undefined;
-                instructions?: string | undefined;
-                reasoning_summary?: string | undefined;
             } | undefined;
         } | undefined;
     }[];

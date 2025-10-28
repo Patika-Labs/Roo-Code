@@ -1,7 +1,7 @@
 import { Anthropic } from "@anthropic-ai/sdk";
 import OpenAI from "openai";
 import type { ModelInfo } from "@roo-code/types";
-import type { ApiHandlerOptions } from "../../shared/api";
+import { type ApiHandlerOptions } from "../../shared/api";
 import { ApiStream } from "../transform/stream";
 import type { SingleCompletionHandler, ApiHandlerCreateMessageMetadata } from "../index";
 import { BaseProvider } from "./base-provider";
@@ -32,12 +32,13 @@ export declare abstract class BaseOpenAiCompatibleProvider<ModelName extends str
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
-            supportsComputerUse?: boolean | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
+            supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
+            requiredReasoningEffort?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -49,6 +50,7 @@ export declare abstract class BaseOpenAiCompatibleProvider<ModelName extends str
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
+            isFree?: boolean | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;

@@ -7,6 +7,10 @@ export type OpenRouterReasoningParams = {
     max_tokens?: number;
     exclude?: boolean;
 };
+export type RooReasoningParams = {
+    enabled?: boolean;
+    effort?: ReasoningEffortWithMinimal;
+};
 export type AnthropicReasoningParams = BetaThinkingConfigParam;
 export type OpenAiReasoningParams = {
     reasoning_effort: OpenAI.Chat.ChatCompletionCreateParams["reasoning_effort"];
@@ -19,6 +23,7 @@ export type GetModelReasoningOptions = {
     settings: ProviderSettings;
 };
 export declare const getOpenRouterReasoning: ({ model, reasoningBudget, reasoningEffort, settings, }: GetModelReasoningOptions) => OpenRouterReasoningParams | undefined;
+export declare const getRooReasoning: ({ model, reasoningEffort, settings, }: GetModelReasoningOptions) => RooReasoningParams | undefined;
 export declare const getAnthropicReasoning: ({ model, reasoningBudget, settings, }: GetModelReasoningOptions) => AnthropicReasoningParams | undefined;
 export declare const getOpenAiReasoning: ({ model, reasoningEffort, settings, }: GetModelReasoningOptions) => OpenAiReasoningParams | undefined;
 export declare const getGeminiReasoning: ({ model, reasoningBudget, settings, }: GetModelReasoningOptions) => GeminiReasoningParams | undefined;

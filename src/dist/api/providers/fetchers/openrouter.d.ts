@@ -12,38 +12,38 @@ declare const modelRouterBaseModelSchema: z.ZodObject<{
         input_cache_write: z.ZodOptional<z.ZodNullable<z.ZodString>>;
         input_cache_read: z.ZodOptional<z.ZodNullable<z.ZodString>>;
     }, "strip", z.ZodTypeAny, {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     }, {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     }>>;
 }, "strip", z.ZodTypeAny, {
     name: string;
     context_length: number;
     description?: string | undefined;
-    max_completion_tokens?: number | null | undefined;
     pricing?: {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     } | undefined;
+    max_completion_tokens?: number | null | undefined;
 }, {
     name: string;
     context_length: number;
     description?: string | undefined;
-    max_completion_tokens?: number | null | undefined;
     pricing?: {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     } | undefined;
+    max_completion_tokens?: number | null | undefined;
 }>;
 export type OpenRouterBaseModel = z.infer<typeof modelRouterBaseModelSchema>;
 /**
@@ -60,15 +60,15 @@ export declare const openRouterModelSchema: z.ZodObject<{
         input_cache_write: z.ZodOptional<z.ZodNullable<z.ZodString>>;
         input_cache_read: z.ZodOptional<z.ZodNullable<z.ZodString>>;
     }, "strip", z.ZodTypeAny, {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     }, {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     }>>;
 } & {
     id: z.ZodString;
@@ -98,13 +98,13 @@ export declare const openRouterModelSchema: z.ZodObject<{
     name: string;
     context_length: number;
     description?: string | undefined;
-    max_completion_tokens?: number | null | undefined;
     pricing?: {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     } | undefined;
+    max_completion_tokens?: number | null | undefined;
     architecture?: {
         input_modalities?: string[] | null | undefined;
         output_modalities?: string[] | null | undefined;
@@ -119,13 +119,13 @@ export declare const openRouterModelSchema: z.ZodObject<{
     name: string;
     context_length: number;
     description?: string | undefined;
-    max_completion_tokens?: number | null | undefined;
     pricing?: {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     } | undefined;
+    max_completion_tokens?: number | null | undefined;
     architecture?: {
         input_modalities?: string[] | null | undefined;
         output_modalities?: string[] | null | undefined;
@@ -151,15 +151,15 @@ export declare const openRouterModelEndpointSchema: z.ZodObject<{
         input_cache_write: z.ZodOptional<z.ZodNullable<z.ZodString>>;
         input_cache_read: z.ZodOptional<z.ZodNullable<z.ZodString>>;
     }, "strip", z.ZodTypeAny, {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     }, {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     }>>;
 } & {
     provider_name: z.ZodString;
@@ -169,26 +169,26 @@ export declare const openRouterModelEndpointSchema: z.ZodObject<{
     context_length: number;
     provider_name: string;
     description?: string | undefined;
-    max_completion_tokens?: number | null | undefined;
     pricing?: {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     } | undefined;
+    max_completion_tokens?: number | null | undefined;
     tag?: string | undefined;
 }, {
     name: string;
     context_length: number;
     provider_name: string;
     description?: string | undefined;
-    max_completion_tokens?: number | null | undefined;
     pricing?: {
+        input_cache_read?: string | null | undefined;
+        input_cache_write?: string | null | undefined;
         prompt?: string | null | undefined;
         completion?: string | null | undefined;
-        input_cache_write?: string | null | undefined;
-        input_cache_read?: string | null | undefined;
     } | undefined;
+    max_completion_tokens?: number | null | undefined;
     tag?: string | undefined;
 }>;
 export type OpenRouterModelEndpoint = z.infer<typeof openRouterModelEndpointSchema>;

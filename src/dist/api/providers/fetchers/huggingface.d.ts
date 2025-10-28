@@ -10,30 +10,30 @@ declare const huggingFaceProviderSchema: z.ZodObject<{
         input: z.ZodNumber;
         output: z.ZodNumber;
     }, "strip", z.ZodTypeAny, {
-        output: number;
         input: number;
+        output: number;
     }, {
-        output: number;
         input: number;
+        output: number;
     }>>;
 }, "strip", z.ZodTypeAny, {
     status: "error" | "live" | "staging";
     provider: string;
-    context_length?: number | undefined;
     pricing?: {
-        output: number;
         input: number;
+        output: number;
     } | undefined;
+    context_length?: number | undefined;
     supports_tools?: boolean | undefined;
     supports_structured_output?: boolean | undefined;
 }, {
     status: "error" | "live" | "staging";
     provider: string;
-    context_length?: number | undefined;
     pricing?: {
-        output: number;
         input: number;
+        output: number;
     } | undefined;
+    context_length?: number | undefined;
     supports_tools?: boolean | undefined;
     supports_structured_output?: boolean | undefined;
 }>;
@@ -63,30 +63,30 @@ declare const huggingFaceModelSchema: z.ZodObject<{
             input: z.ZodNumber;
             output: z.ZodNumber;
         }, "strip", z.ZodTypeAny, {
-            output: number;
             input: number;
+            output: number;
         }, {
-            output: number;
             input: number;
+            output: number;
         }>>;
     }, "strip", z.ZodTypeAny, {
         status: "error" | "live" | "staging";
         provider: string;
-        context_length?: number | undefined;
         pricing?: {
-            output: number;
             input: number;
+            output: number;
         } | undefined;
+        context_length?: number | undefined;
         supports_tools?: boolean | undefined;
         supports_structured_output?: boolean | undefined;
     }, {
         status: "error" | "live" | "staging";
         provider: string;
-        context_length?: number | undefined;
         pricing?: {
-            output: number;
             input: number;
+            output: number;
         } | undefined;
+        context_length?: number | undefined;
         supports_tools?: boolean | undefined;
         supports_structured_output?: boolean | undefined;
     }>, "many">;
@@ -94,34 +94,34 @@ declare const huggingFaceModelSchema: z.ZodObject<{
     object: "model";
     id: string;
     created: number;
+    owned_by: string;
     providers: {
         status: "error" | "live" | "staging";
         provider: string;
-        context_length?: number | undefined;
         pricing?: {
-            output: number;
             input: number;
+            output: number;
         } | undefined;
+        context_length?: number | undefined;
         supports_tools?: boolean | undefined;
         supports_structured_output?: boolean | undefined;
     }[];
-    owned_by: string;
 }, {
     object: "model";
     id: string;
     created: number;
+    owned_by: string;
     providers: {
         status: "error" | "live" | "staging";
         provider: string;
-        context_length?: number | undefined;
         pricing?: {
-            output: number;
             input: number;
+            output: number;
         } | undefined;
+        context_length?: number | undefined;
         supports_tools?: boolean | undefined;
         supports_structured_output?: boolean | undefined;
     }[];
-    owned_by: string;
 }>;
 /**
  * Represents a HuggingFace model available through the router API

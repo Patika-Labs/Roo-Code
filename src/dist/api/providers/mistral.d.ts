@@ -11,9 +11,9 @@ export declare class MistralHandler extends BaseProvider implements SingleComple
     getModel(): {
         id: string;
         info: {
-            readonly maxTokens: 41000;
-            readonly contextWindow: 41000;
-            readonly supportsImages: false;
+            readonly maxTokens: 8192;
+            readonly contextWindow: 128000;
+            readonly supportsImages: true;
             readonly supportsPromptCache: false;
             readonly inputPrice: 2;
             readonly outputPrice: 5;
@@ -74,7 +74,7 @@ export declare class MistralHandler extends BaseProvider implements SingleComple
             readonly inputPrice: 2;
             readonly outputPrice: 6;
         };
-        maxTokens: 32000 | 256000 | 41000 | 131000 | undefined;
+        maxTokens: 8192 | 32000 | 256000 | 131000 | undefined;
         temperature: number;
     };
     completePrompt(prompt: string): Promise<string>;
