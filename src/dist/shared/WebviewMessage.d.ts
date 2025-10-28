@@ -9,7 +9,7 @@ export interface UpdateTodoListPayload {
 }
 export type EditQueuedMessagePayload = Pick<QueuedMessage, "id" | "text" | "images">;
 export interface WebviewMessage {
-    type: "updateTodoList" | "deleteMultipleTasksWithIds" | "currentApiConfigName" | "saveApiConfiguration" | "upsertApiConfiguration" | "deleteApiConfiguration" | "loadApiConfiguration" | "loadApiConfigurationById" | "renameApiConfiguration" | "getListApiConfiguration" | "customInstructions" | "allowedCommands" | "deniedCommands" | "alwaysAllowReadOnly" | "alwaysAllowReadOnlyOutsideWorkspace" | "alwaysAllowWrite" | "alwaysAllowWriteOutsideWorkspace" | "alwaysAllowWriteProtected" | "alwaysAllowExecute" | "alwaysAllowFollowupQuestions" | "alwaysAllowUpdateTodoList" | "followupAutoApproveTimeoutMs" | "webviewDidLaunch" | "newTask" | "askResponse" | "terminalOperation" | "clearTask" | "didShowAnnouncement" | "selectImages" | "exportCurrentTask" | "shareCurrentTask" | "showTaskWithId" | "deleteTaskWithId" | "exportTaskWithId" | "importSettings" | "exportSettings" | "resetState" | "flushRouterModels" | "requestRouterModels" | "requestOpenAiModels" | "requestOllamaModels" | "requestLmStudioModels" | "requestVsCodeLmModels" | "requestHuggingFaceModels" | "openImage" | "saveImage" | "openFile" | "openMention" | "cancelTask" | "updateVSCodeSetting" | "getVSCodeSetting" | "vsCodeSetting" | "alwaysAllowBrowser" | "alwaysAllowMcp" | "alwaysAllowModeSwitch" | "allowedMaxRequests" | "allowedMaxCost" | "alwaysAllowSubtasks" | "alwaysAllowUpdateTodoList" | "autoCondenseContext" | "autoCondenseContextPercent" | "condensingApiConfigId" | "updateCondensingPrompt" | "playSound" | "playTts" | "stopTts" | "soundEnabled" | "ttsEnabled" | "ttsSpeed" | "soundVolume" | "diffEnabled" | "enableCheckpoints" | "browserViewportSize" | "screenshotQuality" | "remoteBrowserHost" | "openKeyboardShortcuts" | "openMcpSettings" | "openProjectMcpSettings" | "restartMcpServer" | "refreshAllMcpServers" | "toggleToolAlwaysAllow" | "toggleToolEnabledForPrompt" | "toggleMcpServer" | "updateMcpTimeout" | "fuzzyMatchThreshold" | "writeDelayMs" | "diagnosticsEnabled" | "enhancePrompt" | "enhancedPrompt" | "draggedImages" | "deleteMessage" | "deleteMessageConfirm" | "submitEditedMessage" | "editMessageConfirm" | "terminalOutputLineLimit" | "terminalOutputCharacterLimit" | "terminalShellIntegrationTimeout" | "terminalShellIntegrationDisabled" | "terminalCommandDelay" | "terminalPowershellCounter" | "terminalZshClearEolMark" | "terminalZshOhMy" | "terminalZshP10k" | "terminalZdotdir" | "terminalCompressProgressBar" | "mcpEnabled" | "enableMcpServerCreation" | "remoteControlEnabled" | "taskSyncEnabled" | "searchCommits" | "alwaysApproveResubmit" | "requestDelaySeconds" | "setApiConfigPassword" | "mode" | "updatePrompt" | "updateSupportPrompt" | "getSystemPrompt" | "copySystemPrompt" | "systemPrompt" | "enhancementApiConfigId" | "includeTaskHistoryInEnhance" | "updateExperimental" | "autoApprovalEnabled" | "updateCustomMode" | "deleteCustomMode" | "setopenAiCustomModelInfo" | "openCustomModesSettings" | "checkpointDiff" | "checkpointRestore" | "deleteMcpServer" | "maxOpenTabsContext" | "maxWorkspaceFiles" | "humanRelayResponse" | "humanRelayCancel" | "browserToolEnabled" | "codebaseIndexEnabled" | "telemetrySetting" | "showRooIgnoredFiles" | "testBrowserConnection" | "browserConnectionResult" | "remoteBrowserEnabled" | "language" | "maxReadFileLine" | "maxImageFileSize" | "maxTotalImageSize" | "maxConcurrentFileReads" | "includeDiagnosticMessages" | "maxDiagnosticMessages" | "searchFiles" | "toggleApiConfigPin" | "setHistoryPreviewCollapsed" | "hasOpenedModeSelector" | "cloudButtonClicked" | "rooCloudSignIn" | "cloudLandingPageSignIn" | "rooCloudSignOut" | "rooCloudManualUrl" | "switchOrganization" | "condenseTaskContextRequest" | "requestIndexingStatus" | "startIndexing" | "clearIndexData" | "indexingStatusUpdate" | "indexCleared" | "focusPanelRequest" | "profileThresholds" | "setHistoryPreviewCollapsed" | "setReasoningBlockCollapsed" | "openExternal" | "filterMarketplaceItems" | "marketplaceButtonClicked" | "installMarketplaceItem" | "installMarketplaceItemWithParameters" | "cancelMarketplaceInstall" | "removeInstalledMarketplaceItem" | "marketplaceInstallResult" | "fetchMarketplaceData" | "switchTab" | "profileThresholds" | "shareTaskSuccess" | "exportMode" | "exportModeResult" | "importMode" | "importModeResult" | "checkRulesDirectory" | "checkRulesDirectoryResult" | "saveCodeIndexSettingsAtomic" | "requestCodeIndexSecretStatus" | "requestCommands" | "openCommandFile" | "deleteCommand" | "createCommand" | "insertTextIntoTextarea" | "showMdmAuthRequiredNotification" | "imageGenerationSettings" | "openRouterImageApiKey" | "openRouterImageGenerationSelectedModel" | "queueMessage" | "removeQueuedMessage" | "editQueuedMessage" | "dismissUpsell" | "getDismissedUpsells";
+    type: "updateTodoList" | "deleteMultipleTasksWithIds" | "currentApiConfigName" | "saveApiConfiguration" | "upsertApiConfiguration" | "deleteApiConfiguration" | "loadApiConfiguration" | "loadApiConfigurationById" | "renameApiConfiguration" | "getListApiConfiguration" | "customInstructions" | "allowedCommands" | "deniedCommands" | "alwaysAllowReadOnly" | "alwaysAllowReadOnlyOutsideWorkspace" | "alwaysAllowWrite" | "alwaysAllowWriteOutsideWorkspace" | "alwaysAllowWriteProtected" | "alwaysAllowExecute" | "alwaysAllowFollowupQuestions" | "alwaysAllowUpdateTodoList" | "followupAutoApproveTimeoutMs" | "webviewDidLaunch" | "newTask" | "askResponse" | "terminalOperation" | "clearTask" | "didShowAnnouncement" | "selectImages" | "exportCurrentTask" | "shareCurrentTask" | "showTaskWithId" | "deleteTaskWithId" | "exportTaskWithId" | "importSettings" | "exportSettings" | "resetState" | "flushRouterModels" | "requestRouterModels" | "requestOpenAiModels" | "requestOllamaModels" | "requestLmStudioModels" | "requestRooModels" | "requestVsCodeLmModels" | "requestHuggingFaceModels" | "openImage" | "saveImage" | "openFile" | "openMention" | "cancelTask" | "updateVSCodeSetting" | "getVSCodeSetting" | "vsCodeSetting" | "alwaysAllowBrowser" | "alwaysAllowMcp" | "alwaysAllowModeSwitch" | "allowedMaxRequests" | "allowedMaxCost" | "alwaysAllowSubtasks" | "alwaysAllowUpdateTodoList" | "autoCondenseContext" | "autoCondenseContextPercent" | "condensingApiConfigId" | "updateCondensingPrompt" | "playSound" | "playTts" | "stopTts" | "soundEnabled" | "ttsEnabled" | "ttsSpeed" | "soundVolume" | "diffEnabled" | "enableCheckpoints" | "checkpointTimeout" | "browserViewportSize" | "screenshotQuality" | "remoteBrowserHost" | "openKeyboardShortcuts" | "openMcpSettings" | "openProjectMcpSettings" | "restartMcpServer" | "refreshAllMcpServers" | "toggleToolAlwaysAllow" | "toggleToolEnabledForPrompt" | "toggleMcpServer" | "updateMcpTimeout" | "fuzzyMatchThreshold" | "writeDelayMs" | "diagnosticsEnabled" | "enhancePrompt" | "enhancedPrompt" | "draggedImages" | "deleteMessage" | "deleteMessageConfirm" | "submitEditedMessage" | "editMessageConfirm" | "terminalOutputLineLimit" | "terminalOutputCharacterLimit" | "terminalShellIntegrationTimeout" | "terminalShellIntegrationDisabled" | "terminalCommandDelay" | "terminalPowershellCounter" | "terminalZshClearEolMark" | "terminalZshOhMy" | "terminalZshP10k" | "terminalZdotdir" | "terminalCompressProgressBar" | "mcpEnabled" | "enableMcpServerCreation" | "remoteControlEnabled" | "taskSyncEnabled" | "searchCommits" | "alwaysApproveResubmit" | "requestDelaySeconds" | "setApiConfigPassword" | "mode" | "updatePrompt" | "updateSupportPrompt" | "getSystemPrompt" | "copySystemPrompt" | "systemPrompt" | "enhancementApiConfigId" | "includeTaskHistoryInEnhance" | "updateExperimental" | "autoApprovalEnabled" | "updateCustomMode" | "deleteCustomMode" | "setopenAiCustomModelInfo" | "openCustomModesSettings" | "checkpointDiff" | "checkpointRestore" | "deleteMcpServer" | "maxOpenTabsContext" | "maxWorkspaceFiles" | "humanRelayResponse" | "humanRelayCancel" | "browserToolEnabled" | "codebaseIndexEnabled" | "telemetrySetting" | "showRooIgnoredFiles" | "testBrowserConnection" | "browserConnectionResult" | "remoteBrowserEnabled" | "language" | "maxReadFileLine" | "maxImageFileSize" | "maxTotalImageSize" | "maxConcurrentFileReads" | "includeDiagnosticMessages" | "maxDiagnosticMessages" | "includeCurrentTime" | "includeCurrentCost" | "searchFiles" | "toggleApiConfigPin" | "setHistoryPreviewCollapsed" | "hasOpenedModeSelector" | "cloudButtonClicked" | "rooCloudSignIn" | "cloudLandingPageSignIn" | "rooCloudSignOut" | "rooCloudManualUrl" | "switchOrganization" | "condenseTaskContextRequest" | "requestIndexingStatus" | "startIndexing" | "clearIndexData" | "indexingStatusUpdate" | "indexCleared" | "focusPanelRequest" | "profileThresholds" | "setHistoryPreviewCollapsed" | "setReasoningBlockCollapsed" | "openExternal" | "filterMarketplaceItems" | "marketplaceButtonClicked" | "installMarketplaceItem" | "installMarketplaceItemWithParameters" | "cancelMarketplaceInstall" | "removeInstalledMarketplaceItem" | "marketplaceInstallResult" | "fetchMarketplaceData" | "switchTab" | "profileThresholds" | "shareTaskSuccess" | "exportMode" | "exportModeResult" | "importMode" | "importModeResult" | "checkRulesDirectory" | "checkRulesDirectoryResult" | "saveCodeIndexSettingsAtomic" | "requestCodeIndexSecretStatus" | "requestCommands" | "openCommandFile" | "deleteCommand" | "createCommand" | "insertTextIntoTextarea" | "showMdmAuthRequiredNotification" | "imageGenerationSettings" | "openRouterImageApiKey" | "openRouterImageGenerationSelectedModel" | "queueMessage" | "removeQueuedMessage" | "editQueuedMessage" | "dismissUpsell" | "getDismissedUpsells";
     text?: string;
     editedMessageContent?: string;
     tab?: "settings" | "history" | "mcp" | "modes" | "chat" | "marketplace" | "cloud";
@@ -81,19 +81,19 @@ export interface WebviewMessage {
     };
 }
 export declare const checkoutDiffPayloadSchema: z.ZodObject<{
-    ts: z.ZodNumber;
+    ts: z.ZodOptional<z.ZodNumber>;
     previousCommitHash: z.ZodOptional<z.ZodString>;
     commitHash: z.ZodString;
-    mode: z.ZodEnum<["full", "checkpoint"]>;
+    mode: z.ZodEnum<["full", "checkpoint", "from-init", "to-current"]>;
 }, "strip", z.ZodTypeAny, {
-    ts: number;
-    mode: "checkpoint" | "full";
+    mode: "checkpoint" | "full" | "from-init" | "to-current";
     commitHash: string;
+    ts?: number | undefined;
     previousCommitHash?: string | undefined;
 }, {
-    ts: number;
-    mode: "checkpoint" | "full";
+    mode: "checkpoint" | "full" | "from-init" | "to-current";
     commitHash: string;
+    ts?: number | undefined;
     previousCommitHash?: string | undefined;
 }>;
 export type CheckpointDiffPayload = z.infer<typeof checkoutDiffPayloadSchema>;
@@ -138,20 +138,20 @@ export declare const installMarketplaceItemWithParametersPayloadSchema: z.ZodObj
         name: string;
         description: string;
         content: string;
+        tags?: string[] | undefined;
         prerequisites?: string[] | undefined;
         author?: string | undefined;
         authorUrl?: string | undefined;
-        tags?: string[] | undefined;
     }, {
         type: "mode";
         id: string;
         name: string;
         description: string;
         content: string;
+        tags?: string[] | undefined;
         prerequisites?: string[] | undefined;
         author?: string | undefined;
         authorUrl?: string | undefined;
-        tags?: string[] | undefined;
     }>, z.ZodObject<{
         id: z.ZodString;
         name: z.ZodString;
@@ -238,6 +238,7 @@ export declare const installMarketplaceItemWithParametersPayloadSchema: z.ZodObj
             }[] | undefined;
             prerequisites?: string[] | undefined;
         }[];
+        tags?: string[] | undefined;
         parameters?: {
             name: string;
             key: string;
@@ -247,7 +248,6 @@ export declare const installMarketplaceItemWithParametersPayloadSchema: z.ZodObj
         prerequisites?: string[] | undefined;
         author?: string | undefined;
         authorUrl?: string | undefined;
-        tags?: string[] | undefined;
     }, {
         type: "mcp";
         id: string;
@@ -265,6 +265,7 @@ export declare const installMarketplaceItemWithParametersPayloadSchema: z.ZodObj
             }[] | undefined;
             prerequisites?: string[] | undefined;
         }[];
+        tags?: string[] | undefined;
         parameters?: {
             name: string;
             key: string;
@@ -274,7 +275,6 @@ export declare const installMarketplaceItemWithParametersPayloadSchema: z.ZodObj
         prerequisites?: string[] | undefined;
         author?: string | undefined;
         authorUrl?: string | undefined;
-        tags?: string[] | undefined;
     }>]>;
     parameters: z.ZodRecord<z.ZodString, z.ZodAny>;
 }, "strip", z.ZodTypeAny, {
@@ -285,10 +285,10 @@ export declare const installMarketplaceItemWithParametersPayloadSchema: z.ZodObj
         name: string;
         description: string;
         content: string;
+        tags?: string[] | undefined;
         prerequisites?: string[] | undefined;
         author?: string | undefined;
         authorUrl?: string | undefined;
-        tags?: string[] | undefined;
     } | {
         type: "mcp";
         id: string;
@@ -306,6 +306,7 @@ export declare const installMarketplaceItemWithParametersPayloadSchema: z.ZodObj
             }[] | undefined;
             prerequisites?: string[] | undefined;
         }[];
+        tags?: string[] | undefined;
         parameters?: {
             name: string;
             key: string;
@@ -315,7 +316,6 @@ export declare const installMarketplaceItemWithParametersPayloadSchema: z.ZodObj
         prerequisites?: string[] | undefined;
         author?: string | undefined;
         authorUrl?: string | undefined;
-        tags?: string[] | undefined;
     };
 }, {
     parameters: Record<string, any>;
@@ -325,10 +325,10 @@ export declare const installMarketplaceItemWithParametersPayloadSchema: z.ZodObj
         name: string;
         description: string;
         content: string;
+        tags?: string[] | undefined;
         prerequisites?: string[] | undefined;
         author?: string | undefined;
         authorUrl?: string | undefined;
-        tags?: string[] | undefined;
     } | {
         type: "mcp";
         id: string;
@@ -346,6 +346,7 @@ export declare const installMarketplaceItemWithParametersPayloadSchema: z.ZodObj
             }[] | undefined;
             prerequisites?: string[] | undefined;
         }[];
+        tags?: string[] | undefined;
         parameters?: {
             name: string;
             key: string;
@@ -355,7 +356,6 @@ export declare const installMarketplaceItemWithParametersPayloadSchema: z.ZodObj
         prerequisites?: string[] | undefined;
         author?: string | undefined;
         authorUrl?: string | undefined;
-        tags?: string[] | undefined;
     };
 }>;
 export type InstallMarketplaceItemWithParametersPayload = z.infer<typeof installMarketplaceItemWithParametersPayloadSchema>;

@@ -64,6 +64,10 @@ declare const dynamicProviderExtras: {
     readonly glama: {};
     readonly ollama: {};
     readonly lmstudio: {};
+    readonly roo: {
+        apiKey?: string;
+        baseUrl?: string;
+    };
 };
 export type GetModelsOptions = {
     [P in keyof typeof dynamicProviderExtras]: ({

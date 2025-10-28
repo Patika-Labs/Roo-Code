@@ -33,12 +33,13 @@ export declare class OpenRouterHandler extends BaseProvider implements SingleCom
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
-            supportsComputerUse?: boolean | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
+            supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
+            requiredReasoningEffort?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -50,6 +51,7 @@ export declare class OpenRouterHandler extends BaseProvider implements SingleCom
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
+            isFree?: boolean | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -76,12 +78,13 @@ export declare class OpenRouterHandler extends BaseProvider implements SingleCom
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
-            supportsComputerUse?: boolean | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
+            supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
+            requiredReasoningEffort?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -93,6 +96,7 @@ export declare class OpenRouterHandler extends BaseProvider implements SingleCom
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
+            isFree?: boolean | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;

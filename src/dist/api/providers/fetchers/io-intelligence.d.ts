@@ -52,6 +52,7 @@ declare const ioIntelligenceModelSchema: z.ZodObject<{
     object: "model";
     id: string;
     created: number;
+    owned_by: string;
     permission: {
         object: "model_permission";
         id: string;
@@ -66,7 +67,6 @@ declare const ioIntelligenceModelSchema: z.ZodObject<{
         group: string | null;
         is_blocking: boolean;
     }[];
-    owned_by: string;
     root?: string | null | undefined;
     parent?: string | null | undefined;
     max_model_len?: number | null | undefined;
@@ -74,6 +74,7 @@ declare const ioIntelligenceModelSchema: z.ZodObject<{
     object: "model";
     id: string;
     created: number;
+    owned_by: string;
     permission: {
         object: "model_permission";
         id: string;
@@ -88,7 +89,6 @@ declare const ioIntelligenceModelSchema: z.ZodObject<{
         group: string | null;
         is_blocking: boolean;
     }[];
-    owned_by: string;
     root?: string | null | undefined;
     parent?: string | null | undefined;
     max_model_len?: number | null | undefined;
