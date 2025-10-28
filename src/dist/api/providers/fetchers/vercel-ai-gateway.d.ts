@@ -20,15 +20,15 @@ declare const vercelAiGatewayModelSchema: z.ZodObject<{
         input_cache_write: z.ZodOptional<z.ZodString>;
         input_cache_read: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
-        output: string;
         input: string;
-        input_cache_write?: string | undefined;
+        output: string;
         input_cache_read?: string | undefined;
+        input_cache_write?: string | undefined;
     }, {
-        output: string;
         input: string;
-        input_cache_write?: string | undefined;
+        output: string;
         input_cache_read?: string | undefined;
+        input_cache_write?: string | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
     object: string;
@@ -38,14 +38,14 @@ declare const vercelAiGatewayModelSchema: z.ZodObject<{
     name: string;
     max_tokens: number;
     description: string;
-    pricing: {
-        output: string;
-        input: string;
-        input_cache_write?: string | undefined;
-        input_cache_read?: string | undefined;
-    };
     owned_by: string;
     context_window: number;
+    pricing: {
+        input: string;
+        output: string;
+        input_cache_read?: string | undefined;
+        input_cache_write?: string | undefined;
+    };
 }, {
     object: string;
     type: string;
@@ -54,14 +54,14 @@ declare const vercelAiGatewayModelSchema: z.ZodObject<{
     name: string;
     max_tokens: number;
     description: string;
-    pricing: {
-        output: string;
-        input: string;
-        input_cache_write?: string | undefined;
-        input_cache_read?: string | undefined;
-    };
     owned_by: string;
     context_window: number;
+    pricing: {
+        input: string;
+        output: string;
+        input_cache_read?: string | undefined;
+        input_cache_write?: string | undefined;
+    };
 }>;
 export type VercelAiGatewayModel = z.infer<typeof vercelAiGatewayModelSchema>;
 /**

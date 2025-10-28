@@ -37,7 +37,7 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
                 codebaseIndexGeminiApiKey?: string | undefined;
                 codebaseIndexMistralApiKey?: string | undefined;
                 codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "roo" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
                 includeMaxTokens?: boolean | undefined;
                 diffEnabled?: boolean | undefined;
                 todoListEnabled?: boolean | undefined;
@@ -95,12 +95,13 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
-                    supportsComputerUse?: boolean | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
+                    supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
                     requiredReasoningBudget?: boolean | undefined;
                     supportsReasoningEffort?: boolean | undefined;
+                    requiredReasoningEffort?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
                     inputPrice?: number | undefined;
                     outputPrice?: number | undefined;
@@ -112,6 +113,7 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
+                    isFree?: boolean | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -192,11 +194,11 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
         };
     };
     globalSettings: {
+        language?: "id" | "ca" | "de" | "en" | "es" | "fr" | "hi" | "it" | "ja" | "ko" | "nl" | "pl" | "pt-BR" | "ru" | "tr" | "vi" | "zh-CN" | "zh-TW" | undefined;
         diffEnabled?: boolean | undefined;
         fuzzyMatchThreshold?: number | undefined;
         rateLimitSeconds?: number | undefined;
         mode?: string | undefined;
-        language?: "id" | "ca" | "de" | "en" | "es" | "fr" | "hi" | "it" | "ja" | "ko" | "nl" | "pl" | "pt-BR" | "ru" | "tr" | "vi" | "zh-CN" | "zh-TW" | undefined;
         customInstructions?: string | undefined;
         customModes?: {
             name: string;
@@ -215,7 +217,7 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
         listApiConfigMeta?: {
             id: string;
             name: string;
-            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "roo" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
             modelId?: string | undefined;
         }[] | undefined;
         pinnedApiConfigs?: Record<string, boolean> | undefined;
@@ -268,6 +270,8 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
         autoCondenseContext?: boolean | undefined;
         autoCondenseContextPercent?: number | undefined;
         maxConcurrentFileReads?: number | undefined;
+        includeCurrentTime?: boolean | undefined;
+        includeCurrentCost?: boolean | undefined;
         includeDiagnosticMessages?: boolean | undefined;
         maxDiagnosticMessages?: number | undefined;
         browserToolEnabled?: boolean | undefined;
@@ -277,6 +281,7 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
         remoteBrowserHost?: string | undefined;
         cachedChromeHostUrl?: string | undefined;
         enableCheckpoints?: boolean | undefined;
+        checkpointTimeout?: number | undefined;
         ttsEnabled?: boolean | undefined;
         ttsSpeed?: number | undefined;
         soundEnabled?: boolean | undefined;
@@ -386,7 +391,7 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
                 codebaseIndexGeminiApiKey?: string | undefined;
                 codebaseIndexMistralApiKey?: string | undefined;
                 codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "roo" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
                 includeMaxTokens?: boolean | undefined;
                 diffEnabled?: boolean | undefined;
                 todoListEnabled?: boolean | undefined;
@@ -444,12 +449,13 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
-                    supportsComputerUse?: boolean | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
+                    supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
                     requiredReasoningBudget?: boolean | undefined;
                     supportsReasoningEffort?: boolean | undefined;
+                    requiredReasoningEffort?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
                     inputPrice?: number | undefined;
                     outputPrice?: number | undefined;
@@ -461,6 +467,7 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
+                    isFree?: boolean | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -541,11 +548,11 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
         };
     };
     globalSettings: {
+        language?: "id" | "ca" | "de" | "en" | "es" | "fr" | "hi" | "it" | "ja" | "ko" | "nl" | "pl" | "pt-BR" | "ru" | "tr" | "vi" | "zh-CN" | "zh-TW" | undefined;
         diffEnabled?: boolean | undefined;
         fuzzyMatchThreshold?: number | undefined;
         rateLimitSeconds?: number | undefined;
         mode?: string | undefined;
-        language?: "id" | "ca" | "de" | "en" | "es" | "fr" | "hi" | "it" | "ja" | "ko" | "nl" | "pl" | "pt-BR" | "ru" | "tr" | "vi" | "zh-CN" | "zh-TW" | undefined;
         customInstructions?: string | undefined;
         customModes?: {
             name: string;
@@ -564,7 +571,7 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
         listApiConfigMeta?: {
             id: string;
             name: string;
-            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "roo" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
             modelId?: string | undefined;
         }[] | undefined;
         pinnedApiConfigs?: Record<string, boolean> | undefined;
@@ -617,6 +624,8 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
         autoCondenseContext?: boolean | undefined;
         autoCondenseContextPercent?: number | undefined;
         maxConcurrentFileReads?: number | undefined;
+        includeCurrentTime?: boolean | undefined;
+        includeCurrentCost?: boolean | undefined;
         includeDiagnosticMessages?: boolean | undefined;
         maxDiagnosticMessages?: number | undefined;
         browserToolEnabled?: boolean | undefined;
@@ -626,6 +635,7 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
         remoteBrowserHost?: string | undefined;
         cachedChromeHostUrl?: string | undefined;
         enableCheckpoints?: boolean | undefined;
+        checkpointTimeout?: number | undefined;
         ttsEnabled?: boolean | undefined;
         ttsSpeed?: number | undefined;
         soundEnabled?: boolean | undefined;
@@ -736,7 +746,7 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
                 codebaseIndexGeminiApiKey?: string | undefined;
                 codebaseIndexMistralApiKey?: string | undefined;
                 codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "roo" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
                 includeMaxTokens?: boolean | undefined;
                 diffEnabled?: boolean | undefined;
                 todoListEnabled?: boolean | undefined;
@@ -794,12 +804,13 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
-                    supportsComputerUse?: boolean | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
+                    supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
                     requiredReasoningBudget?: boolean | undefined;
                     supportsReasoningEffort?: boolean | undefined;
+                    requiredReasoningEffort?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
                     inputPrice?: number | undefined;
                     outputPrice?: number | undefined;
@@ -811,6 +822,7 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
+                    isFree?: boolean | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -891,11 +903,11 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
         };
     };
     globalSettings: {
+        language?: "id" | "ca" | "de" | "en" | "es" | "fr" | "hi" | "it" | "ja" | "ko" | "nl" | "pl" | "pt-BR" | "ru" | "tr" | "vi" | "zh-CN" | "zh-TW" | undefined;
         diffEnabled?: boolean | undefined;
         fuzzyMatchThreshold?: number | undefined;
         rateLimitSeconds?: number | undefined;
         mode?: string | undefined;
-        language?: "id" | "ca" | "de" | "en" | "es" | "fr" | "hi" | "it" | "ja" | "ko" | "nl" | "pl" | "pt-BR" | "ru" | "tr" | "vi" | "zh-CN" | "zh-TW" | undefined;
         customInstructions?: string | undefined;
         customModes?: {
             name: string;
@@ -914,7 +926,7 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
         listApiConfigMeta?: {
             id: string;
             name: string;
-            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "roo" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
             modelId?: string | undefined;
         }[] | undefined;
         pinnedApiConfigs?: Record<string, boolean> | undefined;
@@ -967,6 +979,8 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
         autoCondenseContext?: boolean | undefined;
         autoCondenseContextPercent?: number | undefined;
         maxConcurrentFileReads?: number | undefined;
+        includeCurrentTime?: boolean | undefined;
+        includeCurrentCost?: boolean | undefined;
         includeDiagnosticMessages?: boolean | undefined;
         maxDiagnosticMessages?: number | undefined;
         browserToolEnabled?: boolean | undefined;
@@ -976,6 +990,7 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
         remoteBrowserHost?: string | undefined;
         cachedChromeHostUrl?: string | undefined;
         enableCheckpoints?: boolean | undefined;
+        checkpointTimeout?: number | undefined;
         ttsEnabled?: boolean | undefined;
         ttsSpeed?: number | undefined;
         soundEnabled?: boolean | undefined;
