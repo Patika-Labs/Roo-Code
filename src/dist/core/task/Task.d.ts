@@ -26,6 +26,7 @@ export interface TaskOptions extends CreateTaskOptions {
     apiConfiguration: ProviderSettings;
     enableDiff?: boolean;
     enableCheckpoints?: boolean;
+    checkpointTimeout?: number;
     enableBridge?: boolean;
     fuzzyMatchThreshold?: number;
     consecutiveMistakeLimit?: number;
@@ -140,6 +141,7 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
     consecutiveMistakeCountForApplyDiff: Map<string, number>;
     toolUsage: ToolUsage;
     enableCheckpoints: boolean;
+    checkpointTimeout: number;
     checkpointService?: RepoPerTaskCheckpointService;
     checkpointServiceInitializing: boolean;
     enableBridge: boolean;
@@ -162,7 +164,7 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
     private skipPrevResponseIdOnce;
     private tokenUsageSnapshot?;
     private tokenUsageSnapshotAt?;
-    constructor({ provider, apiConfiguration, enableDiff, enableCheckpoints, enableBridge, fuzzyMatchThreshold, consecutiveMistakeLimit, task, images, historyItem, startTask, rootTask, parentTask, taskNumber, onCreated, initialTodos, workspacePath, }: TaskOptions);
+    constructor({ provider, apiConfiguration, enableDiff, enableCheckpoints, checkpointTimeout, enableBridge, fuzzyMatchThreshold, consecutiveMistakeLimit, task, images, historyItem, startTask, rootTask, parentTask, taskNumber, onCreated, initialTodos, workspacePath, }: TaskOptions);
     /**
      * Initialize the task mode from the provider state.
      * This method handles async initialization with proper error handling.
@@ -308,6 +310,7 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
     private getCurrentProfileId;
     private handleContextWindowExceededError;
     attemptApiRequest(retryAttempt?: number): ApiStream;
+    private backoffAndAnnounce;
     checkpointSave(force?: boolean, suppressMessage?: boolean): Promise<void | import("../../services/checkpoints/types").CheckpointResult>;
     checkpointRestore(options: CheckpointRestoreOptions): Promise<void>;
     checkpointDiff(options: CheckpointDiffOptions): Promise<void>;
@@ -338,8 +341,6 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
         metadata?: {
             gpt5?: {
                 previous_response_id?: string | undefined;
-                instructions?: string | undefined;
-                reasoning_summary?: string | undefined;
             } | undefined;
         } | undefined;
     }[];
@@ -347,8 +348,10 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
     recordToolUsage(toolName: ToolName): void;
     recordToolError(toolName: ToolName, error?: string): void;
     /**
-     * Persist GPT-5 per-turn metadata (previous_response_id, instructions, reasoning_summary)
+     * Persist GPT-5 per-turn metadata (previous_response_id only)
      * onto the last complete assistant say("text") message.
+     *
+     * Note: We do not persist system instructions or reasoning summaries.
      */
     private persistGpt5Metadata;
     get taskStatus(): TaskStatus;

@@ -112,13 +112,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxThinkingTokens: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
             contextWindow: z.ZodNumber;
             supportsImages: z.ZodOptional<z.ZodBoolean>;
-            supportsComputerUse: z.ZodOptional<z.ZodBoolean>;
             supportsPromptCache: z.ZodBoolean;
             supportsVerbosity: z.ZodOptional<z.ZodBoolean>;
             supportsReasoningBudget: z.ZodOptional<z.ZodBoolean>;
+            supportsReasoningBinary: z.ZodOptional<z.ZodBoolean>;
             supportsTemperature: z.ZodOptional<z.ZodBoolean>;
             requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
             supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+            requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
             supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
             inputPrice: z.ZodOptional<z.ZodNumber>;
             outputPrice: z.ZodOptional<z.ZodNumber>;
@@ -130,6 +131,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxCachePoints: z.ZodOptional<z.ZodNumber>;
             cachableFields: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
             deprecated: z.ZodOptional<z.ZodBoolean>;
+            isFree: z.ZodOptional<z.ZodBoolean>;
             tiers: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodOptional<z.ZodEnum<["default", "flex", "priority"]>>;
                 contextWindow: z.ZodNumber;
@@ -158,12 +160,13 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
-            supportsComputerUse?: boolean | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
+            supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
+            requiredReasoningEffort?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -175,6 +178,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
+            isFree?: boolean | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -189,12 +193,13 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
-            supportsComputerUse?: boolean | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
+            supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
+            requiredReasoningEffort?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -206,6 +211,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
+            isFree?: boolean | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -252,7 +258,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         anthropicBaseUrl: z.ZodOptional<z.ZodString>;
         anthropicUseAuthToken: z.ZodOptional<z.ZodBoolean>;
         anthropicBeta1MContext: z.ZodOptional<z.ZodBoolean>;
-        apiProvider: z.ZodOptional<z.ZodEnum<["openrouter", "vercel-ai-gateway", "huggingface", "litellm", "deepinfra", "io-intelligence", "requesty", "unbound", "glama", "ollama", "lmstudio", "vscode-lm", "openai", "fake-ai", "human-relay", "anthropic", "bedrock", "cerebras", "chutes", "claude-code", "doubao", "deepseek", "featherless", "fireworks", "gemini", "gemini-cli", "groq", "mistral", "moonshot", "openai-native", "qwen-code", "roo", "sambanova", "vertex", "xai", "zai"]>>;
+        apiProvider: z.ZodOptional<z.ZodEnum<["openrouter", "vercel-ai-gateway", "huggingface", "litellm", "deepinfra", "io-intelligence", "requesty", "unbound", "glama", "roo", "ollama", "lmstudio", "vscode-lm", "openai", "fake-ai", "human-relay", "anthropic", "bedrock", "cerebras", "chutes", "claude-code", "doubao", "deepseek", "featherless", "fireworks", "gemini", "gemini-cli", "groq", "mistral", "moonshot", "openai-native", "qwen-code", "roo", "sambanova", "vertex", "xai", "zai"]>>;
     } & {
         id: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
@@ -266,7 +272,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         codebaseIndexGeminiApiKey?: string | undefined;
         codebaseIndexMistralApiKey?: string | undefined;
         codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "roo" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
         includeMaxTokens?: boolean | undefined;
         diffEnabled?: boolean | undefined;
         todoListEnabled?: boolean | undefined;
@@ -324,12 +330,13 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
-            supportsComputerUse?: boolean | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
+            supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
+            requiredReasoningEffort?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -341,6 +348,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
+            isFree?: boolean | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -425,7 +433,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         codebaseIndexGeminiApiKey?: string | undefined;
         codebaseIndexMistralApiKey?: string | undefined;
         codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "roo" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
         includeMaxTokens?: boolean | undefined;
         diffEnabled?: boolean | undefined;
         todoListEnabled?: boolean | undefined;
@@ -483,12 +491,13 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
-            supportsComputerUse?: boolean | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
+            supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
+            requiredReasoningEffort?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -500,6 +509,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
+            isFree?: boolean | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -608,7 +618,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         codebaseIndexGeminiApiKey?: string | undefined;
         codebaseIndexMistralApiKey?: string | undefined;
         codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "roo" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
         includeMaxTokens?: boolean | undefined;
         diffEnabled?: boolean | undefined;
         todoListEnabled?: boolean | undefined;
@@ -666,12 +676,13 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
-            supportsComputerUse?: boolean | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
+            supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
+            requiredReasoningEffort?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -683,6 +694,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
+            isFree?: boolean | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -779,7 +791,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         codebaseIndexGeminiApiKey?: string | undefined;
         codebaseIndexMistralApiKey?: string | undefined;
         codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "roo" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
         includeMaxTokens?: boolean | undefined;
         diffEnabled?: boolean | undefined;
         todoListEnabled?: boolean | undefined;
@@ -837,12 +849,13 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
-            supportsComputerUse?: boolean | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
+            supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
+            requiredReasoningEffort?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -854,6 +867,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
+            isFree?: boolean | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -1023,7 +1037,7 @@ export declare class ProviderSettingsManager {
             codebaseIndexGeminiApiKey?: string | undefined;
             codebaseIndexMistralApiKey?: string | undefined;
             codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "roo" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
             includeMaxTokens?: boolean | undefined;
             diffEnabled?: boolean | undefined;
             todoListEnabled?: boolean | undefined;
@@ -1081,12 +1095,13 @@ export declare class ProviderSettingsManager {
                 maxTokens?: number | null | undefined;
                 maxThinkingTokens?: number | null | undefined;
                 supportsImages?: boolean | undefined;
-                supportsComputerUse?: boolean | undefined;
                 supportsVerbosity?: boolean | undefined;
                 supportsReasoningBudget?: boolean | undefined;
+                supportsReasoningBinary?: boolean | undefined;
                 supportsTemperature?: boolean | undefined;
                 requiredReasoningBudget?: boolean | undefined;
                 supportsReasoningEffort?: boolean | undefined;
+                requiredReasoningEffort?: boolean | undefined;
                 supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
                 inputPrice?: number | undefined;
                 outputPrice?: number | undefined;
@@ -1098,6 +1113,7 @@ export declare class ProviderSettingsManager {
                 maxCachePoints?: number | undefined;
                 cachableFields?: string[] | undefined;
                 deprecated?: boolean | undefined;
+                isFree?: boolean | undefined;
                 tiers?: {
                     contextWindow: number;
                     name?: "default" | "flex" | "priority" | undefined;
