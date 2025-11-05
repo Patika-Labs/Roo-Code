@@ -74,7 +74,7 @@ export declare class MistralHandler extends BaseProvider implements SingleComple
             readonly inputPrice: 2;
             readonly outputPrice: 6;
         };
-        maxTokens: 8192 | 32000 | 256000 | 131000 | undefined;
+        maxTokens: 32000 | 8192 | 256000 | 131000 | undefined;
         temperature: number;
     };
     completePrompt(prompt: string): Promise<string>;

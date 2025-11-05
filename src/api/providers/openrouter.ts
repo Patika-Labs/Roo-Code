@@ -309,8 +309,8 @@ export class OpenRouterHandler extends BaseProvider implements SingleCompletionH
 				headers: {
 					Authorization: `Bearer ${apiKey}`,
 					"Content-Type": "application/json",
-					"HTTP-Referer": "https://github.com/RooVetGit/Roo-Code",
-					"X-Title": "Roo Code",
+					"HTTP-Referer": "https://multi.dev",
+					"X-Title": "multi",
 				},
 				body: JSON.stringify({
 					model,

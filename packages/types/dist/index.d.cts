@@ -1381,6 +1381,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     awsSessionToken: z.ZodOptional<z.ZodString>;
     awsRegion: z.ZodOptional<z.ZodString>;
     awsUseCrossRegionInference: z.ZodOptional<z.ZodBoolean>;
+    awsUseGlobalInference: z.ZodOptional<z.ZodBoolean>;
     awsUsePromptCache: z.ZodOptional<z.ZodBoolean>;
     awsProfile: z.ZodOptional<z.ZodString>;
     awsUseProfile: z.ZodOptional<z.ZodBoolean>;
@@ -1413,6 +1414,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     awsSessionToken?: string | undefined;
     awsRegion?: string | undefined;
     awsUseCrossRegionInference?: boolean | undefined;
+    awsUseGlobalInference?: boolean | undefined;
     awsUsePromptCache?: boolean | undefined;
     awsProfile?: string | undefined;
     awsUseProfile?: boolean | undefined;
@@ -1443,6 +1445,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     awsSessionToken?: string | undefined;
     awsRegion?: string | undefined;
     awsUseCrossRegionInference?: boolean | undefined;
+    awsUseGlobalInference?: boolean | undefined;
     awsUsePromptCache?: boolean | undefined;
     awsProfile?: string | undefined;
     awsUseProfile?: boolean | undefined;
@@ -3616,6 +3619,7 @@ declare const providerSettingsSchema: z.ZodObject<{
     awsSessionToken: z.ZodOptional<z.ZodString>;
     awsRegion: z.ZodOptional<z.ZodString>;
     awsUseCrossRegionInference: z.ZodOptional<z.ZodBoolean>;
+    awsUseGlobalInference: z.ZodOptional<z.ZodBoolean>;
     awsUsePromptCache: z.ZodOptional<z.ZodBoolean>;
     awsProfile: z.ZodOptional<z.ZodString>;
     awsUseProfile: z.ZodOptional<z.ZodBoolean>;
@@ -3682,6 +3686,7 @@ declare const providerSettingsSchema: z.ZodObject<{
     awsSessionToken?: string | undefined;
     awsRegion?: string | undefined;
     awsUseCrossRegionInference?: boolean | undefined;
+    awsUseGlobalInference?: boolean | undefined;
     awsUsePromptCache?: boolean | undefined;
     awsProfile?: string | undefined;
     awsUseProfile?: boolean | undefined;
@@ -3846,6 +3851,7 @@ declare const providerSettingsSchema: z.ZodObject<{
     awsSessionToken?: string | undefined;
     awsRegion?: string | undefined;
     awsUseCrossRegionInference?: boolean | undefined;
+    awsUseGlobalInference?: boolean | undefined;
     awsUsePromptCache?: boolean | undefined;
     awsProfile?: string | undefined;
     awsUseProfile?: boolean | undefined;
@@ -4202,6 +4208,7 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
     awsSessionToken: z.ZodOptional<z.ZodString>;
     awsRegion: z.ZodOptional<z.ZodString>;
     awsUseCrossRegionInference: z.ZodOptional<z.ZodBoolean>;
+    awsUseGlobalInference: z.ZodOptional<z.ZodBoolean>;
     awsUsePromptCache: z.ZodOptional<z.ZodBoolean>;
     awsProfile: z.ZodOptional<z.ZodString>;
     awsUseProfile: z.ZodOptional<z.ZodBoolean>;
@@ -4271,6 +4278,7 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
     awsSessionToken?: string | undefined;
     awsRegion?: string | undefined;
     awsUseCrossRegionInference?: boolean | undefined;
+    awsUseGlobalInference?: boolean | undefined;
     awsUsePromptCache?: boolean | undefined;
     awsProfile?: string | undefined;
     awsUseProfile?: boolean | undefined;
@@ -4436,6 +4444,7 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
     awsSessionToken?: string | undefined;
     awsRegion?: string | undefined;
     awsUseCrossRegionInference?: boolean | undefined;
+    awsUseGlobalInference?: boolean | undefined;
     awsUsePromptCache?: boolean | undefined;
     awsProfile?: string | undefined;
     awsUseProfile?: boolean | undefined;
@@ -4803,6 +4812,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     awsSessionToken: z.ZodOptional<z.ZodString>;
     awsRegion: z.ZodOptional<z.ZodString>;
     awsUseCrossRegionInference: z.ZodOptional<z.ZodBoolean>;
+    awsUseGlobalInference: z.ZodOptional<z.ZodBoolean>;
     awsUsePromptCache: z.ZodOptional<z.ZodBoolean>;
     awsProfile: z.ZodOptional<z.ZodString>;
     awsUseProfile: z.ZodOptional<z.ZodBoolean>;
@@ -4835,6 +4845,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     awsSessionToken?: string | undefined;
     awsRegion?: string | undefined;
     awsUseCrossRegionInference?: boolean | undefined;
+    awsUseGlobalInference?: boolean | undefined;
     awsUsePromptCache?: boolean | undefined;
     awsProfile?: string | undefined;
     awsUseProfile?: boolean | undefined;
@@ -4865,6 +4876,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     awsSessionToken?: string | undefined;
     awsRegion?: string | undefined;
     awsUseCrossRegionInference?: boolean | undefined;
+    awsUseGlobalInference?: boolean | undefined;
     awsUsePromptCache?: boolean | undefined;
     awsProfile?: string | undefined;
     awsUseProfile?: boolean | undefined;
@@ -6813,7 +6825,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     id?: string | undefined;
 }>>;
 type ProviderSettingsWithId = z.infer<typeof providerSettingsWithIdSchema>;
-declare const PROVIDER_SETTINGS_KEYS: ["reasoningEffort", "codebaseIndexOpenAiCompatibleBaseUrl", "codebaseIndexOpenAiCompatibleModelDimension", "codeIndexOpenAiKey", "codeIndexQdrantApiKey", "codebaseIndexOpenAiCompatibleApiKey", "codebaseIndexGeminiApiKey", "codebaseIndexMistralApiKey", "codebaseIndexVercelAiGatewayApiKey", "codebaseIndexOpenRouterApiKey", "apiProvider", "includeMaxTokens", "diffEnabled", "todoListEnabled", "fuzzyMatchThreshold", "modelTemperature", "rateLimitSeconds", "consecutiveMistakeLimit", "enableReasoningEffort", "modelMaxTokens", "modelMaxThinkingTokens", "verbosity", "apiModelId", "apiKey", "anthropicBaseUrl", "anthropicUseAuthToken", "anthropicBeta1MContext", "claudeCodePath", "claudeCodeMaxOutputTokens", "glamaModelId", "glamaApiKey", "openRouterApiKey", "openRouterModelId", "openRouterBaseUrl", "openRouterSpecificProvider", "openRouterUseMiddleOutTransform", "awsAccessKey", "awsSecretKey", "awsSessionToken", "awsRegion", "awsUseCrossRegionInference", "awsUsePromptCache", "awsProfile", "awsUseProfile", "awsApiKey", "awsUseApiKey", "awsCustomArn", "awsModelContextWindow", "awsBedrockEndpointEnabled", "awsBedrockEndpoint", "awsBedrock1MContext", "vertexKeyFile", "vertexJsonCredentials", "vertexProjectId", "vertexRegion", "enableUrlContext", "enableGrounding", "openAiBaseUrl", "openAiApiKey", "openAiLegacyFormat", "openAiR1FormatEnabled", "openAiModelId", "openAiCustomModelInfo", "openAiUseAzure", "azureApiVersion", "openAiStreamingEnabled", "openAiHostHeader", "openAiHeaders", "ollamaModelId", "ollamaBaseUrl", "ollamaApiKey", "ollamaNumCtx", "vsCodeLmModelSelector", "lmStudioModelId", "lmStudioBaseUrl", "lmStudioDraftModelId", "lmStudioSpeculativeDecodingEnabled", "geminiApiKey", "googleGeminiBaseUrl", "geminiCliOAuthPath", "geminiCliProjectId", "openAiNativeApiKey", "openAiNativeBaseUrl", "openAiNativeServiceTier", "mistralApiKey", "mistralCodestralUrl", "deepSeekBaseUrl", "deepSeekApiKey", "deepInfraBaseUrl", "deepInfraApiKey", "deepInfraModelId", "doubaoBaseUrl", "doubaoApiKey", "moonshotBaseUrl", "moonshotApiKey", "minimaxBaseUrl", "minimaxApiKey", "unboundApiKey", "unboundModelId", "requestyBaseUrl", "requestyApiKey", "requestyModelId", "fakeAi", "xaiApiKey", "groqApiKey", "huggingFaceApiKey", "huggingFaceModelId", "huggingFaceInferenceProvider", "chutesApiKey", "litellmBaseUrl", "litellmApiKey", "litellmModelId", "litellmUsePromptCache", "cerebrasApiKey", "sambaNovaApiKey", "zaiApiKey", "zaiApiLine", "fireworksApiKey", "featherlessApiKey", "ioIntelligenceModelId", "ioIntelligenceApiKey", "qwenCodeOauthPath", "vercelAiGatewayApiKey", "vercelAiGatewayModelId"];
+declare const PROVIDER_SETTINGS_KEYS: ["reasoningEffort", "codebaseIndexOpenAiCompatibleBaseUrl", "codebaseIndexOpenAiCompatibleModelDimension", "codeIndexOpenAiKey", "codeIndexQdrantApiKey", "codebaseIndexOpenAiCompatibleApiKey", "codebaseIndexGeminiApiKey", "codebaseIndexMistralApiKey", "codebaseIndexVercelAiGatewayApiKey", "codebaseIndexOpenRouterApiKey", "apiProvider", "includeMaxTokens", "diffEnabled", "todoListEnabled", "fuzzyMatchThreshold", "modelTemperature", "rateLimitSeconds", "consecutiveMistakeLimit", "enableReasoningEffort", "modelMaxTokens", "modelMaxThinkingTokens", "verbosity", "apiModelId", "apiKey", "anthropicBaseUrl", "anthropicUseAuthToken", "anthropicBeta1MContext", "claudeCodePath", "claudeCodeMaxOutputTokens", "glamaModelId", "glamaApiKey", "openRouterApiKey", "openRouterModelId", "openRouterBaseUrl", "openRouterSpecificProvider", "openRouterUseMiddleOutTransform", "awsAccessKey", "awsSecretKey", "awsSessionToken", "awsRegion", "awsUseCrossRegionInference", "awsUseGlobalInference", "awsUsePromptCache", "awsProfile", "awsUseProfile", "awsApiKey", "awsUseApiKey", "awsCustomArn", "awsModelContextWindow", "awsBedrockEndpointEnabled", "awsBedrockEndpoint", "awsBedrock1MContext", "vertexKeyFile", "vertexJsonCredentials", "vertexProjectId", "vertexRegion", "enableUrlContext", "enableGrounding", "openAiBaseUrl", "openAiApiKey", "openAiLegacyFormat", "openAiR1FormatEnabled", "openAiModelId", "openAiCustomModelInfo", "openAiUseAzure", "azureApiVersion", "openAiStreamingEnabled", "openAiHostHeader", "openAiHeaders", "ollamaModelId", "ollamaBaseUrl", "ollamaApiKey", "ollamaNumCtx", "vsCodeLmModelSelector", "lmStudioModelId", "lmStudioBaseUrl", "lmStudioDraftModelId", "lmStudioSpeculativeDecodingEnabled", "geminiApiKey", "googleGeminiBaseUrl", "geminiCliOAuthPath", "geminiCliProjectId", "openAiNativeApiKey", "openAiNativeBaseUrl", "openAiNativeServiceTier", "mistralApiKey", "mistralCodestralUrl", "deepSeekBaseUrl", "deepSeekApiKey", "deepInfraBaseUrl", "deepInfraApiKey", "deepInfraModelId", "doubaoBaseUrl", "doubaoApiKey", "moonshotBaseUrl", "moonshotApiKey", "minimaxBaseUrl", "minimaxApiKey", "unboundApiKey", "unboundModelId", "requestyBaseUrl", "requestyApiKey", "requestyModelId", "fakeAi", "xaiApiKey", "groqApiKey", "huggingFaceApiKey", "huggingFaceModelId", "huggingFaceInferenceProvider", "chutesApiKey", "litellmBaseUrl", "litellmApiKey", "litellmModelId", "litellmUsePromptCache", "cerebrasApiKey", "sambaNovaApiKey", "zaiApiKey", "zaiApiLine", "fireworksApiKey", "featherlessApiKey", "ioIntelligenceModelId", "ioIntelligenceApiKey", "qwenCodeOauthPath", "vercelAiGatewayApiKey", "vercelAiGatewayModelId"];
 /**
  * ModelIdKey
  */
@@ -7826,6 +7838,7 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
     awsSessionToken: z.ZodOptional<z.ZodString>;
     awsRegion: z.ZodOptional<z.ZodString>;
     awsUseCrossRegionInference: z.ZodOptional<z.ZodBoolean>;
+    awsUseGlobalInference: z.ZodOptional<z.ZodBoolean>;
     awsUsePromptCache: z.ZodOptional<z.ZodBoolean>;
     awsProfile: z.ZodOptional<z.ZodString>;
     awsUseProfile: z.ZodOptional<z.ZodBoolean>;
@@ -8257,6 +8270,7 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
     awsSessionToken?: string | undefined;
     awsRegion?: string | undefined;
     awsUseCrossRegionInference?: boolean | undefined;
+    awsUseGlobalInference?: boolean | undefined;
     awsUsePromptCache?: boolean | undefined;
     awsProfile?: string | undefined;
     awsUseProfile?: boolean | undefined;
@@ -8589,6 +8603,7 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
     awsSessionToken?: string | undefined;
     awsRegion?: string | undefined;
     awsUseCrossRegionInference?: boolean | undefined;
+    awsUseGlobalInference?: boolean | undefined;
     awsUsePromptCache?: boolean | undefined;
     awsProfile?: string | undefined;
     awsUseProfile?: boolean | undefined;
@@ -9181,6 +9196,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             awsSessionToken: z.ZodOptional<z.ZodString>;
             awsRegion: z.ZodOptional<z.ZodString>;
             awsUseCrossRegionInference: z.ZodOptional<z.ZodBoolean>;
+            awsUseGlobalInference: z.ZodOptional<z.ZodBoolean>;
             awsUsePromptCache: z.ZodOptional<z.ZodBoolean>;
             awsProfile: z.ZodOptional<z.ZodString>;
             awsUseProfile: z.ZodOptional<z.ZodBoolean>;
@@ -9612,6 +9628,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             awsSessionToken?: string | undefined;
             awsRegion?: string | undefined;
             awsUseCrossRegionInference?: boolean | undefined;
+            awsUseGlobalInference?: boolean | undefined;
             awsUsePromptCache?: boolean | undefined;
             awsProfile?: string | undefined;
             awsUseProfile?: boolean | undefined;
@@ -9944,6 +9961,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             awsSessionToken?: string | undefined;
             awsRegion?: string | undefined;
             awsUseCrossRegionInference?: boolean | undefined;
+            awsUseGlobalInference?: boolean | undefined;
             awsUsePromptCache?: boolean | undefined;
             awsProfile?: string | undefined;
             awsUseProfile?: boolean | undefined;
@@ -10282,6 +10300,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             awsSessionToken?: string | undefined;
             awsRegion?: string | undefined;
             awsUseCrossRegionInference?: boolean | undefined;
+            awsUseGlobalInference?: boolean | undefined;
             awsUsePromptCache?: boolean | undefined;
             awsProfile?: string | undefined;
             awsUseProfile?: boolean | undefined;
@@ -10619,6 +10638,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             awsSessionToken?: string | undefined;
             awsRegion?: string | undefined;
             awsUseCrossRegionInference?: boolean | undefined;
+            awsUseGlobalInference?: boolean | undefined;
             awsUsePromptCache?: boolean | undefined;
             awsProfile?: string | undefined;
             awsUseProfile?: boolean | undefined;
@@ -10958,6 +10978,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             awsSessionToken?: string | undefined;
             awsRegion?: string | undefined;
             awsUseCrossRegionInference?: boolean | undefined;
+            awsUseGlobalInference?: boolean | undefined;
             awsUsePromptCache?: boolean | undefined;
             awsProfile?: string | undefined;
             awsUseProfile?: boolean | undefined;
@@ -11298,6 +11319,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             awsSessionToken?: string | undefined;
             awsRegion?: string | undefined;
             awsUseCrossRegionInference?: boolean | undefined;
+            awsUseGlobalInference?: boolean | undefined;
             awsUsePromptCache?: boolean | undefined;
             awsProfile?: string | undefined;
             awsUseProfile?: boolean | undefined;
@@ -11892,6 +11914,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 awsSessionToken: z.ZodOptional<z.ZodString>;
                 awsRegion: z.ZodOptional<z.ZodString>;
                 awsUseCrossRegionInference: z.ZodOptional<z.ZodBoolean>;
+                awsUseGlobalInference: z.ZodOptional<z.ZodBoolean>;
                 awsUsePromptCache: z.ZodOptional<z.ZodBoolean>;
                 awsProfile: z.ZodOptional<z.ZodString>;
                 awsUseProfile: z.ZodOptional<z.ZodBoolean>;
@@ -12323,6 +12346,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 awsSessionToken?: string | undefined;
                 awsRegion?: string | undefined;
                 awsUseCrossRegionInference?: boolean | undefined;
+                awsUseGlobalInference?: boolean | undefined;
                 awsUsePromptCache?: boolean | undefined;
                 awsProfile?: string | undefined;
                 awsUseProfile?: boolean | undefined;
@@ -12655,6 +12679,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 awsSessionToken?: string | undefined;
                 awsRegion?: string | undefined;
                 awsUseCrossRegionInference?: boolean | undefined;
+                awsUseGlobalInference?: boolean | undefined;
                 awsUsePromptCache?: boolean | undefined;
                 awsProfile?: string | undefined;
                 awsUseProfile?: boolean | undefined;
@@ -12993,6 +13018,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 awsSessionToken?: string | undefined;
                 awsRegion?: string | undefined;
                 awsUseCrossRegionInference?: boolean | undefined;
+                awsUseGlobalInference?: boolean | undefined;
                 awsUsePromptCache?: boolean | undefined;
                 awsProfile?: string | undefined;
                 awsUseProfile?: boolean | undefined;
@@ -13330,6 +13356,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 awsSessionToken?: string | undefined;
                 awsRegion?: string | undefined;
                 awsUseCrossRegionInference?: boolean | undefined;
+                awsUseGlobalInference?: boolean | undefined;
                 awsUsePromptCache?: boolean | undefined;
                 awsProfile?: string | undefined;
                 awsUseProfile?: boolean | undefined;
@@ -13669,6 +13696,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 awsSessionToken?: string | undefined;
                 awsRegion?: string | undefined;
                 awsUseCrossRegionInference?: boolean | undefined;
+                awsUseGlobalInference?: boolean | undefined;
                 awsUsePromptCache?: boolean | undefined;
                 awsProfile?: string | undefined;
                 awsUseProfile?: boolean | undefined;
@@ -14009,6 +14037,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 awsSessionToken?: string | undefined;
                 awsRegion?: string | undefined;
                 awsUseCrossRegionInference?: boolean | undefined;
+                awsUseGlobalInference?: boolean | undefined;
                 awsUsePromptCache?: boolean | undefined;
                 awsProfile?: string | undefined;
                 awsUseProfile?: boolean | undefined;
@@ -14379,6 +14408,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 awsSessionToken?: string | undefined;
                 awsRegion?: string | undefined;
                 awsUseCrossRegionInference?: boolean | undefined;
+                awsUseGlobalInference?: boolean | undefined;
                 awsUsePromptCache?: boolean | undefined;
                 awsProfile?: string | undefined;
                 awsUseProfile?: boolean | undefined;
@@ -14733,6 +14763,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 awsSessionToken?: string | undefined;
                 awsRegion?: string | undefined;
                 awsUseCrossRegionInference?: boolean | undefined;
+                awsUseGlobalInference?: boolean | undefined;
                 awsUsePromptCache?: boolean | undefined;
                 awsProfile?: string | undefined;
                 awsUseProfile?: boolean | undefined;
@@ -18300,6 +18331,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
         awsSessionToken: z.ZodOptional<z.ZodString>;
         awsRegion: z.ZodOptional<z.ZodString>;
         awsUseCrossRegionInference: z.ZodOptional<z.ZodBoolean>;
+        awsUseGlobalInference: z.ZodOptional<z.ZodBoolean>;
         awsUsePromptCache: z.ZodOptional<z.ZodBoolean>;
         awsProfile: z.ZodOptional<z.ZodString>;
         awsUseProfile: z.ZodOptional<z.ZodBoolean>;
@@ -18369,6 +18401,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
         awsSessionToken?: string | undefined;
         awsRegion?: string | undefined;
         awsUseCrossRegionInference?: boolean | undefined;
+        awsUseGlobalInference?: boolean | undefined;
         awsUsePromptCache?: boolean | undefined;
         awsProfile?: string | undefined;
         awsUseProfile?: boolean | undefined;
@@ -18534,6 +18567,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
         awsSessionToken?: string | undefined;
         awsRegion?: string | undefined;
         awsUseCrossRegionInference?: boolean | undefined;
+        awsUseGlobalInference?: boolean | undefined;
         awsUsePromptCache?: boolean | undefined;
         awsProfile?: string | undefined;
         awsUseProfile?: boolean | undefined;
@@ -18761,6 +18795,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
         awsSessionToken?: string | undefined;
         awsRegion?: string | undefined;
         awsUseCrossRegionInference?: boolean | undefined;
+        awsUseGlobalInference?: boolean | undefined;
         awsUsePromptCache?: boolean | undefined;
         awsProfile?: string | undefined;
         awsUseProfile?: boolean | undefined;
@@ -18988,6 +19023,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
         awsSessionToken?: string | undefined;
         awsRegion?: string | undefined;
         awsUseCrossRegionInference?: boolean | undefined;
+        awsUseGlobalInference?: boolean | undefined;
         awsUsePromptCache?: boolean | undefined;
         awsProfile?: string | undefined;
         awsUseProfile?: boolean | undefined;
@@ -40284,7 +40320,7 @@ declare const anthropicModels: {
         }];
     };
     readonly "claude-opus-4-1-20250805": {
-        readonly maxTokens: 8192;
+        readonly maxTokens: 32000;
         readonly contextWindow: 200000;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
@@ -40772,18 +40808,19 @@ declare const BEDROCK_REGIONS: {
     label: string;
 }[];
 declare const BEDROCK_1M_CONTEXT_MODEL_IDS: readonly ["anthropic.claude-sonnet-4-20250514-v1:0", "anthropic.claude-sonnet-4-5-20250929-v1:0"];
+declare const BEDROCK_GLOBAL_INFERENCE_MODEL_IDS: readonly ["anthropic.claude-sonnet-4-20250514-v1:0", "anthropic.claude-sonnet-4-5-20250929-v1:0", "anthropic.claude-haiku-4-5-20251001-v1:0"];
 
 type CerebrasModelId = keyof typeof cerebrasModels;
 declare const cerebrasDefaultModelId: CerebrasModelId;
 declare const cerebrasModels: {
     readonly "zai-glm-4.6": {
         readonly maxTokens: 16384;
-        readonly contextWindow: 128000;
+        readonly contextWindow: 131072;
         readonly supportsImages: false;
         readonly supportsPromptCache: false;
         readonly inputPrice: 0;
         readonly outputPrice: 0;
-        readonly description: "Highly intelligent general-purpose model with ~2000 tokens/s";
+        readonly description: "Highly intelligent general purpose model with up to 1,000 tokens/s";
     };
     readonly "qwen-3-coder-480b-free": {
         readonly maxTokens: 40000;
@@ -41310,7 +41347,7 @@ declare const claudeCodeModels: {
         readonly supportsReasoningEffort: false;
         readonly supportsReasoningBudget: false;
         readonly requiredReasoningBudget: false;
-        readonly maxTokens: 8192;
+        readonly maxTokens: 32000;
         readonly contextWindow: 200000;
         readonly inputPrice: 15;
         readonly outputPrice: 75;
@@ -42612,7 +42649,7 @@ declare const OPENAI_NATIVE_DEFAULT_TEMPERATURE = 0;
 declare const GPT5_DEFAULT_TEMPERATURE = 1;
 declare const OPENAI_AZURE_AI_INFERENCE_PATH = "/models/chat/completions";
 
-declare const openRouterDefaultModelId = "anthropic/claude-sonnet-4";
+declare const openRouterDefaultModelId = "anthropic/claude-sonnet-4.5";
 declare const openRouterDefaultModelInfo: ModelInfo;
 declare const OPENROUTER_DEFAULT_PROVIDER_NAME = "[default]";
 declare const OPEN_ROUTER_PROMPT_CACHING_MODELS: Set<string>;
@@ -42952,7 +42989,7 @@ declare const sambaNovaModels: {
     };
 };
 
-declare const unboundDefaultModelId = "anthropic/claude-3-7-sonnet-20250219";
+declare const unboundDefaultModelId = "anthropic/claude-sonnet-4-5";
 declare const unboundDefaultModelInfo: ModelInfo;
 
 type VertexModelId = keyof typeof vertexModels;
@@ -43814,4 +43851,13 @@ declare const minimaxModels: {
 };
 declare const MINIMAX_DEFAULT_TEMPERATURE = 1;
 
-export { ANTHROPIC_DEFAULT_MAX_TOKENS, ANTHROPIC_STYLE_PROVIDERS, AWS_INFERENCE_PROFILE_MAPPING, type Ack, type AnthropicModelId, type AppProperties, type AssertEqual, type AuthService, type AuthServiceEvents, type AuthState, BEDROCK_1M_CONTEXT_MODEL_IDS, BEDROCK_DEFAULT_CONTEXT, BEDROCK_DEFAULT_TEMPERATURE, BEDROCK_MAX_TOKENS, BEDROCK_REGIONS, type BedrockModelId, CLAUDE_CODE_DEFAULT_MAX_OUTPUT_TOKENS, CODEBASE_INDEX_DEFAULTS, CONSENT_COOKIE_NAME, COOKIE_CONSENT_EVENTS, type CerebrasModelId, type ChutesModelId, type ClaudeCodeModelId, type ClineAsk, type ClineMessage, type ClineSay, type CloudAppProperties, type CloudOrganization, type CloudOrganizationMembership, type CloudServiceEvents, type CloudUserInfo, type CodeActionId, type CodeActionName, type CodebaseIndexConfig, type CodebaseIndexModels, type CodebaseIndexProvider, type CommandExecutionStatus, type CommandId, ConnectionState, type ConsentCookieValue, type ContextCondense, type CreateTaskOptions, type CustomModePrompts, type CustomModesSettings, type CustomProvider, type CustomSupportPrompts, DEEP_SEEK_DEFAULT_TEMPERATURE, DEFAULT_CHECKPOINT_TIMEOUT_SECONDS, DEFAULT_CONSECUTIVE_MISTAKE_LIMIT, DEFAULT_MODES, DEFAULT_TERMINAL_OUTPUT_CHARACTER_LIMIT, DEFAULT_WRITE_DELAY_MS, DOUBAO_API_BASE_URL, DOUBAO_API_CHAT_PATH, type DeepSeekModelId, type DynamicAppProperties, type DynamicProvider, EVALS_SETTINGS, EVALS_TIMEOUT, type Equals, type ExperimentId, type Experiments, type ExtensionBridgeCommand, ExtensionBridgeCommandName, type ExtensionBridgeEvent, ExtensionBridgeEventName, type ExtensionInstance, ExtensionSocketEvents, type ExtensionTask, type FauxProvider, type FeatherlessModelId, type FireworksModelId, type FollowUpData, type FollowUpDataType, GLAMA_DEFAULT_TEMPERATURE, GLOBAL_SECRET_KEYS, GLOBAL_SETTINGS_KEYS, GLOBAL_STATE_KEYS, GPT5_DEFAULT_TEMPERATURE, type GeminiModelId, type GitProperties, type GlobalSettings, type GlobalState, type GroqModelId, type GroupEntry, type GroupOptions, HEARTBEAT_INTERVAL_MS, HUGGINGFACE_API_URL, HUGGINGFACE_CACHE_DURATION, HUGGINGFACE_DEFAULT_CONTEXT_WINDOW, HUGGINGFACE_DEFAULT_MAX_TOKENS, HUGGINGFACE_MAX_TOKENS_FALLBACK, HUGGINGFACE_SLIDER_MIN, HUGGINGFACE_SLIDER_STEP, HUGGINGFACE_TEMPERATURE_MAX_VALUE, type HistoryItem, INSTANCE_TTL_SECONDS, type IOIntelligenceModelId, IO_INTELLIGENCE_CACHE_DURATION, type IdleAsk, type InstallMarketplaceItemOptions, type InteractiveAsk, type InternalProvider, type InternationalZAiModelId, type IpcClientEvents, type IpcMessage, IpcMessageType, IpcOrigin, type IpcServerEvents, type JWTPayload, type JoinResponse, type Keys, LMSTUDIO_DEFAULT_TEMPERATURE, type Language, type LeaveResponse, type LocalProvider, MAX_CHECKPOINT_TIMEOUT_SECONDS, MINIMAX_DEFAULT_TEMPERATURE, MIN_CHECKPOINT_TIMEOUT_SECONDS, MISTRAL_DEFAULT_TEMPERATURE, MODELS_BY_PROVIDER, MOONSHOT_DEFAULT_TEMPERATURE, type MainlandZAiModelId, type MarketplaceItem, type MarketplaceItemType, type McpExecutionStatus, type McpInstallationMethod, type McpMarketplaceItem, type McpParameter, type McpServerUse, type MinimaxModelId, type MistralModelId, type ModeConfig, type ModeMarketplaceItem, type ModelIdKey, type ModelInfo, type ModelParameter, type MoonshotModelId, OPENAI_AZURE_AI_INFERENCE_PATH, OPENAI_NATIVE_DEFAULT_TEMPERATURE, OPENROUTER_DEFAULT_PROVIDER_NAME, OPEN_ROUTER_PROMPT_CACHING_MODELS, OPEN_ROUTER_REASONING_BUDGET_MODELS, OPEN_ROUTER_REQUIRED_REASONING_BUDGET_MODELS, ORGANIZATION_ALLOW_ALL, ORGANIZATION_DEFAULT, type OpenAiNativeModelId, type OrganizationAllowList, type OrganizationCloudSettings, type OrganizationDefaultSettings, type OrganizationFeatures, type OrganizationSettings, PROVIDER_SETTINGS_KEYS, type PromptComponent, type ProviderName, type ProviderSettings, type ProviderSettingsEntry, type ProviderSettingsWithId, type QueuedMessage, type QwenCodeModelId, type ReasoningEffort, type ReasoningEffortWithMinimal, type ResumableAsk, type RetryConfig, type RooCodeAPI, type RooCodeAPIEvents, RooCodeEventName, type RooCodeEvents, type RooCodeIpcServer, type RooCodeSettings, type RooCodeTelemetryEvent, type RooModel, RooModelSchema, type RooModelsResponse, RooModelsResponseSchema, RooPricingSchema, SECRET_STATE_KEYS, type SambaNovaModelId, type SecretState, type ServiceTier, type SettingsService, type SettingsServiceEvents, type ShareResponse, type ShareVisibility, type StaticAppProperties, type SuggestionItem, type TaskBridgeCommand, TaskBridgeCommandName, type TaskBridgeEvent, TaskBridgeEventName, type TaskCommand, TaskCommandName, type TaskEvent, type TaskEvents, type TaskLike, type TaskMetadata, type TaskProperties, type TaskProviderEvents, type TaskProviderLike, TaskSocketEvents, TaskStatus, type TelemetryClient, type TelemetryEvent, TelemetryEventName, type TelemetryEventSubscription, type TelemetryProperties, type TelemetryPropertiesProvider, type TelemetrySetting, type TerminalActionId, type TerminalActionName, type TerminalActionPromptType, type TodoItem, type TodoStatus, type TokenUsage, type ToolGroup, type ToolName, type ToolProgressStatus, type ToolUsage, type TypicalProvider, type UsageStats, type UserFeatures, type UserSettingsConfig, type UserSettingsData, VERCEL_AI_GATEWAY_DEFAULT_TEMPERATURE, VERCEL_AI_GATEWAY_PROMPT_CACHING_MODELS, VERCEL_AI_GATEWAY_VISION_AND_TOOLS_MODELS, VERCEL_AI_GATEWAY_VISION_ONLY_MODELS, VERTEX_REGIONS, type Values, type VerbosityLevel, type VertexModelId, type VscodeLlmModelId, type XAIModelId, ZAI_DEFAULT_TEMPERATURE, type ZaiApiLine, ackSchema, anthropicDefaultModelId, anthropicModels, appPropertiesSchema, azureOpenAiDefaultApiVersion, bedrockDefaultModelId, bedrockDefaultPromptRouterModelId, bedrockModels, cerebrasDefaultModelId, cerebrasModels, chutesDefaultModelId, chutesDefaultModelInfo, chutesModels, claudeCodeDefaultModelId, claudeCodeModels, clineAskSchema, clineAsks, clineMessageSchema, clineSaySchema, clineSays, cloudAppPropertiesSchema, codeActionIds, codebaseIndexConfigSchema, codebaseIndexModelsSchema, codebaseIndexProviderSchema, commandExecutionStatusSchema, commandIds, contextCondenseSchema, convertModelNameForVertex, customModePromptsSchema, customModesSettingsSchema, customProviders, customSupportPromptsSchema, deepInfraDefaultModelId, deepInfraDefaultModelInfo, deepSeekDefaultModelId, deepSeekModels, discriminatedProviderSettingsWithIdSchema, doubaoDefaultModelId, doubaoDefaultModelInfo, doubaoModels, dynamicAppPropertiesSchema, dynamicProviders, experimentIds, experimentIdsSchema, experimentsSchema, extensionBridgeCommandSchema, extensionBridgeEventSchema, extensionInstanceSchema, fauxProviders, featherlessDefaultModelId, featherlessModels, fireworksDefaultModelId, fireworksModels, followUpDataSchema, geminiDefaultModelId, geminiModels, getApiProtocol, getClaudeCodeModelId, getModelId, gitPropertiesSchema, glamaDefaultModelId, glamaDefaultModelInfo, globalSettingsSchema, groqDefaultModelId, groqModels, groupEntrySchema, groupOptionsSchema, historyItemSchema, idleAsks, installMarketplaceItemOptionsSchema, interactiveAsks, internalProviders, internationalZAiDefaultModelId, internationalZAiModels, ioIntelligenceDefaultBaseUrl, ioIntelligenceDefaultModelId, ioIntelligenceModels, ipcMessageSchema, isCustomProvider, isDynamicProvider, isFauxProvider, isGlobalStateKey, isIdleAsk, isInteractiveAsk, isInternalProvider, isLanguage, isLocalProvider, isModelParameter, isProviderName, isResumableAsk, isSecretStateKey, isTypicalProvider, lMStudioDefaultModelId, lMStudioDefaultModelInfo, languages, languagesSchema, litellmDefaultModelId, litellmDefaultModelInfo, localProviders, mainlandZAiDefaultModelId, mainlandZAiModels, marketplaceItemSchema, marketplaceItemTypeSchema, mcpExecutionStatusSchema, mcpInstallationMethodSchema, mcpMarketplaceItemSchema, mcpParameterSchema, minimaxDefaultModelId, minimaxModels, mistralDefaultModelId, mistralModels, modeConfigSchema, modeMarketplaceItemSchema, modelIdKeys, modelIdKeysByProvider, modelInfoSchema, modelParameters, modelParametersSchema, moonshotDefaultModelId, moonshotModels, ollamaDefaultModelId, ollamaDefaultModelInfo, openAiModelInfoSaneDefaults, openAiNativeDefaultModelId, openAiNativeModels, openRouterDefaultModelId, openRouterDefaultModelInfo, organizationAllowListSchema, organizationCloudSettingsSchema, organizationDefaultSettingsSchema, organizationFeaturesSchema, organizationSettingsSchema, promptComponentSchema, providerNames, providerNamesSchema, providerSettingsEntrySchema, providerSettingsSchema, providerSettingsSchemaDiscriminated, providerSettingsWithIdSchema, queuedMessageSchema, qwenCodeDefaultModelId, qwenCodeModels, reasoningEffortWithMinimalSchema, reasoningEfforts, reasoningEffortsSchema, requestyDefaultModelId, requestyDefaultModelInfo, resumableAsks, rooCodeEventsSchema, rooCodeSettingsSchema, rooCodeTelemetryEventSchema, rooDefaultModelId, rooModels, sambaNovaDefaultModelId, sambaNovaModels, serviceTierSchema, serviceTiers, shareResponseSchema, shouldUseSingleFileRead, staticAppPropertiesSchema, suggestionItemSchema, taskBridgeCommandSchema, taskBridgeEventSchema, taskCommandSchema, taskEventSchema, taskMetadataSchema, taskPropertiesSchema, telemetryPropertiesSchema, telemetrySettings, telemetrySettingsSchema, terminalActionIds, todoItemSchema, todoStatusSchema, tokenUsageSchema, toolGroups, toolGroupsSchema, toolNames, toolNamesSchema, toolProgressStatusSchema, toolUsageSchema, unboundDefaultModelId, unboundDefaultModelInfo, usageStatsSchema, userFeaturesSchema, userSettingsConfigSchema, userSettingsDataSchema, verbosityLevels, verbosityLevelsSchema, vercelAiGatewayDefaultModelId, vercelAiGatewayDefaultModelInfo, vertexDefaultModelId, vertexModels, vscodeLlmDefaultModelId, vscodeLlmModels, xaiDefaultModelId, xaiModels, zaiApiLineConfigs, zaiApiLineSchema };
+/**
+ * Get the default model ID for a given provider.
+ * This function returns only the provider's default model ID, without considering user configuration.
+ * Used as a fallback when provider models are still loading.
+ */
+declare function getProviderDefaultModelId(provider: ProviderName, options?: {
+    isChina?: boolean;
+}): string;
+
+export { ANTHROPIC_DEFAULT_MAX_TOKENS, ANTHROPIC_STYLE_PROVIDERS, AWS_INFERENCE_PROFILE_MAPPING, type Ack, type AnthropicModelId, type AppProperties, type AssertEqual, type AuthService, type AuthServiceEvents, type AuthState, BEDROCK_1M_CONTEXT_MODEL_IDS, BEDROCK_DEFAULT_CONTEXT, BEDROCK_DEFAULT_TEMPERATURE, BEDROCK_GLOBAL_INFERENCE_MODEL_IDS, BEDROCK_MAX_TOKENS, BEDROCK_REGIONS, type BedrockModelId, CLAUDE_CODE_DEFAULT_MAX_OUTPUT_TOKENS, CODEBASE_INDEX_DEFAULTS, CONSENT_COOKIE_NAME, COOKIE_CONSENT_EVENTS, type CerebrasModelId, type ChutesModelId, type ClaudeCodeModelId, type ClineAsk, type ClineMessage, type ClineSay, type CloudAppProperties, type CloudOrganization, type CloudOrganizationMembership, type CloudServiceEvents, type CloudUserInfo, type CodeActionId, type CodeActionName, type CodebaseIndexConfig, type CodebaseIndexModels, type CodebaseIndexProvider, type CommandExecutionStatus, type CommandId, ConnectionState, type ConsentCookieValue, type ContextCondense, type CreateTaskOptions, type CustomModePrompts, type CustomModesSettings, type CustomProvider, type CustomSupportPrompts, DEEP_SEEK_DEFAULT_TEMPERATURE, DEFAULT_CHECKPOINT_TIMEOUT_SECONDS, DEFAULT_CONSECUTIVE_MISTAKE_LIMIT, DEFAULT_MODES, DEFAULT_TERMINAL_OUTPUT_CHARACTER_LIMIT, DEFAULT_WRITE_DELAY_MS, DOUBAO_API_BASE_URL, DOUBAO_API_CHAT_PATH, type DeepSeekModelId, type DynamicAppProperties, type DynamicProvider, EVALS_SETTINGS, EVALS_TIMEOUT, type Equals, type ExperimentId, type Experiments, type ExtensionBridgeCommand, ExtensionBridgeCommandName, type ExtensionBridgeEvent, ExtensionBridgeEventName, type ExtensionInstance, ExtensionSocketEvents, type ExtensionTask, type FauxProvider, type FeatherlessModelId, type FireworksModelId, type FollowUpData, type FollowUpDataType, GLAMA_DEFAULT_TEMPERATURE, GLOBAL_SECRET_KEYS, GLOBAL_SETTINGS_KEYS, GLOBAL_STATE_KEYS, GPT5_DEFAULT_TEMPERATURE, type GeminiModelId, type GitProperties, type GlobalSettings, type GlobalState, type GroqModelId, type GroupEntry, type GroupOptions, HEARTBEAT_INTERVAL_MS, HUGGINGFACE_API_URL, HUGGINGFACE_CACHE_DURATION, HUGGINGFACE_DEFAULT_CONTEXT_WINDOW, HUGGINGFACE_DEFAULT_MAX_TOKENS, HUGGINGFACE_MAX_TOKENS_FALLBACK, HUGGINGFACE_SLIDER_MIN, HUGGINGFACE_SLIDER_STEP, HUGGINGFACE_TEMPERATURE_MAX_VALUE, type HistoryItem, INSTANCE_TTL_SECONDS, type IOIntelligenceModelId, IO_INTELLIGENCE_CACHE_DURATION, type IdleAsk, type InstallMarketplaceItemOptions, type InteractiveAsk, type InternalProvider, type InternationalZAiModelId, type IpcClientEvents, type IpcMessage, IpcMessageType, IpcOrigin, type IpcServerEvents, type JWTPayload, type JoinResponse, type Keys, LMSTUDIO_DEFAULT_TEMPERATURE, type Language, type LeaveResponse, type LocalProvider, MAX_CHECKPOINT_TIMEOUT_SECONDS, MINIMAX_DEFAULT_TEMPERATURE, MIN_CHECKPOINT_TIMEOUT_SECONDS, MISTRAL_DEFAULT_TEMPERATURE, MODELS_BY_PROVIDER, MOONSHOT_DEFAULT_TEMPERATURE, type MainlandZAiModelId, type MarketplaceItem, type MarketplaceItemType, type McpExecutionStatus, type McpInstallationMethod, type McpMarketplaceItem, type McpParameter, type McpServerUse, type MinimaxModelId, type MistralModelId, type ModeConfig, type ModeMarketplaceItem, type ModelIdKey, type ModelInfo, type ModelParameter, type MoonshotModelId, OPENAI_AZURE_AI_INFERENCE_PATH, OPENAI_NATIVE_DEFAULT_TEMPERATURE, OPENROUTER_DEFAULT_PROVIDER_NAME, OPEN_ROUTER_PROMPT_CACHING_MODELS, OPEN_ROUTER_REASONING_BUDGET_MODELS, OPEN_ROUTER_REQUIRED_REASONING_BUDGET_MODELS, ORGANIZATION_ALLOW_ALL, ORGANIZATION_DEFAULT, type OpenAiNativeModelId, type OrganizationAllowList, type OrganizationCloudSettings, type OrganizationDefaultSettings, type OrganizationFeatures, type OrganizationSettings, PROVIDER_SETTINGS_KEYS, type PromptComponent, type ProviderName, type ProviderSettings, type ProviderSettingsEntry, type ProviderSettingsWithId, type QueuedMessage, type QwenCodeModelId, type ReasoningEffort, type ReasoningEffortWithMinimal, type ResumableAsk, type RetryConfig, type RooCodeAPI, type RooCodeAPIEvents, RooCodeEventName, type RooCodeEvents, type RooCodeIpcServer, type RooCodeSettings, type RooCodeTelemetryEvent, type RooModel, RooModelSchema, type RooModelsResponse, RooModelsResponseSchema, RooPricingSchema, SECRET_STATE_KEYS, type SambaNovaModelId, type SecretState, type ServiceTier, type SettingsService, type SettingsServiceEvents, type ShareResponse, type ShareVisibility, type StaticAppProperties, type SuggestionItem, type TaskBridgeCommand, TaskBridgeCommandName, type TaskBridgeEvent, TaskBridgeEventName, type TaskCommand, TaskCommandName, type TaskEvent, type TaskEvents, type TaskLike, type TaskMetadata, type TaskProperties, type TaskProviderEvents, type TaskProviderLike, TaskSocketEvents, TaskStatus, type TelemetryClient, type TelemetryEvent, TelemetryEventName, type TelemetryEventSubscription, type TelemetryProperties, type TelemetryPropertiesProvider, type TelemetrySetting, type TerminalActionId, type TerminalActionName, type TerminalActionPromptType, type TodoItem, type TodoStatus, type TokenUsage, type ToolGroup, type ToolName, type ToolProgressStatus, type ToolUsage, type TypicalProvider, type UsageStats, type UserFeatures, type UserSettingsConfig, type UserSettingsData, VERCEL_AI_GATEWAY_DEFAULT_TEMPERATURE, VERCEL_AI_GATEWAY_PROMPT_CACHING_MODELS, VERCEL_AI_GATEWAY_VISION_AND_TOOLS_MODELS, VERCEL_AI_GATEWAY_VISION_ONLY_MODELS, VERTEX_REGIONS, type Values, type VerbosityLevel, type VertexModelId, type VscodeLlmModelId, type XAIModelId, ZAI_DEFAULT_TEMPERATURE, type ZaiApiLine, ackSchema, anthropicDefaultModelId, anthropicModels, appPropertiesSchema, azureOpenAiDefaultApiVersion, bedrockDefaultModelId, bedrockDefaultPromptRouterModelId, bedrockModels, cerebrasDefaultModelId, cerebrasModels, chutesDefaultModelId, chutesDefaultModelInfo, chutesModels, claudeCodeDefaultModelId, claudeCodeModels, clineAskSchema, clineAsks, clineMessageSchema, clineSaySchema, clineSays, cloudAppPropertiesSchema, codeActionIds, codebaseIndexConfigSchema, codebaseIndexModelsSchema, codebaseIndexProviderSchema, commandExecutionStatusSchema, commandIds, contextCondenseSchema, convertModelNameForVertex, customModePromptsSchema, customModesSettingsSchema, customProviders, customSupportPromptsSchema, deepInfraDefaultModelId, deepInfraDefaultModelInfo, deepSeekDefaultModelId, deepSeekModels, discriminatedProviderSettingsWithIdSchema, doubaoDefaultModelId, doubaoDefaultModelInfo, doubaoModels, dynamicAppPropertiesSchema, dynamicProviders, experimentIds, experimentIdsSchema, experimentsSchema, extensionBridgeCommandSchema, extensionBridgeEventSchema, extensionInstanceSchema, fauxProviders, featherlessDefaultModelId, featherlessModels, fireworksDefaultModelId, fireworksModels, followUpDataSchema, geminiDefaultModelId, geminiModels, getApiProtocol, getClaudeCodeModelId, getModelId, getProviderDefaultModelId, gitPropertiesSchema, glamaDefaultModelId, glamaDefaultModelInfo, globalSettingsSchema, groqDefaultModelId, groqModels, groupEntrySchema, groupOptionsSchema, historyItemSchema, idleAsks, installMarketplaceItemOptionsSchema, interactiveAsks, internalProviders, internationalZAiDefaultModelId, internationalZAiModels, ioIntelligenceDefaultBaseUrl, ioIntelligenceDefaultModelId, ioIntelligenceModels, ipcMessageSchema, isCustomProvider, isDynamicProvider, isFauxProvider, isGlobalStateKey, isIdleAsk, isInteractiveAsk, isInternalProvider, isLanguage, isLocalProvider, isModelParameter, isProviderName, isResumableAsk, isSecretStateKey, isTypicalProvider, lMStudioDefaultModelId, lMStudioDefaultModelInfo, languages, languagesSchema, litellmDefaultModelId, litellmDefaultModelInfo, localProviders, mainlandZAiDefaultModelId, mainlandZAiModels, marketplaceItemSchema, marketplaceItemTypeSchema, mcpExecutionStatusSchema, mcpInstallationMethodSchema, mcpMarketplaceItemSchema, mcpParameterSchema, minimaxDefaultModelId, minimaxModels, mistralDefaultModelId, mistralModels, modeConfigSchema, modeMarketplaceItemSchema, modelIdKeys, modelIdKeysByProvider, modelInfoSchema, modelParameters, modelParametersSchema, moonshotDefaultModelId, moonshotModels, ollamaDefaultModelId, ollamaDefaultModelInfo, openAiModelInfoSaneDefaults, openAiNativeDefaultModelId, openAiNativeModels, openRouterDefaultModelId, openRouterDefaultModelInfo, organizationAllowListSchema, organizationCloudSettingsSchema, organizationDefaultSettingsSchema, organizationFeaturesSchema, organizationSettingsSchema, promptComponentSchema, providerNames, providerNamesSchema, providerSettingsEntrySchema, providerSettingsSchema, providerSettingsSchemaDiscriminated, providerSettingsWithIdSchema, queuedMessageSchema, qwenCodeDefaultModelId, qwenCodeModels, reasoningEffortWithMinimalSchema, reasoningEfforts, reasoningEffortsSchema, requestyDefaultModelId, requestyDefaultModelInfo, resumableAsks, rooCodeEventsSchema, rooCodeSettingsSchema, rooCodeTelemetryEventSchema, rooDefaultModelId, rooModels, sambaNovaDefaultModelId, sambaNovaModels, serviceTierSchema, serviceTiers, shareResponseSchema, shouldUseSingleFileRead, staticAppPropertiesSchema, suggestionItemSchema, taskBridgeCommandSchema, taskBridgeEventSchema, taskCommandSchema, taskEventSchema, taskMetadataSchema, taskPropertiesSchema, telemetryPropertiesSchema, telemetrySettings, telemetrySettingsSchema, terminalActionIds, todoItemSchema, todoStatusSchema, tokenUsageSchema, toolGroups, toolGroupsSchema, toolNames, toolNamesSchema, toolProgressStatusSchema, toolUsageSchema, unboundDefaultModelId, unboundDefaultModelInfo, usageStatsSchema, userFeaturesSchema, userSettingsConfigSchema, userSettingsDataSchema, verbosityLevels, verbosityLevelsSchema, vercelAiGatewayDefaultModelId, vercelAiGatewayDefaultModelInfo, vertexDefaultModelId, vertexModels, vscodeLlmDefaultModelId, vscodeLlmModels, xaiDefaultModelId, xaiModels, zaiApiLineConfigs, zaiApiLineSchema };

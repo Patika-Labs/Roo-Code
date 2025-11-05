@@ -241,6 +241,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         awsSessionToken: z.ZodOptional<z.ZodString>;
         awsRegion: z.ZodOptional<z.ZodString>;
         awsUseCrossRegionInference: z.ZodOptional<z.ZodBoolean>;
+        awsUseGlobalInference: z.ZodOptional<z.ZodBoolean>;
         awsUsePromptCache: z.ZodOptional<z.ZodBoolean>;
         awsProfile: z.ZodOptional<z.ZodString>;
         awsUseProfile: z.ZodOptional<z.ZodBoolean>;
@@ -310,6 +311,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         awsSessionToken?: string | undefined;
         awsRegion?: string | undefined;
         awsUseCrossRegionInference?: boolean | undefined;
+        awsUseGlobalInference?: boolean | undefined;
         awsUsePromptCache?: boolean | undefined;
         awsProfile?: string | undefined;
         awsUseProfile?: boolean | undefined;
@@ -475,6 +477,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         awsSessionToken?: string | undefined;
         awsRegion?: string | undefined;
         awsUseCrossRegionInference?: boolean | undefined;
+        awsUseGlobalInference?: boolean | undefined;
         awsUsePromptCache?: boolean | undefined;
         awsProfile?: string | undefined;
         awsUseProfile?: boolean | undefined;
@@ -664,6 +667,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         awsSessionToken?: string | undefined;
         awsRegion?: string | undefined;
         awsUseCrossRegionInference?: boolean | undefined;
+        awsUseGlobalInference?: boolean | undefined;
         awsUsePromptCache?: boolean | undefined;
         awsProfile?: string | undefined;
         awsUseProfile?: boolean | undefined;
@@ -841,6 +845,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         awsSessionToken?: string | undefined;
         awsRegion?: string | undefined;
         awsUseCrossRegionInference?: boolean | undefined;
+        awsUseGlobalInference?: boolean | undefined;
         awsUsePromptCache?: boolean | undefined;
         awsProfile?: string | undefined;
         awsUseProfile?: boolean | undefined;
@@ -1091,6 +1096,7 @@ export declare class ProviderSettingsManager {
             awsSessionToken?: string | undefined;
             awsRegion?: string | undefined;
             awsUseCrossRegionInference?: boolean | undefined;
+            awsUseGlobalInference?: boolean | undefined;
             awsUsePromptCache?: boolean | undefined;
             awsProfile?: string | undefined;
             awsUseProfile?: boolean | undefined;

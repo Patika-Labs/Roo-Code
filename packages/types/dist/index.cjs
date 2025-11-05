@@ -26,6 +26,7 @@ __export(index_exports, {
   BEDROCK_1M_CONTEXT_MODEL_IDS: () => BEDROCK_1M_CONTEXT_MODEL_IDS,
   BEDROCK_DEFAULT_CONTEXT: () => BEDROCK_DEFAULT_CONTEXT,
   BEDROCK_DEFAULT_TEMPERATURE: () => BEDROCK_DEFAULT_TEMPERATURE,
+  BEDROCK_GLOBAL_INFERENCE_MODEL_IDS: () => BEDROCK_GLOBAL_INFERENCE_MODEL_IDS,
   BEDROCK_MAX_TOKENS: () => BEDROCK_MAX_TOKENS,
   BEDROCK_REGIONS: () => BEDROCK_REGIONS,
   CLAUDE_CODE_DEFAULT_MAX_OUTPUT_TOKENS: () => CLAUDE_CODE_DEFAULT_MAX_OUTPUT_TOKENS,
@@ -157,6 +158,7 @@ __export(index_exports, {
   getApiProtocol: () => getApiProtocol,
   getClaudeCodeModelId: () => getClaudeCodeModelId,
   getModelId: () => getModelId,
+  getProviderDefaultModelId: () => getProviderDefaultModelId,
   gitPropertiesSchema: () => gitPropertiesSchema,
   glamaDefaultModelId: () => glamaDefaultModelId,
   glamaDefaultModelInfo: () => glamaDefaultModelInfo,
@@ -758,7 +760,7 @@ var codebaseIndexProviderSchema = import_zod6.z.object({
 });
 
 // src/providers/anthropic.ts
-var anthropicDefaultModelId = "claude-sonnet-4-20250514";
+var anthropicDefaultModelId = "claude-sonnet-4-5";
 var anthropicModels = {
   "claude-sonnet-4-5": {
     maxTokens: 64e3,
@@ -825,7 +827,8 @@ var anthropicModels = {
     ]
   },
   "claude-opus-4-1-20250805": {
-    maxTokens: 8192,
+    maxTokens: 32e3,
+    // Overridden to 8k if `enableReasoningEffort` is false.
     contextWindow: 2e5,
     supportsImages: true,
     supportsPromptCache: true,
@@ -947,7 +950,7 @@ var anthropicModels = {
 var ANTHROPIC_DEFAULT_MAX_TOKENS = 8192;
 
 // src/providers/bedrock.ts
-var bedrockDefaultModelId = "anthropic.claude-sonnet-4-20250514-v1:0";
+var bedrockDefaultModelId = "anthropic.claude-sonnet-4-5-20250929-v1:0";
 var bedrockDefaultPromptRouterModelId = "anthropic.claude-3-sonnet-20240229-v1:0";
 var bedrockModels = {
   "anthropic.claude-sonnet-4-5-20250929-v1:0": {
@@ -1341,17 +1344,22 @@ var BEDROCK_DEFAULT_TEMPERATURE = 0.3;
 var BEDROCK_MAX_TOKENS = 4096;
 var BEDROCK_DEFAULT_CONTEXT = 128e3;
 var AWS_INFERENCE_PROFILE_MAPPING = [
-  // US Government Cloud → ug. inference profile (most specific prefix first)
+  // Australia regions (Sydney and Melbourne) → au. inference profile (most specific - 14 chars)
+  ["ap-southeast-2", "au."],
+  ["ap-southeast-4", "au."],
+  // Japan regions (Tokyo and Osaka) → jp. inference profile (13 chars)
+  ["ap-northeast-", "jp."],
+  // US Government Cloud → ug. inference profile (7 chars)
   ["us-gov-", "ug."],
-  // Americas regions → us. inference profile
+  // Americas regions → us. inference profile (3 chars)
   ["us-", "us."],
-  // Europe regions → eu. inference profile
+  // Europe regions → eu. inference profile (3 chars)
   ["eu-", "eu."],
-  // Asia Pacific regions → apac. inference profile
+  // Asia Pacific regions → apac. inference profile (3 chars)
   ["ap-", "apac."],
-  // Canada regions → ca. inference profile
+  // Canada regions → ca. inference profile (3 chars)
   ["ca-", "ca."],
-  // South America regions → sa. inference profile
+  // South America regions → sa. inference profile (3 chars)
   ["sa-", "sa."]
 ];
 var BEDROCK_REGIONS = [
@@ -1384,18 +1392,24 @@ var BEDROCK_1M_CONTEXT_MODEL_IDS = [
   "anthropic.claude-sonnet-4-20250514-v1:0",
   "anthropic.claude-sonnet-4-5-20250929-v1:0"
 ];
+var BEDROCK_GLOBAL_INFERENCE_MODEL_IDS = [
+  "anthropic.claude-sonnet-4-20250514-v1:0",
+  "anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "anthropic.claude-haiku-4-5-20251001-v1:0"
+];
 
 // src/providers/cerebras.ts
 var cerebrasDefaultModelId = "gpt-oss-120b";
 var cerebrasModels = {
   "zai-glm-4.6": {
     maxTokens: 16384,
-    contextWindow: 128e3,
+    // consistent with their other models
+    contextWindow: 131072,
     supportsImages: false,
     supportsPromptCache: false,
     inputPrice: 0,
     outputPrice: 0,
-    description: "Highly intelligent general-purpose model with ~2000 tokens/s"
+    description: "Highly intelligent general purpose model with up to 1,000 tokens/s"
   },
   "qwen-3-coder-480b-free": {
     maxTokens: 4e4,
@@ -1837,7 +1851,7 @@ var VERTEX_DATE_PATTERN = /-(\d{8})$/;
 function convertModelNameForVertex(modelName) {
   return modelName.replace(VERTEX_DATE_PATTERN, "@$1");
 }
-var claudeCodeDefaultModelId = "claude-sonnet-4-20250514";
+var claudeCodeDefaultModelId = "claude-sonnet-4-5";
 var CLAUDE_CODE_DEFAULT_MAX_OUTPUT_TOKENS = 16e3;
 function getClaudeCodeModelId(baseModelId, useVertex = false) {
   return useVertex ? convertModelNameForVertex(baseModelId) : baseModelId;
@@ -3208,7 +3222,7 @@ var GPT5_DEFAULT_TEMPERATURE = 1;
 var OPENAI_AZURE_AI_INFERENCE_PATH = "/models/chat/completions";
 
 // src/providers/openrouter.ts
-var openRouterDefaultModelId = "anthropic/claude-sonnet-4";
+var openRouterDefaultModelId = "anthropic/claude-sonnet-4.5";
 var openRouterDefaultModelInfo = {
   maxTokens: 8192,
   contextWindow: 2e5,
@@ -3444,7 +3458,7 @@ var sambaNovaModels = {
 };
 
 // src/providers/unbound.ts
-var unboundDefaultModelId = "anthropic/claude-3-7-sonnet-20250219";
+var unboundDefaultModelId = "anthropic/claude-sonnet-4-5";
 var unboundDefaultModelInfo = {
   maxTokens: 8192,
   contextWindow: 2e5,
@@ -4444,6 +4458,88 @@ var minimaxModels = {
 };
 var MINIMAX_DEFAULT_TEMPERATURE = 1;
 
+// src/providers/index.ts
+function getProviderDefaultModelId(provider, options = { isChina: false }) {
+  switch (provider) {
+    case "openrouter":
+      return openRouterDefaultModelId;
+    case "requesty":
+      return requestyDefaultModelId;
+    case "glama":
+      return glamaDefaultModelId;
+    case "unbound":
+      return unboundDefaultModelId;
+    case "litellm":
+      return litellmDefaultModelId;
+    case "xai":
+      return xaiDefaultModelId;
+    case "groq":
+      return groqDefaultModelId;
+    case "huggingface":
+      return "meta-llama/Llama-3.3-70B-Instruct";
+    case "chutes":
+      return chutesDefaultModelId;
+    case "bedrock":
+      return bedrockDefaultModelId;
+    case "vertex":
+      return vertexDefaultModelId;
+    case "gemini":
+      return geminiDefaultModelId;
+    case "deepseek":
+      return deepSeekDefaultModelId;
+    case "doubao":
+      return doubaoDefaultModelId;
+    case "moonshot":
+      return moonshotDefaultModelId;
+    case "minimax":
+      return minimaxDefaultModelId;
+    case "zai":
+      return options?.isChina ? mainlandZAiDefaultModelId : internationalZAiDefaultModelId;
+    case "openai-native":
+      return "gpt-4o";
+    // Based on openai-native patterns
+    case "mistral":
+      return mistralDefaultModelId;
+    case "openai":
+      return "";
+    // OpenAI provider uses custom model configuration
+    case "ollama":
+      return "";
+    // Ollama uses dynamic model selection
+    case "lmstudio":
+      return "";
+    // LMStudio uses dynamic model selection
+    case "deepinfra":
+      return deepInfraDefaultModelId;
+    case "vscode-lm":
+      return vscodeLlmDefaultModelId;
+    case "claude-code":
+      return claudeCodeDefaultModelId;
+    case "cerebras":
+      return cerebrasDefaultModelId;
+    case "sambanova":
+      return sambaNovaDefaultModelId;
+    case "fireworks":
+      return fireworksDefaultModelId;
+    case "featherless":
+      return featherlessDefaultModelId;
+    case "io-intelligence":
+      return ioIntelligenceDefaultModelId;
+    case "roo":
+      return rooDefaultModelId;
+    case "qwen-code":
+      return qwenCodeDefaultModelId;
+    case "vercel-ai-gateway":
+      return vercelAiGatewayDefaultModelId;
+    case "anthropic":
+    case "gemini-cli":
+    case "human-relay":
+    case "fake-ai":
+    default:
+      return anthropicDefaultModelId;
+  }
+}
+
 // src/provider-settings.ts
 var DEFAULT_CONSECUTIVE_MISTAKE_LIMIT = 3;
 var dynamicProviders = [
@@ -4551,6 +4647,8 @@ var bedrockSchema = apiModelIdProviderModelSchema.extend({
   awsSessionToken: import_zod8.z.string().optional(),
   awsRegion: import_zod8.z.string().optional(),
   awsUseCrossRegionInference: import_zod8.z.boolean().optional(),
+  awsUseGlobalInference: import_zod8.z.boolean().optional(),
+  // Enable Global Inference profile routing when supported
   awsUsePromptCache: import_zod8.z.boolean().optional(),
   awsProfile: import_zod8.z.string().optional(),
   awsUseProfile: import_zod8.z.boolean().optional(),
@@ -6170,6 +6268,7 @@ var commandExecutionStatusSchema = import_zod21.z.discriminatedUnion("status", [
   BEDROCK_1M_CONTEXT_MODEL_IDS,
   BEDROCK_DEFAULT_CONTEXT,
   BEDROCK_DEFAULT_TEMPERATURE,
+  BEDROCK_GLOBAL_INFERENCE_MODEL_IDS,
   BEDROCK_MAX_TOKENS,
   BEDROCK_REGIONS,
   CLAUDE_CODE_DEFAULT_MAX_OUTPUT_TOKENS,
@@ -6301,6 +6400,7 @@ var commandExecutionStatusSchema = import_zod21.z.discriminatedUnion("status", [
   getApiProtocol,
   getClaudeCodeModelId,
   getModelId,
+  getProviderDefaultModelId,
   gitPropertiesSchema,
   glamaDefaultModelId,
   glamaDefaultModelInfo,
