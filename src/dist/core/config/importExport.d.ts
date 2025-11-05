@@ -37,7 +37,8 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
                 codebaseIndexGeminiApiKey?: string | undefined;
                 codebaseIndexMistralApiKey?: string | undefined;
                 codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+                codebaseIndexOpenRouterApiKey?: string | undefined;
+                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "chutes" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "minimax" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
                 includeMaxTokens?: boolean | undefined;
                 diffEnabled?: boolean | undefined;
                 todoListEnabled?: boolean | undefined;
@@ -102,6 +103,7 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
                     requiredReasoningBudget?: boolean | undefined;
                     supportsReasoningEffort?: boolean | undefined;
                     requiredReasoningEffort?: boolean | undefined;
+                    preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
                     inputPrice?: number | undefined;
                     outputPrice?: number | undefined;
@@ -160,6 +162,8 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
                 doubaoApiKey?: string | undefined;
                 moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
                 moonshotApiKey?: string | undefined;
+                minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
+                minimaxApiKey?: string | undefined;
                 unboundApiKey?: string | undefined;
                 unboundModelId?: string | undefined;
                 requestyBaseUrl?: string | undefined;
@@ -217,7 +221,7 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
         listApiConfigMeta?: {
             id: string;
             name: string;
-            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "chutes" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "minimax" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
             modelId?: string | undefined;
         }[] | undefined;
         pinnedApiConfigs?: Record<string, boolean> | undefined;
@@ -330,11 +334,14 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
             "vercel-ai-gateway"?: Record<string, {
                 dimension: number;
             }> | undefined;
+            openrouter?: Record<string, {
+                dimension: number;
+            }> | undefined;
         } | undefined;
         codebaseIndexConfig?: {
             codebaseIndexEnabled?: boolean | undefined;
             codebaseIndexQdrantUrl?: string | undefined;
-            codebaseIndexEmbedderProvider?: "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway" | undefined;
+            codebaseIndexEmbedderProvider?: "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | undefined;
             codebaseIndexEmbedderBaseUrl?: string | undefined;
             codebaseIndexEmbedderModelId?: string | undefined;
             codebaseIndexEmbedderModelDimension?: number | undefined;
@@ -391,7 +398,8 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
                 codebaseIndexGeminiApiKey?: string | undefined;
                 codebaseIndexMistralApiKey?: string | undefined;
                 codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+                codebaseIndexOpenRouterApiKey?: string | undefined;
+                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "chutes" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "minimax" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
                 includeMaxTokens?: boolean | undefined;
                 diffEnabled?: boolean | undefined;
                 todoListEnabled?: boolean | undefined;
@@ -456,6 +464,7 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
                     requiredReasoningBudget?: boolean | undefined;
                     supportsReasoningEffort?: boolean | undefined;
                     requiredReasoningEffort?: boolean | undefined;
+                    preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
                     inputPrice?: number | undefined;
                     outputPrice?: number | undefined;
@@ -514,6 +523,8 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
                 doubaoApiKey?: string | undefined;
                 moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
                 moonshotApiKey?: string | undefined;
+                minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
+                minimaxApiKey?: string | undefined;
                 unboundApiKey?: string | undefined;
                 unboundModelId?: string | undefined;
                 requestyBaseUrl?: string | undefined;
@@ -571,7 +582,7 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
         listApiConfigMeta?: {
             id: string;
             name: string;
-            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "chutes" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "minimax" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
             modelId?: string | undefined;
         }[] | undefined;
         pinnedApiConfigs?: Record<string, boolean> | undefined;
@@ -684,11 +695,14 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
             "vercel-ai-gateway"?: Record<string, {
                 dimension: number;
             }> | undefined;
+            openrouter?: Record<string, {
+                dimension: number;
+            }> | undefined;
         } | undefined;
         codebaseIndexConfig?: {
             codebaseIndexEnabled?: boolean | undefined;
             codebaseIndexQdrantUrl?: string | undefined;
-            codebaseIndexEmbedderProvider?: "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway" | undefined;
+            codebaseIndexEmbedderProvider?: "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | undefined;
             codebaseIndexEmbedderBaseUrl?: string | undefined;
             codebaseIndexEmbedderModelId?: string | undefined;
             codebaseIndexEmbedderModelDimension?: number | undefined;
@@ -746,7 +760,8 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
                 codebaseIndexGeminiApiKey?: string | undefined;
                 codebaseIndexMistralApiKey?: string | undefined;
                 codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+                codebaseIndexOpenRouterApiKey?: string | undefined;
+                apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "chutes" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "minimax" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
                 includeMaxTokens?: boolean | undefined;
                 diffEnabled?: boolean | undefined;
                 todoListEnabled?: boolean | undefined;
@@ -811,6 +826,7 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
                     requiredReasoningBudget?: boolean | undefined;
                     supportsReasoningEffort?: boolean | undefined;
                     requiredReasoningEffort?: boolean | undefined;
+                    preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
                     inputPrice?: number | undefined;
                     outputPrice?: number | undefined;
@@ -869,6 +885,8 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
                 doubaoApiKey?: string | undefined;
                 moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
                 moonshotApiKey?: string | undefined;
+                minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
+                minimaxApiKey?: string | undefined;
                 unboundApiKey?: string | undefined;
                 unboundModelId?: string | undefined;
                 requestyBaseUrl?: string | undefined;
@@ -926,7 +944,7 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
         listApiConfigMeta?: {
             id: string;
             name: string;
-            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "chutes" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "minimax" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
             modelId?: string | undefined;
         }[] | undefined;
         pinnedApiConfigs?: Record<string, boolean> | undefined;
@@ -1039,11 +1057,14 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
             "vercel-ai-gateway"?: Record<string, {
                 dimension: number;
             }> | undefined;
+            openrouter?: Record<string, {
+                dimension: number;
+            }> | undefined;
         } | undefined;
         codebaseIndexConfig?: {
             codebaseIndexEnabled?: boolean | undefined;
             codebaseIndexQdrantUrl?: string | undefined;
-            codebaseIndexEmbedderProvider?: "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway" | undefined;
+            codebaseIndexEmbedderProvider?: "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | undefined;
             codebaseIndexEmbedderBaseUrl?: string | undefined;
             codebaseIndexEmbedderModelId?: string | undefined;
             codebaseIndexEmbedderModelDimension?: number | undefined;

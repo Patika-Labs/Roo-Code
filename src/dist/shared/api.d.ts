@@ -68,6 +68,9 @@ declare const dynamicProviderExtras: {
         apiKey?: string;
         baseUrl?: string;
     };
+    readonly chutes: {
+        apiKey?: string;
+    };
 };
 export type GetModelsOptions = {
     [P in keyof typeof dynamicProviderExtras]: ({

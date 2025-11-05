@@ -30,6 +30,7 @@ export declare class AnthropicVertexHandler extends BaseProvider implements Sing
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
             requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;

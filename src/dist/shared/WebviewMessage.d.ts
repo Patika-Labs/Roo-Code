@@ -65,7 +65,7 @@ export interface WebviewMessage {
     codeIndexSettings?: {
         codebaseIndexEnabled: boolean;
         codebaseIndexQdrantUrl: string;
-        codebaseIndexEmbedderProvider: "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway";
+        codebaseIndexEmbedderProvider: "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter";
         codebaseIndexEmbedderBaseUrl?: string;
         codebaseIndexEmbedderModelId: string;
         codebaseIndexEmbedderModelDimension?: number;
@@ -78,6 +78,7 @@ export interface WebviewMessage {
         codebaseIndexGeminiApiKey?: string;
         codebaseIndexMistralApiKey?: string;
         codebaseIndexVercelAiGatewayApiKey?: string;
+        codebaseIndexOpenRouterApiKey?: string;
     };
 }
 export declare const checkoutDiffPayloadSchema: z.ZodObject<{
