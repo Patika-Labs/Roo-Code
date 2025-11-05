@@ -18,6 +18,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         codebaseIndexGeminiApiKey: z.ZodOptional<z.ZodString>;
         codebaseIndexMistralApiKey: z.ZodOptional<z.ZodString>;
         codebaseIndexVercelAiGatewayApiKey: z.ZodOptional<z.ZodString>;
+        codebaseIndexOpenRouterApiKey: z.ZodOptional<z.ZodString>;
         includeMaxTokens: z.ZodOptional<z.ZodBoolean>;
         diffEnabled: z.ZodOptional<z.ZodBoolean>;
         todoListEnabled: z.ZodOptional<z.ZodBoolean>;
@@ -58,6 +59,8 @@ export declare const providerProfilesSchema: z.ZodObject<{
         requestyModelId: z.ZodOptional<z.ZodString>;
         unboundApiKey: z.ZodOptional<z.ZodString>;
         unboundModelId: z.ZodOptional<z.ZodString>;
+        minimaxBaseUrl: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"https://api.minimax.io/v1">, z.ZodLiteral<"https://api.minimaxi.com/v1">]>>;
+        minimaxApiKey: z.ZodOptional<z.ZodString>;
         moonshotBaseUrl: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"https://api.moonshot.ai/v1">, z.ZodLiteral<"https://api.moonshot.cn/v1">]>>;
         moonshotApiKey: z.ZodOptional<z.ZodString>;
         doubaoBaseUrl: z.ZodOptional<z.ZodString>;
@@ -120,6 +123,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
             supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
             requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+            preserveReasoning: z.ZodOptional<z.ZodBoolean>;
             supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
             inputPrice: z.ZodOptional<z.ZodNumber>;
             outputPrice: z.ZodOptional<z.ZodNumber>;
@@ -167,6 +171,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
             requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -200,6 +205,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
             requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -258,7 +264,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         anthropicBaseUrl: z.ZodOptional<z.ZodString>;
         anthropicUseAuthToken: z.ZodOptional<z.ZodBoolean>;
         anthropicBeta1MContext: z.ZodOptional<z.ZodBoolean>;
-        apiProvider: z.ZodOptional<z.ZodEnum<["openrouter", "vercel-ai-gateway", "huggingface", "litellm", "deepinfra", "io-intelligence", "requesty", "unbound", "glama", "roo", "ollama", "lmstudio", "vscode-lm", "openai", "fake-ai", "human-relay", "anthropic", "bedrock", "cerebras", "chutes", "claude-code", "doubao", "deepseek", "featherless", "fireworks", "gemini", "gemini-cli", "groq", "mistral", "moonshot", "openai-native", "qwen-code", "roo", "sambanova", "vertex", "xai", "zai"]>>;
+        apiProvider: z.ZodOptional<z.ZodEnum<["openrouter", "vercel-ai-gateway", "huggingface", "litellm", "deepinfra", "io-intelligence", "requesty", "unbound", "glama", "roo", "chutes", "ollama", "lmstudio", "vscode-lm", "openai", "fake-ai", "human-relay", "anthropic", "bedrock", "cerebras", "claude-code", "doubao", "deepseek", "featherless", "fireworks", "gemini", "gemini-cli", "groq", "mistral", "moonshot", "minimax", "openai-native", "qwen-code", "roo", "sambanova", "vertex", "xai", "zai"]>>;
     } & {
         id: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
@@ -272,7 +278,8 @@ export declare const providerProfilesSchema: z.ZodObject<{
         codebaseIndexGeminiApiKey?: string | undefined;
         codebaseIndexMistralApiKey?: string | undefined;
         codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+        codebaseIndexOpenRouterApiKey?: string | undefined;
+        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "chutes" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "minimax" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
         includeMaxTokens?: boolean | undefined;
         diffEnabled?: boolean | undefined;
         todoListEnabled?: boolean | undefined;
@@ -337,6 +344,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
             requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -395,6 +403,8 @@ export declare const providerProfilesSchema: z.ZodObject<{
         doubaoApiKey?: string | undefined;
         moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
         moonshotApiKey?: string | undefined;
+        minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
+        minimaxApiKey?: string | undefined;
         unboundApiKey?: string | undefined;
         unboundModelId?: string | undefined;
         requestyBaseUrl?: string | undefined;
@@ -433,7 +443,8 @@ export declare const providerProfilesSchema: z.ZodObject<{
         codebaseIndexGeminiApiKey?: string | undefined;
         codebaseIndexMistralApiKey?: string | undefined;
         codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+        codebaseIndexOpenRouterApiKey?: string | undefined;
+        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "chutes" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "minimax" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
         includeMaxTokens?: boolean | undefined;
         diffEnabled?: boolean | undefined;
         todoListEnabled?: boolean | undefined;
@@ -498,6 +509,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
             requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -556,6 +568,8 @@ export declare const providerProfilesSchema: z.ZodObject<{
         doubaoApiKey?: string | undefined;
         moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
         moonshotApiKey?: string | undefined;
+        minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
+        minimaxApiKey?: string | undefined;
         unboundApiKey?: string | undefined;
         unboundModelId?: string | undefined;
         requestyBaseUrl?: string | undefined;
@@ -618,7 +632,8 @@ export declare const providerProfilesSchema: z.ZodObject<{
         codebaseIndexGeminiApiKey?: string | undefined;
         codebaseIndexMistralApiKey?: string | undefined;
         codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+        codebaseIndexOpenRouterApiKey?: string | undefined;
+        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "chutes" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "minimax" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
         includeMaxTokens?: boolean | undefined;
         diffEnabled?: boolean | undefined;
         todoListEnabled?: boolean | undefined;
@@ -683,6 +698,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
             requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -741,6 +757,8 @@ export declare const providerProfilesSchema: z.ZodObject<{
         doubaoApiKey?: string | undefined;
         moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
         moonshotApiKey?: string | undefined;
+        minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
+        minimaxApiKey?: string | undefined;
         unboundApiKey?: string | undefined;
         unboundModelId?: string | undefined;
         requestyBaseUrl?: string | undefined;
@@ -791,7 +809,8 @@ export declare const providerProfilesSchema: z.ZodObject<{
         codebaseIndexGeminiApiKey?: string | undefined;
         codebaseIndexMistralApiKey?: string | undefined;
         codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+        codebaseIndexOpenRouterApiKey?: string | undefined;
+        apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "chutes" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "minimax" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
         includeMaxTokens?: boolean | undefined;
         diffEnabled?: boolean | undefined;
         todoListEnabled?: boolean | undefined;
@@ -856,6 +875,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
             requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -914,6 +934,8 @@ export declare const providerProfilesSchema: z.ZodObject<{
         doubaoApiKey?: string | undefined;
         moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
         moonshotApiKey?: string | undefined;
+        minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
+        minimaxApiKey?: string | undefined;
         unboundApiKey?: string | undefined;
         unboundModelId?: string | undefined;
         requestyBaseUrl?: string | undefined;
@@ -1037,7 +1059,8 @@ export declare class ProviderSettingsManager {
             codebaseIndexGeminiApiKey?: string | undefined;
             codebaseIndexMistralApiKey?: string | undefined;
             codebaseIndexVercelAiGatewayApiKey?: string | undefined;
-            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "chutes" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
+            codebaseIndexOpenRouterApiKey?: string | undefined;
+            apiProvider?: "openai" | "anthropic" | "ollama" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter" | "huggingface" | "litellm" | "deepinfra" | "io-intelligence" | "requesty" | "unbound" | "glama" | "roo" | "chutes" | "lmstudio" | "vscode-lm" | "fake-ai" | "human-relay" | "bedrock" | "cerebras" | "claude-code" | "doubao" | "deepseek" | "featherless" | "fireworks" | "gemini-cli" | "groq" | "moonshot" | "minimax" | "openai-native" | "qwen-code" | "sambanova" | "vertex" | "xai" | "zai" | undefined;
             includeMaxTokens?: boolean | undefined;
             diffEnabled?: boolean | undefined;
             todoListEnabled?: boolean | undefined;
@@ -1102,6 +1125,7 @@ export declare class ProviderSettingsManager {
                 requiredReasoningBudget?: boolean | undefined;
                 supportsReasoningEffort?: boolean | undefined;
                 requiredReasoningEffort?: boolean | undefined;
+                preserveReasoning?: boolean | undefined;
                 supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
                 inputPrice?: number | undefined;
                 outputPrice?: number | undefined;
@@ -1160,6 +1184,8 @@ export declare class ProviderSettingsManager {
             doubaoApiKey?: string | undefined;
             moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
             moonshotApiKey?: string | undefined;
+            minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
+            minimaxApiKey?: string | undefined;
             unboundApiKey?: string | undefined;
             unboundModelId?: string | undefined;
             requestyBaseUrl?: string | undefined;

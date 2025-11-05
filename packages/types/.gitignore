@@ -1,2 +1,4 @@
-dist
+!dist/
+dist/**/*.wasm
+dist/**/__tests__
 npm/package.json

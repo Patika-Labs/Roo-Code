@@ -18,6 +18,7 @@ export declare class CodeIndexConfigManager {
     private geminiOptions?;
     private mistralOptions?;
     private vercelAiGatewayOptions?;
+    private openRouterOptions?;
     private qdrantUrl?;
     private qdrantApiKey?;
     private searchMinScore?;
@@ -55,6 +56,9 @@ export declare class CodeIndexConfigManager {
                 apiKey: string;
             };
             vercelAiGatewayOptions?: {
+                apiKey: string;
+            };
+            openRouterOptions?: {
                 apiKey: string;
             };
             qdrantUrl?: string;

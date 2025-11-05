@@ -45,8 +45,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     type?: "stdio" | undefined;
     url?: undefined;
     disabled?: boolean | undefined;
-    env?: Record<string, string> | undefined;
     headers?: undefined;
+    env?: Record<string, string> | undefined;
     args?: string[] | undefined;
     watchPaths?: string[] | undefined;
 }, {
@@ -55,9 +55,9 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     url?: undefined;
     disabled?: boolean | undefined;
     timeout?: number | undefined;
+    headers?: undefined;
     cwd?: string | undefined;
     env?: Record<string, string> | undefined;
-    headers?: undefined;
     args?: string[] | undefined;
     alwaysAllow?: string[] | undefined;
     watchPaths?: string[] | undefined;
@@ -71,8 +71,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     disabledTools: string[];
     url?: undefined;
     disabled?: boolean | undefined;
-    env?: Record<string, string> | undefined;
     headers?: undefined;
+    env?: Record<string, string> | undefined;
     args?: string[] | undefined;
     watchPaths?: string[] | undefined;
 }, {
@@ -81,9 +81,9 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     url?: undefined;
     disabled?: boolean | undefined;
     timeout?: number | undefined;
+    headers?: undefined;
     cwd?: string | undefined;
     env?: Record<string, string> | undefined;
-    headers?: undefined;
     args?: string[] | undefined;
     alwaysAllow?: string[] | undefined;
     watchPaths?: string[] | undefined;
@@ -97,8 +97,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     disabledTools: string[];
     url?: undefined;
     disabled?: boolean | undefined;
-    env?: Record<string, string> | undefined;
     headers?: undefined;
+    env?: Record<string, string> | undefined;
     args?: string[] | undefined;
     watchPaths?: string[] | undefined;
 }, {
@@ -107,9 +107,9 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     url?: undefined;
     disabled?: boolean | undefined;
     timeout?: number | undefined;
+    headers?: undefined;
     cwd?: string | undefined;
     env?: Record<string, string> | undefined;
-    headers?: undefined;
     args?: string[] | undefined;
     alwaysAllow?: string[] | undefined;
     watchPaths?: string[] | undefined;
@@ -135,8 +135,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     command?: undefined;
     type?: "sse" | undefined;
     disabled?: boolean | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     watchPaths?: string[] | undefined;
 }, {
@@ -145,8 +145,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     type?: "sse" | undefined;
     disabled?: boolean | undefined;
     timeout?: number | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     alwaysAllow?: string[] | undefined;
     watchPaths?: string[] | undefined;
@@ -159,8 +159,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     disabledTools: string[];
     command?: undefined;
     disabled?: boolean | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     watchPaths?: string[] | undefined;
 }, {
@@ -169,8 +169,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     type?: "sse" | undefined;
     disabled?: boolean | undefined;
     timeout?: number | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     alwaysAllow?: string[] | undefined;
     watchPaths?: string[] | undefined;
@@ -183,8 +183,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     disabledTools: string[];
     command?: undefined;
     disabled?: boolean | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     watchPaths?: string[] | undefined;
 }, {
@@ -193,8 +193,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     type?: "sse" | undefined;
     disabled?: boolean | undefined;
     timeout?: number | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     alwaysAllow?: string[] | undefined;
     watchPaths?: string[] | undefined;
@@ -220,8 +220,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     command?: undefined;
     type?: "streamable-http" | undefined;
     disabled?: boolean | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     watchPaths?: string[] | undefined;
 }, {
@@ -230,8 +230,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     type?: "streamable-http" | undefined;
     disabled?: boolean | undefined;
     timeout?: number | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     alwaysAllow?: string[] | undefined;
     watchPaths?: string[] | undefined;
@@ -244,8 +244,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     disabledTools: string[];
     command?: undefined;
     disabled?: boolean | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     watchPaths?: string[] | undefined;
 }, {
@@ -254,8 +254,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     type?: "streamable-http" | undefined;
     disabled?: boolean | undefined;
     timeout?: number | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     alwaysAllow?: string[] | undefined;
     watchPaths?: string[] | undefined;
@@ -268,8 +268,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     disabledTools: string[];
     command?: undefined;
     disabled?: boolean | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     watchPaths?: string[] | undefined;
 }, {
@@ -278,8 +278,8 @@ export declare const ServerConfigSchema: z.ZodUnion<[z.ZodEffects<z.ZodEffects<z
     type?: "streamable-http" | undefined;
     disabled?: boolean | undefined;
     timeout?: number | undefined;
-    env?: undefined;
     headers?: Record<string, string> | undefined;
+    env?: undefined;
     args?: undefined;
     alwaysAllow?: string[] | undefined;
     watchPaths?: string[] | undefined;
@@ -296,6 +296,8 @@ export declare class McpHub {
     isConnecting: boolean;
     private refCount;
     private configChangeDebounceTimers;
+    private isProgrammaticUpdate;
+    private flagResetTimer?;
     constructor(provider: ClineProvider);
     /**
      * Registers a client (e.g., ClineProvider) using this hub.
@@ -374,6 +376,13 @@ export declare class McpHub {
     refreshAllConnections(): Promise<void>;
     private notifyWebviewOfServerChanges;
     toggleServerDisabled(serverName: string, disabled: boolean, source?: "global" | "project"): Promise<void>;
+    /**
+     * Helper method to read a server's configuration from the appropriate settings file
+     * @param serverName The name of the server to read
+     * @param source Whether to read from the global or project config
+     * @returns The validated server configuration
+     */
+    private readServerConfigFromFile;
     /**
      * Helper method to update a server's configuration in the appropriate settings file
      * @param serverName The name of the server to update

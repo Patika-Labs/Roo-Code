@@ -75,6 +75,7 @@ export declare class OpenAiNativeHandler extends BaseProvider implements SingleC
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
             requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;

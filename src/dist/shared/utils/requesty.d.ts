@@ -1,3 +1,4 @@
+export declare const REQUESTY_BASE_URL = "https://router.requesty.ai/v1";
 type URLType = "router" | "app" | "api";
 /**
  * Converts a base URL to a Requesty service URL with proper validation and fallback

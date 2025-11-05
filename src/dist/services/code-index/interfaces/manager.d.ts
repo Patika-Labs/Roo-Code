@@ -62,7 +62,7 @@ export interface ICodeIndexManager {
     dispose(): void;
 }
 export type IndexingState = "Standby" | "Indexing" | "Indexed" | "Error";
-export type EmbedderProvider = "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway";
+export type EmbedderProvider = "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter";
 export interface IndexProgressUpdate {
     systemStatus: IndexingState;
     message?: string;

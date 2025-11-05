@@ -12,7 +12,7 @@ export interface TextContent {
     content: string;
     partial: boolean;
 }
-export declare const toolParamNames: readonly ["command", "path", "content", "line_count", "regex", "file_pattern", "recursive", "action", "url", "coordinate", "text", "server_name", "tool_name", "arguments", "uri", "question", "result", "diff", "mode_slug", "reason", "line", "mode", "message", "cwd", "follow_up", "task", "size", "search", "replace", "use_regex", "ignore_case", "args", "start_line", "end_line", "query", "args", "todos", "prompt", "image"];
+export declare const toolParamNames: readonly ["command", "path", "content", "line_count", "regex", "file_pattern", "recursive", "action", "url", "coordinate", "text", "server_name", "tool_name", "arguments", "uri", "question", "result", "diff", "mode_slug", "reason", "line", "mode", "message", "cwd", "follow_up", "task", "size", "query", "args", "start_line", "end_line", "todos", "prompt", "image"];
 export type ToolParamName = (typeof toolParamNames)[number];
 export interface ToolUse {
     type: "tool_use";
@@ -87,10 +87,6 @@ export interface NewTaskToolUse extends ToolUse {
 export interface RunSlashCommandToolUse extends ToolUse {
     name: "run_slash_command";
     params: Partial<Pick<Record<ToolParamName, string>, "command" | "args">>;
-}
-export interface SearchAndReplaceToolUse extends ToolUse {
-    name: "search_and_replace";
-    params: Required<Pick<Record<ToolParamName, string>, "path" | "search" | "replace">> & Partial<Pick<Record<ToolParamName, string>, "use_regex" | "ignore_case" | "start_line" | "end_line">>;
 }
 export interface GenerateImageToolUse extends ToolUse {
     name: "generate_image";
