@@ -27,6 +27,7 @@ export declare class DeepInfraHandler extends RouterProvider implements SingleCo
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
             requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -71,6 +72,7 @@ export declare class DeepInfraHandler extends RouterProvider implements SingleCo
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
             requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;

@@ -181,7 +181,7 @@ export type ExtensionState = Pick<GlobalSettings, "currentApiConfigName" | "list
     featureRoomoteControlEnabled: boolean;
 };
 export interface ClineSayTool {
-    tool: "editedExistingFile" | "appliedDiff" | "newFileCreated" | "codebaseSearch" | "readFile" | "fetchInstructions" | "listFilesTopLevel" | "listFilesRecursive" | "listCodeDefinitionNames" | "searchFiles" | "switchMode" | "newTask" | "finishTask" | "searchAndReplace" | "insertContent" | "generateImage" | "imageGenerated" | "runSlashCommand";
+    tool: "editedExistingFile" | "appliedDiff" | "newFileCreated" | "codebaseSearch" | "readFile" | "fetchInstructions" | "listFilesTopLevel" | "listFilesRecursive" | "listCodeDefinitionNames" | "searchFiles" | "switchMode" | "newTask" | "finishTask" | "insertContent" | "generateImage" | "imageGenerated" | "runSlashCommand";
     path?: string;
     diff?: string;
     content?: string;
@@ -192,12 +192,6 @@ export interface ClineSayTool {
     isOutsideWorkspace?: boolean;
     isProtected?: boolean;
     additionalFileCount?: number;
-    search?: string;
-    replace?: string;
-    useRegex?: boolean;
-    ignoreCase?: boolean;
-    startLine?: number;
-    endLine?: number;
     lineNumber?: number;
     query?: string;
     batchFiles?: Array<{

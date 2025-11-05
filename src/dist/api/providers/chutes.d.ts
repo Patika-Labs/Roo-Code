@@ -1,12 +1,13 @@
-import { type ChutesModelId } from "@roo-code/types";
 import { Anthropic } from "@anthropic-ai/sdk";
 import type { ApiHandlerOptions } from "../../shared/api";
 import { ApiStream } from "../transform/stream";
-import { BaseOpenAiCompatibleProvider } from "./base-openai-compatible-provider";
-export declare class ChutesHandler extends BaseOpenAiCompatibleProvider<ChutesModelId> {
+import type { SingleCompletionHandler, ApiHandlerCreateMessageMetadata } from "../index";
+import { RouterProvider } from "./router-provider";
+export declare class ChutesHandler extends RouterProvider implements SingleCompletionHandler {
     constructor(options: ApiHandlerOptions);
     private getCompletionParams;
-    createMessage(systemPrompt: string, messages: Anthropic.Messages.MessageParam[]): ApiStream;
+    createMessage(systemPrompt: string, messages: Anthropic.Messages.MessageParam[], metadata?: ApiHandlerCreateMessageMetadata): ApiStream;
+    completePrompt(prompt: string): Promise<string>;
     getModel(): {
         info: {
             temperature: number;
@@ -22,6 +23,7 @@ export declare class ChutesHandler extends BaseOpenAiCompatibleProvider<ChutesMo
             requiredReasoningBudget?: boolean | undefined;
             supportsReasoningEffort?: boolean | undefined;
             requiredReasoningEffort?: boolean | undefined;
+            preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
             inputPrice?: number | undefined;
             outputPrice?: number | undefined;
@@ -43,6 +45,6 @@ export declare class ChutesHandler extends BaseOpenAiCompatibleProvider<ChutesMo
                 cacheReadsPrice?: number | undefined;
             }[] | undefined;
         };
-        id: ChutesModelId;
+        id: string;
     };
 }

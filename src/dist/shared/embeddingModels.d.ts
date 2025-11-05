@@ -1,7 +1,7 @@
 /**
  * Defines profiles for different embedding models, including their dimensions.
  */
-export type EmbedderProvider = "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway";
+export type EmbedderProvider = "openai" | "ollama" | "openai-compatible" | "gemini" | "mistral" | "vercel-ai-gateway" | "openrouter";
 export interface EmbeddingModelProfile {
     dimension: number;
     scoreThreshold?: number;
