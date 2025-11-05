@@ -69,6 +69,7 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
                 awsSessionToken?: string | undefined;
                 awsRegion?: string | undefined;
                 awsUseCrossRegionInference?: boolean | undefined;
+                awsUseGlobalInference?: boolean | undefined;
                 awsUsePromptCache?: boolean | undefined;
                 awsProfile?: string | undefined;
                 awsUseProfile?: boolean | undefined;
@@ -430,6 +431,7 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
                 awsSessionToken?: string | undefined;
                 awsRegion?: string | undefined;
                 awsUseCrossRegionInference?: boolean | undefined;
+                awsUseGlobalInference?: boolean | undefined;
                 awsUsePromptCache?: boolean | undefined;
                 awsProfile?: string | undefined;
                 awsUseProfile?: boolean | undefined;
@@ -792,6 +794,7 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
                 awsSessionToken?: string | undefined;
                 awsRegion?: string | undefined;
                 awsUseCrossRegionInference?: boolean | undefined;
+                awsUseGlobalInference?: boolean | undefined;
                 awsUsePromptCache?: boolean | undefined;
                 awsProfile?: string | undefined;
                 awsUseProfile?: boolean | undefined;
