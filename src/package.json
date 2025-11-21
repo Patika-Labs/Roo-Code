@@ -3,7 +3,7 @@
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
 	"publisher": "RooVeterinaryInc",
-	"version": "3.30.2",
+	"version": "3.30.102",
 	"icon": "assets/icons/icon.png",
 	"galleryBanner": {
 		"color": "#617A91",
@@ -447,7 +447,7 @@
 		"test": "vitest run",
 		"format": "prettier --write .",
 		"bundle": "node esbuild.mjs",
-        "emit:decl": "tsc --emitDeclarationOnly --outDir dist",
+		"emit:decl": "tsc --emitDeclarationOnly --outDir dist",
 		"bundle:emit:decl": "pnpm bundle && pnpm emit:decl",
 		"vscode:prepublish": "pnpm bundle --production && pnpm emit:decl",
 		"vsix": "mkdirp ../bin && vsce package --no-dependencies --out ../bin",
