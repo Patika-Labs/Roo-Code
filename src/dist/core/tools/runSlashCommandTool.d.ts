@@ -1,3 +1,15 @@
 import { Task } from "../task/Task";
-import { ToolUse, AskApproval, HandleError, PushToolResult, RemoveClosingTag } from "../../shared/tools";
-export declare function runSlashCommandTool(task: Task, block: ToolUse, askApproval: AskApproval, handleError: HandleError, pushToolResult: PushToolResult, removeClosingTag: RemoveClosingTag): Promise<void>;
+import { BaseTool, ToolCallbacks } from "./BaseTool";
+import type { ToolUse } from "../../shared/tools";
+interface RunSlashCommandParams {
+    command: string;
+    args?: string;
+}
+export declare class RunSlashCommandTool extends BaseTool<"run_slash_command"> {
+    readonly name: "run_slash_command";
+    parseLegacy(params: Partial<Record<string, string>>): RunSlashCommandParams;
+    execute(params: RunSlashCommandParams, task: Task, callbacks: ToolCallbacks): Promise<void>;
+    handlePartial(task: Task, block: ToolUse<"run_slash_command">): Promise<void>;
+}
+export declare const runSlashCommandTool: RunSlashCommandTool;
+export {};

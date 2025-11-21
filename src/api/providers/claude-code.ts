@@ -14,6 +14,25 @@ import { BaseProvider } from "./base-provider"
 import { t } from "../../i18n"
 import { ApiHandlerOptions } from "../../shared/api"
 
+function jsonToXML(value: any, key: string = "root"): string {
+	if (value === null || value === undefined) {
+		return `<${key} />`
+	}
+
+	if (Array.isArray(value)) {
+		return value.map((item) => jsonToXML(item, "item")).join("")
+	}
+
+	if (typeof value === "object") {
+		const inner = Object.entries(value)
+			.map(([k, v]) => jsonToXML(v, k))
+			.join("")
+		return `<${key}>${inner}</${key}>`
+	}
+
+	return `<${key}>${value}</${key}>`
+}
+
 export class ClaudeCodeHandler extends BaseProvider implements ApiHandler {
 	private options: ApiHandlerOptions
 
@@ -116,7 +135,12 @@ export class ClaudeCodeHandler extends BaseProvider implements ApiHandler {
 							}
 							break
 						case "tool_use":
-							console.error(`tool_use is not supported yet. Received: ${JSON.stringify(content)}`)
+							if (content.name) {
+								yield {
+									type: "text",
+									text: `${jsonToXML(content.input, content.name)}`,
+								}
+							}
 							break
 					}
 				}

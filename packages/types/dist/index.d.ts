@@ -126,23 +126,6 @@ declare const rooCodeEventsSchema: z.ZodObject<{
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -167,11 +150,6 @@ declare const rooCodeEventsSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -196,11 +174,6 @@ declare const rooCodeEventsSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>;
     }, "strip", z.ZodTypeAny, {
         message: {
@@ -227,11 +200,6 @@ declare const rooCodeEventsSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         action: "created" | "updated";
@@ -260,11 +228,6 @@ declare const rooCodeEventsSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         action: "created" | "updated";
@@ -357,11 +320,6 @@ declare const rooCodeEventsSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         action: "created" | "updated";
@@ -434,11 +392,6 @@ declare const rooCodeEventsSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         action: "created" | "updated";
@@ -726,23 +679,6 @@ declare const taskEventSchema: z.ZodDiscriminatedUnion<"eventName", [z.ZodObject
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -767,11 +703,6 @@ declare const taskEventSchema: z.ZodDiscriminatedUnion<"eventName", [z.ZodObject
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -796,11 +727,6 @@ declare const taskEventSchema: z.ZodDiscriminatedUnion<"eventName", [z.ZodObject
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>;
     }, "strip", z.ZodTypeAny, {
         message: {
@@ -827,11 +753,6 @@ declare const taskEventSchema: z.ZodDiscriminatedUnion<"eventName", [z.ZodObject
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         action: "created" | "updated";
@@ -860,11 +781,6 @@ declare const taskEventSchema: z.ZodDiscriminatedUnion<"eventName", [z.ZodObject
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         action: "created" | "updated";
@@ -897,11 +813,6 @@ declare const taskEventSchema: z.ZodDiscriminatedUnion<"eventName", [z.ZodObject
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         action: "created" | "updated";
@@ -934,11 +845,6 @@ declare const taskEventSchema: z.ZodDiscriminatedUnion<"eventName", [z.ZodObject
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         action: "created" | "updated";
@@ -1146,10 +1052,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -1161,7 +1068,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"anthropic">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "anthropic";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1173,6 +1080,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     apiKey?: string | undefined;
     anthropicBaseUrl?: string | undefined;
@@ -1180,7 +1088,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     anthropicBeta1MContext?: boolean | undefined;
 }, {
     apiProvider: "anthropic";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1192,6 +1100,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     apiKey?: string | undefined;
     anthropicBaseUrl?: string | undefined;
@@ -1206,10 +1115,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -1219,7 +1129,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"claude-code">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "claude-code";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1231,12 +1141,13 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     claudeCodePath?: string | undefined;
     claudeCodeMaxOutputTokens?: number | undefined;
 }, {
     apiProvider: "claude-code";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1248,6 +1159,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     claudeCodePath?: string | undefined;
     claudeCodeMaxOutputTokens?: number | undefined;
@@ -1260,10 +1172,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     glamaModelId: z.ZodOptional<z.ZodString>;
     glamaApiKey: z.ZodOptional<z.ZodString>;
@@ -1271,7 +1184,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"glama">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "glama";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1283,11 +1196,12 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     glamaModelId?: string | undefined;
     glamaApiKey?: string | undefined;
 }, {
     apiProvider: "glama";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1299,6 +1213,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     glamaModelId?: string | undefined;
     glamaApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -1310,10 +1225,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     openRouterApiKey: z.ZodOptional<z.ZodString>;
     openRouterModelId: z.ZodOptional<z.ZodString>;
@@ -1324,7 +1240,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"openrouter">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "openrouter";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1336,6 +1252,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     openRouterApiKey?: string | undefined;
     openRouterModelId?: string | undefined;
     openRouterBaseUrl?: string | undefined;
@@ -1343,7 +1260,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     openRouterUseMiddleOutTransform?: boolean | undefined;
 }, {
     apiProvider: "openrouter";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1355,6 +1272,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     openRouterApiKey?: string | undefined;
     openRouterModelId?: string | undefined;
     openRouterBaseUrl?: string | undefined;
@@ -1369,10 +1287,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -1396,7 +1315,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"bedrock">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "bedrock";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1408,6 +1327,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     awsAccessKey?: string | undefined;
     awsSecretKey?: string | undefined;
@@ -1427,7 +1347,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     awsBedrock1MContext?: boolean | undefined;
 }, {
     apiProvider: "bedrock";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1439,6 +1359,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     awsAccessKey?: string | undefined;
     awsSecretKey?: string | undefined;
@@ -1465,10 +1386,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -1482,7 +1404,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"vertex">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "vertex";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1494,6 +1416,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     vertexKeyFile?: string | undefined;
     vertexJsonCredentials?: string | undefined;
@@ -1503,7 +1426,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     enableGrounding?: boolean | undefined;
 }, {
     apiProvider: "vertex";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1515,6 +1438,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     vertexKeyFile?: string | undefined;
     vertexJsonCredentials?: string | undefined;
@@ -1531,10 +1455,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     openAiBaseUrl: z.ZodOptional<z.ZodString>;
     openAiApiKey: z.ZodOptional<z.ZodString>;
@@ -1547,12 +1472,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
         contextWindow: z.ZodNumber;
         supportsImages: z.ZodOptional<z.ZodBoolean>;
         supportsPromptCache: z.ZodBoolean;
+        promptCacheRetention: z.ZodOptional<z.ZodEnum<["in_memory", "24h"]>>;
         supportsVerbosity: z.ZodOptional<z.ZodBoolean>;
         supportsReasoningBudget: z.ZodOptional<z.ZodBoolean>;
         supportsReasoningBinary: z.ZodOptional<z.ZodBoolean>;
         supportsTemperature: z.ZodOptional<z.ZodBoolean>;
+        defaultTemperature: z.ZodOptional<z.ZodNumber>;
         requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
-        supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+        supportsReasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodBoolean, z.ZodArray<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>, "many">]>>;
         requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
         preserveReasoning: z.ZodOptional<z.ZodBoolean>;
         supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
@@ -1561,12 +1488,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
         cacheWritesPrice: z.ZodOptional<z.ZodNumber>;
         cacheReadsPrice: z.ZodOptional<z.ZodNumber>;
         description: z.ZodOptional<z.ZodString>;
-        reasoningEffort: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+        reasoningEffort: z.ZodOptional<z.ZodEnum<["none", "minimal", "low", "medium", "high"]>>;
         minTokensPerCachePoint: z.ZodOptional<z.ZodNumber>;
         maxCachePoints: z.ZodOptional<z.ZodNumber>;
         cachableFields: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         deprecated: z.ZodOptional<z.ZodBoolean>;
         isFree: z.ZodOptional<z.ZodBoolean>;
+        supportsNativeTools: z.ZodOptional<z.ZodBoolean>;
+        defaultToolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
         tiers: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodOptional<z.ZodEnum<["default", "flex", "priority"]>>;
             contextWindow: z.ZodNumber;
@@ -1595,12 +1524,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -1609,12 +1540,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -1629,12 +1562,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -1643,12 +1578,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -1667,7 +1604,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"openai">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "openai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1679,6 +1616,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     openAiBaseUrl?: string | undefined;
     openAiApiKey?: string | undefined;
     openAiLegacyFormat?: boolean | undefined;
@@ -1690,12 +1628,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -1704,12 +1644,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -1726,7 +1668,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     openAiHeaders?: Record<string, string> | undefined;
 }, {
     apiProvider: "openai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1738,6 +1680,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     openAiBaseUrl?: string | undefined;
     openAiApiKey?: string | undefined;
     openAiLegacyFormat?: boolean | undefined;
@@ -1749,12 +1692,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -1763,12 +1708,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -1792,10 +1739,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     ollamaModelId: z.ZodOptional<z.ZodString>;
     ollamaBaseUrl: z.ZodOptional<z.ZodString>;
@@ -1805,7 +1753,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"ollama">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "ollama";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1817,13 +1765,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     ollamaModelId?: string | undefined;
     ollamaBaseUrl?: string | undefined;
     ollamaApiKey?: string | undefined;
     ollamaNumCtx?: number | undefined;
 }, {
     apiProvider: "ollama";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1835,6 +1784,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     ollamaModelId?: string | undefined;
     ollamaBaseUrl?: string | undefined;
     ollamaApiKey?: string | undefined;
@@ -1848,10 +1798,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     vsCodeLmModelSelector: z.ZodOptional<z.ZodObject<{
         vendor: z.ZodOptional<z.ZodString>;
@@ -1873,7 +1824,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"vscode-lm">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "vscode-lm";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1885,6 +1836,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     vsCodeLmModelSelector?: {
         id?: string | undefined;
         family?: string | undefined;
@@ -1893,7 +1845,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     } | undefined;
 }, {
     apiProvider: "vscode-lm";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1905,6 +1857,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     vsCodeLmModelSelector?: {
         id?: string | undefined;
         family?: string | undefined;
@@ -1920,10 +1873,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     lmStudioModelId: z.ZodOptional<z.ZodString>;
     lmStudioBaseUrl: z.ZodOptional<z.ZodString>;
@@ -1933,7 +1887,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"lmstudio">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "lmstudio";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1945,13 +1899,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     lmStudioModelId?: string | undefined;
     lmStudioBaseUrl?: string | undefined;
     lmStudioDraftModelId?: string | undefined;
     lmStudioSpeculativeDecodingEnabled?: boolean | undefined;
 }, {
     apiProvider: "lmstudio";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -1963,6 +1918,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     lmStudioModelId?: string | undefined;
     lmStudioBaseUrl?: string | undefined;
     lmStudioDraftModelId?: string | undefined;
@@ -1976,10 +1932,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -1991,7 +1948,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"gemini">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "gemini";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2003,6 +1960,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     enableUrlContext?: boolean | undefined;
     enableGrounding?: boolean | undefined;
@@ -2010,7 +1968,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     googleGeminiBaseUrl?: string | undefined;
 }, {
     apiProvider: "gemini";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2022,6 +1980,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     enableUrlContext?: boolean | undefined;
     enableGrounding?: boolean | undefined;
@@ -2036,10 +1995,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2049,7 +2009,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"gemini-cli">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "gemini-cli";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2061,12 +2021,13 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     geminiCliOAuthPath?: string | undefined;
     geminiCliProjectId?: string | undefined;
 }, {
     apiProvider: "gemini-cli";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2078,6 +2039,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     geminiCliOAuthPath?: string | undefined;
     geminiCliProjectId?: string | undefined;
@@ -2090,10 +2052,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2104,7 +2067,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"openai-native">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "openai-native";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2116,13 +2079,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     openAiNativeApiKey?: string | undefined;
     openAiNativeBaseUrl?: string | undefined;
     openAiNativeServiceTier?: "default" | "flex" | "priority" | undefined;
 }, {
     apiProvider: "openai-native";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2134,6 +2098,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     openAiNativeApiKey?: string | undefined;
     openAiNativeBaseUrl?: string | undefined;
@@ -2147,10 +2112,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2160,7 +2126,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"mistral">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "mistral";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2172,12 +2138,13 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     mistralApiKey?: string | undefined;
     mistralCodestralUrl?: string | undefined;
 }, {
     apiProvider: "mistral";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2189,6 +2156,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     mistralApiKey?: string | undefined;
     mistralCodestralUrl?: string | undefined;
@@ -2201,10 +2169,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2214,7 +2183,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"deepseek">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "deepseek";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2226,12 +2195,13 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     deepSeekBaseUrl?: string | undefined;
     deepSeekApiKey?: string | undefined;
 }, {
     apiProvider: "deepseek";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2243,6 +2213,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     deepSeekBaseUrl?: string | undefined;
     deepSeekApiKey?: string | undefined;
@@ -2255,10 +2226,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2269,7 +2241,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"deepinfra">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "deepinfra";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2281,13 +2253,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     deepInfraBaseUrl?: string | undefined;
     deepInfraApiKey?: string | undefined;
     deepInfraModelId?: string | undefined;
 }, {
     apiProvider: "deepinfra";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2299,6 +2272,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     deepInfraBaseUrl?: string | undefined;
     deepInfraApiKey?: string | undefined;
@@ -2312,10 +2286,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2325,7 +2300,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"doubao">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "doubao";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2337,12 +2312,13 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     doubaoBaseUrl?: string | undefined;
     doubaoApiKey?: string | undefined;
 }, {
     apiProvider: "doubao";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2354,6 +2330,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     doubaoBaseUrl?: string | undefined;
     doubaoApiKey?: string | undefined;
@@ -2366,10 +2343,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2379,7 +2357,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"moonshot">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "moonshot";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2391,12 +2369,13 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
     moonshotApiKey?: string | undefined;
 }, {
     apiProvider: "moonshot";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2408,6 +2387,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
     moonshotApiKey?: string | undefined;
@@ -2420,10 +2400,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2433,7 +2414,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"minimax">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "minimax";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2445,12 +2426,13 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
     minimaxApiKey?: string | undefined;
 }, {
     apiProvider: "minimax";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2462,6 +2444,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
     minimaxApiKey?: string | undefined;
@@ -2474,10 +2457,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     unboundApiKey: z.ZodOptional<z.ZodString>;
     unboundModelId: z.ZodOptional<z.ZodString>;
@@ -2485,7 +2469,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"unbound">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "unbound";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2497,11 +2481,12 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     unboundApiKey?: string | undefined;
     unboundModelId?: string | undefined;
 }, {
     apiProvider: "unbound";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2513,6 +2498,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     unboundApiKey?: string | undefined;
     unboundModelId?: string | undefined;
 }>, z.ZodObject<{
@@ -2524,10 +2510,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     requestyBaseUrl: z.ZodOptional<z.ZodString>;
     requestyApiKey: z.ZodOptional<z.ZodString>;
@@ -2536,7 +2523,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"requesty">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "requesty";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2548,12 +2535,13 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     requestyBaseUrl?: string | undefined;
     requestyApiKey?: string | undefined;
     requestyModelId?: string | undefined;
 }, {
     apiProvider: "requesty";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2565,6 +2553,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     requestyBaseUrl?: string | undefined;
     requestyApiKey?: string | undefined;
     requestyModelId?: string | undefined;
@@ -2577,15 +2566,16 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiProvider: z.ZodLiteral<"human-relay">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "human-relay";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2597,9 +2587,10 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
 }, {
     apiProvider: "human-relay";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2611,6 +2602,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
 }>, z.ZodObject<{
     includeMaxTokens: z.ZodOptional<z.ZodBoolean>;
     diffEnabled: z.ZodOptional<z.ZodBoolean>;
@@ -2620,17 +2612,18 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     fakeAi: z.ZodOptional<z.ZodUnknown>;
 } & {
     apiProvider: z.ZodLiteral<"fake-ai">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "fake-ai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2642,10 +2635,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     fakeAi?: unknown;
 }, {
     apiProvider: "fake-ai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2657,6 +2651,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     fakeAi?: unknown;
 }>, z.ZodObject<{
     includeMaxTokens: z.ZodOptional<z.ZodBoolean>;
@@ -2667,10 +2662,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2679,7 +2675,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"xai">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "xai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2691,11 +2687,12 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     xaiApiKey?: string | undefined;
 }, {
     apiProvider: "xai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2707,6 +2704,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     xaiApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -2718,10 +2716,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2730,7 +2729,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"groq">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "groq";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2742,11 +2741,12 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     groqApiKey?: string | undefined;
 }, {
     apiProvider: "groq";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2758,6 +2758,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     groqApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -2769,10 +2770,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     huggingFaceApiKey: z.ZodOptional<z.ZodString>;
     huggingFaceModelId: z.ZodOptional<z.ZodString>;
@@ -2781,7 +2783,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"huggingface">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "huggingface";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2793,12 +2795,13 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     huggingFaceApiKey?: string | undefined;
     huggingFaceModelId?: string | undefined;
     huggingFaceInferenceProvider?: string | undefined;
 }, {
     apiProvider: "huggingface";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2810,6 +2813,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     huggingFaceApiKey?: string | undefined;
     huggingFaceModelId?: string | undefined;
     huggingFaceInferenceProvider?: string | undefined;
@@ -2822,10 +2826,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2834,7 +2839,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"chutes">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "chutes";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2846,11 +2851,12 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     chutesApiKey?: string | undefined;
 }, {
     apiProvider: "chutes";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2862,6 +2868,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     chutesApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -2873,10 +2880,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     litellmBaseUrl: z.ZodOptional<z.ZodString>;
     litellmApiKey: z.ZodOptional<z.ZodString>;
@@ -2886,7 +2894,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"litellm">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "litellm";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2898,13 +2906,14 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     litellmBaseUrl?: string | undefined;
     litellmApiKey?: string | undefined;
     litellmModelId?: string | undefined;
     litellmUsePromptCache?: boolean | undefined;
 }, {
     apiProvider: "litellm";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2916,6 +2925,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     litellmBaseUrl?: string | undefined;
     litellmApiKey?: string | undefined;
     litellmModelId?: string | undefined;
@@ -2929,10 +2939,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2941,7 +2952,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"cerebras">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "cerebras";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2953,11 +2964,12 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     cerebrasApiKey?: string | undefined;
 }, {
     apiProvider: "cerebras";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -2969,6 +2981,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     cerebrasApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -2980,10 +2993,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -2992,7 +3006,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"sambanova">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "sambanova";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3004,11 +3018,12 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     sambaNovaApiKey?: string | undefined;
 }, {
     apiProvider: "sambanova";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3020,6 +3035,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     sambaNovaApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -3031,10 +3047,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -3044,7 +3061,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"zai">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "zai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3056,12 +3073,13 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     zaiApiKey?: string | undefined;
     zaiApiLine?: "international_coding" | "china_coding" | undefined;
 }, {
     apiProvider: "zai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3073,6 +3091,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     zaiApiKey?: string | undefined;
     zaiApiLine?: "international_coding" | "china_coding" | undefined;
@@ -3085,10 +3104,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -3097,7 +3117,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"fireworks">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "fireworks";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3109,11 +3129,12 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     fireworksApiKey?: string | undefined;
 }, {
     apiProvider: "fireworks";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3125,6 +3146,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     fireworksApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -3136,10 +3158,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -3148,7 +3171,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"featherless">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "featherless";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3160,11 +3183,12 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     featherlessApiKey?: string | undefined;
 }, {
     apiProvider: "featherless";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3176,6 +3200,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     featherlessApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -3187,10 +3212,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -3200,7 +3226,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"io-intelligence">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "io-intelligence";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3212,12 +3238,13 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     ioIntelligenceModelId?: string | undefined;
     ioIntelligenceApiKey?: string | undefined;
 }, {
     apiProvider: "io-intelligence";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3229,6 +3256,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     ioIntelligenceModelId?: string | undefined;
     ioIntelligenceApiKey?: string | undefined;
@@ -3241,10 +3269,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -3253,7 +3282,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"qwen-code">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "qwen-code";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3265,11 +3294,12 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     qwenCodeOauthPath?: string | undefined;
 }, {
     apiProvider: "qwen-code";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3281,6 +3311,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     qwenCodeOauthPath?: string | undefined;
 }>, z.ZodObject<{
@@ -3292,17 +3323,18 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
     apiProvider: z.ZodLiteral<"roo">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "roo";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3314,10 +3346,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
 }, {
     apiProvider: "roo";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3329,6 +3362,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
 }>, z.ZodObject<{
     includeMaxTokens: z.ZodOptional<z.ZodBoolean>;
@@ -3339,10 +3373,11 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     vercelAiGatewayApiKey: z.ZodOptional<z.ZodString>;
     vercelAiGatewayModelId: z.ZodOptional<z.ZodString>;
@@ -3350,7 +3385,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     apiProvider: z.ZodLiteral<"vercel-ai-gateway">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "vercel-ai-gateway";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3362,11 +3397,12 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     vercelAiGatewayApiKey?: string | undefined;
     vercelAiGatewayModelId?: string | undefined;
 }, {
     apiProvider: "vercel-ai-gateway";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -3378,6 +3414,7 @@ declare const providerSettingsSchemaDiscriminated: z.ZodDiscriminatedUnion<"apiP
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     vercelAiGatewayApiKey?: string | undefined;
     vercelAiGatewayModelId?: string | undefined;
 }>, z.ZodObject<{
@@ -3405,10 +3442,11 @@ declare const providerSettingsSchema: z.ZodObject<{
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
     vercelAiGatewayApiKey: z.ZodOptional<z.ZodString>;
     vercelAiGatewayModelId: z.ZodOptional<z.ZodString>;
     apiModelId: z.ZodOptional<z.ZodString>;
@@ -3494,12 +3532,14 @@ declare const providerSettingsSchema: z.ZodObject<{
         contextWindow: z.ZodNumber;
         supportsImages: z.ZodOptional<z.ZodBoolean>;
         supportsPromptCache: z.ZodBoolean;
+        promptCacheRetention: z.ZodOptional<z.ZodEnum<["in_memory", "24h"]>>;
         supportsVerbosity: z.ZodOptional<z.ZodBoolean>;
         supportsReasoningBudget: z.ZodOptional<z.ZodBoolean>;
         supportsReasoningBinary: z.ZodOptional<z.ZodBoolean>;
         supportsTemperature: z.ZodOptional<z.ZodBoolean>;
+        defaultTemperature: z.ZodOptional<z.ZodNumber>;
         requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
-        supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+        supportsReasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodBoolean, z.ZodArray<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>, "many">]>>;
         requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
         preserveReasoning: z.ZodOptional<z.ZodBoolean>;
         supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
@@ -3508,12 +3548,14 @@ declare const providerSettingsSchema: z.ZodObject<{
         cacheWritesPrice: z.ZodOptional<z.ZodNumber>;
         cacheReadsPrice: z.ZodOptional<z.ZodNumber>;
         description: z.ZodOptional<z.ZodString>;
-        reasoningEffort: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+        reasoningEffort: z.ZodOptional<z.ZodEnum<["none", "minimal", "low", "medium", "high"]>>;
         minTokensPerCachePoint: z.ZodOptional<z.ZodNumber>;
         maxCachePoints: z.ZodOptional<z.ZodNumber>;
         cachableFields: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         deprecated: z.ZodOptional<z.ZodBoolean>;
         isFree: z.ZodOptional<z.ZodBoolean>;
+        supportsNativeTools: z.ZodOptional<z.ZodBoolean>;
+        defaultToolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
         tiers: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodOptional<z.ZodEnum<["default", "flex", "priority"]>>;
             contextWindow: z.ZodNumber;
@@ -3542,12 +3584,14 @@ declare const providerSettingsSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -3556,12 +3600,14 @@ declare const providerSettingsSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -3576,12 +3622,14 @@ declare const providerSettingsSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -3590,12 +3638,14 @@ declare const providerSettingsSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -3645,7 +3695,7 @@ declare const providerSettingsSchema: z.ZodObject<{
     anthropicBeta1MContext: z.ZodOptional<z.ZodBoolean>;
     apiProvider: z.ZodOptional<z.ZodEnum<["openrouter", "vercel-ai-gateway", "huggingface", "litellm", "deepinfra", "io-intelligence", "requesty", "unbound", "glama", "roo", "chutes", "ollama", "lmstudio", "vscode-lm", "openai", "fake-ai", "human-relay", "anthropic", "bedrock", "cerebras", "claude-code", "doubao", "deepseek", "featherless", "fireworks", "gemini", "gemini-cli", "groq", "mistral", "moonshot", "minimax", "openai-native", "qwen-code", "roo", "sambanova", "vertex", "xai", "zai"]>>;
 }, "strip", z.ZodTypeAny, {
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
     codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
     codeIndexOpenAiKey?: string | undefined;
@@ -3667,6 +3717,7 @@ declare const providerSettingsSchema: z.ZodObject<{
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     apiKey?: string | undefined;
     anthropicBaseUrl?: string | undefined;
@@ -3714,12 +3765,14 @@ declare const providerSettingsSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -3728,12 +3781,14 @@ declare const providerSettingsSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -3810,7 +3865,7 @@ declare const providerSettingsSchema: z.ZodObject<{
     vercelAiGatewayApiKey?: string | undefined;
     vercelAiGatewayModelId?: string | undefined;
 }, {
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
     codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
     codeIndexOpenAiKey?: string | undefined;
@@ -3832,6 +3887,7 @@ declare const providerSettingsSchema: z.ZodObject<{
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     apiKey?: string | undefined;
     anthropicBaseUrl?: string | undefined;
@@ -3879,12 +3935,14 @@ declare const providerSettingsSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -3893,12 +3951,14 @@ declare const providerSettingsSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -3994,10 +4054,11 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
     vercelAiGatewayApiKey: z.ZodOptional<z.ZodString>;
     vercelAiGatewayModelId: z.ZodOptional<z.ZodString>;
     apiModelId: z.ZodOptional<z.ZodString>;
@@ -4083,12 +4144,14 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
         contextWindow: z.ZodNumber;
         supportsImages: z.ZodOptional<z.ZodBoolean>;
         supportsPromptCache: z.ZodBoolean;
+        promptCacheRetention: z.ZodOptional<z.ZodEnum<["in_memory", "24h"]>>;
         supportsVerbosity: z.ZodOptional<z.ZodBoolean>;
         supportsReasoningBudget: z.ZodOptional<z.ZodBoolean>;
         supportsReasoningBinary: z.ZodOptional<z.ZodBoolean>;
         supportsTemperature: z.ZodOptional<z.ZodBoolean>;
+        defaultTemperature: z.ZodOptional<z.ZodNumber>;
         requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
-        supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+        supportsReasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodBoolean, z.ZodArray<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>, "many">]>>;
         requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
         preserveReasoning: z.ZodOptional<z.ZodBoolean>;
         supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
@@ -4097,12 +4160,14 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
         cacheWritesPrice: z.ZodOptional<z.ZodNumber>;
         cacheReadsPrice: z.ZodOptional<z.ZodNumber>;
         description: z.ZodOptional<z.ZodString>;
-        reasoningEffort: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+        reasoningEffort: z.ZodOptional<z.ZodEnum<["none", "minimal", "low", "medium", "high"]>>;
         minTokensPerCachePoint: z.ZodOptional<z.ZodNumber>;
         maxCachePoints: z.ZodOptional<z.ZodNumber>;
         cachableFields: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         deprecated: z.ZodOptional<z.ZodBoolean>;
         isFree: z.ZodOptional<z.ZodBoolean>;
+        supportsNativeTools: z.ZodOptional<z.ZodBoolean>;
+        defaultToolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
         tiers: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodOptional<z.ZodEnum<["default", "flex", "priority"]>>;
             contextWindow: z.ZodNumber;
@@ -4131,12 +4196,14 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -4145,12 +4212,14 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -4165,12 +4234,14 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -4179,12 +4250,14 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -4237,7 +4310,7 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     id?: string | undefined;
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
     codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
     codeIndexOpenAiKey?: string | undefined;
@@ -4259,6 +4332,7 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     apiKey?: string | undefined;
     anthropicBaseUrl?: string | undefined;
@@ -4306,12 +4380,14 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -4320,12 +4396,14 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -4403,7 +4481,7 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
     vercelAiGatewayModelId?: string | undefined;
 }, {
     id?: string | undefined;
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
     codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
     codeIndexOpenAiKey?: string | undefined;
@@ -4425,6 +4503,7 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     apiKey?: string | undefined;
     anthropicBaseUrl?: string | undefined;
@@ -4472,12 +4551,14 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -4486,12 +4567,14 @@ declare const providerSettingsWithIdSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -4577,10 +4660,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -4592,7 +4676,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"anthropic">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "anthropic";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4604,6 +4688,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     apiKey?: string | undefined;
     anthropicBaseUrl?: string | undefined;
@@ -4611,7 +4696,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     anthropicBeta1MContext?: boolean | undefined;
 }, {
     apiProvider: "anthropic";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4623,6 +4708,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     apiKey?: string | undefined;
     anthropicBaseUrl?: string | undefined;
@@ -4637,10 +4723,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -4650,7 +4737,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"claude-code">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "claude-code";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4662,12 +4749,13 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     claudeCodePath?: string | undefined;
     claudeCodeMaxOutputTokens?: number | undefined;
 }, {
     apiProvider: "claude-code";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4679,6 +4767,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     claudeCodePath?: string | undefined;
     claudeCodeMaxOutputTokens?: number | undefined;
@@ -4691,10 +4780,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     glamaModelId: z.ZodOptional<z.ZodString>;
     glamaApiKey: z.ZodOptional<z.ZodString>;
@@ -4702,7 +4792,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"glama">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "glama";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4714,11 +4804,12 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     glamaModelId?: string | undefined;
     glamaApiKey?: string | undefined;
 }, {
     apiProvider: "glama";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4730,6 +4821,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     glamaModelId?: string | undefined;
     glamaApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -4741,10 +4833,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     openRouterApiKey: z.ZodOptional<z.ZodString>;
     openRouterModelId: z.ZodOptional<z.ZodString>;
@@ -4755,7 +4848,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"openrouter">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "openrouter";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4767,6 +4860,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     openRouterApiKey?: string | undefined;
     openRouterModelId?: string | undefined;
     openRouterBaseUrl?: string | undefined;
@@ -4774,7 +4868,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     openRouterUseMiddleOutTransform?: boolean | undefined;
 }, {
     apiProvider: "openrouter";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4786,6 +4880,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     openRouterApiKey?: string | undefined;
     openRouterModelId?: string | undefined;
     openRouterBaseUrl?: string | undefined;
@@ -4800,10 +4895,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -4827,7 +4923,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"bedrock">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "bedrock";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4839,6 +4935,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     awsAccessKey?: string | undefined;
     awsSecretKey?: string | undefined;
@@ -4858,7 +4955,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     awsBedrock1MContext?: boolean | undefined;
 }, {
     apiProvider: "bedrock";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4870,6 +4967,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     awsAccessKey?: string | undefined;
     awsSecretKey?: string | undefined;
@@ -4896,10 +4994,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -4913,7 +5012,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"vertex">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "vertex";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4925,6 +5024,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     vertexKeyFile?: string | undefined;
     vertexJsonCredentials?: string | undefined;
@@ -4934,7 +5034,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     enableGrounding?: boolean | undefined;
 }, {
     apiProvider: "vertex";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -4946,6 +5046,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     vertexKeyFile?: string | undefined;
     vertexJsonCredentials?: string | undefined;
@@ -4962,10 +5063,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     openAiBaseUrl: z.ZodOptional<z.ZodString>;
     openAiApiKey: z.ZodOptional<z.ZodString>;
@@ -4978,12 +5080,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
         contextWindow: z.ZodNumber;
         supportsImages: z.ZodOptional<z.ZodBoolean>;
         supportsPromptCache: z.ZodBoolean;
+        promptCacheRetention: z.ZodOptional<z.ZodEnum<["in_memory", "24h"]>>;
         supportsVerbosity: z.ZodOptional<z.ZodBoolean>;
         supportsReasoningBudget: z.ZodOptional<z.ZodBoolean>;
         supportsReasoningBinary: z.ZodOptional<z.ZodBoolean>;
         supportsTemperature: z.ZodOptional<z.ZodBoolean>;
+        defaultTemperature: z.ZodOptional<z.ZodNumber>;
         requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
-        supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+        supportsReasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodBoolean, z.ZodArray<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>, "many">]>>;
         requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
         preserveReasoning: z.ZodOptional<z.ZodBoolean>;
         supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
@@ -4992,12 +5096,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
         cacheWritesPrice: z.ZodOptional<z.ZodNumber>;
         cacheReadsPrice: z.ZodOptional<z.ZodNumber>;
         description: z.ZodOptional<z.ZodString>;
-        reasoningEffort: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+        reasoningEffort: z.ZodOptional<z.ZodEnum<["none", "minimal", "low", "medium", "high"]>>;
         minTokensPerCachePoint: z.ZodOptional<z.ZodNumber>;
         maxCachePoints: z.ZodOptional<z.ZodNumber>;
         cachableFields: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         deprecated: z.ZodOptional<z.ZodBoolean>;
         isFree: z.ZodOptional<z.ZodBoolean>;
+        supportsNativeTools: z.ZodOptional<z.ZodBoolean>;
+        defaultToolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
         tiers: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodOptional<z.ZodEnum<["default", "flex", "priority"]>>;
             contextWindow: z.ZodNumber;
@@ -5026,12 +5132,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -5040,12 +5148,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -5060,12 +5170,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -5074,12 +5186,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -5098,7 +5212,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"openai">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "openai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5110,6 +5224,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     openAiBaseUrl?: string | undefined;
     openAiApiKey?: string | undefined;
     openAiLegacyFormat?: boolean | undefined;
@@ -5121,12 +5236,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -5135,12 +5252,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -5157,7 +5276,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     openAiHeaders?: Record<string, string> | undefined;
 }, {
     apiProvider: "openai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5169,6 +5288,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     openAiBaseUrl?: string | undefined;
     openAiApiKey?: string | undefined;
     openAiLegacyFormat?: boolean | undefined;
@@ -5180,12 +5300,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -5194,12 +5316,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -5223,10 +5347,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     ollamaModelId: z.ZodOptional<z.ZodString>;
     ollamaBaseUrl: z.ZodOptional<z.ZodString>;
@@ -5236,7 +5361,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"ollama">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "ollama";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5248,13 +5373,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     ollamaModelId?: string | undefined;
     ollamaBaseUrl?: string | undefined;
     ollamaApiKey?: string | undefined;
     ollamaNumCtx?: number | undefined;
 }, {
     apiProvider: "ollama";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5266,6 +5392,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     ollamaModelId?: string | undefined;
     ollamaBaseUrl?: string | undefined;
     ollamaApiKey?: string | undefined;
@@ -5279,10 +5406,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     vsCodeLmModelSelector: z.ZodOptional<z.ZodObject<{
         vendor: z.ZodOptional<z.ZodString>;
@@ -5304,7 +5432,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"vscode-lm">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "vscode-lm";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5316,6 +5444,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     vsCodeLmModelSelector?: {
         id?: string | undefined;
         family?: string | undefined;
@@ -5324,7 +5453,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     } | undefined;
 }, {
     apiProvider: "vscode-lm";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5336,6 +5465,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     vsCodeLmModelSelector?: {
         id?: string | undefined;
         family?: string | undefined;
@@ -5351,10 +5481,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     lmStudioModelId: z.ZodOptional<z.ZodString>;
     lmStudioBaseUrl: z.ZodOptional<z.ZodString>;
@@ -5364,7 +5495,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"lmstudio">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "lmstudio";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5376,13 +5507,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     lmStudioModelId?: string | undefined;
     lmStudioBaseUrl?: string | undefined;
     lmStudioDraftModelId?: string | undefined;
     lmStudioSpeculativeDecodingEnabled?: boolean | undefined;
 }, {
     apiProvider: "lmstudio";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5394,6 +5526,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     lmStudioModelId?: string | undefined;
     lmStudioBaseUrl?: string | undefined;
     lmStudioDraftModelId?: string | undefined;
@@ -5407,10 +5540,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -5422,7 +5556,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"gemini">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "gemini";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5434,6 +5568,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     enableUrlContext?: boolean | undefined;
     enableGrounding?: boolean | undefined;
@@ -5441,7 +5576,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     googleGeminiBaseUrl?: string | undefined;
 }, {
     apiProvider: "gemini";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5453,6 +5588,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     enableUrlContext?: boolean | undefined;
     enableGrounding?: boolean | undefined;
@@ -5467,10 +5603,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -5480,7 +5617,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"gemini-cli">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "gemini-cli";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5492,12 +5629,13 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     geminiCliOAuthPath?: string | undefined;
     geminiCliProjectId?: string | undefined;
 }, {
     apiProvider: "gemini-cli";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5509,6 +5647,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     geminiCliOAuthPath?: string | undefined;
     geminiCliProjectId?: string | undefined;
@@ -5521,10 +5660,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -5535,7 +5675,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"openai-native">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "openai-native";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5547,13 +5687,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     openAiNativeApiKey?: string | undefined;
     openAiNativeBaseUrl?: string | undefined;
     openAiNativeServiceTier?: "default" | "flex" | "priority" | undefined;
 }, {
     apiProvider: "openai-native";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5565,6 +5706,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     openAiNativeApiKey?: string | undefined;
     openAiNativeBaseUrl?: string | undefined;
@@ -5578,10 +5720,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -5591,7 +5734,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"mistral">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "mistral";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5603,12 +5746,13 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     mistralApiKey?: string | undefined;
     mistralCodestralUrl?: string | undefined;
 }, {
     apiProvider: "mistral";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5620,6 +5764,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     mistralApiKey?: string | undefined;
     mistralCodestralUrl?: string | undefined;
@@ -5632,10 +5777,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -5645,7 +5791,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"deepseek">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "deepseek";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5657,12 +5803,13 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     deepSeekBaseUrl?: string | undefined;
     deepSeekApiKey?: string | undefined;
 }, {
     apiProvider: "deepseek";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5674,6 +5821,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     deepSeekBaseUrl?: string | undefined;
     deepSeekApiKey?: string | undefined;
@@ -5686,10 +5834,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -5700,7 +5849,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"deepinfra">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "deepinfra";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5712,13 +5861,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     deepInfraBaseUrl?: string | undefined;
     deepInfraApiKey?: string | undefined;
     deepInfraModelId?: string | undefined;
 }, {
     apiProvider: "deepinfra";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5730,6 +5880,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     deepInfraBaseUrl?: string | undefined;
     deepInfraApiKey?: string | undefined;
@@ -5743,10 +5894,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -5756,7 +5908,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"doubao">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "doubao";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5768,12 +5920,13 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     doubaoBaseUrl?: string | undefined;
     doubaoApiKey?: string | undefined;
 }, {
     apiProvider: "doubao";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5785,6 +5938,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     doubaoBaseUrl?: string | undefined;
     doubaoApiKey?: string | undefined;
@@ -5797,10 +5951,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -5810,7 +5965,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"moonshot">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "moonshot";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5822,12 +5977,13 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
     moonshotApiKey?: string | undefined;
 }, {
     apiProvider: "moonshot";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5839,6 +5995,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     moonshotBaseUrl?: "https://api.moonshot.ai/v1" | "https://api.moonshot.cn/v1" | undefined;
     moonshotApiKey?: string | undefined;
@@ -5851,10 +6008,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -5864,7 +6022,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"minimax">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "minimax";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5876,12 +6034,13 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
     minimaxApiKey?: string | undefined;
 }, {
     apiProvider: "minimax";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5893,6 +6052,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     minimaxBaseUrl?: "https://api.minimax.io/v1" | "https://api.minimaxi.com/v1" | undefined;
     minimaxApiKey?: string | undefined;
@@ -5905,10 +6065,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     unboundApiKey: z.ZodOptional<z.ZodString>;
     unboundModelId: z.ZodOptional<z.ZodString>;
@@ -5916,7 +6077,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"unbound">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "unbound";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5928,11 +6089,12 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     unboundApiKey?: string | undefined;
     unboundModelId?: string | undefined;
 }, {
     apiProvider: "unbound";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5944,6 +6106,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     unboundApiKey?: string | undefined;
     unboundModelId?: string | undefined;
 }>, z.ZodObject<{
@@ -5955,10 +6118,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     requestyBaseUrl: z.ZodOptional<z.ZodString>;
     requestyApiKey: z.ZodOptional<z.ZodString>;
@@ -5967,7 +6131,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"requesty">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "requesty";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5979,12 +6143,13 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     requestyBaseUrl?: string | undefined;
     requestyApiKey?: string | undefined;
     requestyModelId?: string | undefined;
 }, {
     apiProvider: "requesty";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -5996,6 +6161,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     requestyBaseUrl?: string | undefined;
     requestyApiKey?: string | undefined;
     requestyModelId?: string | undefined;
@@ -6008,15 +6174,16 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiProvider: z.ZodLiteral<"human-relay">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "human-relay";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6028,9 +6195,10 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
 }, {
     apiProvider: "human-relay";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6042,6 +6210,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
 }>, z.ZodObject<{
     includeMaxTokens: z.ZodOptional<z.ZodBoolean>;
     diffEnabled: z.ZodOptional<z.ZodBoolean>;
@@ -6051,17 +6220,18 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     fakeAi: z.ZodOptional<z.ZodUnknown>;
 } & {
     apiProvider: z.ZodLiteral<"fake-ai">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "fake-ai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6073,10 +6243,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     fakeAi?: unknown;
 }, {
     apiProvider: "fake-ai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6088,6 +6259,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     fakeAi?: unknown;
 }>, z.ZodObject<{
     includeMaxTokens: z.ZodOptional<z.ZodBoolean>;
@@ -6098,10 +6270,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -6110,7 +6283,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"xai">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "xai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6122,11 +6295,12 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     xaiApiKey?: string | undefined;
 }, {
     apiProvider: "xai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6138,6 +6312,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     xaiApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -6149,10 +6324,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -6161,7 +6337,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"groq">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "groq";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6173,11 +6349,12 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     groqApiKey?: string | undefined;
 }, {
     apiProvider: "groq";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6189,6 +6366,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     groqApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -6200,10 +6378,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     huggingFaceApiKey: z.ZodOptional<z.ZodString>;
     huggingFaceModelId: z.ZodOptional<z.ZodString>;
@@ -6212,7 +6391,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"huggingface">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "huggingface";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6224,12 +6403,13 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     huggingFaceApiKey?: string | undefined;
     huggingFaceModelId?: string | undefined;
     huggingFaceInferenceProvider?: string | undefined;
 }, {
     apiProvider: "huggingface";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6241,6 +6421,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     huggingFaceApiKey?: string | undefined;
     huggingFaceModelId?: string | undefined;
     huggingFaceInferenceProvider?: string | undefined;
@@ -6253,10 +6434,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -6265,7 +6447,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"chutes">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "chutes";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6277,11 +6459,12 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     chutesApiKey?: string | undefined;
 }, {
     apiProvider: "chutes";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6293,6 +6476,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     chutesApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -6304,10 +6488,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     litellmBaseUrl: z.ZodOptional<z.ZodString>;
     litellmApiKey: z.ZodOptional<z.ZodString>;
@@ -6317,7 +6502,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"litellm">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "litellm";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6329,13 +6514,14 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     litellmBaseUrl?: string | undefined;
     litellmApiKey?: string | undefined;
     litellmModelId?: string | undefined;
     litellmUsePromptCache?: boolean | undefined;
 }, {
     apiProvider: "litellm";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6347,6 +6533,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     litellmBaseUrl?: string | undefined;
     litellmApiKey?: string | undefined;
     litellmModelId?: string | undefined;
@@ -6360,10 +6547,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -6372,7 +6560,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"cerebras">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "cerebras";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6384,11 +6572,12 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     cerebrasApiKey?: string | undefined;
 }, {
     apiProvider: "cerebras";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6400,6 +6589,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     cerebrasApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -6411,10 +6601,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -6423,7 +6614,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"sambanova">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "sambanova";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6435,11 +6626,12 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     sambaNovaApiKey?: string | undefined;
 }, {
     apiProvider: "sambanova";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6451,6 +6643,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     sambaNovaApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -6462,10 +6655,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -6475,7 +6669,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"zai">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "zai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6487,12 +6681,13 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     zaiApiKey?: string | undefined;
     zaiApiLine?: "international_coding" | "china_coding" | undefined;
 }, {
     apiProvider: "zai";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6504,6 +6699,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     zaiApiKey?: string | undefined;
     zaiApiLine?: "international_coding" | "china_coding" | undefined;
@@ -6516,10 +6712,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -6528,7 +6725,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"fireworks">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "fireworks";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6540,11 +6737,12 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     fireworksApiKey?: string | undefined;
 }, {
     apiProvider: "fireworks";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6556,6 +6754,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     fireworksApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -6567,10 +6766,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -6579,7 +6779,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"featherless">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "featherless";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6591,11 +6791,12 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     featherlessApiKey?: string | undefined;
 }, {
     apiProvider: "featherless";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6607,6 +6808,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     featherlessApiKey?: string | undefined;
 }>, z.ZodObject<{
@@ -6618,10 +6820,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -6631,7 +6834,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"io-intelligence">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "io-intelligence";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6643,12 +6846,13 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     ioIntelligenceModelId?: string | undefined;
     ioIntelligenceApiKey?: string | undefined;
 }, {
     apiProvider: "io-intelligence";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6660,6 +6864,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     ioIntelligenceModelId?: string | undefined;
     ioIntelligenceApiKey?: string | undefined;
@@ -6672,10 +6877,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
@@ -6684,7 +6890,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"qwen-code">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "qwen-code";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6696,11 +6902,12 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     qwenCodeOauthPath?: string | undefined;
 }, {
     apiProvider: "qwen-code";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6712,6 +6919,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     qwenCodeOauthPath?: string | undefined;
 }>, z.ZodObject<{
@@ -6723,17 +6931,18 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     apiModelId: z.ZodOptional<z.ZodString>;
 } & {
     apiProvider: z.ZodLiteral<"roo">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "roo";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6745,10 +6954,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
 }, {
     apiProvider: "roo";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6760,6 +6970,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
 }>, z.ZodObject<{
     includeMaxTokens: z.ZodOptional<z.ZodBoolean>;
@@ -6770,10 +6981,11 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
 } & {
     vercelAiGatewayApiKey: z.ZodOptional<z.ZodString>;
     vercelAiGatewayModelId: z.ZodOptional<z.ZodString>;
@@ -6781,7 +6993,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     apiProvider: z.ZodLiteral<"vercel-ai-gateway">;
 }, "strip", z.ZodTypeAny, {
     apiProvider: "vercel-ai-gateway";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6793,11 +7005,12 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     vercelAiGatewayApiKey?: string | undefined;
     vercelAiGatewayModelId?: string | undefined;
 }, {
     apiProvider: "vercel-ai-gateway";
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     includeMaxTokens?: boolean | undefined;
     diffEnabled?: boolean | undefined;
     todoListEnabled?: boolean | undefined;
@@ -6809,6 +7022,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     vercelAiGatewayApiKey?: string | undefined;
     vercelAiGatewayModelId?: string | undefined;
 }>, z.ZodObject<{
@@ -6825,7 +7039,7 @@ declare const discriminatedProviderSettingsWithIdSchema: z.ZodIntersection<z.Zod
     id?: string | undefined;
 }>>;
 type ProviderSettingsWithId = z.infer<typeof providerSettingsWithIdSchema>;
-declare const PROVIDER_SETTINGS_KEYS: ["reasoningEffort", "codebaseIndexOpenAiCompatibleBaseUrl", "codebaseIndexOpenAiCompatibleModelDimension", "codeIndexOpenAiKey", "codeIndexQdrantApiKey", "codebaseIndexOpenAiCompatibleApiKey", "codebaseIndexGeminiApiKey", "codebaseIndexMistralApiKey", "codebaseIndexVercelAiGatewayApiKey", "codebaseIndexOpenRouterApiKey", "apiProvider", "includeMaxTokens", "diffEnabled", "todoListEnabled", "fuzzyMatchThreshold", "modelTemperature", "rateLimitSeconds", "consecutiveMistakeLimit", "enableReasoningEffort", "modelMaxTokens", "modelMaxThinkingTokens", "verbosity", "apiModelId", "apiKey", "anthropicBaseUrl", "anthropicUseAuthToken", "anthropicBeta1MContext", "claudeCodePath", "claudeCodeMaxOutputTokens", "glamaModelId", "glamaApiKey", "openRouterApiKey", "openRouterModelId", "openRouterBaseUrl", "openRouterSpecificProvider", "openRouterUseMiddleOutTransform", "awsAccessKey", "awsSecretKey", "awsSessionToken", "awsRegion", "awsUseCrossRegionInference", "awsUseGlobalInference", "awsUsePromptCache", "awsProfile", "awsUseProfile", "awsApiKey", "awsUseApiKey", "awsCustomArn", "awsModelContextWindow", "awsBedrockEndpointEnabled", "awsBedrockEndpoint", "awsBedrock1MContext", "vertexKeyFile", "vertexJsonCredentials", "vertexProjectId", "vertexRegion", "enableUrlContext", "enableGrounding", "openAiBaseUrl", "openAiApiKey", "openAiLegacyFormat", "openAiR1FormatEnabled", "openAiModelId", "openAiCustomModelInfo", "openAiUseAzure", "azureApiVersion", "openAiStreamingEnabled", "openAiHostHeader", "openAiHeaders", "ollamaModelId", "ollamaBaseUrl", "ollamaApiKey", "ollamaNumCtx", "vsCodeLmModelSelector", "lmStudioModelId", "lmStudioBaseUrl", "lmStudioDraftModelId", "lmStudioSpeculativeDecodingEnabled", "geminiApiKey", "googleGeminiBaseUrl", "geminiCliOAuthPath", "geminiCliProjectId", "openAiNativeApiKey", "openAiNativeBaseUrl", "openAiNativeServiceTier", "mistralApiKey", "mistralCodestralUrl", "deepSeekBaseUrl", "deepSeekApiKey", "deepInfraBaseUrl", "deepInfraApiKey", "deepInfraModelId", "doubaoBaseUrl", "doubaoApiKey", "moonshotBaseUrl", "moonshotApiKey", "minimaxBaseUrl", "minimaxApiKey", "unboundApiKey", "unboundModelId", "requestyBaseUrl", "requestyApiKey", "requestyModelId", "fakeAi", "xaiApiKey", "groqApiKey", "huggingFaceApiKey", "huggingFaceModelId", "huggingFaceInferenceProvider", "chutesApiKey", "litellmBaseUrl", "litellmApiKey", "litellmModelId", "litellmUsePromptCache", "cerebrasApiKey", "sambaNovaApiKey", "zaiApiKey", "zaiApiLine", "fireworksApiKey", "featherlessApiKey", "ioIntelligenceModelId", "ioIntelligenceApiKey", "qwenCodeOauthPath", "vercelAiGatewayApiKey", "vercelAiGatewayModelId"];
+declare const PROVIDER_SETTINGS_KEYS: ["reasoningEffort", "codebaseIndexOpenAiCompatibleBaseUrl", "codebaseIndexOpenAiCompatibleModelDimension", "codeIndexOpenAiKey", "codeIndexQdrantApiKey", "codebaseIndexOpenAiCompatibleApiKey", "codebaseIndexGeminiApiKey", "codebaseIndexMistralApiKey", "codebaseIndexVercelAiGatewayApiKey", "codebaseIndexOpenRouterApiKey", "apiProvider", "includeMaxTokens", "diffEnabled", "todoListEnabled", "fuzzyMatchThreshold", "modelTemperature", "rateLimitSeconds", "consecutiveMistakeLimit", "enableReasoningEffort", "modelMaxTokens", "modelMaxThinkingTokens", "verbosity", "toolProtocol", "apiModelId", "apiKey", "anthropicBaseUrl", "anthropicUseAuthToken", "anthropicBeta1MContext", "claudeCodePath", "claudeCodeMaxOutputTokens", "glamaModelId", "glamaApiKey", "openRouterApiKey", "openRouterModelId", "openRouterBaseUrl", "openRouterSpecificProvider", "openRouterUseMiddleOutTransform", "awsAccessKey", "awsSecretKey", "awsSessionToken", "awsRegion", "awsUseCrossRegionInference", "awsUseGlobalInference", "awsUsePromptCache", "awsProfile", "awsUseProfile", "awsApiKey", "awsUseApiKey", "awsCustomArn", "awsModelContextWindow", "awsBedrockEndpointEnabled", "awsBedrockEndpoint", "awsBedrock1MContext", "vertexKeyFile", "vertexJsonCredentials", "vertexProjectId", "vertexRegion", "enableUrlContext", "enableGrounding", "openAiBaseUrl", "openAiApiKey", "openAiLegacyFormat", "openAiR1FormatEnabled", "openAiModelId", "openAiCustomModelInfo", "openAiUseAzure", "azureApiVersion", "openAiStreamingEnabled", "openAiHostHeader", "openAiHeaders", "ollamaModelId", "ollamaBaseUrl", "ollamaApiKey", "ollamaNumCtx", "vsCodeLmModelSelector", "lmStudioModelId", "lmStudioBaseUrl", "lmStudioDraftModelId", "lmStudioSpeculativeDecodingEnabled", "geminiApiKey", "googleGeminiBaseUrl", "geminiCliOAuthPath", "geminiCliProjectId", "openAiNativeApiKey", "openAiNativeBaseUrl", "openAiNativeServiceTier", "mistralApiKey", "mistralCodestralUrl", "deepSeekBaseUrl", "deepSeekApiKey", "deepInfraBaseUrl", "deepInfraApiKey", "deepInfraModelId", "doubaoBaseUrl", "doubaoApiKey", "moonshotBaseUrl", "moonshotApiKey", "minimaxBaseUrl", "minimaxApiKey", "unboundApiKey", "unboundModelId", "requestyBaseUrl", "requestyApiKey", "requestyModelId", "fakeAi", "xaiApiKey", "groqApiKey", "huggingFaceApiKey", "huggingFaceModelId", "huggingFaceInferenceProvider", "chutesApiKey", "litellmBaseUrl", "litellmApiKey", "litellmModelId", "litellmUsePromptCache", "cerebrasApiKey", "sambaNovaApiKey", "zaiApiKey", "zaiApiLine", "fireworksApiKey", "featherlessApiKey", "ioIntelligenceModelId", "ioIntelligenceApiKey", "qwenCodeOauthPath", "vercelAiGatewayApiKey", "vercelAiGatewayModelId"];
 /**
  * ModelIdKey
  */
@@ -6988,6 +7202,12 @@ declare const globalSettingsSchema: z.ZodObject<{
      * @default true
      */
     includeCurrentCost: z.ZodOptional<z.ZodBoolean>;
+    /**
+     * Maximum number of git status file entries to include in the environment details.
+     * Set to 0 to disable git status. The header (branch, commits) is always included when > 0.
+     * @default 0
+     */
+    maxGitStatusFiles: z.ZodOptional<z.ZodNumber>;
     /**
      * Whether to include diagnostic messages (errors, warnings) in tool outputs
      * @default true
@@ -7338,6 +7558,7 @@ declare const globalSettingsSchema: z.ZodObject<{
     maxConcurrentFileReads?: number | undefined;
     includeCurrentTime?: boolean | undefined;
     includeCurrentCost?: boolean | undefined;
+    maxGitStatusFiles?: number | undefined;
     includeDiagnosticMessages?: boolean | undefined;
     maxDiagnosticMessages?: number | undefined;
     browserToolEnabled?: boolean | undefined;
@@ -7510,6 +7731,7 @@ declare const globalSettingsSchema: z.ZodObject<{
     maxConcurrentFileReads?: number | undefined;
     includeCurrentTime?: boolean | undefined;
     includeCurrentCost?: boolean | undefined;
+    maxGitStatusFiles?: number | undefined;
     includeDiagnosticMessages?: boolean | undefined;
     maxDiagnosticMessages?: number | undefined;
     browserToolEnabled?: boolean | undefined;
@@ -7605,7 +7827,7 @@ declare const globalSettingsSchema: z.ZodObject<{
     lastModeImportPath?: string | undefined;
 }>;
 type GlobalSettings = z.infer<typeof globalSettingsSchema>;
-declare const GLOBAL_SETTINGS_KEYS: ["diffEnabled", "fuzzyMatchThreshold", "rateLimitSeconds", "language", "mode", "customInstructions", "customModes", "currentApiConfigName", "listApiConfigMeta", "pinnedApiConfigs", "lastShownAnnouncementId", "taskHistory", "dismissedUpsells", "openRouterImageApiKey", "openRouterImageGenerationSelectedModel", "condensingApiConfigId", "customCondensingPrompt", "autoApprovalEnabled", "alwaysAllowReadOnly", "alwaysAllowReadOnlyOutsideWorkspace", "alwaysAllowWrite", "alwaysAllowWriteOutsideWorkspace", "alwaysAllowWriteProtected", "writeDelayMs", "alwaysAllowBrowser", "alwaysApproveResubmit", "requestDelaySeconds", "alwaysAllowMcp", "alwaysAllowModeSwitch", "alwaysAllowSubtasks", "alwaysAllowExecute", "alwaysAllowFollowupQuestions", "followupAutoApproveTimeoutMs", "alwaysAllowUpdateTodoList", "allowedCommands", "deniedCommands", "commandExecutionTimeout", "commandTimeoutAllowlist", "preventCompletionWithOpenTodos", "allowedMaxRequests", "allowedMaxCost", "autoCondenseContext", "autoCondenseContextPercent", "maxConcurrentFileReads", "includeCurrentTime", "includeCurrentCost", "includeDiagnosticMessages", "maxDiagnosticMessages", "browserToolEnabled", "browserViewportSize", "screenshotQuality", "remoteBrowserEnabled", "remoteBrowserHost", "cachedChromeHostUrl", "enableCheckpoints", "checkpointTimeout", "ttsEnabled", "ttsSpeed", "soundEnabled", "soundVolume", "maxOpenTabsContext", "maxWorkspaceFiles", "showRooIgnoredFiles", "maxReadFileLine", "maxImageFileSize", "maxTotalImageSize", "terminalOutputLineLimit", "terminalOutputCharacterLimit", "terminalShellIntegrationTimeout", "terminalShellIntegrationDisabled", "terminalCommandDelay", "terminalPowershellCounter", "terminalZshClearEolMark", "terminalZshOhMy", "terminalZshP10k", "terminalZdotdir", "terminalCompressProgressBar", "diagnosticsEnabled", "experiments", "codebaseIndexModels", "codebaseIndexConfig", "telemetrySetting", "mcpEnabled", "enableMcpServerCreation", "modeApiConfigs", "customModePrompts", "customSupportPrompts", "enhancementApiConfigId", "includeTaskHistoryInEnhance", "historyPreviewCollapsed", "reasoningBlockCollapsed", "profileThresholds", "hasOpenedModeSelector", "lastModeExportPath", "lastModeImportPath"];
+declare const GLOBAL_SETTINGS_KEYS: ["diffEnabled", "fuzzyMatchThreshold", "rateLimitSeconds", "language", "mode", "customInstructions", "customModes", "currentApiConfigName", "listApiConfigMeta", "pinnedApiConfigs", "lastShownAnnouncementId", "taskHistory", "dismissedUpsells", "openRouterImageApiKey", "openRouterImageGenerationSelectedModel", "condensingApiConfigId", "customCondensingPrompt", "autoApprovalEnabled", "alwaysAllowReadOnly", "alwaysAllowReadOnlyOutsideWorkspace", "alwaysAllowWrite", "alwaysAllowWriteOutsideWorkspace", "alwaysAllowWriteProtected", "writeDelayMs", "alwaysAllowBrowser", "alwaysApproveResubmit", "requestDelaySeconds", "alwaysAllowMcp", "alwaysAllowModeSwitch", "alwaysAllowSubtasks", "alwaysAllowExecute", "alwaysAllowFollowupQuestions", "followupAutoApproveTimeoutMs", "alwaysAllowUpdateTodoList", "allowedCommands", "deniedCommands", "commandExecutionTimeout", "commandTimeoutAllowlist", "preventCompletionWithOpenTodos", "allowedMaxRequests", "allowedMaxCost", "autoCondenseContext", "autoCondenseContextPercent", "maxConcurrentFileReads", "includeCurrentTime", "includeCurrentCost", "maxGitStatusFiles", "includeDiagnosticMessages", "maxDiagnosticMessages", "browserToolEnabled", "browserViewportSize", "screenshotQuality", "remoteBrowserEnabled", "remoteBrowserHost", "cachedChromeHostUrl", "enableCheckpoints", "checkpointTimeout", "ttsEnabled", "ttsSpeed", "soundEnabled", "soundVolume", "maxOpenTabsContext", "maxWorkspaceFiles", "showRooIgnoredFiles", "maxReadFileLine", "maxImageFileSize", "maxTotalImageSize", "terminalOutputLineLimit", "terminalOutputCharacterLimit", "terminalShellIntegrationTimeout", "terminalShellIntegrationDisabled", "terminalCommandDelay", "terminalPowershellCounter", "terminalZshClearEolMark", "terminalZshOhMy", "terminalZshP10k", "terminalZdotdir", "terminalCompressProgressBar", "diagnosticsEnabled", "experiments", "codebaseIndexModels", "codebaseIndexConfig", "telemetrySetting", "mcpEnabled", "enableMcpServerCreation", "modeApiConfigs", "customModePrompts", "customSupportPrompts", "enhancementApiConfigId", "includeTaskHistoryInEnhance", "historyPreviewCollapsed", "reasoningBlockCollapsed", "profileThresholds", "hasOpenedModeSelector", "lastModeExportPath", "lastModeImportPath"];
 /**
  * RooCodeSettings
  */
@@ -7624,10 +7846,11 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
     modelTemperature: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
     consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
     enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-    reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
     modelMaxTokens: z.ZodOptional<z.ZodNumber>;
     modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
     verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
     vercelAiGatewayApiKey: z.ZodOptional<z.ZodString>;
     vercelAiGatewayModelId: z.ZodOptional<z.ZodString>;
     apiModelId: z.ZodOptional<z.ZodString>;
@@ -7713,12 +7936,14 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
         contextWindow: z.ZodNumber;
         supportsImages: z.ZodOptional<z.ZodBoolean>;
         supportsPromptCache: z.ZodBoolean;
+        promptCacheRetention: z.ZodOptional<z.ZodEnum<["in_memory", "24h"]>>;
         supportsVerbosity: z.ZodOptional<z.ZodBoolean>;
         supportsReasoningBudget: z.ZodOptional<z.ZodBoolean>;
         supportsReasoningBinary: z.ZodOptional<z.ZodBoolean>;
         supportsTemperature: z.ZodOptional<z.ZodBoolean>;
+        defaultTemperature: z.ZodOptional<z.ZodNumber>;
         requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
-        supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+        supportsReasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodBoolean, z.ZodArray<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>, "many">]>>;
         requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
         preserveReasoning: z.ZodOptional<z.ZodBoolean>;
         supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
@@ -7727,12 +7952,14 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
         cacheWritesPrice: z.ZodOptional<z.ZodNumber>;
         cacheReadsPrice: z.ZodOptional<z.ZodNumber>;
         description: z.ZodOptional<z.ZodString>;
-        reasoningEffort: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+        reasoningEffort: z.ZodOptional<z.ZodEnum<["none", "minimal", "low", "medium", "high"]>>;
         minTokensPerCachePoint: z.ZodOptional<z.ZodNumber>;
         maxCachePoints: z.ZodOptional<z.ZodNumber>;
         cachableFields: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         deprecated: z.ZodOptional<z.ZodBoolean>;
         isFree: z.ZodOptional<z.ZodBoolean>;
+        supportsNativeTools: z.ZodOptional<z.ZodBoolean>;
+        defaultToolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
         tiers: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodOptional<z.ZodEnum<["default", "flex", "priority"]>>;
             contextWindow: z.ZodNumber;
@@ -7761,12 +7988,14 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -7775,12 +8004,14 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -7795,12 +8026,14 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -7809,12 +8042,14 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -7964,6 +8199,7 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
     maxConcurrentFileReads: z.ZodOptional<z.ZodNumber>;
     includeCurrentTime: z.ZodOptional<z.ZodBoolean>;
     includeCurrentCost: z.ZodOptional<z.ZodBoolean>;
+    maxGitStatusFiles: z.ZodOptional<z.ZodNumber>;
     includeDiagnosticMessages: z.ZodOptional<z.ZodBoolean>;
     maxDiagnosticMessages: z.ZodOptional<z.ZodNumber>;
     browserToolEnabled: z.ZodOptional<z.ZodBoolean>;
@@ -8228,7 +8464,7 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
     lastModeExportPath: z.ZodOptional<z.ZodString>;
     lastModeImportPath: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
     codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
     codeIndexOpenAiKey?: string | undefined;
@@ -8251,6 +8487,7 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     apiKey?: string | undefined;
     anthropicBaseUrl?: string | undefined;
@@ -8298,12 +8535,14 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -8312,12 +8551,14 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -8467,6 +8708,7 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
     maxConcurrentFileReads?: number | undefined;
     includeCurrentTime?: boolean | undefined;
     includeCurrentCost?: boolean | undefined;
+    maxGitStatusFiles?: number | undefined;
     includeDiagnosticMessages?: boolean | undefined;
     maxDiagnosticMessages?: number | undefined;
     browserToolEnabled?: boolean | undefined;
@@ -8561,7 +8803,7 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
     lastModeExportPath?: string | undefined;
     lastModeImportPath?: string | undefined;
 }, {
-    reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
     codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
     codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
     codeIndexOpenAiKey?: string | undefined;
@@ -8584,6 +8826,7 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
     modelMaxTokens?: number | undefined;
     modelMaxThinkingTokens?: number | undefined;
     verbosity?: "low" | "medium" | "high" | undefined;
+    toolProtocol?: "xml" | "native" | undefined;
     apiModelId?: string | undefined;
     apiKey?: string | undefined;
     anthropicBaseUrl?: string | undefined;
@@ -8631,12 +8874,14 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
         maxTokens?: number | null | undefined;
         maxThinkingTokens?: number | null | undefined;
         supportsImages?: boolean | undefined;
+        promptCacheRetention?: "in_memory" | "24h" | undefined;
         supportsVerbosity?: boolean | undefined;
         supportsReasoningBudget?: boolean | undefined;
         supportsReasoningBinary?: boolean | undefined;
         supportsTemperature?: boolean | undefined;
+        defaultTemperature?: number | undefined;
         requiredReasoningBudget?: boolean | undefined;
-        supportsReasoningEffort?: boolean | undefined;
+        supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
         requiredReasoningEffort?: boolean | undefined;
         preserveReasoning?: boolean | undefined;
         supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -8645,12 +8890,14 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
         cacheWritesPrice?: number | undefined;
         cacheReadsPrice?: number | undefined;
         description?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
         minTokensPerCachePoint?: number | undefined;
         maxCachePoints?: number | undefined;
         cachableFields?: string[] | undefined;
         deprecated?: boolean | undefined;
         isFree?: boolean | undefined;
+        supportsNativeTools?: boolean | undefined;
+        defaultToolProtocol?: "xml" | "native" | undefined;
         tiers?: {
             contextWindow: number;
             name?: "default" | "flex" | "priority" | undefined;
@@ -8800,6 +9047,7 @@ declare const rooCodeSettingsSchema: z.ZodObject<{
     maxConcurrentFileReads?: number | undefined;
     includeCurrentTime?: boolean | undefined;
     includeCurrentCost?: boolean | undefined;
+    maxGitStatusFiles?: number | undefined;
     includeDiagnosticMessages?: boolean | undefined;
     maxDiagnosticMessages?: number | undefined;
     browserToolEnabled?: boolean | undefined;
@@ -8959,7 +9207,8 @@ declare enum TaskCommandName {
     StartNewTask = "StartNewTask",
     CancelTask = "CancelTask",
     CloseTask = "CloseTask",
-    ResumeTask = "ResumeTask"
+    ResumeTask = "ResumeTask",
+    SendMessage = "SendMessage"
 }
 /**
  * TaskCommand
@@ -8982,10 +9231,11 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             modelTemperature: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
             consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
             enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-            reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+            reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
             modelMaxTokens: z.ZodOptional<z.ZodNumber>;
             modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
             verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+            toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
             vercelAiGatewayApiKey: z.ZodOptional<z.ZodString>;
             vercelAiGatewayModelId: z.ZodOptional<z.ZodString>;
             apiModelId: z.ZodOptional<z.ZodString>;
@@ -9071,12 +9321,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 contextWindow: z.ZodNumber;
                 supportsImages: z.ZodOptional<z.ZodBoolean>;
                 supportsPromptCache: z.ZodBoolean;
+                promptCacheRetention: z.ZodOptional<z.ZodEnum<["in_memory", "24h"]>>;
                 supportsVerbosity: z.ZodOptional<z.ZodBoolean>;
                 supportsReasoningBudget: z.ZodOptional<z.ZodBoolean>;
                 supportsReasoningBinary: z.ZodOptional<z.ZodBoolean>;
                 supportsTemperature: z.ZodOptional<z.ZodBoolean>;
+                defaultTemperature: z.ZodOptional<z.ZodNumber>;
                 requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
-                supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+                supportsReasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodBoolean, z.ZodArray<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>, "many">]>>;
                 requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
                 preserveReasoning: z.ZodOptional<z.ZodBoolean>;
                 supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
@@ -9085,12 +9337,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 cacheWritesPrice: z.ZodOptional<z.ZodNumber>;
                 cacheReadsPrice: z.ZodOptional<z.ZodNumber>;
                 description: z.ZodOptional<z.ZodString>;
-                reasoningEffort: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+                reasoningEffort: z.ZodOptional<z.ZodEnum<["none", "minimal", "low", "medium", "high"]>>;
                 minTokensPerCachePoint: z.ZodOptional<z.ZodNumber>;
                 maxCachePoints: z.ZodOptional<z.ZodNumber>;
                 cachableFields: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 deprecated: z.ZodOptional<z.ZodBoolean>;
                 isFree: z.ZodOptional<z.ZodBoolean>;
+                supportsNativeTools: z.ZodOptional<z.ZodBoolean>;
+                defaultToolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
                 tiers: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodOptional<z.ZodEnum<["default", "flex", "priority"]>>;
                     contextWindow: z.ZodNumber;
@@ -9119,12 +9373,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 maxTokens?: number | null | undefined;
                 maxThinkingTokens?: number | null | undefined;
                 supportsImages?: boolean | undefined;
+                promptCacheRetention?: "in_memory" | "24h" | undefined;
                 supportsVerbosity?: boolean | undefined;
                 supportsReasoningBudget?: boolean | undefined;
                 supportsReasoningBinary?: boolean | undefined;
                 supportsTemperature?: boolean | undefined;
+                defaultTemperature?: number | undefined;
                 requiredReasoningBudget?: boolean | undefined;
-                supportsReasoningEffort?: boolean | undefined;
+                supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                 requiredReasoningEffort?: boolean | undefined;
                 preserveReasoning?: boolean | undefined;
                 supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -9133,12 +9389,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 cacheWritesPrice?: number | undefined;
                 cacheReadsPrice?: number | undefined;
                 description?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                 minTokensPerCachePoint?: number | undefined;
                 maxCachePoints?: number | undefined;
                 cachableFields?: string[] | undefined;
                 deprecated?: boolean | undefined;
                 isFree?: boolean | undefined;
+                supportsNativeTools?: boolean | undefined;
+                defaultToolProtocol?: "xml" | "native" | undefined;
                 tiers?: {
                     contextWindow: number;
                     name?: "default" | "flex" | "priority" | undefined;
@@ -9153,12 +9411,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 maxTokens?: number | null | undefined;
                 maxThinkingTokens?: number | null | undefined;
                 supportsImages?: boolean | undefined;
+                promptCacheRetention?: "in_memory" | "24h" | undefined;
                 supportsVerbosity?: boolean | undefined;
                 supportsReasoningBudget?: boolean | undefined;
                 supportsReasoningBinary?: boolean | undefined;
                 supportsTemperature?: boolean | undefined;
+                defaultTemperature?: number | undefined;
                 requiredReasoningBudget?: boolean | undefined;
-                supportsReasoningEffort?: boolean | undefined;
+                supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                 requiredReasoningEffort?: boolean | undefined;
                 preserveReasoning?: boolean | undefined;
                 supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -9167,12 +9427,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 cacheWritesPrice?: number | undefined;
                 cacheReadsPrice?: number | undefined;
                 description?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                 minTokensPerCachePoint?: number | undefined;
                 maxCachePoints?: number | undefined;
                 cachableFields?: string[] | undefined;
                 deprecated?: boolean | undefined;
                 isFree?: boolean | undefined;
+                supportsNativeTools?: boolean | undefined;
+                defaultToolProtocol?: "xml" | "native" | undefined;
                 tiers?: {
                     contextWindow: number;
                     name?: "default" | "flex" | "priority" | undefined;
@@ -9322,6 +9584,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             maxConcurrentFileReads: z.ZodOptional<z.ZodNumber>;
             includeCurrentTime: z.ZodOptional<z.ZodBoolean>;
             includeCurrentCost: z.ZodOptional<z.ZodBoolean>;
+            maxGitStatusFiles: z.ZodOptional<z.ZodNumber>;
             includeDiagnosticMessages: z.ZodOptional<z.ZodBoolean>;
             maxDiagnosticMessages: z.ZodOptional<z.ZodNumber>;
             browserToolEnabled: z.ZodOptional<z.ZodBoolean>;
@@ -9586,7 +9849,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             lastModeExportPath: z.ZodOptional<z.ZodString>;
             lastModeImportPath: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
-            reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
             codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
             codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
             codeIndexOpenAiKey?: string | undefined;
@@ -9609,6 +9872,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             modelMaxTokens?: number | undefined;
             modelMaxThinkingTokens?: number | undefined;
             verbosity?: "low" | "medium" | "high" | undefined;
+            toolProtocol?: "xml" | "native" | undefined;
             apiModelId?: string | undefined;
             apiKey?: string | undefined;
             anthropicBaseUrl?: string | undefined;
@@ -9656,12 +9920,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 maxTokens?: number | null | undefined;
                 maxThinkingTokens?: number | null | undefined;
                 supportsImages?: boolean | undefined;
+                promptCacheRetention?: "in_memory" | "24h" | undefined;
                 supportsVerbosity?: boolean | undefined;
                 supportsReasoningBudget?: boolean | undefined;
                 supportsReasoningBinary?: boolean | undefined;
                 supportsTemperature?: boolean | undefined;
+                defaultTemperature?: number | undefined;
                 requiredReasoningBudget?: boolean | undefined;
-                supportsReasoningEffort?: boolean | undefined;
+                supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                 requiredReasoningEffort?: boolean | undefined;
                 preserveReasoning?: boolean | undefined;
                 supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -9670,12 +9936,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 cacheWritesPrice?: number | undefined;
                 cacheReadsPrice?: number | undefined;
                 description?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                 minTokensPerCachePoint?: number | undefined;
                 maxCachePoints?: number | undefined;
                 cachableFields?: string[] | undefined;
                 deprecated?: boolean | undefined;
                 isFree?: boolean | undefined;
+                supportsNativeTools?: boolean | undefined;
+                defaultToolProtocol?: "xml" | "native" | undefined;
                 tiers?: {
                     contextWindow: number;
                     name?: "default" | "flex" | "priority" | undefined;
@@ -9825,6 +10093,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             maxConcurrentFileReads?: number | undefined;
             includeCurrentTime?: boolean | undefined;
             includeCurrentCost?: boolean | undefined;
+            maxGitStatusFiles?: number | undefined;
             includeDiagnosticMessages?: boolean | undefined;
             maxDiagnosticMessages?: number | undefined;
             browserToolEnabled?: boolean | undefined;
@@ -9919,7 +10188,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             lastModeExportPath?: string | undefined;
             lastModeImportPath?: string | undefined;
         }, {
-            reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
             codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
             codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
             codeIndexOpenAiKey?: string | undefined;
@@ -9942,6 +10211,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             modelMaxTokens?: number | undefined;
             modelMaxThinkingTokens?: number | undefined;
             verbosity?: "low" | "medium" | "high" | undefined;
+            toolProtocol?: "xml" | "native" | undefined;
             apiModelId?: string | undefined;
             apiKey?: string | undefined;
             anthropicBaseUrl?: string | undefined;
@@ -9989,12 +10259,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 maxTokens?: number | null | undefined;
                 maxThinkingTokens?: number | null | undefined;
                 supportsImages?: boolean | undefined;
+                promptCacheRetention?: "in_memory" | "24h" | undefined;
                 supportsVerbosity?: boolean | undefined;
                 supportsReasoningBudget?: boolean | undefined;
                 supportsReasoningBinary?: boolean | undefined;
                 supportsTemperature?: boolean | undefined;
+                defaultTemperature?: number | undefined;
                 requiredReasoningBudget?: boolean | undefined;
-                supportsReasoningEffort?: boolean | undefined;
+                supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                 requiredReasoningEffort?: boolean | undefined;
                 preserveReasoning?: boolean | undefined;
                 supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -10003,12 +10275,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 cacheWritesPrice?: number | undefined;
                 cacheReadsPrice?: number | undefined;
                 description?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                 minTokensPerCachePoint?: number | undefined;
                 maxCachePoints?: number | undefined;
                 cachableFields?: string[] | undefined;
                 deprecated?: boolean | undefined;
                 isFree?: boolean | undefined;
+                supportsNativeTools?: boolean | undefined;
+                defaultToolProtocol?: "xml" | "native" | undefined;
                 tiers?: {
                     contextWindow: number;
                     name?: "default" | "flex" | "priority" | undefined;
@@ -10158,6 +10432,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             maxConcurrentFileReads?: number | undefined;
             includeCurrentTime?: boolean | undefined;
             includeCurrentCost?: boolean | undefined;
+            maxGitStatusFiles?: number | undefined;
             includeDiagnosticMessages?: boolean | undefined;
             maxDiagnosticMessages?: number | undefined;
             browserToolEnabled?: boolean | undefined;
@@ -10258,7 +10533,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
     }, "strip", z.ZodTypeAny, {
         text: string;
         configuration: {
-            reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
             codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
             codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
             codeIndexOpenAiKey?: string | undefined;
@@ -10281,6 +10556,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             modelMaxTokens?: number | undefined;
             modelMaxThinkingTokens?: number | undefined;
             verbosity?: "low" | "medium" | "high" | undefined;
+            toolProtocol?: "xml" | "native" | undefined;
             apiModelId?: string | undefined;
             apiKey?: string | undefined;
             anthropicBaseUrl?: string | undefined;
@@ -10328,12 +10604,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 maxTokens?: number | null | undefined;
                 maxThinkingTokens?: number | null | undefined;
                 supportsImages?: boolean | undefined;
+                promptCacheRetention?: "in_memory" | "24h" | undefined;
                 supportsVerbosity?: boolean | undefined;
                 supportsReasoningBudget?: boolean | undefined;
                 supportsReasoningBinary?: boolean | undefined;
                 supportsTemperature?: boolean | undefined;
+                defaultTemperature?: number | undefined;
                 requiredReasoningBudget?: boolean | undefined;
-                supportsReasoningEffort?: boolean | undefined;
+                supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                 requiredReasoningEffort?: boolean | undefined;
                 preserveReasoning?: boolean | undefined;
                 supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -10342,12 +10620,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 cacheWritesPrice?: number | undefined;
                 cacheReadsPrice?: number | undefined;
                 description?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                 minTokensPerCachePoint?: number | undefined;
                 maxCachePoints?: number | undefined;
                 cachableFields?: string[] | undefined;
                 deprecated?: boolean | undefined;
                 isFree?: boolean | undefined;
+                supportsNativeTools?: boolean | undefined;
+                defaultToolProtocol?: "xml" | "native" | undefined;
                 tiers?: {
                     contextWindow: number;
                     name?: "default" | "flex" | "priority" | undefined;
@@ -10497,6 +10777,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             maxConcurrentFileReads?: number | undefined;
             includeCurrentTime?: boolean | undefined;
             includeCurrentCost?: boolean | undefined;
+            maxGitStatusFiles?: number | undefined;
             includeDiagnosticMessages?: boolean | undefined;
             maxDiagnosticMessages?: number | undefined;
             browserToolEnabled?: boolean | undefined;
@@ -10596,7 +10877,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
     }, {
         text: string;
         configuration: {
-            reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
             codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
             codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
             codeIndexOpenAiKey?: string | undefined;
@@ -10619,6 +10900,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             modelMaxTokens?: number | undefined;
             modelMaxThinkingTokens?: number | undefined;
             verbosity?: "low" | "medium" | "high" | undefined;
+            toolProtocol?: "xml" | "native" | undefined;
             apiModelId?: string | undefined;
             apiKey?: string | undefined;
             anthropicBaseUrl?: string | undefined;
@@ -10666,12 +10948,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 maxTokens?: number | null | undefined;
                 maxThinkingTokens?: number | null | undefined;
                 supportsImages?: boolean | undefined;
+                promptCacheRetention?: "in_memory" | "24h" | undefined;
                 supportsVerbosity?: boolean | undefined;
                 supportsReasoningBudget?: boolean | undefined;
                 supportsReasoningBinary?: boolean | undefined;
                 supportsTemperature?: boolean | undefined;
+                defaultTemperature?: number | undefined;
                 requiredReasoningBudget?: boolean | undefined;
-                supportsReasoningEffort?: boolean | undefined;
+                supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                 requiredReasoningEffort?: boolean | undefined;
                 preserveReasoning?: boolean | undefined;
                 supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -10680,12 +10964,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 cacheWritesPrice?: number | undefined;
                 cacheReadsPrice?: number | undefined;
                 description?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                 minTokensPerCachePoint?: number | undefined;
                 maxCachePoints?: number | undefined;
                 cachableFields?: string[] | undefined;
                 deprecated?: boolean | undefined;
                 isFree?: boolean | undefined;
+                supportsNativeTools?: boolean | undefined;
+                defaultToolProtocol?: "xml" | "native" | undefined;
                 tiers?: {
                     contextWindow: number;
                     name?: "default" | "flex" | "priority" | undefined;
@@ -10835,6 +11121,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             maxConcurrentFileReads?: number | undefined;
             includeCurrentTime?: boolean | undefined;
             includeCurrentCost?: boolean | undefined;
+            maxGitStatusFiles?: number | undefined;
             includeDiagnosticMessages?: boolean | undefined;
             maxDiagnosticMessages?: number | undefined;
             browserToolEnabled?: boolean | undefined;
@@ -10936,7 +11223,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
     data: {
         text: string;
         configuration: {
-            reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
             codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
             codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
             codeIndexOpenAiKey?: string | undefined;
@@ -10959,6 +11246,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             modelMaxTokens?: number | undefined;
             modelMaxThinkingTokens?: number | undefined;
             verbosity?: "low" | "medium" | "high" | undefined;
+            toolProtocol?: "xml" | "native" | undefined;
             apiModelId?: string | undefined;
             apiKey?: string | undefined;
             anthropicBaseUrl?: string | undefined;
@@ -11006,12 +11294,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 maxTokens?: number | null | undefined;
                 maxThinkingTokens?: number | null | undefined;
                 supportsImages?: boolean | undefined;
+                promptCacheRetention?: "in_memory" | "24h" | undefined;
                 supportsVerbosity?: boolean | undefined;
                 supportsReasoningBudget?: boolean | undefined;
                 supportsReasoningBinary?: boolean | undefined;
                 supportsTemperature?: boolean | undefined;
+                defaultTemperature?: number | undefined;
                 requiredReasoningBudget?: boolean | undefined;
-                supportsReasoningEffort?: boolean | undefined;
+                supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                 requiredReasoningEffort?: boolean | undefined;
                 preserveReasoning?: boolean | undefined;
                 supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -11020,12 +11310,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 cacheWritesPrice?: number | undefined;
                 cacheReadsPrice?: number | undefined;
                 description?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                 minTokensPerCachePoint?: number | undefined;
                 maxCachePoints?: number | undefined;
                 cachableFields?: string[] | undefined;
                 deprecated?: boolean | undefined;
                 isFree?: boolean | undefined;
+                supportsNativeTools?: boolean | undefined;
+                defaultToolProtocol?: "xml" | "native" | undefined;
                 tiers?: {
                     contextWindow: number;
                     name?: "default" | "flex" | "priority" | undefined;
@@ -11175,6 +11467,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             maxConcurrentFileReads?: number | undefined;
             includeCurrentTime?: boolean | undefined;
             includeCurrentCost?: boolean | undefined;
+            maxGitStatusFiles?: number | undefined;
             includeDiagnosticMessages?: boolean | undefined;
             maxDiagnosticMessages?: number | undefined;
             browserToolEnabled?: boolean | undefined;
@@ -11277,7 +11570,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
     data: {
         text: string;
         configuration: {
-            reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
             codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
             codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
             codeIndexOpenAiKey?: string | undefined;
@@ -11300,6 +11593,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             modelMaxTokens?: number | undefined;
             modelMaxThinkingTokens?: number | undefined;
             verbosity?: "low" | "medium" | "high" | undefined;
+            toolProtocol?: "xml" | "native" | undefined;
             apiModelId?: string | undefined;
             apiKey?: string | undefined;
             anthropicBaseUrl?: string | undefined;
@@ -11347,12 +11641,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 maxTokens?: number | null | undefined;
                 maxThinkingTokens?: number | null | undefined;
                 supportsImages?: boolean | undefined;
+                promptCacheRetention?: "in_memory" | "24h" | undefined;
                 supportsVerbosity?: boolean | undefined;
                 supportsReasoningBudget?: boolean | undefined;
                 supportsReasoningBinary?: boolean | undefined;
                 supportsTemperature?: boolean | undefined;
+                defaultTemperature?: number | undefined;
                 requiredReasoningBudget?: boolean | undefined;
-                supportsReasoningEffort?: boolean | undefined;
+                supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                 requiredReasoningEffort?: boolean | undefined;
                 preserveReasoning?: boolean | undefined;
                 supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -11361,12 +11657,14 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
                 cacheWritesPrice?: number | undefined;
                 cacheReadsPrice?: number | undefined;
                 description?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                 minTokensPerCachePoint?: number | undefined;
                 maxCachePoints?: number | undefined;
                 cachableFields?: string[] | undefined;
                 deprecated?: boolean | undefined;
                 isFree?: boolean | undefined;
+                supportsNativeTools?: boolean | undefined;
+                defaultToolProtocol?: "xml" | "native" | undefined;
                 tiers?: {
                     contextWindow: number;
                     name?: "default" | "flex" | "priority" | undefined;
@@ -11516,6 +11814,7 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
             maxConcurrentFileReads?: number | undefined;
             includeCurrentTime?: boolean | undefined;
             includeCurrentCost?: boolean | undefined;
+            maxGitStatusFiles?: number | undefined;
             includeDiagnosticMessages?: boolean | undefined;
             maxDiagnosticMessages?: number | undefined;
             browserToolEnabled?: boolean | undefined;
@@ -11641,6 +11940,30 @@ declare const taskCommandSchema: z.ZodDiscriminatedUnion<"commandName", [z.ZodOb
 }, {
     data: string;
     commandName: TaskCommandName.ResumeTask;
+}>, z.ZodObject<{
+    commandName: z.ZodLiteral<TaskCommandName.SendMessage>;
+    data: z.ZodObject<{
+        text: z.ZodOptional<z.ZodString>;
+        images: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    }, "strip", z.ZodTypeAny, {
+        text?: string | undefined;
+        images?: string[] | undefined;
+    }, {
+        text?: string | undefined;
+        images?: string[] | undefined;
+    }>;
+}, "strip", z.ZodTypeAny, {
+    data: {
+        text?: string | undefined;
+        images?: string[] | undefined;
+    };
+    commandName: TaskCommandName.SendMessage;
+}, {
+    data: {
+        text?: string | undefined;
+        images?: string[] | undefined;
+    };
+    commandName: TaskCommandName.SendMessage;
 }>]>;
 type TaskCommand = z.infer<typeof taskCommandSchema>;
 /**
@@ -11700,10 +12023,11 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 modelTemperature: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
                 consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
                 enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-                reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+                reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
                 modelMaxTokens: z.ZodOptional<z.ZodNumber>;
                 modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
                 verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+                toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
                 vercelAiGatewayApiKey: z.ZodOptional<z.ZodString>;
                 vercelAiGatewayModelId: z.ZodOptional<z.ZodString>;
                 apiModelId: z.ZodOptional<z.ZodString>;
@@ -11789,12 +12113,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     contextWindow: z.ZodNumber;
                     supportsImages: z.ZodOptional<z.ZodBoolean>;
                     supportsPromptCache: z.ZodBoolean;
+                    promptCacheRetention: z.ZodOptional<z.ZodEnum<["in_memory", "24h"]>>;
                     supportsVerbosity: z.ZodOptional<z.ZodBoolean>;
                     supportsReasoningBudget: z.ZodOptional<z.ZodBoolean>;
                     supportsReasoningBinary: z.ZodOptional<z.ZodBoolean>;
                     supportsTemperature: z.ZodOptional<z.ZodBoolean>;
+                    defaultTemperature: z.ZodOptional<z.ZodNumber>;
                     requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
-                    supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+                    supportsReasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodBoolean, z.ZodArray<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>, "many">]>>;
                     requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
                     preserveReasoning: z.ZodOptional<z.ZodBoolean>;
                     supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
@@ -11803,12 +12129,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     cacheWritesPrice: z.ZodOptional<z.ZodNumber>;
                     cacheReadsPrice: z.ZodOptional<z.ZodNumber>;
                     description: z.ZodOptional<z.ZodString>;
-                    reasoningEffort: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+                    reasoningEffort: z.ZodOptional<z.ZodEnum<["none", "minimal", "low", "medium", "high"]>>;
                     minTokensPerCachePoint: z.ZodOptional<z.ZodNumber>;
                     maxCachePoints: z.ZodOptional<z.ZodNumber>;
                     cachableFields: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                     deprecated: z.ZodOptional<z.ZodBoolean>;
                     isFree: z.ZodOptional<z.ZodBoolean>;
+                    supportsNativeTools: z.ZodOptional<z.ZodBoolean>;
+                    defaultToolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
                     tiers: z.ZodOptional<z.ZodArray<z.ZodObject<{
                         name: z.ZodOptional<z.ZodEnum<["default", "flex", "priority"]>>;
                         contextWindow: z.ZodNumber;
@@ -11837,12 +12165,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -11851,12 +12181,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -11871,12 +12203,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -11885,12 +12219,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -12040,6 +12376,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 maxConcurrentFileReads: z.ZodOptional<z.ZodNumber>;
                 includeCurrentTime: z.ZodOptional<z.ZodBoolean>;
                 includeCurrentCost: z.ZodOptional<z.ZodBoolean>;
+                maxGitStatusFiles: z.ZodOptional<z.ZodNumber>;
                 includeDiagnosticMessages: z.ZodOptional<z.ZodBoolean>;
                 maxDiagnosticMessages: z.ZodOptional<z.ZodNumber>;
                 browserToolEnabled: z.ZodOptional<z.ZodBoolean>;
@@ -12304,7 +12641,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 lastModeExportPath: z.ZodOptional<z.ZodString>;
                 lastModeImportPath: z.ZodOptional<z.ZodString>;
             }, "strip", z.ZodTypeAny, {
-                reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
                 codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
                 codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
                 codeIndexOpenAiKey?: string | undefined;
@@ -12327,6 +12664,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 modelMaxTokens?: number | undefined;
                 modelMaxThinkingTokens?: number | undefined;
                 verbosity?: "low" | "medium" | "high" | undefined;
+                toolProtocol?: "xml" | "native" | undefined;
                 apiModelId?: string | undefined;
                 apiKey?: string | undefined;
                 anthropicBaseUrl?: string | undefined;
@@ -12374,12 +12712,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -12388,12 +12728,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -12543,6 +12885,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 maxConcurrentFileReads?: number | undefined;
                 includeCurrentTime?: boolean | undefined;
                 includeCurrentCost?: boolean | undefined;
+                maxGitStatusFiles?: number | undefined;
                 includeDiagnosticMessages?: boolean | undefined;
                 maxDiagnosticMessages?: number | undefined;
                 browserToolEnabled?: boolean | undefined;
@@ -12637,7 +12980,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 lastModeExportPath?: string | undefined;
                 lastModeImportPath?: string | undefined;
             }, {
-                reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
                 codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
                 codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
                 codeIndexOpenAiKey?: string | undefined;
@@ -12660,6 +13003,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 modelMaxTokens?: number | undefined;
                 modelMaxThinkingTokens?: number | undefined;
                 verbosity?: "low" | "medium" | "high" | undefined;
+                toolProtocol?: "xml" | "native" | undefined;
                 apiModelId?: string | undefined;
                 apiKey?: string | undefined;
                 anthropicBaseUrl?: string | undefined;
@@ -12707,12 +13051,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -12721,12 +13067,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -12876,6 +13224,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 maxConcurrentFileReads?: number | undefined;
                 includeCurrentTime?: boolean | undefined;
                 includeCurrentCost?: boolean | undefined;
+                maxGitStatusFiles?: number | undefined;
                 includeDiagnosticMessages?: boolean | undefined;
                 maxDiagnosticMessages?: number | undefined;
                 browserToolEnabled?: boolean | undefined;
@@ -12976,7 +13325,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         }, "strip", z.ZodTypeAny, {
             text: string;
             configuration: {
-                reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
                 codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
                 codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
                 codeIndexOpenAiKey?: string | undefined;
@@ -12999,6 +13348,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 modelMaxTokens?: number | undefined;
                 modelMaxThinkingTokens?: number | undefined;
                 verbosity?: "low" | "medium" | "high" | undefined;
+                toolProtocol?: "xml" | "native" | undefined;
                 apiModelId?: string | undefined;
                 apiKey?: string | undefined;
                 anthropicBaseUrl?: string | undefined;
@@ -13046,12 +13396,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -13060,12 +13412,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -13215,6 +13569,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 maxConcurrentFileReads?: number | undefined;
                 includeCurrentTime?: boolean | undefined;
                 includeCurrentCost?: boolean | undefined;
+                maxGitStatusFiles?: number | undefined;
                 includeDiagnosticMessages?: boolean | undefined;
                 maxDiagnosticMessages?: number | undefined;
                 browserToolEnabled?: boolean | undefined;
@@ -13314,7 +13669,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         }, {
             text: string;
             configuration: {
-                reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
                 codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
                 codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
                 codeIndexOpenAiKey?: string | undefined;
@@ -13337,6 +13692,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 modelMaxTokens?: number | undefined;
                 modelMaxThinkingTokens?: number | undefined;
                 verbosity?: "low" | "medium" | "high" | undefined;
+                toolProtocol?: "xml" | "native" | undefined;
                 apiModelId?: string | undefined;
                 apiKey?: string | undefined;
                 anthropicBaseUrl?: string | undefined;
@@ -13384,12 +13740,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -13398,12 +13756,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -13553,6 +13913,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 maxConcurrentFileReads?: number | undefined;
                 includeCurrentTime?: boolean | undefined;
                 includeCurrentCost?: boolean | undefined;
+                maxGitStatusFiles?: number | undefined;
                 includeDiagnosticMessages?: boolean | undefined;
                 maxDiagnosticMessages?: number | undefined;
                 browserToolEnabled?: boolean | undefined;
@@ -13654,7 +14015,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         data: {
             text: string;
             configuration: {
-                reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
                 codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
                 codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
                 codeIndexOpenAiKey?: string | undefined;
@@ -13677,6 +14038,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 modelMaxTokens?: number | undefined;
                 modelMaxThinkingTokens?: number | undefined;
                 verbosity?: "low" | "medium" | "high" | undefined;
+                toolProtocol?: "xml" | "native" | undefined;
                 apiModelId?: string | undefined;
                 apiKey?: string | undefined;
                 anthropicBaseUrl?: string | undefined;
@@ -13724,12 +14086,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -13738,12 +14102,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -13893,6 +14259,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 maxConcurrentFileReads?: number | undefined;
                 includeCurrentTime?: boolean | undefined;
                 includeCurrentCost?: boolean | undefined;
+                maxGitStatusFiles?: number | undefined;
                 includeDiagnosticMessages?: boolean | undefined;
                 maxDiagnosticMessages?: number | undefined;
                 browserToolEnabled?: boolean | undefined;
@@ -13995,7 +14362,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         data: {
             text: string;
             configuration: {
-                reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
                 codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
                 codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
                 codeIndexOpenAiKey?: string | undefined;
@@ -14018,6 +14385,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 modelMaxTokens?: number | undefined;
                 modelMaxThinkingTokens?: number | undefined;
                 verbosity?: "low" | "medium" | "high" | undefined;
+                toolProtocol?: "xml" | "native" | undefined;
                 apiModelId?: string | undefined;
                 apiKey?: string | undefined;
                 anthropicBaseUrl?: string | undefined;
@@ -14065,12 +14433,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -14079,12 +14449,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -14234,6 +14606,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 maxConcurrentFileReads?: number | undefined;
                 includeCurrentTime?: boolean | undefined;
                 includeCurrentCost?: boolean | undefined;
+                maxGitStatusFiles?: number | undefined;
                 includeDiagnosticMessages?: boolean | undefined;
                 maxDiagnosticMessages?: number | undefined;
                 browserToolEnabled?: boolean | undefined;
@@ -14359,6 +14732,30 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     }, {
         data: string;
         commandName: TaskCommandName.ResumeTask;
+    }>, z.ZodObject<{
+        commandName: z.ZodLiteral<TaskCommandName.SendMessage>;
+        data: z.ZodObject<{
+            text: z.ZodOptional<z.ZodString>;
+            images: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "strip", z.ZodTypeAny, {
+            text?: string | undefined;
+            images?: string[] | undefined;
+        }, {
+            text?: string | undefined;
+            images?: string[] | undefined;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        data: {
+            text?: string | undefined;
+            images?: string[] | undefined;
+        };
+        commandName: TaskCommandName.SendMessage;
+    }, {
+        data: {
+            text?: string | undefined;
+            images?: string[] | undefined;
+        };
+        commandName: TaskCommandName.SendMessage;
     }>]>;
 }, "strip", z.ZodTypeAny, {
     type: IpcMessageType.TaskCommand;
@@ -14366,7 +14763,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         data: {
             text: string;
             configuration: {
-                reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
                 codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
                 codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
                 codeIndexOpenAiKey?: string | undefined;
@@ -14389,6 +14786,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 modelMaxTokens?: number | undefined;
                 modelMaxThinkingTokens?: number | undefined;
                 verbosity?: "low" | "medium" | "high" | undefined;
+                toolProtocol?: "xml" | "native" | undefined;
                 apiModelId?: string | undefined;
                 apiKey?: string | undefined;
                 anthropicBaseUrl?: string | undefined;
@@ -14436,12 +14834,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -14450,12 +14850,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -14605,6 +15007,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 maxConcurrentFileReads?: number | undefined;
                 includeCurrentTime?: boolean | undefined;
                 includeCurrentCost?: boolean | undefined;
+                maxGitStatusFiles?: number | undefined;
                 includeDiagnosticMessages?: boolean | undefined;
                 maxDiagnosticMessages?: number | undefined;
                 browserToolEnabled?: boolean | undefined;
@@ -14712,6 +15115,12 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     } | {
         data: string;
         commandName: TaskCommandName.ResumeTask;
+    } | {
+        data: {
+            text?: string | undefined;
+            images?: string[] | undefined;
+        };
+        commandName: TaskCommandName.SendMessage;
     };
     clientId: string;
     origin: IpcOrigin.Client;
@@ -14721,7 +15130,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         data: {
             text: string;
             configuration: {
-                reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
                 codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
                 codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
                 codeIndexOpenAiKey?: string | undefined;
@@ -14744,6 +15153,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 modelMaxTokens?: number | undefined;
                 modelMaxThinkingTokens?: number | undefined;
                 verbosity?: "low" | "medium" | "high" | undefined;
+                toolProtocol?: "xml" | "native" | undefined;
                 apiModelId?: string | undefined;
                 apiKey?: string | undefined;
                 anthropicBaseUrl?: string | undefined;
@@ -14791,12 +15201,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -14805,12 +15217,14 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -14960,6 +15374,7 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 maxConcurrentFileReads?: number | undefined;
                 includeCurrentTime?: boolean | undefined;
                 includeCurrentCost?: boolean | undefined;
+                maxGitStatusFiles?: number | undefined;
                 includeDiagnosticMessages?: boolean | undefined;
                 maxDiagnosticMessages?: number | undefined;
                 browserToolEnabled?: boolean | undefined;
@@ -15067,6 +15482,12 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     } | {
         data: string;
         commandName: TaskCommandName.ResumeTask;
+    } | {
+        data: {
+            text?: string | undefined;
+            images?: string[] | undefined;
+        };
+        commandName: TaskCommandName.SendMessage;
     };
     clientId: string;
     origin: IpcOrigin.Client;
@@ -15335,23 +15756,6 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -15376,11 +15780,6 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -15405,11 +15804,6 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>;
         }, "strip", z.ZodTypeAny, {
             message: {
@@ -15436,11 +15830,6 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             };
             taskId: string;
             action: "created" | "updated";
@@ -15469,11 +15858,6 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             };
             taskId: string;
             action: "created" | "updated";
@@ -15506,11 +15890,6 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             };
             taskId: string;
             action: "created" | "updated";
@@ -15543,11 +15922,6 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             };
             taskId: string;
             action: "created" | "updated";
@@ -15754,11 +16128,6 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             };
             taskId: string;
             action: "created" | "updated";
@@ -15891,11 +16260,6 @@ declare const ipcMessageSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             };
             taskId: string;
             action: "created" | "updated";
@@ -16139,6 +16503,15 @@ declare const interactiveAsks: readonly ["followup", "command", "tool", "browser
 type InteractiveAsk = (typeof interactiveAsks)[number];
 declare function isInteractiveAsk(ask: ClineAsk): ask is InteractiveAsk;
 /**
+ * NonBlockingAsk
+ *
+ * Asks that are not associated with an actual approval, and are only used
+ * to update chat messages.
+ */
+declare const nonBlockingAsks: readonly ["command_output"];
+type NonBlockingAsk = (typeof nonBlockingAsks)[number];
+declare function isNonBlockingAsk(ask: ClineAsk): ask is NonBlockingAsk;
+/**
  * ClineSay
  */
 /**
@@ -16254,23 +16627,6 @@ declare const clineMessageSchema: z.ZodObject<{
     isProtected: z.ZodOptional<z.ZodBoolean>;
     apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
     isAnswered: z.ZodOptional<z.ZodBoolean>;
-    metadata: z.ZodOptional<z.ZodObject<{
-        gpt5: z.ZodOptional<z.ZodObject<{
-            previous_response_id: z.ZodOptional<z.ZodString>;
-        }, "strip", z.ZodTypeAny, {
-            previous_response_id?: string | undefined;
-        }, {
-            previous_response_id?: string | undefined;
-        }>>;
-    }, "strip", z.ZodTypeAny, {
-        gpt5?: {
-            previous_response_id?: string | undefined;
-        } | undefined;
-    }, {
-        gpt5?: {
-            previous_response_id?: string | undefined;
-        } | undefined;
-    }>>;
 }, "strip", z.ZodTypeAny, {
     type: "ask" | "say";
     ts: number;
@@ -16295,11 +16651,6 @@ declare const clineMessageSchema: z.ZodObject<{
     isProtected?: boolean | undefined;
     apiProtocol?: "openai" | "anthropic" | undefined;
     isAnswered?: boolean | undefined;
-    metadata?: {
-        gpt5?: {
-            previous_response_id?: string | undefined;
-        } | undefined;
-    } | undefined;
 }, {
     type: "ask" | "say";
     ts: number;
@@ -16324,11 +16675,6 @@ declare const clineMessageSchema: z.ZodObject<{
     isProtected?: boolean | undefined;
     apiProtocol?: "openai" | "anthropic" | undefined;
     isAnswered?: boolean | undefined;
-    metadata?: {
-        gpt5?: {
-            previous_response_id?: string | undefined;
-        } | undefined;
-    } | undefined;
 }>;
 type ClineMessage = z.infer<typeof clineMessageSchema>;
 /**
@@ -16404,6 +16750,33 @@ declare const toolUsageSchema: z.ZodRecord<z.ZodEnum<["execute_command", "read_f
     failures: number;
 }>>;
 type ToolUsage = z.infer<typeof toolUsageSchema>;
+/**
+ * Tool protocol constants
+ */
+declare const TOOL_PROTOCOL: {
+    readonly XML: "xml";
+    readonly NATIVE: "native";
+};
+/**
+ * Tool protocol type for system prompt generation
+ * Derived from TOOL_PROTOCOL constants to ensure type safety
+ */
+type ToolProtocol = (typeof TOOL_PROTOCOL)[keyof typeof TOOL_PROTOCOL];
+/**
+ * Checks if the protocol is native (non-XML).
+ *
+ * @param protocol - The tool protocol to check
+ * @returns True if protocol is native
+ */
+declare function isNativeProtocol(protocol: ToolProtocol): boolean;
+/**
+ * Gets the effective protocol from settings or falls back to the default XML.
+ * This function is safe to use in webview-accessible code as it doesn't depend on vscode module.
+ *
+ * @param toolProtocol - Optional tool protocol from settings
+ * @returns The effective tool protocol (defaults to "xml")
+ */
+declare function getEffectiveProtocol(toolProtocol?: ToolProtocol): ToolProtocol;
 
 /**
  * TelemetrySetting
@@ -17039,23 +17412,6 @@ declare const rooCodeTelemetryEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zo
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -17080,11 +17436,6 @@ declare const rooCodeTelemetryEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zo
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -17109,11 +17460,6 @@ declare const rooCodeTelemetryEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zo
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>;
         repositoryUrl: z.ZodOptional<z.ZodString>;
         repositoryName: z.ZodOptional<z.ZodString>;
@@ -17173,11 +17519,6 @@ declare const rooCodeTelemetryEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zo
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         language: string;
@@ -17228,11 +17569,6 @@ declare const rooCodeTelemetryEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zo
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         language: string;
@@ -17286,11 +17622,6 @@ declare const rooCodeTelemetryEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zo
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         language: string;
@@ -17344,11 +17675,6 @@ declare const rooCodeTelemetryEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zo
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         };
         taskId: string;
         language: string;
@@ -18117,10 +18443,11 @@ declare const organizationSettingsSchema: z.ZodObject<{
         rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
         consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
         enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-        reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+        reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
         modelMaxTokens: z.ZodOptional<z.ZodNumber>;
         modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
         verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+        toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
         vercelAiGatewayApiKey: z.ZodOptional<z.ZodString>;
         vercelAiGatewayModelId: z.ZodOptional<z.ZodString>;
         apiModelId: z.ZodOptional<z.ZodString>;
@@ -18206,12 +18533,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             contextWindow: z.ZodNumber;
             supportsImages: z.ZodOptional<z.ZodBoolean>;
             supportsPromptCache: z.ZodBoolean;
+            promptCacheRetention: z.ZodOptional<z.ZodEnum<["in_memory", "24h"]>>;
             supportsVerbosity: z.ZodOptional<z.ZodBoolean>;
             supportsReasoningBudget: z.ZodOptional<z.ZodBoolean>;
             supportsReasoningBinary: z.ZodOptional<z.ZodBoolean>;
             supportsTemperature: z.ZodOptional<z.ZodBoolean>;
+            defaultTemperature: z.ZodOptional<z.ZodNumber>;
             requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
-            supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+            supportsReasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodBoolean, z.ZodArray<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>, "many">]>>;
             requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
             preserveReasoning: z.ZodOptional<z.ZodBoolean>;
             supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
@@ -18220,12 +18549,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             cacheWritesPrice: z.ZodOptional<z.ZodNumber>;
             cacheReadsPrice: z.ZodOptional<z.ZodNumber>;
             description: z.ZodOptional<z.ZodString>;
-            reasoningEffort: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+            reasoningEffort: z.ZodOptional<z.ZodEnum<["none", "minimal", "low", "medium", "high"]>>;
             minTokensPerCachePoint: z.ZodOptional<z.ZodNumber>;
             maxCachePoints: z.ZodOptional<z.ZodNumber>;
             cachableFields: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
             deprecated: z.ZodOptional<z.ZodBoolean>;
             isFree: z.ZodOptional<z.ZodBoolean>;
+            supportsNativeTools: z.ZodOptional<z.ZodBoolean>;
+            defaultToolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
             tiers: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodOptional<z.ZodEnum<["default", "flex", "priority"]>>;
                 contextWindow: z.ZodNumber;
@@ -18254,12 +18585,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -18268,12 +18601,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -18288,12 +18623,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -18302,12 +18639,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -18360,7 +18699,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         id?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
         codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
         codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
         codeIndexOpenAiKey?: string | undefined;
@@ -18382,6 +18721,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
         modelMaxTokens?: number | undefined;
         modelMaxThinkingTokens?: number | undefined;
         verbosity?: "low" | "medium" | "high" | undefined;
+        toolProtocol?: "xml" | "native" | undefined;
         apiModelId?: string | undefined;
         apiKey?: string | undefined;
         anthropicBaseUrl?: string | undefined;
@@ -18429,12 +18769,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -18443,12 +18785,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -18526,7 +18870,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
         vercelAiGatewayModelId?: string | undefined;
     }, {
         id?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
         codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
         codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
         codeIndexOpenAiKey?: string | undefined;
@@ -18548,6 +18892,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
         modelMaxTokens?: number | undefined;
         modelMaxThinkingTokens?: number | undefined;
         verbosity?: "low" | "medium" | "high" | undefined;
+        toolProtocol?: "xml" | "native" | undefined;
         apiModelId?: string | undefined;
         apiKey?: string | undefined;
         anthropicBaseUrl?: string | undefined;
@@ -18595,12 +18940,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -18609,12 +18956,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -18754,7 +19103,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
     }[] | undefined;
     providerProfiles?: Record<string, {
         id?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
         codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
         codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
         codeIndexOpenAiKey?: string | undefined;
@@ -18776,6 +19125,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
         modelMaxTokens?: number | undefined;
         modelMaxThinkingTokens?: number | undefined;
         verbosity?: "low" | "medium" | "high" | undefined;
+        toolProtocol?: "xml" | "native" | undefined;
         apiModelId?: string | undefined;
         apiKey?: string | undefined;
         anthropicBaseUrl?: string | undefined;
@@ -18823,12 +19173,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -18837,12 +19189,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -18982,7 +19336,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
     }[] | undefined;
     providerProfiles?: Record<string, {
         id?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
         codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
         codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
         codeIndexOpenAiKey?: string | undefined;
@@ -19004,6 +19358,7 @@ declare const organizationSettingsSchema: z.ZodObject<{
         modelMaxTokens?: number | undefined;
         modelMaxThinkingTokens?: number | undefined;
         verbosity?: "low" | "medium" | "high" | undefined;
+        toolProtocol?: "xml" | "native" | undefined;
         apiModelId?: string | undefined;
         apiKey?: string | undefined;
         anthropicBaseUrl?: string | undefined;
@@ -19051,12 +19406,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -19065,12 +19422,14 @@ declare const organizationSettingsSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -19408,23 +19767,6 @@ declare const extensionTaskSchema: z.ZodObject<{
         isProtected: z.ZodOptional<z.ZodBoolean>;
         apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
         isAnswered: z.ZodOptional<z.ZodBoolean>;
-        metadata: z.ZodOptional<z.ZodObject<{
-            gpt5: z.ZodOptional<z.ZodObject<{
-                previous_response_id: z.ZodOptional<z.ZodString>;
-            }, "strip", z.ZodTypeAny, {
-                previous_response_id?: string | undefined;
-            }, {
-                previous_response_id?: string | undefined;
-            }>>;
-        }, "strip", z.ZodTypeAny, {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        }, {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "ask" | "say";
         ts: number;
@@ -19449,11 +19791,6 @@ declare const extensionTaskSchema: z.ZodObject<{
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     }, {
         type: "ask" | "say";
         ts: number;
@@ -19478,11 +19815,6 @@ declare const extensionTaskSchema: z.ZodObject<{
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     }>>;
     queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
         timestamp: z.ZodNumber;
@@ -19554,11 +19886,6 @@ declare const extensionTaskSchema: z.ZodObject<{
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     } | undefined;
     queuedMessages?: {
         text: string;
@@ -19605,11 +19932,6 @@ declare const extensionTaskSchema: z.ZodObject<{
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     } | undefined;
     queuedMessages?: {
         text: string;
@@ -19716,23 +20038,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -19757,11 +20062,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -19786,11 +20086,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
             timestamp: z.ZodNumber;
@@ -19862,11 +20157,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         queuedMessages?: {
             text: string;
@@ -19913,11 +20203,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         queuedMessages?: {
             text: string;
@@ -19975,23 +20260,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
         isProtected: z.ZodOptional<z.ZodBoolean>;
         apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
         isAnswered: z.ZodOptional<z.ZodBoolean>;
-        metadata: z.ZodOptional<z.ZodObject<{
-            gpt5: z.ZodOptional<z.ZodObject<{
-                previous_response_id: z.ZodOptional<z.ZodString>;
-            }, "strip", z.ZodTypeAny, {
-                previous_response_id?: string | undefined;
-            }, {
-                previous_response_id?: string | undefined;
-            }>>;
-        }, "strip", z.ZodTypeAny, {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        }, {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "ask" | "say";
         ts: number;
@@ -20016,11 +20284,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     }, {
         type: "ask" | "say";
         ts: number;
@@ -20045,11 +20308,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     }>>;
     taskHistory: z.ZodArray<z.ZodString, "many">;
     mode: z.ZodOptional<z.ZodString>;
@@ -20106,11 +20364,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         queuedMessages?: {
             text: string;
@@ -20174,11 +20427,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     } | undefined;
     gitProperties?: {
         repositoryUrl?: string | undefined;
@@ -20218,11 +20466,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         queuedMessages?: {
             text: string;
@@ -20286,11 +20529,6 @@ declare const extensionInstanceSchema: z.ZodObject<{
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     } | undefined;
     gitProperties?: {
         repositoryUrl?: string | undefined;
@@ -20413,23 +20651,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -20454,11 +20675,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -20483,11 +20699,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -20559,11 +20770,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -20610,11 +20816,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -20672,23 +20873,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -20713,11 +20897,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -20742,11 +20921,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -20803,11 +20977,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -20871,11 +21040,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -20915,11 +21079,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -20983,11 +21142,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -21032,11 +21186,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -21100,11 +21249,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -21148,11 +21292,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -21216,11 +21355,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -21317,23 +21451,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -21358,11 +21475,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -21387,11 +21499,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -21463,11 +21570,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -21514,11 +21616,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -21576,23 +21673,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -21617,11 +21697,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -21646,11 +21721,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -21707,11 +21777,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -21775,11 +21840,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -21819,11 +21879,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -21887,11 +21942,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -21936,11 +21986,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -22004,11 +22049,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -22052,11 +22092,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -22120,11 +22155,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -22221,23 +22251,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -22262,11 +22275,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -22291,11 +22299,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -22367,11 +22370,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -22418,11 +22416,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -22480,23 +22473,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -22521,11 +22497,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -22550,11 +22521,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -22611,11 +22577,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -22679,11 +22640,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -22723,11 +22679,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -22791,11 +22742,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -22840,11 +22786,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -22908,11 +22849,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -22956,11 +22892,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -23024,11 +22955,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -23125,23 +23051,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -23166,11 +23075,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -23195,11 +23099,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -23271,11 +23170,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -23322,11 +23216,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -23384,23 +23273,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -23425,11 +23297,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -23454,11 +23321,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -23515,11 +23377,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -23583,11 +23440,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -23627,11 +23479,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -23695,11 +23542,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -23744,11 +23586,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -23812,11 +23649,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -23860,11 +23692,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -23928,11 +23755,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -24029,23 +23851,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -24070,11 +23875,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -24099,11 +23899,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -24175,11 +23970,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -24226,11 +24016,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -24288,23 +24073,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -24329,11 +24097,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -24358,11 +24121,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -24419,11 +24177,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -24487,11 +24240,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -24531,11 +24279,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -24599,11 +24342,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -24648,11 +24386,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -24716,11 +24449,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -24764,11 +24492,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -24832,11 +24555,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -24933,23 +24651,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -24974,11 +24675,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -25003,11 +24699,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -25079,11 +24770,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -25130,11 +24816,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -25192,23 +24873,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -25233,11 +24897,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -25262,11 +24921,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -25323,11 +24977,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -25391,11 +25040,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -25435,11 +25079,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -25503,11 +25142,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -25552,11 +25186,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -25620,11 +25249,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -25668,11 +25292,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -25736,11 +25355,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -25837,23 +25451,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -25878,11 +25475,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -25907,11 +25499,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -25983,11 +25570,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -26034,11 +25616,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -26096,23 +25673,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -26137,11 +25697,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -26166,11 +25721,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -26227,11 +25777,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -26295,11 +25840,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -26339,11 +25879,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -26407,11 +25942,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -26456,11 +25986,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -26524,11 +26049,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -26572,11 +26092,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -26640,11 +26155,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -26741,23 +26251,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -26782,11 +26275,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -26811,11 +26299,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -26887,11 +26370,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -26938,11 +26416,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -27000,23 +26473,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -27041,11 +26497,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -27070,11 +26521,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -27131,11 +26577,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -27199,11 +26640,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -27243,11 +26679,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -27311,11 +26742,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -27360,11 +26786,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -27428,11 +26849,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -27476,11 +26892,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -27544,11 +26955,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -27645,23 +27051,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -27686,11 +27075,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -27715,11 +27099,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -27791,11 +27170,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -27842,11 +27216,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -27904,23 +27273,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -27945,11 +27297,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -27974,11 +27321,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -28035,11 +27377,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -28103,11 +27440,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -28147,11 +27479,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -28215,11 +27542,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -28264,11 +27586,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -28332,11 +27649,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -28380,11 +27692,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -28448,11 +27755,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -28549,23 +27851,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -28590,11 +27875,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -28619,11 +27899,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -28695,11 +27970,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -28746,11 +28016,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -28808,23 +28073,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -28849,11 +28097,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -28878,11 +28121,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -28939,11 +28177,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -29007,11 +28240,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -29051,11 +28279,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -29119,11 +28342,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -29168,11 +28386,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -29236,11 +28449,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -29284,11 +28492,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -29352,11 +28555,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -29453,23 +28651,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -29494,11 +28675,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -29523,11 +28699,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -29599,11 +28770,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -29650,11 +28816,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -29712,23 +28873,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -29753,11 +28897,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -29782,11 +28921,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -29843,11 +28977,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -29911,11 +29040,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -29955,11 +29079,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -30023,11 +29142,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -30072,11 +29186,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -30140,11 +29249,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -30188,11 +29292,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -30256,11 +29355,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -30357,23 +29451,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -30398,11 +29475,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -30427,11 +29499,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -30503,11 +29570,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -30554,11 +29616,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -30616,23 +29673,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -30657,11 +29697,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -30686,11 +29721,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -30747,11 +29777,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -30815,11 +29840,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -30859,11 +29879,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -30927,11 +29942,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -30976,11 +29986,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -31044,11 +30049,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -31092,11 +30092,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -31160,11 +30155,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -31261,23 +30251,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -31302,11 +30275,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -31331,11 +30299,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -31407,11 +30370,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -31458,11 +30416,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -31520,23 +30473,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -31561,11 +30497,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -31590,11 +30521,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -31651,11 +30577,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -31719,11 +30640,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -31763,11 +30679,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -31831,11 +30742,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -31880,11 +30786,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -31948,11 +30849,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -31996,11 +30892,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -32064,11 +30955,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -32165,23 +31051,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -32206,11 +31075,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -32235,11 +31099,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -32311,11 +31170,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -32362,11 +31216,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -32424,23 +31273,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -32465,11 +31297,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -32494,11 +31321,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -32555,11 +31377,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -32623,11 +31440,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -32667,11 +31479,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -32735,11 +31542,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -32784,11 +31586,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -32852,11 +31649,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -32900,11 +31692,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -32968,11 +31755,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -33069,23 +31851,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -33110,11 +31875,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -33139,11 +31899,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -33215,11 +31970,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -33266,11 +32016,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -33328,23 +32073,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -33369,11 +32097,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -33398,11 +32121,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -33459,11 +32177,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -33527,11 +32240,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -33571,11 +32279,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -33639,11 +32342,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -33688,11 +32386,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -33756,11 +32449,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -33804,11 +32492,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -33872,11 +32555,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -33973,23 +32651,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -34014,11 +32675,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -34043,11 +32699,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -34119,11 +32770,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -34170,11 +32816,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -34232,23 +32873,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -34273,11 +32897,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -34302,11 +32921,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -34363,11 +32977,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -34431,11 +33040,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -34475,11 +33079,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -34543,11 +33142,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -34594,11 +33188,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -34662,11 +33251,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -34711,11 +33295,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -34779,11 +33358,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -34880,23 +33454,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -34921,11 +33478,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -34950,11 +33502,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -35026,11 +33573,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -35077,11 +33619,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -35139,23 +33676,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -35180,11 +33700,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -35209,11 +33724,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -35270,11 +33780,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -35338,11 +33843,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -35382,11 +33882,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -35450,11 +33945,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -35513,11 +34003,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -35581,11 +34066,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -35633,11 +34113,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -35701,11 +34176,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -35802,23 +34272,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -35843,11 +34296,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -35872,11 +34320,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -35948,11 +34391,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -35999,11 +34437,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -36061,23 +34494,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -36102,11 +34518,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -36131,11 +34542,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -36192,11 +34598,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -36260,11 +34661,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -36304,11 +34700,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -36372,11 +34763,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -36421,11 +34807,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -36489,11 +34870,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -36537,11 +34913,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -36605,11 +34976,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -36706,23 +35072,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -36747,11 +35096,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -36776,11 +35120,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -36852,11 +35191,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -36903,11 +35237,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -36965,23 +35294,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -37006,11 +35318,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -37035,11 +35342,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -37096,11 +35398,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -37164,11 +35461,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -37208,11 +35500,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -37276,11 +35563,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -37325,11 +35607,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -37393,11 +35670,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -37441,11 +35713,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -37509,11 +35776,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -37610,23 +35872,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected: z.ZodOptional<z.ZodBoolean>;
                 apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
                 isAnswered: z.ZodOptional<z.ZodBoolean>;
-                metadata: z.ZodOptional<z.ZodObject<{
-                    gpt5: z.ZodOptional<z.ZodObject<{
-                        previous_response_id: z.ZodOptional<z.ZodString>;
-                    }, "strip", z.ZodTypeAny, {
-                        previous_response_id?: string | undefined;
-                    }, {
-                        previous_response_id?: string | undefined;
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }, {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                }>>;
             }, "strip", z.ZodTypeAny, {
                 type: "ask" | "say";
                 ts: number;
@@ -37651,11 +35896,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }, {
                 type: "ask" | "say";
                 ts: number;
@@ -37680,11 +35920,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             }>>;
             queuedMessages: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 timestamp: z.ZodNumber;
@@ -37756,11 +35991,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -37807,11 +36037,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -37869,23 +36094,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected: z.ZodOptional<z.ZodBoolean>;
             apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
             isAnswered: z.ZodOptional<z.ZodBoolean>;
-            metadata: z.ZodOptional<z.ZodObject<{
-                gpt5: z.ZodOptional<z.ZodObject<{
-                    previous_response_id: z.ZodOptional<z.ZodString>;
-                }, "strip", z.ZodTypeAny, {
-                    previous_response_id?: string | undefined;
-                }, {
-                    previous_response_id?: string | undefined;
-                }>>;
-            }, "strip", z.ZodTypeAny, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }, {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            }>>;
         }, "strip", z.ZodTypeAny, {
             type: "ask" | "say";
             ts: number;
@@ -37910,11 +36118,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }, {
             type: "ask" | "say";
             ts: number;
@@ -37939,11 +36142,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         }>>;
         taskHistory: z.ZodArray<z.ZodString, "many">;
         mode: z.ZodOptional<z.ZodString>;
@@ -38000,11 +36198,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -38068,11 +36261,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -38112,11 +36300,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -38180,11 +36363,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -38229,11 +36407,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -38297,11 +36470,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -38345,11 +36513,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
                 isProtected?: boolean | undefined;
                 apiProtocol?: "openai" | "anthropic" | undefined;
                 isAnswered?: boolean | undefined;
-                metadata?: {
-                    gpt5?: {
-                        previous_response_id?: string | undefined;
-                    } | undefined;
-                } | undefined;
             } | undefined;
             queuedMessages?: {
                 text: string;
@@ -38413,11 +36576,6 @@ declare const extensionBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.Zod
             isProtected?: boolean | undefined;
             apiProtocol?: "openai" | "anthropic" | undefined;
             isAnswered?: boolean | undefined;
-            metadata?: {
-                gpt5?: {
-                    previous_response_id?: string | undefined;
-                } | undefined;
-            } | undefined;
         } | undefined;
         gitProperties?: {
             repositoryUrl?: string | undefined;
@@ -38581,23 +36739,6 @@ declare const taskBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         isProtected: z.ZodOptional<z.ZodBoolean>;
         apiProtocol: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"openai">, z.ZodLiteral<"anthropic">]>>;
         isAnswered: z.ZodOptional<z.ZodBoolean>;
-        metadata: z.ZodOptional<z.ZodObject<{
-            gpt5: z.ZodOptional<z.ZodObject<{
-                previous_response_id: z.ZodOptional<z.ZodString>;
-            }, "strip", z.ZodTypeAny, {
-                previous_response_id?: string | undefined;
-            }, {
-                previous_response_id?: string | undefined;
-            }>>;
-        }, "strip", z.ZodTypeAny, {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        }, {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        }>>;
     }, "strip", z.ZodTypeAny, {
         type: "ask" | "say";
         ts: number;
@@ -38622,11 +36763,6 @@ declare const taskBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     }, {
         type: "ask" | "say";
         ts: number;
@@ -38651,11 +36787,6 @@ declare const taskBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
     message: {
@@ -38682,11 +36813,6 @@ declare const taskBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     };
     type: TaskBridgeEventName.Message;
     taskId: string;
@@ -38716,11 +36842,6 @@ declare const taskBridgeEventSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     };
     type: TaskBridgeEventName.Message;
     taskId: string;
@@ -39321,6 +37442,19 @@ declare const historyItemSchema: z.ZodObject<{
     mode?: string | undefined;
 }>;
 type HistoryItem = z.infer<typeof historyItemSchema>;
+
+/**
+ * Image generation model constants
+ */
+interface ImageGenerationModel {
+    value: string;
+    label: string;
+}
+declare const IMAGE_GENERATION_MODELS: ImageGenerationModel[];
+/**
+ * Get array of model values only (for backend validation)
+ */
+declare const IMAGE_GENERATION_MODEL_IDS: string[];
 
 /**
  * Schema for MCP parameter definitions
@@ -40034,6 +38168,18 @@ type ReasoningEffort = z.infer<typeof reasoningEffortsSchema>;
 declare const reasoningEffortWithMinimalSchema: z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>;
 type ReasoningEffortWithMinimal = z.infer<typeof reasoningEffortWithMinimalSchema>;
 /**
+ * Extended Reasoning Effort (includes "none" and "minimal")
+ * Note: "disable" is a UI/control value, not a value sent as effort
+ */
+declare const reasoningEffortsExtended: readonly ["none", "minimal", "low", "medium", "high"];
+declare const reasoningEffortExtendedSchema: z.ZodEnum<["none", "minimal", "low", "medium", "high"]>;
+type ReasoningEffortExtended = z.infer<typeof reasoningEffortExtendedSchema>;
+/**
+ * Reasoning Effort user setting (includes "disable")
+ */
+declare const reasoningEffortSettingValues: readonly ["disable", "none", "minimal", "low", "medium", "high"];
+declare const reasoningEffortSettingSchema: z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>;
+/**
  * Verbosity
  */
 declare const verbosityLevels: readonly ["low", "medium", "high"];
@@ -40061,12 +38207,14 @@ declare const modelInfoSchema: z.ZodObject<{
     contextWindow: z.ZodNumber;
     supportsImages: z.ZodOptional<z.ZodBoolean>;
     supportsPromptCache: z.ZodBoolean;
+    promptCacheRetention: z.ZodOptional<z.ZodEnum<["in_memory", "24h"]>>;
     supportsVerbosity: z.ZodOptional<z.ZodBoolean>;
     supportsReasoningBudget: z.ZodOptional<z.ZodBoolean>;
     supportsReasoningBinary: z.ZodOptional<z.ZodBoolean>;
     supportsTemperature: z.ZodOptional<z.ZodBoolean>;
+    defaultTemperature: z.ZodOptional<z.ZodNumber>;
     requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
-    supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+    supportsReasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodBoolean, z.ZodArray<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>, "many">]>>;
     requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
     preserveReasoning: z.ZodOptional<z.ZodBoolean>;
     supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
@@ -40075,12 +38223,14 @@ declare const modelInfoSchema: z.ZodObject<{
     cacheWritesPrice: z.ZodOptional<z.ZodNumber>;
     cacheReadsPrice: z.ZodOptional<z.ZodNumber>;
     description: z.ZodOptional<z.ZodString>;
-    reasoningEffort: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+    reasoningEffort: z.ZodOptional<z.ZodEnum<["none", "minimal", "low", "medium", "high"]>>;
     minTokensPerCachePoint: z.ZodOptional<z.ZodNumber>;
     maxCachePoints: z.ZodOptional<z.ZodNumber>;
     cachableFields: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     deprecated: z.ZodOptional<z.ZodBoolean>;
     isFree: z.ZodOptional<z.ZodBoolean>;
+    supportsNativeTools: z.ZodOptional<z.ZodBoolean>;
+    defaultToolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
     /**
      * Service tiers with pricing information.
      * Each tier can have a name (for OpenAI service tiers) and pricing overrides.
@@ -40114,12 +38264,14 @@ declare const modelInfoSchema: z.ZodObject<{
     maxTokens?: number | null | undefined;
     maxThinkingTokens?: number | null | undefined;
     supportsImages?: boolean | undefined;
+    promptCacheRetention?: "in_memory" | "24h" | undefined;
     supportsVerbosity?: boolean | undefined;
     supportsReasoningBudget?: boolean | undefined;
     supportsReasoningBinary?: boolean | undefined;
     supportsTemperature?: boolean | undefined;
+    defaultTemperature?: number | undefined;
     requiredReasoningBudget?: boolean | undefined;
-    supportsReasoningEffort?: boolean | undefined;
+    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
     requiredReasoningEffort?: boolean | undefined;
     preserveReasoning?: boolean | undefined;
     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -40128,12 +38280,14 @@ declare const modelInfoSchema: z.ZodObject<{
     cacheWritesPrice?: number | undefined;
     cacheReadsPrice?: number | undefined;
     description?: string | undefined;
-    reasoningEffort?: "low" | "medium" | "high" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
     minTokensPerCachePoint?: number | undefined;
     maxCachePoints?: number | undefined;
     cachableFields?: string[] | undefined;
     deprecated?: boolean | undefined;
     isFree?: boolean | undefined;
+    supportsNativeTools?: boolean | undefined;
+    defaultToolProtocol?: "xml" | "native" | undefined;
     tiers?: {
         contextWindow: number;
         name?: "default" | "flex" | "priority" | undefined;
@@ -40148,12 +38302,14 @@ declare const modelInfoSchema: z.ZodObject<{
     maxTokens?: number | null | undefined;
     maxThinkingTokens?: number | null | undefined;
     supportsImages?: boolean | undefined;
+    promptCacheRetention?: "in_memory" | "24h" | undefined;
     supportsVerbosity?: boolean | undefined;
     supportsReasoningBudget?: boolean | undefined;
     supportsReasoningBinary?: boolean | undefined;
     supportsTemperature?: boolean | undefined;
+    defaultTemperature?: number | undefined;
     requiredReasoningBudget?: boolean | undefined;
-    supportsReasoningEffort?: boolean | undefined;
+    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
     requiredReasoningEffort?: boolean | undefined;
     preserveReasoning?: boolean | undefined;
     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -40162,12 +38318,14 @@ declare const modelInfoSchema: z.ZodObject<{
     cacheWritesPrice?: number | undefined;
     cacheReadsPrice?: number | undefined;
     description?: string | undefined;
-    reasoningEffort?: "low" | "medium" | "high" | undefined;
+    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
     minTokensPerCachePoint?: number | undefined;
     maxCachePoints?: number | undefined;
     cachableFields?: string[] | undefined;
     deprecated?: boolean | undefined;
     isFree?: boolean | undefined;
+    supportsNativeTools?: boolean | undefined;
+    defaultToolProtocol?: "xml" | "native" | undefined;
     tiers?: {
         contextWindow: number;
         name?: "default" | "flex" | "priority" | undefined;
@@ -40253,6 +38411,38 @@ declare const commandExecutionStatusSchema: z.ZodDiscriminatedUnion<"status", [z
     executionId: string;
 }>]>;
 type CommandExecutionStatus = z.infer<typeof commandExecutionStatusSchema>;
+
+/**
+ * Tool parameter type definitions for native protocol
+ */
+interface LineRange {
+    start: number;
+    end: number;
+}
+interface FileEntry {
+    path: string;
+    lineRanges?: LineRange[];
+}
+interface Coordinate {
+    x: number;
+    y: number;
+}
+interface Size {
+    width: number;
+    height: number;
+}
+interface BrowserActionParams {
+    action: "launch" | "click" | "hover" | "type" | "scroll_down" | "scroll_up" | "resize" | "close";
+    url?: string;
+    coordinate?: Coordinate;
+    size?: Size;
+    text?: string;
+}
+interface GenerateImageParams {
+    prompt: string;
+    path: string;
+    image?: string;
+}
 
 /**
  * CodeAction
@@ -41666,124 +39856,58 @@ declare const fireworksModels: {
 type GeminiModelId = keyof typeof geminiModels;
 declare const geminiDefaultModelId: GeminiModelId;
 declare const geminiModels: {
-    readonly "gemini-flash-latest": {
+    readonly "gemini-3-pro-preview": {
         readonly maxTokens: 65536;
         readonly contextWindow: 1048576;
         readonly supportsImages: true;
+        readonly supportsNativeTools: true;
         readonly supportsPromptCache: true;
-        readonly inputPrice: 0.3;
-        readonly outputPrice: 2.5;
-        readonly cacheReadsPrice: 0.075;
-        readonly cacheWritesPrice: 1;
-        readonly maxThinkingTokens: 24576;
-        readonly supportsReasoningBudget: true;
+        readonly supportsReasoningEffort: ["low", "high"];
+        readonly reasoningEffort: "low";
+        readonly supportsTemperature: true;
+        readonly defaultTemperature: 1;
+        readonly inputPrice: 4;
+        readonly outputPrice: 18;
+        readonly tiers: [{
+            readonly contextWindow: 200000;
+            readonly inputPrice: 2;
+            readonly outputPrice: 12;
+        }, {
+            readonly contextWindow: number;
+            readonly inputPrice: 4;
+            readonly outputPrice: 18;
+        }];
     };
-    readonly "gemini-flash-lite-latest": {
-        readonly maxTokens: 65536;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: true;
-        readonly inputPrice: 0.1;
-        readonly outputPrice: 0.4;
-        readonly cacheReadsPrice: 0.025;
-        readonly cacheWritesPrice: 1;
-        readonly supportsReasoningBudget: true;
-        readonly maxThinkingTokens: 24576;
-    };
-    readonly "gemini-2.5-flash-preview-09-2025": {
-        readonly maxTokens: 65536;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: true;
-        readonly inputPrice: 0.3;
-        readonly outputPrice: 2.5;
-        readonly cacheReadsPrice: 0.075;
-        readonly cacheWritesPrice: 1;
-        readonly maxThinkingTokens: 24576;
-        readonly supportsReasoningBudget: true;
-    };
-    readonly "gemini-2.5-flash-lite-preview-09-2025": {
-        readonly maxTokens: 65536;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: true;
-        readonly inputPrice: 0.1;
-        readonly outputPrice: 0.4;
-        readonly cacheReadsPrice: 0.025;
-        readonly cacheWritesPrice: 1;
-        readonly supportsReasoningBudget: true;
-        readonly maxThinkingTokens: 24576;
-    };
-    readonly "gemini-2.5-flash-lite-preview-06-17": {
+    readonly "gemini-2.5-pro": {
         readonly maxTokens: 64000;
         readonly contextWindow: 1048576;
         readonly supportsImages: true;
+        readonly supportsNativeTools: true;
         readonly supportsPromptCache: true;
-        readonly inputPrice: 0.1;
-        readonly outputPrice: 0.4;
-        readonly cacheReadsPrice: 0.025;
-        readonly cacheWritesPrice: 1;
-        readonly supportsReasoningBudget: true;
-        readonly maxThinkingTokens: 24576;
-    };
-    readonly "gemini-2.5-flash-preview-05-20:thinking": {
-        readonly maxTokens: 65535;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: true;
-        readonly inputPrice: 0.15;
-        readonly outputPrice: 3.5;
-        readonly cacheReadsPrice: 0.0375;
-        readonly cacheWritesPrice: 1;
-        readonly maxThinkingTokens: 24576;
+        readonly inputPrice: 2.5;
+        readonly outputPrice: 15;
+        readonly cacheReadsPrice: 0.625;
+        readonly cacheWritesPrice: 4.5;
+        readonly maxThinkingTokens: 32768;
         readonly supportsReasoningBudget: true;
         readonly requiredReasoningBudget: true;
-    };
-    readonly "gemini-2.5-flash-preview-05-20": {
-        readonly maxTokens: 65535;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: true;
-        readonly inputPrice: 0.15;
-        readonly outputPrice: 0.6;
-        readonly cacheReadsPrice: 0.0375;
-        readonly cacheWritesPrice: 1;
-    };
-    readonly "gemini-2.5-flash-preview-04-17:thinking": {
-        readonly maxTokens: 65535;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0.15;
-        readonly outputPrice: 3.5;
-        readonly maxThinkingTokens: 24576;
-        readonly supportsReasoningBudget: true;
-        readonly requiredReasoningBudget: true;
-    };
-    readonly "gemini-2.5-flash-preview-04-17": {
-        readonly maxTokens: 65535;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0.15;
-        readonly outputPrice: 0.6;
-    };
-    readonly "gemini-2.5-flash": {
-        readonly maxTokens: 64000;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: true;
-        readonly inputPrice: 0.3;
-        readonly outputPrice: 2.5;
-        readonly cacheReadsPrice: 0.075;
-        readonly cacheWritesPrice: 1;
-        readonly maxThinkingTokens: 24576;
-        readonly supportsReasoningBudget: true;
+        readonly tiers: [{
+            readonly contextWindow: 200000;
+            readonly inputPrice: 1.25;
+            readonly outputPrice: 10;
+            readonly cacheReadsPrice: 0.31;
+        }, {
+            readonly contextWindow: number;
+            readonly inputPrice: 2.5;
+            readonly outputPrice: 15;
+            readonly cacheReadsPrice: 0.625;
+        }];
     };
     readonly "gemini-2.5-pro-preview-06-05": {
         readonly maxTokens: 65535;
         readonly contextWindow: 1048576;
         readonly supportsImages: true;
+        readonly supportsNativeTools: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 2.5;
         readonly outputPrice: 15;
@@ -41807,6 +39931,7 @@ declare const geminiModels: {
         readonly maxTokens: 65535;
         readonly contextWindow: 1048576;
         readonly supportsImages: true;
+        readonly supportsNativeTools: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 2.5;
         readonly outputPrice: 15;
@@ -41828,6 +39953,7 @@ declare const geminiModels: {
         readonly maxTokens: 65535;
         readonly contextWindow: 1048576;
         readonly supportsImages: true;
+        readonly supportsNativeTools: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 2.5;
         readonly outputPrice: 15;
@@ -41847,148 +39973,70 @@ declare const geminiModels: {
             readonly cacheReadsPrice: 0.625;
         }];
     };
-    readonly "gemini-2.5-pro-exp-03-25": {
-        readonly maxTokens: 65535;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0;
-        readonly outputPrice: 0;
-    };
-    readonly "gemini-2.5-pro": {
-        readonly maxTokens: 64000;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: true;
-        readonly inputPrice: 2.5;
-        readonly outputPrice: 15;
-        readonly cacheReadsPrice: 0.625;
-        readonly cacheWritesPrice: 4.5;
-        readonly maxThinkingTokens: 32768;
-        readonly supportsReasoningBudget: true;
-        readonly requiredReasoningBudget: true;
-        readonly tiers: [{
-            readonly contextWindow: 200000;
-            readonly inputPrice: 1.25;
-            readonly outputPrice: 10;
-            readonly cacheReadsPrice: 0.31;
-        }, {
-            readonly contextWindow: number;
-            readonly inputPrice: 2.5;
-            readonly outputPrice: 15;
-            readonly cacheReadsPrice: 0.625;
-        }];
-    };
-    readonly "gemini-2.0-flash-lite-preview-02-05": {
-        readonly maxTokens: 8192;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0;
-        readonly outputPrice: 0;
-    };
-    readonly "gemini-2.0-flash-thinking-exp-01-21": {
+    readonly "gemini-flash-latest": {
         readonly maxTokens: 65536;
         readonly contextWindow: 1048576;
         readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0;
-        readonly outputPrice: 0;
+        readonly supportsNativeTools: true;
+        readonly supportsPromptCache: true;
+        readonly inputPrice: 0.3;
+        readonly outputPrice: 2.5;
+        readonly cacheReadsPrice: 0.075;
+        readonly cacheWritesPrice: 1;
+        readonly maxThinkingTokens: 24576;
+        readonly supportsReasoningBudget: true;
     };
-    readonly "gemini-2.0-flash-thinking-exp-1219": {
-        readonly maxTokens: 8192;
-        readonly contextWindow: 32767;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0;
-        readonly outputPrice: 0;
-    };
-    readonly "gemini-2.0-flash-exp": {
-        readonly maxTokens: 8192;
+    readonly "gemini-2.5-flash-preview-09-2025": {
+        readonly maxTokens: 65536;
         readonly contextWindow: 1048576;
         readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0;
-        readonly outputPrice: 0;
+        readonly supportsNativeTools: true;
+        readonly supportsPromptCache: true;
+        readonly inputPrice: 0.3;
+        readonly outputPrice: 2.5;
+        readonly cacheReadsPrice: 0.075;
+        readonly cacheWritesPrice: 1;
+        readonly maxThinkingTokens: 24576;
+        readonly supportsReasoningBudget: true;
     };
-    readonly "gemini-2.0-flash-001": {
-        readonly maxTokens: 8192;
+    readonly "gemini-2.5-flash": {
+        readonly maxTokens: 64000;
         readonly contextWindow: 1048576;
         readonly supportsImages: true;
+        readonly supportsNativeTools: true;
+        readonly supportsPromptCache: true;
+        readonly inputPrice: 0.3;
+        readonly outputPrice: 2.5;
+        readonly cacheReadsPrice: 0.075;
+        readonly cacheWritesPrice: 1;
+        readonly maxThinkingTokens: 24576;
+        readonly supportsReasoningBudget: true;
+    };
+    readonly "gemini-flash-lite-latest": {
+        readonly maxTokens: 65536;
+        readonly contextWindow: 1048576;
+        readonly supportsImages: true;
+        readonly supportsNativeTools: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 0.1;
         readonly outputPrice: 0.4;
         readonly cacheReadsPrice: 0.025;
         readonly cacheWritesPrice: 1;
+        readonly supportsReasoningBudget: true;
+        readonly maxThinkingTokens: 24576;
     };
-    readonly "gemini-2.0-pro-exp-02-05": {
-        readonly maxTokens: 8192;
-        readonly contextWindow: 2097152;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0;
-        readonly outputPrice: 0;
-    };
-    readonly "gemini-1.5-flash-002": {
-        readonly maxTokens: 8192;
+    readonly "gemini-2.5-flash-lite-preview-09-2025": {
+        readonly maxTokens: 65536;
         readonly contextWindow: 1048576;
         readonly supportsImages: true;
+        readonly supportsNativeTools: true;
         readonly supportsPromptCache: true;
-        readonly inputPrice: 0.15;
-        readonly outputPrice: 0.6;
-        readonly cacheReadsPrice: 0.0375;
+        readonly inputPrice: 0.1;
+        readonly outputPrice: 0.4;
+        readonly cacheReadsPrice: 0.025;
         readonly cacheWritesPrice: 1;
-        readonly tiers: [{
-            readonly contextWindow: 128000;
-            readonly inputPrice: 0.075;
-            readonly outputPrice: 0.3;
-            readonly cacheReadsPrice: 0.01875;
-        }, {
-            readonly contextWindow: number;
-            readonly inputPrice: 0.15;
-            readonly outputPrice: 0.6;
-            readonly cacheReadsPrice: 0.0375;
-        }];
-    };
-    readonly "gemini-1.5-flash-exp-0827": {
-        readonly maxTokens: 8192;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0;
-        readonly outputPrice: 0;
-    };
-    readonly "gemini-1.5-flash-8b-exp-0827": {
-        readonly maxTokens: 8192;
-        readonly contextWindow: 1048576;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0;
-        readonly outputPrice: 0;
-    };
-    readonly "gemini-1.5-pro-002": {
-        readonly maxTokens: 8192;
-        readonly contextWindow: 2097152;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0;
-        readonly outputPrice: 0;
-    };
-    readonly "gemini-1.5-pro-exp-0827": {
-        readonly maxTokens: 8192;
-        readonly contextWindow: 2097152;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0;
-        readonly outputPrice: 0;
-    };
-    readonly "gemini-exp-1206": {
-        readonly maxTokens: 8192;
-        readonly contextWindow: 2097152;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: false;
-        readonly inputPrice: 0;
-        readonly outputPrice: 0;
+        readonly supportsReasoningBudget: true;
+        readonly maxThinkingTokens: 24576;
     };
 };
 
@@ -42278,6 +40326,20 @@ declare const moonshotModels: {
         readonly cacheReadsPrice: 0.6;
         readonly description: "Kimi K2 Turbo is a high-speed version of the state-of-the-art Kimi K2 mixture-of-experts (MoE) language model, with the same 32 billion activated parameters and 1 trillion total parameters, optimized for output speeds of up to 60 tokens per second, peaking at 100 tokens per second.";
     };
+    readonly "kimi-k2-thinking": {
+        readonly maxTokens: 16000;
+        readonly contextWindow: 262144;
+        readonly supportsImages: false;
+        readonly supportsPromptCache: true;
+        readonly inputPrice: 0.6;
+        readonly outputPrice: 2.5;
+        readonly cacheWritesPrice: 0;
+        readonly cacheReadsPrice: 0.15;
+        readonly supportsTemperature: true;
+        readonly preserveReasoning: true;
+        readonly defaultTemperature: 1;
+        readonly description: "The kimi-k2-thinking model is a general-purpose agentic reasoning model developed by Moonshot AI. Thanks to its strength in deep reasoning and multi-turn tool use, it can solve even the hardest problems.";
+    };
 };
 declare const MOONSHOT_DEFAULT_TEMPERATURE = 0.6;
 
@@ -42287,29 +40349,18 @@ declare const ollamaDefaultModelInfo: ModelInfo;
 type OpenAiNativeModelId = keyof typeof openAiNativeModels;
 declare const openAiNativeDefaultModelId: OpenAiNativeModelId;
 declare const openAiNativeModels: {
-    readonly "gpt-5-chat-latest": {
+    readonly "gpt-5.1": {
         readonly maxTokens: 128000;
         readonly contextWindow: 400000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
-        readonly supportsReasoningEffort: false;
-        readonly inputPrice: 1.25;
-        readonly outputPrice: 10;
-        readonly cacheReadsPrice: 0.13;
-        readonly description: "GPT-5 Chat Latest: Optimized for conversational AI and non-reasoning tasks";
-        readonly supportsVerbosity: true;
-    };
-    readonly "gpt-5-2025-08-07": {
-        readonly maxTokens: 128000;
-        readonly contextWindow: 400000;
-        readonly supportsImages: true;
-        readonly supportsPromptCache: true;
-        readonly supportsReasoningEffort: true;
+        readonly promptCacheRetention: "24h";
+        readonly supportsReasoningEffort: ["none", "low", "medium", "high"];
         readonly reasoningEffort: "medium";
         readonly inputPrice: 1.25;
         readonly outputPrice: 10;
-        readonly cacheReadsPrice: 0.13;
-        readonly description: "GPT-5: The best model for coding and agentic tasks across domains";
+        readonly cacheReadsPrice: 0.125;
         readonly supportsVerbosity: true;
         readonly supportsTemperature: false;
         readonly tiers: [{
@@ -42325,18 +40376,84 @@ declare const openAiNativeModels: {
             readonly outputPrice: 20;
             readonly cacheReadsPrice: 0.25;
         }];
+        readonly description: "GPT-5.1: The best model for coding and agentic tasks across domains";
     };
-    readonly "gpt-5-mini-2025-08-07": {
+    readonly "gpt-5.1-codex": {
         readonly maxTokens: 128000;
         readonly contextWindow: 400000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
-        readonly supportsReasoningEffort: true;
+        readonly promptCacheRetention: "24h";
+        readonly supportsReasoningEffort: ["low", "medium", "high"];
+        readonly reasoningEffort: "medium";
+        readonly inputPrice: 1.25;
+        readonly outputPrice: 10;
+        readonly cacheReadsPrice: 0.125;
+        readonly supportsTemperature: false;
+        readonly tiers: [{
+            readonly name: "priority";
+            readonly contextWindow: 400000;
+            readonly inputPrice: 2.5;
+            readonly outputPrice: 20;
+            readonly cacheReadsPrice: 0.25;
+        }];
+        readonly description: "GPT-5.1 Codex: A version of GPT-5.1 optimized for agentic coding in Codex";
+    };
+    readonly "gpt-5.1-codex-mini": {
+        readonly maxTokens: 128000;
+        readonly contextWindow: 400000;
+        readonly supportsNativeTools: true;
+        readonly supportsImages: true;
+        readonly supportsPromptCache: true;
+        readonly promptCacheRetention: "24h";
+        readonly supportsReasoningEffort: ["low", "medium", "high"];
         readonly reasoningEffort: "medium";
         readonly inputPrice: 0.25;
         readonly outputPrice: 2;
-        readonly cacheReadsPrice: 0.03;
-        readonly description: "GPT-5 Mini: A faster, more cost-efficient version of GPT-5 for well-defined tasks";
+        readonly cacheReadsPrice: 0.025;
+        readonly supportsTemperature: false;
+        readonly description: "GPT-5.1 Codex mini: A version of GPT-5.1 optimized for agentic coding in Codex";
+    };
+    readonly "gpt-5": {
+        readonly maxTokens: 128000;
+        readonly contextWindow: 400000;
+        readonly supportsNativeTools: true;
+        readonly supportsImages: true;
+        readonly supportsPromptCache: true;
+        readonly supportsReasoningEffort: ["minimal", "low", "medium", "high"];
+        readonly reasoningEffort: "medium";
+        readonly inputPrice: 1.25;
+        readonly outputPrice: 10;
+        readonly cacheReadsPrice: 0.125;
+        readonly supportsVerbosity: true;
+        readonly supportsTemperature: false;
+        readonly tiers: [{
+            readonly name: "flex";
+            readonly contextWindow: 400000;
+            readonly inputPrice: 0.625;
+            readonly outputPrice: 5;
+            readonly cacheReadsPrice: 0.0625;
+        }, {
+            readonly name: "priority";
+            readonly contextWindow: 400000;
+            readonly inputPrice: 2.5;
+            readonly outputPrice: 20;
+            readonly cacheReadsPrice: 0.25;
+        }];
+        readonly description: "GPT-5: The best model for coding and agentic tasks across domains";
+    };
+    readonly "gpt-5-mini": {
+        readonly maxTokens: 128000;
+        readonly contextWindow: 400000;
+        readonly supportsNativeTools: true;
+        readonly supportsImages: true;
+        readonly supportsPromptCache: true;
+        readonly supportsReasoningEffort: ["minimal", "low", "medium", "high"];
+        readonly reasoningEffort: "medium";
+        readonly inputPrice: 0.25;
+        readonly outputPrice: 2;
+        readonly cacheReadsPrice: 0.025;
         readonly supportsVerbosity: true;
         readonly supportsTemperature: false;
         readonly tiers: [{
@@ -42352,18 +40469,40 @@ declare const openAiNativeModels: {
             readonly outputPrice: 3.6;
             readonly cacheReadsPrice: 0.045;
         }];
+        readonly description: "GPT-5 Mini: A faster, more cost-efficient version of GPT-5 for well-defined tasks";
     };
-    readonly "gpt-5-nano-2025-08-07": {
+    readonly "gpt-5-codex": {
         readonly maxTokens: 128000;
         readonly contextWindow: 400000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
-        readonly supportsReasoningEffort: true;
+        readonly supportsReasoningEffort: ["low", "medium", "high"];
+        readonly reasoningEffort: "medium";
+        readonly inputPrice: 1.25;
+        readonly outputPrice: 10;
+        readonly cacheReadsPrice: 0.125;
+        readonly supportsTemperature: false;
+        readonly tiers: [{
+            readonly name: "priority";
+            readonly contextWindow: 400000;
+            readonly inputPrice: 2.5;
+            readonly outputPrice: 20;
+            readonly cacheReadsPrice: 0.25;
+        }];
+        readonly description: "GPT-5-Codex: A version of GPT-5 optimized for agentic coding in Codex";
+    };
+    readonly "gpt-5-nano": {
+        readonly maxTokens: 128000;
+        readonly contextWindow: 400000;
+        readonly supportsNativeTools: true;
+        readonly supportsImages: true;
+        readonly supportsPromptCache: true;
+        readonly supportsReasoningEffort: ["minimal", "low", "medium", "high"];
         readonly reasoningEffort: "medium";
         readonly inputPrice: 0.05;
         readonly outputPrice: 0.4;
-        readonly cacheReadsPrice: 0.01;
-        readonly description: "GPT-5 Nano: Fastest, most cost-efficient version of GPT-5";
+        readonly cacheReadsPrice: 0.005;
         readonly supportsVerbosity: true;
         readonly supportsTemperature: false;
         readonly tiers: [{
@@ -42373,24 +40512,23 @@ declare const openAiNativeModels: {
             readonly outputPrice: 0.2;
             readonly cacheReadsPrice: 0.0025;
         }];
+        readonly description: "GPT-5 Nano: Fastest, most cost-efficient version of GPT-5";
     };
-    readonly "gpt-5-codex": {
+    readonly "gpt-5-chat-latest": {
         readonly maxTokens: 128000;
         readonly contextWindow: 400000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
-        readonly supportsReasoningEffort: true;
-        readonly reasoningEffort: "medium";
         readonly inputPrice: 1.25;
         readonly outputPrice: 10;
-        readonly cacheReadsPrice: 0.13;
-        readonly description: "GPT-5-Codex: A version of GPT-5 optimized for agentic coding in Codex";
-        readonly supportsVerbosity: true;
-        readonly supportsTemperature: false;
+        readonly cacheReadsPrice: 0.125;
+        readonly description: "GPT-5 Chat: Optimized for conversational AI and non-reasoning tasks";
     };
     readonly "gpt-4.1": {
         readonly maxTokens: 32768;
         readonly contextWindow: 1047576;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 2;
@@ -42408,6 +40546,7 @@ declare const openAiNativeModels: {
     readonly "gpt-4.1-mini": {
         readonly maxTokens: 32768;
         readonly contextWindow: 1047576;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 0.4;
@@ -42425,6 +40564,7 @@ declare const openAiNativeModels: {
     readonly "gpt-4.1-nano": {
         readonly maxTokens: 32768;
         readonly contextWindow: 1047576;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 0.1;
@@ -42442,12 +40582,13 @@ declare const openAiNativeModels: {
     readonly o3: {
         readonly maxTokens: 100000;
         readonly contextWindow: 200000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 2;
         readonly outputPrice: 8;
         readonly cacheReadsPrice: 0.5;
-        readonly supportsReasoningEffort: true;
+        readonly supportsReasoningEffort: ["low", "medium", "high"];
         readonly reasoningEffort: "medium";
         readonly supportsTemperature: false;
         readonly tiers: [{
@@ -42467,6 +40608,7 @@ declare const openAiNativeModels: {
     readonly "o3-high": {
         readonly maxTokens: 100000;
         readonly contextWindow: 200000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 2;
@@ -42478,6 +40620,7 @@ declare const openAiNativeModels: {
     readonly "o3-low": {
         readonly maxTokens: 100000;
         readonly contextWindow: 200000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 2;
@@ -42489,12 +40632,13 @@ declare const openAiNativeModels: {
     readonly "o4-mini": {
         readonly maxTokens: 100000;
         readonly contextWindow: 200000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 1.1;
         readonly outputPrice: 4.4;
         readonly cacheReadsPrice: 0.275;
-        readonly supportsReasoningEffort: true;
+        readonly supportsReasoningEffort: ["low", "medium", "high"];
         readonly reasoningEffort: "medium";
         readonly supportsTemperature: false;
         readonly tiers: [{
@@ -42514,6 +40658,7 @@ declare const openAiNativeModels: {
     readonly "o4-mini-high": {
         readonly maxTokens: 100000;
         readonly contextWindow: 200000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 1.1;
@@ -42525,6 +40670,7 @@ declare const openAiNativeModels: {
     readonly "o4-mini-low": {
         readonly maxTokens: 100000;
         readonly contextWindow: 200000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 1.1;
@@ -42536,18 +40682,20 @@ declare const openAiNativeModels: {
     readonly "o3-mini": {
         readonly maxTokens: 100000;
         readonly contextWindow: 200000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: false;
         readonly supportsPromptCache: true;
         readonly inputPrice: 1.1;
         readonly outputPrice: 4.4;
         readonly cacheReadsPrice: 0.55;
-        readonly supportsReasoningEffort: true;
+        readonly supportsReasoningEffort: ["low", "medium", "high"];
         readonly reasoningEffort: "medium";
         readonly supportsTemperature: false;
     };
     readonly "o3-mini-high": {
         readonly maxTokens: 100000;
         readonly contextWindow: 200000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: false;
         readonly supportsPromptCache: true;
         readonly inputPrice: 1.1;
@@ -42559,6 +40707,7 @@ declare const openAiNativeModels: {
     readonly "o3-mini-low": {
         readonly maxTokens: 100000;
         readonly contextWindow: 200000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: false;
         readonly supportsPromptCache: true;
         readonly inputPrice: 1.1;
@@ -42570,6 +40719,7 @@ declare const openAiNativeModels: {
     readonly o1: {
         readonly maxTokens: 100000;
         readonly contextWindow: 200000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 15;
@@ -42580,6 +40730,7 @@ declare const openAiNativeModels: {
     readonly "o1-preview": {
         readonly maxTokens: 32768;
         readonly contextWindow: 128000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 15;
@@ -42590,6 +40741,7 @@ declare const openAiNativeModels: {
     readonly "o1-mini": {
         readonly maxTokens: 65536;
         readonly contextWindow: 128000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 1.1;
@@ -42600,6 +40752,7 @@ declare const openAiNativeModels: {
     readonly "gpt-4o": {
         readonly maxTokens: 16384;
         readonly contextWindow: 128000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 2.5;
@@ -42617,6 +40770,7 @@ declare const openAiNativeModels: {
     readonly "gpt-4o-mini": {
         readonly maxTokens: 16384;
         readonly contextWindow: 128000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: true;
         readonly supportsPromptCache: true;
         readonly inputPrice: 0.15;
@@ -42634,19 +40788,97 @@ declare const openAiNativeModels: {
     readonly "codex-mini-latest": {
         readonly maxTokens: 16384;
         readonly contextWindow: 200000;
+        readonly supportsNativeTools: true;
         readonly supportsImages: false;
         readonly supportsPromptCache: false;
         readonly inputPrice: 1.5;
         readonly outputPrice: 6;
-        readonly cacheReadsPrice: 0;
+        readonly cacheReadsPrice: 0.375;
         readonly supportsTemperature: false;
         readonly description: "Codex Mini: Cloud-based software engineering agent powered by codex-1, a version of o3 optimized for coding tasks. Trained with reinforcement learning to generate human-style code, adhere to instructions, and iteratively run tests.";
+    };
+    readonly "gpt-5-2025-08-07": {
+        readonly maxTokens: 128000;
+        readonly contextWindow: 400000;
+        readonly supportsNativeTools: true;
+        readonly supportsImages: true;
+        readonly supportsPromptCache: true;
+        readonly supportsReasoningEffort: ["minimal", "low", "medium", "high"];
+        readonly reasoningEffort: "medium";
+        readonly inputPrice: 1.25;
+        readonly outputPrice: 10;
+        readonly cacheReadsPrice: 0.125;
+        readonly supportsVerbosity: true;
+        readonly supportsTemperature: false;
+        readonly tiers: [{
+            readonly name: "flex";
+            readonly contextWindow: 400000;
+            readonly inputPrice: 0.625;
+            readonly outputPrice: 5;
+            readonly cacheReadsPrice: 0.0625;
+        }, {
+            readonly name: "priority";
+            readonly contextWindow: 400000;
+            readonly inputPrice: 2.5;
+            readonly outputPrice: 20;
+            readonly cacheReadsPrice: 0.25;
+        }];
+        readonly description: "GPT-5: The best model for coding and agentic tasks across domains";
+    };
+    readonly "gpt-5-mini-2025-08-07": {
+        readonly maxTokens: 128000;
+        readonly contextWindow: 400000;
+        readonly supportsNativeTools: true;
+        readonly supportsImages: true;
+        readonly supportsPromptCache: true;
+        readonly supportsReasoningEffort: ["minimal", "low", "medium", "high"];
+        readonly reasoningEffort: "medium";
+        readonly inputPrice: 0.25;
+        readonly outputPrice: 2;
+        readonly cacheReadsPrice: 0.025;
+        readonly supportsVerbosity: true;
+        readonly supportsTemperature: false;
+        readonly tiers: [{
+            readonly name: "flex";
+            readonly contextWindow: 400000;
+            readonly inputPrice: 0.125;
+            readonly outputPrice: 1;
+            readonly cacheReadsPrice: 0.0125;
+        }, {
+            readonly name: "priority";
+            readonly contextWindow: 400000;
+            readonly inputPrice: 0.45;
+            readonly outputPrice: 3.6;
+            readonly cacheReadsPrice: 0.045;
+        }];
+        readonly description: "GPT-5 Mini: A faster, more cost-efficient version of GPT-5 for well-defined tasks";
+    };
+    readonly "gpt-5-nano-2025-08-07": {
+        readonly maxTokens: 128000;
+        readonly contextWindow: 400000;
+        readonly supportsNativeTools: true;
+        readonly supportsImages: true;
+        readonly supportsPromptCache: true;
+        readonly supportsReasoningEffort: ["minimal", "low", "medium", "high"];
+        readonly reasoningEffort: "medium";
+        readonly inputPrice: 0.05;
+        readonly outputPrice: 0.4;
+        readonly cacheReadsPrice: 0.005;
+        readonly supportsVerbosity: true;
+        readonly supportsTemperature: false;
+        readonly tiers: [{
+            readonly name: "flex";
+            readonly contextWindow: 400000;
+            readonly inputPrice: 0.025;
+            readonly outputPrice: 0.2;
+            readonly cacheReadsPrice: 0.0025;
+        }];
+        readonly description: "GPT-5 Nano: Fastest, most cost-efficient version of GPT-5";
     };
 };
 declare const openAiModelInfoSaneDefaults: ModelInfo;
 declare const azureOpenAiDefaultApiVersion = "2024-08-01-preview";
 declare const OPENAI_NATIVE_DEFAULT_TEMPERATURE = 0;
-declare const GPT5_DEFAULT_TEMPERATURE = 1;
 declare const OPENAI_AZURE_AI_INFERENCE_PATH = "/models/chat/completions";
 
 declare const openRouterDefaultModelId = "anthropic/claude-sonnet-4.5";
@@ -42995,6 +41227,27 @@ declare const unboundDefaultModelInfo: ModelInfo;
 type VertexModelId = keyof typeof vertexModels;
 declare const vertexDefaultModelId: VertexModelId;
 declare const vertexModels: {
+    readonly "gemini-3-pro-preview": {
+        readonly maxTokens: 65536;
+        readonly contextWindow: 1048576;
+        readonly supportsImages: true;
+        readonly supportsPromptCache: true;
+        readonly supportsReasoningEffort: ["low", "high"];
+        readonly reasoningEffort: "low";
+        readonly supportsTemperature: true;
+        readonly defaultTemperature: 1;
+        readonly inputPrice: 4;
+        readonly outputPrice: 18;
+        readonly tiers: [{
+            readonly contextWindow: 200000;
+            readonly inputPrice: 2;
+            readonly outputPrice: 12;
+        }, {
+            readonly contextWindow: number;
+            readonly inputPrice: 4;
+            readonly outputPrice: 18;
+        }];
+    };
     readonly "gemini-2.5-flash-preview-05-20:thinking": {
         readonly maxTokens: 65535;
         readonly contextWindow: 1048576;
@@ -43840,15 +42093,31 @@ declare const minimaxModels: {
         readonly maxTokens: 16384;
         readonly contextWindow: 192000;
         readonly supportsImages: false;
-        readonly supportsPromptCache: false;
+        readonly supportsPromptCache: true;
+        readonly supportsNativeTools: true;
+        readonly preserveReasoning: true;
         readonly inputPrice: 0.3;
         readonly outputPrice: 1.2;
-        readonly cacheWritesPrice: 0;
-        readonly cacheReadsPrice: 0;
-        readonly preserveReasoning: true;
+        readonly cacheWritesPrice: 0.375;
+        readonly cacheReadsPrice: 0.03;
         readonly description: "MiniMax M2, a model born for Agents and code, featuring Top-tier Coding Capabilities, Powerful Agentic Performance, and Ultimate Cost-Effectiveness & Speed.";
     };
+    readonly "MiniMax-M2-Stable": {
+        readonly maxTokens: 16384;
+        readonly contextWindow: 192000;
+        readonly supportsImages: false;
+        readonly supportsPromptCache: true;
+        readonly supportsNativeTools: true;
+        readonly preserveReasoning: true;
+        readonly inputPrice: 0.3;
+        readonly outputPrice: 1.2;
+        readonly cacheWritesPrice: 0.375;
+        readonly cacheReadsPrice: 0.03;
+        readonly description: "MiniMax M2 Stable (High Concurrency, Commercial Use), a model born for Agents and code, featuring Top-tier Coding Capabilities, Powerful Agentic Performance, and Ultimate Cost-Effectiveness & Speed.";
+    };
 };
+declare const minimaxDefaultModelInfo: ModelInfo;
+declare const MINIMAX_DEFAULT_MAX_TOKENS = 16384;
 declare const MINIMAX_DEFAULT_TEMPERATURE = 1;
 
 /**
@@ -43860,4 +42129,4 @@ declare function getProviderDefaultModelId(provider: ProviderName, options?: {
     isChina?: boolean;
 }): string;
 
-export { ANTHROPIC_DEFAULT_MAX_TOKENS, ANTHROPIC_STYLE_PROVIDERS, AWS_INFERENCE_PROFILE_MAPPING, type Ack, type AnthropicModelId, type AppProperties, type AssertEqual, type AuthService, type AuthServiceEvents, type AuthState, BEDROCK_1M_CONTEXT_MODEL_IDS, BEDROCK_DEFAULT_CONTEXT, BEDROCK_DEFAULT_TEMPERATURE, BEDROCK_GLOBAL_INFERENCE_MODEL_IDS, BEDROCK_MAX_TOKENS, BEDROCK_REGIONS, type BedrockModelId, CLAUDE_CODE_DEFAULT_MAX_OUTPUT_TOKENS, CODEBASE_INDEX_DEFAULTS, CONSENT_COOKIE_NAME, COOKIE_CONSENT_EVENTS, type CerebrasModelId, type ChutesModelId, type ClaudeCodeModelId, type ClineAsk, type ClineMessage, type ClineSay, type CloudAppProperties, type CloudOrganization, type CloudOrganizationMembership, type CloudServiceEvents, type CloudUserInfo, type CodeActionId, type CodeActionName, type CodebaseIndexConfig, type CodebaseIndexModels, type CodebaseIndexProvider, type CommandExecutionStatus, type CommandId, ConnectionState, type ConsentCookieValue, type ContextCondense, type CreateTaskOptions, type CustomModePrompts, type CustomModesSettings, type CustomProvider, type CustomSupportPrompts, DEEP_SEEK_DEFAULT_TEMPERATURE, DEFAULT_CHECKPOINT_TIMEOUT_SECONDS, DEFAULT_CONSECUTIVE_MISTAKE_LIMIT, DEFAULT_MODES, DEFAULT_TERMINAL_OUTPUT_CHARACTER_LIMIT, DEFAULT_WRITE_DELAY_MS, DOUBAO_API_BASE_URL, DOUBAO_API_CHAT_PATH, type DeepSeekModelId, type DynamicAppProperties, type DynamicProvider, EVALS_SETTINGS, EVALS_TIMEOUT, type Equals, type ExperimentId, type Experiments, type ExtensionBridgeCommand, ExtensionBridgeCommandName, type ExtensionBridgeEvent, ExtensionBridgeEventName, type ExtensionInstance, ExtensionSocketEvents, type ExtensionTask, type FauxProvider, type FeatherlessModelId, type FireworksModelId, type FollowUpData, type FollowUpDataType, GLAMA_DEFAULT_TEMPERATURE, GLOBAL_SECRET_KEYS, GLOBAL_SETTINGS_KEYS, GLOBAL_STATE_KEYS, GPT5_DEFAULT_TEMPERATURE, type GeminiModelId, type GitProperties, type GlobalSettings, type GlobalState, type GroqModelId, type GroupEntry, type GroupOptions, HEARTBEAT_INTERVAL_MS, HUGGINGFACE_API_URL, HUGGINGFACE_CACHE_DURATION, HUGGINGFACE_DEFAULT_CONTEXT_WINDOW, HUGGINGFACE_DEFAULT_MAX_TOKENS, HUGGINGFACE_MAX_TOKENS_FALLBACK, HUGGINGFACE_SLIDER_MIN, HUGGINGFACE_SLIDER_STEP, HUGGINGFACE_TEMPERATURE_MAX_VALUE, type HistoryItem, INSTANCE_TTL_SECONDS, type IOIntelligenceModelId, IO_INTELLIGENCE_CACHE_DURATION, type IdleAsk, type InstallMarketplaceItemOptions, type InteractiveAsk, type InternalProvider, type InternationalZAiModelId, type IpcClientEvents, type IpcMessage, IpcMessageType, IpcOrigin, type IpcServerEvents, type JWTPayload, type JoinResponse, type Keys, LMSTUDIO_DEFAULT_TEMPERATURE, type Language, type LeaveResponse, type LocalProvider, MAX_CHECKPOINT_TIMEOUT_SECONDS, MINIMAX_DEFAULT_TEMPERATURE, MIN_CHECKPOINT_TIMEOUT_SECONDS, MISTRAL_DEFAULT_TEMPERATURE, MODELS_BY_PROVIDER, MOONSHOT_DEFAULT_TEMPERATURE, type MainlandZAiModelId, type MarketplaceItem, type MarketplaceItemType, type McpExecutionStatus, type McpInstallationMethod, type McpMarketplaceItem, type McpParameter, type McpServerUse, type MinimaxModelId, type MistralModelId, type ModeConfig, type ModeMarketplaceItem, type ModelIdKey, type ModelInfo, type ModelParameter, type MoonshotModelId, OPENAI_AZURE_AI_INFERENCE_PATH, OPENAI_NATIVE_DEFAULT_TEMPERATURE, OPENROUTER_DEFAULT_PROVIDER_NAME, OPEN_ROUTER_PROMPT_CACHING_MODELS, OPEN_ROUTER_REASONING_BUDGET_MODELS, OPEN_ROUTER_REQUIRED_REASONING_BUDGET_MODELS, ORGANIZATION_ALLOW_ALL, ORGANIZATION_DEFAULT, type OpenAiNativeModelId, type OrganizationAllowList, type OrganizationCloudSettings, type OrganizationDefaultSettings, type OrganizationFeatures, type OrganizationSettings, PROVIDER_SETTINGS_KEYS, type PromptComponent, type ProviderName, type ProviderSettings, type ProviderSettingsEntry, type ProviderSettingsWithId, type QueuedMessage, type QwenCodeModelId, type ReasoningEffort, type ReasoningEffortWithMinimal, type ResumableAsk, type RetryConfig, type RooCodeAPI, type RooCodeAPIEvents, RooCodeEventName, type RooCodeEvents, type RooCodeIpcServer, type RooCodeSettings, type RooCodeTelemetryEvent, type RooModel, RooModelSchema, type RooModelsResponse, RooModelsResponseSchema, RooPricingSchema, SECRET_STATE_KEYS, type SambaNovaModelId, type SecretState, type ServiceTier, type SettingsService, type SettingsServiceEvents, type ShareResponse, type ShareVisibility, type StaticAppProperties, type SuggestionItem, type TaskBridgeCommand, TaskBridgeCommandName, type TaskBridgeEvent, TaskBridgeEventName, type TaskCommand, TaskCommandName, type TaskEvent, type TaskEvents, type TaskLike, type TaskMetadata, type TaskProperties, type TaskProviderEvents, type TaskProviderLike, TaskSocketEvents, TaskStatus, type TelemetryClient, type TelemetryEvent, TelemetryEventName, type TelemetryEventSubscription, type TelemetryProperties, type TelemetryPropertiesProvider, type TelemetrySetting, type TerminalActionId, type TerminalActionName, type TerminalActionPromptType, type TodoItem, type TodoStatus, type TokenUsage, type ToolGroup, type ToolName, type ToolProgressStatus, type ToolUsage, type TypicalProvider, type UsageStats, type UserFeatures, type UserSettingsConfig, type UserSettingsData, VERCEL_AI_GATEWAY_DEFAULT_TEMPERATURE, VERCEL_AI_GATEWAY_PROMPT_CACHING_MODELS, VERCEL_AI_GATEWAY_VISION_AND_TOOLS_MODELS, VERCEL_AI_GATEWAY_VISION_ONLY_MODELS, VERTEX_REGIONS, type Values, type VerbosityLevel, type VertexModelId, type VscodeLlmModelId, type XAIModelId, ZAI_DEFAULT_TEMPERATURE, type ZaiApiLine, ackSchema, anthropicDefaultModelId, anthropicModels, appPropertiesSchema, azureOpenAiDefaultApiVersion, bedrockDefaultModelId, bedrockDefaultPromptRouterModelId, bedrockModels, cerebrasDefaultModelId, cerebrasModels, chutesDefaultModelId, chutesDefaultModelInfo, chutesModels, claudeCodeDefaultModelId, claudeCodeModels, clineAskSchema, clineAsks, clineMessageSchema, clineSaySchema, clineSays, cloudAppPropertiesSchema, codeActionIds, codebaseIndexConfigSchema, codebaseIndexModelsSchema, codebaseIndexProviderSchema, commandExecutionStatusSchema, commandIds, contextCondenseSchema, convertModelNameForVertex, customModePromptsSchema, customModesSettingsSchema, customProviders, customSupportPromptsSchema, deepInfraDefaultModelId, deepInfraDefaultModelInfo, deepSeekDefaultModelId, deepSeekModels, discriminatedProviderSettingsWithIdSchema, doubaoDefaultModelId, doubaoDefaultModelInfo, doubaoModels, dynamicAppPropertiesSchema, dynamicProviders, experimentIds, experimentIdsSchema, experimentsSchema, extensionBridgeCommandSchema, extensionBridgeEventSchema, extensionInstanceSchema, fauxProviders, featherlessDefaultModelId, featherlessModels, fireworksDefaultModelId, fireworksModels, followUpDataSchema, geminiDefaultModelId, geminiModels, getApiProtocol, getClaudeCodeModelId, getModelId, getProviderDefaultModelId, gitPropertiesSchema, glamaDefaultModelId, glamaDefaultModelInfo, globalSettingsSchema, groqDefaultModelId, groqModels, groupEntrySchema, groupOptionsSchema, historyItemSchema, idleAsks, installMarketplaceItemOptionsSchema, interactiveAsks, internalProviders, internationalZAiDefaultModelId, internationalZAiModels, ioIntelligenceDefaultBaseUrl, ioIntelligenceDefaultModelId, ioIntelligenceModels, ipcMessageSchema, isCustomProvider, isDynamicProvider, isFauxProvider, isGlobalStateKey, isIdleAsk, isInteractiveAsk, isInternalProvider, isLanguage, isLocalProvider, isModelParameter, isProviderName, isResumableAsk, isSecretStateKey, isTypicalProvider, lMStudioDefaultModelId, lMStudioDefaultModelInfo, languages, languagesSchema, litellmDefaultModelId, litellmDefaultModelInfo, localProviders, mainlandZAiDefaultModelId, mainlandZAiModels, marketplaceItemSchema, marketplaceItemTypeSchema, mcpExecutionStatusSchema, mcpInstallationMethodSchema, mcpMarketplaceItemSchema, mcpParameterSchema, minimaxDefaultModelId, minimaxModels, mistralDefaultModelId, mistralModels, modeConfigSchema, modeMarketplaceItemSchema, modelIdKeys, modelIdKeysByProvider, modelInfoSchema, modelParameters, modelParametersSchema, moonshotDefaultModelId, moonshotModels, ollamaDefaultModelId, ollamaDefaultModelInfo, openAiModelInfoSaneDefaults, openAiNativeDefaultModelId, openAiNativeModels, openRouterDefaultModelId, openRouterDefaultModelInfo, organizationAllowListSchema, organizationCloudSettingsSchema, organizationDefaultSettingsSchema, organizationFeaturesSchema, organizationSettingsSchema, promptComponentSchema, providerNames, providerNamesSchema, providerSettingsEntrySchema, providerSettingsSchema, providerSettingsSchemaDiscriminated, providerSettingsWithIdSchema, queuedMessageSchema, qwenCodeDefaultModelId, qwenCodeModels, reasoningEffortWithMinimalSchema, reasoningEfforts, reasoningEffortsSchema, requestyDefaultModelId, requestyDefaultModelInfo, resumableAsks, rooCodeEventsSchema, rooCodeSettingsSchema, rooCodeTelemetryEventSchema, rooDefaultModelId, rooModels, sambaNovaDefaultModelId, sambaNovaModels, serviceTierSchema, serviceTiers, shareResponseSchema, shouldUseSingleFileRead, staticAppPropertiesSchema, suggestionItemSchema, taskBridgeCommandSchema, taskBridgeEventSchema, taskCommandSchema, taskEventSchema, taskMetadataSchema, taskPropertiesSchema, telemetryPropertiesSchema, telemetrySettings, telemetrySettingsSchema, terminalActionIds, todoItemSchema, todoStatusSchema, tokenUsageSchema, toolGroups, toolGroupsSchema, toolNames, toolNamesSchema, toolProgressStatusSchema, toolUsageSchema, unboundDefaultModelId, unboundDefaultModelInfo, usageStatsSchema, userFeaturesSchema, userSettingsConfigSchema, userSettingsDataSchema, verbosityLevels, verbosityLevelsSchema, vercelAiGatewayDefaultModelId, vercelAiGatewayDefaultModelInfo, vertexDefaultModelId, vertexModels, vscodeLlmDefaultModelId, vscodeLlmModels, xaiDefaultModelId, xaiModels, zaiApiLineConfigs, zaiApiLineSchema };
+export { ANTHROPIC_DEFAULT_MAX_TOKENS, ANTHROPIC_STYLE_PROVIDERS, AWS_INFERENCE_PROFILE_MAPPING, type Ack, type AnthropicModelId, type AppProperties, type AssertEqual, type AuthService, type AuthServiceEvents, type AuthState, BEDROCK_1M_CONTEXT_MODEL_IDS, BEDROCK_DEFAULT_CONTEXT, BEDROCK_DEFAULT_TEMPERATURE, BEDROCK_GLOBAL_INFERENCE_MODEL_IDS, BEDROCK_MAX_TOKENS, BEDROCK_REGIONS, type BedrockModelId, type BrowserActionParams, CLAUDE_CODE_DEFAULT_MAX_OUTPUT_TOKENS, CODEBASE_INDEX_DEFAULTS, CONSENT_COOKIE_NAME, COOKIE_CONSENT_EVENTS, type CerebrasModelId, type ChutesModelId, type ClaudeCodeModelId, type ClineAsk, type ClineMessage, type ClineSay, type CloudAppProperties, type CloudOrganization, type CloudOrganizationMembership, type CloudServiceEvents, type CloudUserInfo, type CodeActionId, type CodeActionName, type CodebaseIndexConfig, type CodebaseIndexModels, type CodebaseIndexProvider, type CommandExecutionStatus, type CommandId, ConnectionState, type ConsentCookieValue, type ContextCondense, type Coordinate, type CreateTaskOptions, type CustomModePrompts, type CustomModesSettings, type CustomProvider, type CustomSupportPrompts, DEEP_SEEK_DEFAULT_TEMPERATURE, DEFAULT_CHECKPOINT_TIMEOUT_SECONDS, DEFAULT_CONSECUTIVE_MISTAKE_LIMIT, DEFAULT_MODES, DEFAULT_TERMINAL_OUTPUT_CHARACTER_LIMIT, DEFAULT_WRITE_DELAY_MS, DOUBAO_API_BASE_URL, DOUBAO_API_CHAT_PATH, type DeepSeekModelId, type DynamicAppProperties, type DynamicProvider, EVALS_SETTINGS, EVALS_TIMEOUT, type Equals, type ExperimentId, type Experiments, type ExtensionBridgeCommand, ExtensionBridgeCommandName, type ExtensionBridgeEvent, ExtensionBridgeEventName, type ExtensionInstance, ExtensionSocketEvents, type ExtensionTask, type FauxProvider, type FeatherlessModelId, type FileEntry, type FireworksModelId, type FollowUpData, type FollowUpDataType, GLAMA_DEFAULT_TEMPERATURE, GLOBAL_SECRET_KEYS, GLOBAL_SETTINGS_KEYS, GLOBAL_STATE_KEYS, type GeminiModelId, type GenerateImageParams, type GitProperties, type GlobalSettings, type GlobalState, type GroqModelId, type GroupEntry, type GroupOptions, HEARTBEAT_INTERVAL_MS, HUGGINGFACE_API_URL, HUGGINGFACE_CACHE_DURATION, HUGGINGFACE_DEFAULT_CONTEXT_WINDOW, HUGGINGFACE_DEFAULT_MAX_TOKENS, HUGGINGFACE_MAX_TOKENS_FALLBACK, HUGGINGFACE_SLIDER_MIN, HUGGINGFACE_SLIDER_STEP, HUGGINGFACE_TEMPERATURE_MAX_VALUE, type HistoryItem, IMAGE_GENERATION_MODELS, IMAGE_GENERATION_MODEL_IDS, INSTANCE_TTL_SECONDS, type IOIntelligenceModelId, IO_INTELLIGENCE_CACHE_DURATION, type IdleAsk, type ImageGenerationModel, type InstallMarketplaceItemOptions, type InteractiveAsk, type InternalProvider, type InternationalZAiModelId, type IpcClientEvents, type IpcMessage, IpcMessageType, IpcOrigin, type IpcServerEvents, type JWTPayload, type JoinResponse, type Keys, LMSTUDIO_DEFAULT_TEMPERATURE, type Language, type LeaveResponse, type LineRange, type LocalProvider, MAX_CHECKPOINT_TIMEOUT_SECONDS, MINIMAX_DEFAULT_MAX_TOKENS, MINIMAX_DEFAULT_TEMPERATURE, MIN_CHECKPOINT_TIMEOUT_SECONDS, MISTRAL_DEFAULT_TEMPERATURE, MODELS_BY_PROVIDER, MOONSHOT_DEFAULT_TEMPERATURE, type MainlandZAiModelId, type MarketplaceItem, type MarketplaceItemType, type McpExecutionStatus, type McpInstallationMethod, type McpMarketplaceItem, type McpParameter, type McpServerUse, type MinimaxModelId, type MistralModelId, type ModeConfig, type ModeMarketplaceItem, type ModelIdKey, type ModelInfo, type ModelParameter, type MoonshotModelId, type NonBlockingAsk, OPENAI_AZURE_AI_INFERENCE_PATH, OPENAI_NATIVE_DEFAULT_TEMPERATURE, OPENROUTER_DEFAULT_PROVIDER_NAME, OPEN_ROUTER_PROMPT_CACHING_MODELS, OPEN_ROUTER_REASONING_BUDGET_MODELS, OPEN_ROUTER_REQUIRED_REASONING_BUDGET_MODELS, ORGANIZATION_ALLOW_ALL, ORGANIZATION_DEFAULT, type OpenAiNativeModelId, type OrganizationAllowList, type OrganizationCloudSettings, type OrganizationDefaultSettings, type OrganizationFeatures, type OrganizationSettings, PROVIDER_SETTINGS_KEYS, type PromptComponent, type ProviderName, type ProviderSettings, type ProviderSettingsEntry, type ProviderSettingsWithId, type QueuedMessage, type QwenCodeModelId, type ReasoningEffort, type ReasoningEffortExtended, type ReasoningEffortWithMinimal, type ResumableAsk, type RetryConfig, type RooCodeAPI, type RooCodeAPIEvents, RooCodeEventName, type RooCodeEvents, type RooCodeIpcServer, type RooCodeSettings, type RooCodeTelemetryEvent, type RooModel, RooModelSchema, type RooModelsResponse, RooModelsResponseSchema, RooPricingSchema, SECRET_STATE_KEYS, type SambaNovaModelId, type SecretState, type ServiceTier, type SettingsService, type SettingsServiceEvents, type ShareResponse, type ShareVisibility, type Size, type StaticAppProperties, type SuggestionItem, TOOL_PROTOCOL, type TaskBridgeCommand, TaskBridgeCommandName, type TaskBridgeEvent, TaskBridgeEventName, type TaskCommand, TaskCommandName, type TaskEvent, type TaskEvents, type TaskLike, type TaskMetadata, type TaskProperties, type TaskProviderEvents, type TaskProviderLike, TaskSocketEvents, TaskStatus, type TelemetryClient, type TelemetryEvent, TelemetryEventName, type TelemetryEventSubscription, type TelemetryProperties, type TelemetryPropertiesProvider, type TelemetrySetting, type TerminalActionId, type TerminalActionName, type TerminalActionPromptType, type TodoItem, type TodoStatus, type TokenUsage, type ToolGroup, type ToolName, type ToolProgressStatus, type ToolProtocol, type ToolUsage, type TypicalProvider, type UsageStats, type UserFeatures, type UserSettingsConfig, type UserSettingsData, VERCEL_AI_GATEWAY_DEFAULT_TEMPERATURE, VERCEL_AI_GATEWAY_PROMPT_CACHING_MODELS, VERCEL_AI_GATEWAY_VISION_AND_TOOLS_MODELS, VERCEL_AI_GATEWAY_VISION_ONLY_MODELS, VERTEX_REGIONS, type Values, type VerbosityLevel, type VertexModelId, type VscodeLlmModelId, type XAIModelId, ZAI_DEFAULT_TEMPERATURE, type ZaiApiLine, ackSchema, anthropicDefaultModelId, anthropicModels, appPropertiesSchema, azureOpenAiDefaultApiVersion, bedrockDefaultModelId, bedrockDefaultPromptRouterModelId, bedrockModels, cerebrasDefaultModelId, cerebrasModels, chutesDefaultModelId, chutesDefaultModelInfo, chutesModels, claudeCodeDefaultModelId, claudeCodeModels, clineAskSchema, clineAsks, clineMessageSchema, clineSaySchema, clineSays, cloudAppPropertiesSchema, codeActionIds, codebaseIndexConfigSchema, codebaseIndexModelsSchema, codebaseIndexProviderSchema, commandExecutionStatusSchema, commandIds, contextCondenseSchema, convertModelNameForVertex, customModePromptsSchema, customModesSettingsSchema, customProviders, customSupportPromptsSchema, deepInfraDefaultModelId, deepInfraDefaultModelInfo, deepSeekDefaultModelId, deepSeekModels, discriminatedProviderSettingsWithIdSchema, doubaoDefaultModelId, doubaoDefaultModelInfo, doubaoModels, dynamicAppPropertiesSchema, dynamicProviders, experimentIds, experimentIdsSchema, experimentsSchema, extensionBridgeCommandSchema, extensionBridgeEventSchema, extensionInstanceSchema, fauxProviders, featherlessDefaultModelId, featherlessModels, fireworksDefaultModelId, fireworksModels, followUpDataSchema, geminiDefaultModelId, geminiModels, getApiProtocol, getClaudeCodeModelId, getEffectiveProtocol, getModelId, getProviderDefaultModelId, gitPropertiesSchema, glamaDefaultModelId, glamaDefaultModelInfo, globalSettingsSchema, groqDefaultModelId, groqModels, groupEntrySchema, groupOptionsSchema, historyItemSchema, idleAsks, installMarketplaceItemOptionsSchema, interactiveAsks, internalProviders, internationalZAiDefaultModelId, internationalZAiModels, ioIntelligenceDefaultBaseUrl, ioIntelligenceDefaultModelId, ioIntelligenceModels, ipcMessageSchema, isCustomProvider, isDynamicProvider, isFauxProvider, isGlobalStateKey, isIdleAsk, isInteractiveAsk, isInternalProvider, isLanguage, isLocalProvider, isModelParameter, isNativeProtocol, isNonBlockingAsk, isProviderName, isResumableAsk, isSecretStateKey, isTypicalProvider, lMStudioDefaultModelId, lMStudioDefaultModelInfo, languages, languagesSchema, litellmDefaultModelId, litellmDefaultModelInfo, localProviders, mainlandZAiDefaultModelId, mainlandZAiModels, marketplaceItemSchema, marketplaceItemTypeSchema, mcpExecutionStatusSchema, mcpInstallationMethodSchema, mcpMarketplaceItemSchema, mcpParameterSchema, minimaxDefaultModelId, minimaxDefaultModelInfo, minimaxModels, mistralDefaultModelId, mistralModels, modeConfigSchema, modeMarketplaceItemSchema, modelIdKeys, modelIdKeysByProvider, modelInfoSchema, modelParameters, modelParametersSchema, moonshotDefaultModelId, moonshotModels, nonBlockingAsks, ollamaDefaultModelId, ollamaDefaultModelInfo, openAiModelInfoSaneDefaults, openAiNativeDefaultModelId, openAiNativeModels, openRouterDefaultModelId, openRouterDefaultModelInfo, organizationAllowListSchema, organizationCloudSettingsSchema, organizationDefaultSettingsSchema, organizationFeaturesSchema, organizationSettingsSchema, promptComponentSchema, providerNames, providerNamesSchema, providerSettingsEntrySchema, providerSettingsSchema, providerSettingsSchemaDiscriminated, providerSettingsWithIdSchema, queuedMessageSchema, qwenCodeDefaultModelId, qwenCodeModels, reasoningEffortExtendedSchema, reasoningEffortSettingSchema, reasoningEffortSettingValues, reasoningEffortWithMinimalSchema, reasoningEfforts, reasoningEffortsExtended, reasoningEffortsSchema, requestyDefaultModelId, requestyDefaultModelInfo, resumableAsks, rooCodeEventsSchema, rooCodeSettingsSchema, rooCodeTelemetryEventSchema, rooDefaultModelId, rooModels, sambaNovaDefaultModelId, sambaNovaModels, serviceTierSchema, serviceTiers, shareResponseSchema, shouldUseSingleFileRead, staticAppPropertiesSchema, suggestionItemSchema, taskBridgeCommandSchema, taskBridgeEventSchema, taskCommandSchema, taskEventSchema, taskMetadataSchema, taskPropertiesSchema, telemetryPropertiesSchema, telemetrySettings, telemetrySettingsSchema, terminalActionIds, todoItemSchema, todoStatusSchema, tokenUsageSchema, toolGroups, toolGroupsSchema, toolNames, toolNamesSchema, toolProgressStatusSchema, toolUsageSchema, unboundDefaultModelId, unboundDefaultModelInfo, usageStatsSchema, userFeaturesSchema, userSettingsConfigSchema, userSettingsDataSchema, verbosityLevels, verbosityLevelsSchema, vercelAiGatewayDefaultModelId, vercelAiGatewayDefaultModelInfo, vertexDefaultModelId, vertexModels, vscodeLlmDefaultModelId, vscodeLlmModels, xaiDefaultModelId, xaiModels, zaiApiLineConfigs, zaiApiLineSchema };

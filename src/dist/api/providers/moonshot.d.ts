@@ -10,9 +10,10 @@ export declare class MoonshotHandler extends OpenAiHandler {
         reasoning: import("../transform/reasoning").OpenAiReasoningParams | undefined;
         maxTokens: number | undefined;
         temperature: number | undefined;
-        reasoningEffort: import("@roo-code/types").ReasoningEffortWithMinimal | undefined;
+        reasoningEffort: import("@roo-code/types").ReasoningEffortExtended | undefined;
         reasoningBudget: number | undefined;
         verbosity: import("@roo-code/types").VerbosityLevel | undefined;
+        tools?: boolean;
         id: string;
         info: {
             readonly maxTokens: 32000;
@@ -43,6 +44,19 @@ export declare class MoonshotHandler extends OpenAiHandler {
             readonly cacheWritesPrice: 0;
             readonly cacheReadsPrice: 0.6;
             readonly description: "Kimi K2 Turbo is a high-speed version of the state-of-the-art Kimi K2 mixture-of-experts (MoE) language model, with the same 32 billion activated parameters and 1 trillion total parameters, optimized for output speeds of up to 60 tokens per second, peaking at 100 tokens per second.";
+        } | {
+            readonly maxTokens: 16000;
+            readonly contextWindow: 262144;
+            readonly supportsImages: false;
+            readonly supportsPromptCache: true;
+            readonly inputPrice: 0.6;
+            readonly outputPrice: 2.5;
+            readonly cacheWritesPrice: 0;
+            readonly cacheReadsPrice: 0.15;
+            readonly supportsTemperature: true;
+            readonly preserveReasoning: true;
+            readonly defaultTemperature: 1;
+            readonly description: "The kimi-k2-thinking model is a general-purpose agentic reasoning model developed by Moonshot AI. Thanks to its strength in deep reasoning and multi-turn tool use, it can solve even the hardest problems.";
         };
     };
     protected processUsageMetrics(usage: any): ApiStreamUsageChunk;

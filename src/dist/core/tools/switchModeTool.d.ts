@@ -1,3 +1,15 @@
 import { Task } from "../task/Task";
-import { ToolUse, AskApproval, HandleError, PushToolResult, RemoveClosingTag } from "../../shared/tools";
-export declare function switchModeTool(cline: Task, block: ToolUse, askApproval: AskApproval, handleError: HandleError, pushToolResult: PushToolResult, removeClosingTag: RemoveClosingTag): Promise<void>;
+import { BaseTool, ToolCallbacks } from "./BaseTool";
+import type { ToolUse } from "../../shared/tools";
+interface SwitchModeParams {
+    mode_slug: string;
+    reason: string;
+}
+export declare class SwitchModeTool extends BaseTool<"switch_mode"> {
+    readonly name: "switch_mode";
+    parseLegacy(params: Partial<Record<string, string>>): SwitchModeParams;
+    execute(params: SwitchModeParams, task: Task, callbacks: ToolCallbacks): Promise<void>;
+    handlePartial(task: Task, block: ToolUse<"switch_mode">): Promise<void>;
+}
+export declare const switchModeTool: SwitchModeTool;
+export {};

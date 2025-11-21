@@ -27,11 +27,12 @@ export declare class DiffViewProvider {
         finalContent: string | undefined;
     }>;
     /**
-     * Formats a standardized XML response for file write operations
+     * Formats a standardized response for file write operations
      *
+     * @param task Task instance to get protocol info
      * @param cwd Current working directory for path resolution
      * @param isNewFile Whether this is a new file or an existing file being modified
-     * @returns Formatted message and say object for UI feedback
+     * @returns Formatted message (JSON for native protocol, XML for legacy)
      */
     pushToolWriteResult(task: Task, cwd: string, isNewFile: boolean): Promise<string>;
     revertChanges(): Promise<void>;

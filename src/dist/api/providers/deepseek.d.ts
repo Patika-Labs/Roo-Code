@@ -8,9 +8,10 @@ export declare class DeepSeekHandler extends OpenAiHandler {
         reasoning: import("../transform/reasoning").OpenAiReasoningParams | undefined;
         maxTokens: number | undefined;
         temperature: number | undefined;
-        reasoningEffort: import("@roo-code/types").ReasoningEffortWithMinimal | undefined;
+        reasoningEffort: import("@roo-code/types").ReasoningEffortExtended | undefined;
         reasoningBudget: number | undefined;
         verbosity: import("@roo-code/types").VerbosityLevel | undefined;
+        tools?: boolean;
         id: string;
         info: {
             readonly maxTokens: 8192;

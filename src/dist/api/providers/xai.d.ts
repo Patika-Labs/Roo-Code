@@ -13,9 +13,10 @@ export declare class XAIHandler extends BaseProvider implements SingleCompletion
         reasoning: import("../transform/reasoning").OpenAiReasoningParams | undefined;
         maxTokens: number | undefined;
         temperature: number | undefined;
-        reasoningEffort: import("@roo-code/types").ReasoningEffortWithMinimal | undefined;
+        reasoningEffort: import("@roo-code/types").ReasoningEffortExtended | undefined;
         reasoningBudget: number | undefined;
         verbosity: import("@roo-code/types").VerbosityLevel | undefined;
+        tools?: boolean;
         id: "grok-code-fast-1" | "grok-4" | "grok-3" | "grok-3-fast" | "grok-3-mini" | "grok-3-mini-fast" | "grok-2-1212" | "grok-2-vision-1212";
         info: {
             readonly maxTokens: 16384;

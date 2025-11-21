@@ -1,5 +1,5 @@
 import { Anthropic } from "@anthropic-ai/sdk";
-import { type ReasoningEffortWithMinimal } from "@roo-code/types";
+import { type ReasoningEffortExtended } from "@roo-code/types";
 import type { ApiHandlerOptions } from "../../shared/api";
 import { ApiStream } from "../transform/stream";
 import { BaseProvider } from "./base-provider";
@@ -8,33 +8,20 @@ export type OpenAiNativeModel = ReturnType<OpenAiNativeHandler["getModel"]>;
 export declare class OpenAiNativeHandler extends BaseProvider implements SingleCompletionHandler {
     protected options: ApiHandlerOptions;
     private client;
-    private lastResponseId;
-    private responseIdPromise;
-    private responseIdResolver;
     private lastServiceTier;
+    private lastResponseOutput;
+    private lastResponseId;
+    private currentToolCalls;
+    private abortController?;
     private readonly coreHandledEventTypes;
     constructor(options: ApiHandlerOptions);
     private normalizeUsage;
-    private resolveResponseId;
     createMessage(systemPrompt: string, messages: Anthropic.Messages.MessageParam[], metadata?: ApiHandlerCreateMessageMetadata): ApiStream;
     private handleResponsesApiMessage;
     private buildRequestBody;
     private executeRequest;
     private formatFullConversation;
-    private formatSingleStructuredMessage;
-    private makeGpt5ResponsesAPIRequest;
-    /**
-     * Prepares the input and conversation continuity parameters for a Responses API call.
-     * Decides whether to send full conversation or just the latest message based on previousResponseId.
-     *
-     * - If a `previousResponseId` is available (either from metadata or the handler's state),
-     *   it formats only the most recent user message for the input and returns the response ID
-     *   to maintain conversation context.
-     * - Otherwise, it formats the entire conversation history (system prompt + messages) for the input.
-     *
-     * @returns An object containing the formatted input and the previous response ID (if used).
-     */
-    private prepareStructuredInput;
+    private makeResponsesApiRequest;
     /**
      * Handles the streaming response from the Responses API.
      *
@@ -49,6 +36,14 @@ export declare class OpenAiNativeHandler extends BaseProvider implements SingleC
     private processEvent;
     private getReasoningEffort;
     /**
+     * Returns the appropriate prompt cache retention policy for the given model, if any.
+     *
+     * The policy is driven by ModelInfo.promptCacheRetention so that model-specific details
+     * live in the shared types layer rather than this provider. When set to "24h" and the
+     * model supports prompt caching, extended prompt cache retention is requested.
+     */
+    private getPromptCacheRetention;
+    /**
      * Returns a shallow-cloned ModelInfo with pricing overridden for the given tier, if available.
      * If no tier or no overrides exist, the original ModelInfo is returned.
      */
@@ -59,21 +54,24 @@ export declare class OpenAiNativeHandler extends BaseProvider implements SingleC
         reasoning: import("../transform/reasoning").OpenAiReasoningParams | undefined;
         maxTokens: number | undefined;
         temperature: number | undefined;
-        reasoningEffort: ReasoningEffortWithMinimal | undefined;
+        reasoningEffort: ReasoningEffortExtended | undefined;
         reasoningBudget: number | undefined;
-        id: "gpt-5-chat-latest" | "gpt-5-2025-08-07" | "gpt-5-mini-2025-08-07" | "gpt-5-nano-2025-08-07" | "gpt-5-codex" | "gpt-4.1" | "gpt-4.1-mini" | "gpt-4.1-nano" | "o3" | "o3-high" | "o3-low" | "o4-mini" | "o4-mini-high" | "o4-mini-low" | "o3-mini" | "o3-mini-high" | "o3-mini-low" | "o1" | "o1-preview" | "o1-mini" | "gpt-4o" | "gpt-4o-mini" | "codex-mini-latest";
+        tools?: boolean;
+        id: "gpt-5.1" | "gpt-5.1-codex" | "gpt-5.1-codex-mini" | "gpt-5" | "gpt-5-mini" | "gpt-5-codex" | "gpt-5-nano" | "gpt-5-chat-latest" | "gpt-4.1" | "gpt-4.1-mini" | "gpt-4.1-nano" | "o3" | "o3-high" | "o3-low" | "o4-mini" | "o4-mini-high" | "o4-mini-low" | "o3-mini" | "o3-mini-high" | "o3-mini-low" | "o1" | "o1-preview" | "o1-mini" | "gpt-4o" | "gpt-4o-mini" | "codex-mini-latest" | "gpt-5-2025-08-07" | "gpt-5-mini-2025-08-07" | "gpt-5-nano-2025-08-07";
         info: {
             contextWindow: number;
             supportsPromptCache: boolean;
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -82,12 +80,14 @@ export declare class OpenAiNativeHandler extends BaseProvider implements SingleC
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -99,16 +99,15 @@ export declare class OpenAiNativeHandler extends BaseProvider implements SingleC
         };
     };
     /**
-     * Gets the last response ID captured from the Responses API stream.
-     * Used for maintaining conversation continuity across requests.
-     * @returns The response ID, or undefined if not available yet
+     * Extracts encrypted_content and id from the first reasoning item in the output array.
+     * This is the minimal data needed for stateless API continuity.
+     *
+     * @returns Object with encrypted_content and id, or undefined if not available
      */
-    getLastResponseId(): string | undefined;
-    /**
-     * Sets the last response ID for conversation continuity.
-     * Typically only used in tests or special flows.
-     * @param responseId The response ID to store
-     */
-    setResponseId(responseId: string): void;
+    getEncryptedContent(): {
+        encrypted_content: string;
+        id?: string;
+    } | undefined;
+    getResponseId(): string | undefined;
     completePrompt(prompt: string): Promise<string>;
 }

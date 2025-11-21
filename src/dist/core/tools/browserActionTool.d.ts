@@ -1,3 +1,11 @@
+import type { BrowserActionParams } from "@roo-code/types";
 import { Task } from "../task/Task";
-import { ToolUse, AskApproval, HandleError, PushToolResult, RemoveClosingTag } from "../../shared/tools";
-export declare function browserActionTool(cline: Task, block: ToolUse, askApproval: AskApproval, handleError: HandleError, pushToolResult: PushToolResult, removeClosingTag: RemoveClosingTag): Promise<void>;
+import { BaseTool, ToolCallbacks } from "./BaseTool";
+import type { ToolUse } from "../../shared/tools";
+export declare class BrowserActionTool extends BaseTool<"browser_action"> {
+    readonly name: "browser_action";
+    parseLegacy(params: Partial<Record<string, string>>): BrowserActionParams;
+    execute(params: BrowserActionParams, task: Task, callbacks: ToolCallbacks): Promise<void>;
+    handlePartial(task: Task, block: ToolUse<"browser_action">): Promise<void>;
+}
+export declare const browserActionTool: BrowserActionTool;

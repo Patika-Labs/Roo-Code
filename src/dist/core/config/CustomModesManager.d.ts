@@ -7,6 +7,7 @@ interface ExportResult {
 }
 interface ImportResult {
     success: boolean;
+    slug?: string;
     error?: string;
 }
 export declare class CustomModesManager {

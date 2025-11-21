@@ -1,11 +1,11 @@
 import { type ModelInfo, type ProviderSettings, type DynamicProvider, type LocalProvider } from "@roo-code/types";
 export type ApiHandlerOptions = Omit<ProviderSettings, "apiProvider"> & {
     /**
-     * When true and using GPT‑5 Responses API, include reasoning.summary: "auto"
-     * so the API returns reasoning summaries (we already parse and surface them).
-     * Defaults to true; set to false to disable summaries.
+     * When true and using OpenAI Responses API models that support reasoning summaries,
+     * include reasoning.summary: "auto" so the API returns summaries (we already parse
+     * and surface them). Defaults to true; set to false to disable summaries.
      */
-    enableGpt5ReasoningSummary?: boolean;
+    enableResponsesReasoningSummary?: boolean;
     /**
      * Optional override for Ollama's num_ctx parameter.
      * When set, this value will be used in Ollama chat requests.

@@ -12,6 +12,20 @@ export declare abstract class BaseProvider implements ApiHandler {
         info: ModelInfo;
     };
     /**
+     * Converts an array of tools to be compatible with OpenAI's strict mode.
+     * Filters for function tools and applies schema conversion to their parameters.
+     */
+    protected convertToolsForOpenAI(tools: any[] | undefined): any[] | undefined;
+    /**
+     * Converts tool schemas to be compatible with OpenAI's strict mode by:
+     * - Ensuring all properties are in the required array (strict mode requirement)
+     * - Converting nullable types (["type", "null"]) to non-nullable ("type")
+     * - Recursively processing nested objects and arrays
+     *
+     * This matches the behavior of ensureAllRequired in openai-native.ts
+     */
+    protected convertToolSchemaForOpenAI(schema: any): any;
+    /**
      * Default token counting implementation using tiktoken.
      * Providers can override this to use their native token counting endpoints.
      *

@@ -28,7 +28,7 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
         apiConfigs: {
             [x: string]: {
                 id?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
                 codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
                 codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
                 codeIndexOpenAiKey?: string | undefined;
@@ -50,6 +50,7 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
                 modelMaxTokens?: number | undefined;
                 modelMaxThinkingTokens?: number | undefined;
                 verbosity?: "low" | "medium" | "high" | undefined;
+                toolProtocol?: "xml" | "native" | undefined;
                 apiModelId?: string | undefined;
                 apiKey?: string | undefined;
                 anthropicBaseUrl?: string | undefined;
@@ -97,12 +98,14 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -111,12 +114,14 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -277,6 +282,7 @@ export declare function importSettingsFromPath(filePath: string, { providerSetti
         maxConcurrentFileReads?: number | undefined;
         includeCurrentTime?: boolean | undefined;
         includeCurrentCost?: boolean | undefined;
+        maxGitStatusFiles?: number | undefined;
         includeDiagnosticMessages?: boolean | undefined;
         maxDiagnosticMessages?: number | undefined;
         browserToolEnabled?: boolean | undefined;
@@ -390,7 +396,7 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
         apiConfigs: {
             [x: string]: {
                 id?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
                 codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
                 codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
                 codeIndexOpenAiKey?: string | undefined;
@@ -412,6 +418,7 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
                 modelMaxTokens?: number | undefined;
                 modelMaxThinkingTokens?: number | undefined;
                 verbosity?: "low" | "medium" | "high" | undefined;
+                toolProtocol?: "xml" | "native" | undefined;
                 apiModelId?: string | undefined;
                 apiKey?: string | undefined;
                 anthropicBaseUrl?: string | undefined;
@@ -459,12 +466,14 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -473,12 +482,14 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -639,6 +650,7 @@ export declare const importSettings: ({ providerSettingsManager, contextProxy, c
         maxConcurrentFileReads?: number | undefined;
         includeCurrentTime?: boolean | undefined;
         includeCurrentCost?: boolean | undefined;
+        maxGitStatusFiles?: number | undefined;
         includeDiagnosticMessages?: boolean | undefined;
         maxDiagnosticMessages?: number | undefined;
         browserToolEnabled?: boolean | undefined;
@@ -753,7 +765,7 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
         apiConfigs: {
             [x: string]: {
                 id?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
                 codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
                 codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
                 codeIndexOpenAiKey?: string | undefined;
@@ -775,6 +787,7 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
                 modelMaxTokens?: number | undefined;
                 modelMaxThinkingTokens?: number | undefined;
                 verbosity?: "low" | "medium" | "high" | undefined;
+                toolProtocol?: "xml" | "native" | undefined;
                 apiModelId?: string | undefined;
                 apiKey?: string | undefined;
                 anthropicBaseUrl?: string | undefined;
@@ -822,12 +835,14 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
                     maxTokens?: number | null | undefined;
                     maxThinkingTokens?: number | null | undefined;
                     supportsImages?: boolean | undefined;
+                    promptCacheRetention?: "in_memory" | "24h" | undefined;
                     supportsVerbosity?: boolean | undefined;
                     supportsReasoningBudget?: boolean | undefined;
                     supportsReasoningBinary?: boolean | undefined;
                     supportsTemperature?: boolean | undefined;
+                    defaultTemperature?: number | undefined;
                     requiredReasoningBudget?: boolean | undefined;
-                    supportsReasoningEffort?: boolean | undefined;
+                    supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                     requiredReasoningEffort?: boolean | undefined;
                     preserveReasoning?: boolean | undefined;
                     supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -836,12 +851,14 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
                     cacheWritesPrice?: number | undefined;
                     cacheReadsPrice?: number | undefined;
                     description?: string | undefined;
-                    reasoningEffort?: "low" | "medium" | "high" | undefined;
+                    reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                     minTokensPerCachePoint?: number | undefined;
                     maxCachePoints?: number | undefined;
                     cachableFields?: string[] | undefined;
                     deprecated?: boolean | undefined;
                     isFree?: boolean | undefined;
+                    supportsNativeTools?: boolean | undefined;
+                    defaultToolProtocol?: "xml" | "native" | undefined;
                     tiers?: {
                         contextWindow: number;
                         name?: "default" | "flex" | "priority" | undefined;
@@ -1002,6 +1019,7 @@ export declare const importSettingsFromFile: ({ providerSettingsManager, context
         maxConcurrentFileReads?: number | undefined;
         includeCurrentTime?: boolean | undefined;
         includeCurrentCost?: boolean | undefined;
+        maxGitStatusFiles?: number | undefined;
         includeDiagnosticMessages?: boolean | undefined;
         maxDiagnosticMessages?: number | undefined;
         browserToolEnabled?: boolean | undefined;

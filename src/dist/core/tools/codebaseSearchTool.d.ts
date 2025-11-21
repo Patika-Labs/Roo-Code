@@ -1,3 +1,15 @@
 import { Task } from "../task/Task";
-import { AskApproval, HandleError, PushToolResult, RemoveClosingTag, ToolUse } from "../../shared/tools";
-export declare function codebaseSearchTool(cline: Task, block: ToolUse, askApproval: AskApproval, handleError: HandleError, pushToolResult: PushToolResult, removeClosingTag: RemoveClosingTag): Promise<void>;
+import { BaseTool, ToolCallbacks } from "./BaseTool";
+import type { ToolUse } from "../../shared/tools";
+interface CodebaseSearchParams {
+    query: string;
+    path?: string;
+}
+export declare class CodebaseSearchTool extends BaseTool<"codebase_search"> {
+    readonly name: "codebase_search";
+    parseLegacy(params: Partial<Record<string, string>>): CodebaseSearchParams;
+    execute(params: CodebaseSearchParams, task: Task, callbacks: ToolCallbacks): Promise<void>;
+    handlePartial(task: Task, block: ToolUse<"codebase_search">): Promise<void>;
+}
+export declare const codebaseSearchTool: CodebaseSearchTool;
+export {};

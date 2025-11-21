@@ -43,9 +43,12 @@ export declare class ClineProvider extends EventEmitter<TaskProviderEvents> impl
     private recentTasksCache?;
     private pendingOperations;
     private static readonly PENDING_OPERATION_TIMEOUT_MS;
+    private cloudOrganizationsCache;
+    private cloudOrganizationsCacheTimestamp;
+    private static readonly CLOUD_ORGANIZATIONS_CACHE_DURATION_MS;
     isViewLaunched: boolean;
     settingsImportedAt?: number;
-    readonly latestAnnouncementId = "nov-2025-v3.30.0-pr-fixer";
+    readonly latestAnnouncementId = "nov-2025-v3.33.0-gemini-native-tools";
     readonly providerSettingsManager: ProviderSettingsManager;
     readonly customModesManager: CustomModesManager;
     constructor(context: vscode.ExtensionContext, outputChannel: vscode.OutputChannel, renderContext: "sidebar" | "editor" | undefined, contextProxy: ContextProxy, mdmService?: MdmService);
@@ -140,6 +143,16 @@ export declare class ClineProvider extends EventEmitter<TaskProviderEvents> impl
      * @param newMode The mode to switch to
      */
     handleModeSwitch(newMode: Mode): Promise<void>;
+    /**
+     * Updates the current task's API handler.
+     * Rebuilds when:
+     * - provider or model changes, OR
+     * - explicitly forced (e.g., user-initiated profile switch/save to apply changed settings like headers/baseUrl/tier).
+     * Always synchronizes task.apiConfiguration with latest provider settings.
+     * @param providerSettings The new provider settings to apply
+     * @param options.forceRebuild Force rebuilding the API handler regardless of provider/model equality
+     */
+    private updateTaskApiHandlerIfNeeded;
     getProviderProfileEntries(): ProviderSettingsEntry[];
     getProviderProfileEntry(name: string): ProviderSettingsEntry | undefined;
     hasProviderProfileEntry(name: string): boolean;
@@ -240,11 +253,6 @@ export declare class ClineProvider extends EventEmitter<TaskProviderEvents> impl
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     }[];
     getMcpHub(): McpHub | undefined;
     /**

@@ -27,10 +27,11 @@ export declare const providerProfilesSchema: z.ZodObject<{
         rateLimitSeconds: z.ZodOptional<z.ZodNumber>;
         consecutiveMistakeLimit: z.ZodOptional<z.ZodNumber>;
         enableReasoningEffort: z.ZodOptional<z.ZodBoolean>;
-        reasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodEnum<["low", "medium", "high"]>, z.ZodLiteral<"minimal">]>>;
+        reasoningEffort: z.ZodOptional<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>>;
         modelMaxTokens: z.ZodOptional<z.ZodNumber>;
         modelMaxThinkingTokens: z.ZodOptional<z.ZodNumber>;
         verbosity: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+        toolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
         vercelAiGatewayApiKey: z.ZodOptional<z.ZodString>;
         vercelAiGatewayModelId: z.ZodOptional<z.ZodString>;
         apiModelId: z.ZodOptional<z.ZodString>;
@@ -116,12 +117,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             contextWindow: z.ZodNumber;
             supportsImages: z.ZodOptional<z.ZodBoolean>;
             supportsPromptCache: z.ZodBoolean;
+            promptCacheRetention: z.ZodOptional<z.ZodEnum<["in_memory", "24h"]>>;
             supportsVerbosity: z.ZodOptional<z.ZodBoolean>;
             supportsReasoningBudget: z.ZodOptional<z.ZodBoolean>;
             supportsReasoningBinary: z.ZodOptional<z.ZodBoolean>;
             supportsTemperature: z.ZodOptional<z.ZodBoolean>;
+            defaultTemperature: z.ZodOptional<z.ZodNumber>;
             requiredReasoningBudget: z.ZodOptional<z.ZodBoolean>;
-            supportsReasoningEffort: z.ZodOptional<z.ZodBoolean>;
+            supportsReasoningEffort: z.ZodOptional<z.ZodUnion<[z.ZodBoolean, z.ZodArray<z.ZodEnum<["disable", "none", "minimal", "low", "medium", "high"]>, "many">]>>;
             requiredReasoningEffort: z.ZodOptional<z.ZodBoolean>;
             preserveReasoning: z.ZodOptional<z.ZodBoolean>;
             supportedParameters: z.ZodOptional<z.ZodArray<z.ZodEnum<["max_tokens", "temperature", "reasoning", "include_reasoning"]>, "many">>;
@@ -130,12 +133,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             cacheWritesPrice: z.ZodOptional<z.ZodNumber>;
             cacheReadsPrice: z.ZodOptional<z.ZodNumber>;
             description: z.ZodOptional<z.ZodString>;
-            reasoningEffort: z.ZodOptional<z.ZodEnum<["low", "medium", "high"]>>;
+            reasoningEffort: z.ZodOptional<z.ZodEnum<["none", "minimal", "low", "medium", "high"]>>;
             minTokensPerCachePoint: z.ZodOptional<z.ZodNumber>;
             maxCachePoints: z.ZodOptional<z.ZodNumber>;
             cachableFields: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
             deprecated: z.ZodOptional<z.ZodBoolean>;
             isFree: z.ZodOptional<z.ZodBoolean>;
+            supportsNativeTools: z.ZodOptional<z.ZodBoolean>;
+            defaultToolProtocol: z.ZodOptional<z.ZodEnum<["xml", "native"]>>;
             tiers: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodOptional<z.ZodEnum<["default", "flex", "priority"]>>;
                 contextWindow: z.ZodNumber;
@@ -164,12 +169,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -178,12 +185,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -198,12 +207,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -212,12 +223,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -270,7 +283,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         id?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
         codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
         codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
         codeIndexOpenAiKey?: string | undefined;
@@ -292,6 +305,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         modelMaxTokens?: number | undefined;
         modelMaxThinkingTokens?: number | undefined;
         verbosity?: "low" | "medium" | "high" | undefined;
+        toolProtocol?: "xml" | "native" | undefined;
         apiModelId?: string | undefined;
         apiKey?: string | undefined;
         anthropicBaseUrl?: string | undefined;
@@ -339,12 +353,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -353,12 +369,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -436,7 +454,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         vercelAiGatewayModelId?: string | undefined;
     }, {
         id?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
         codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
         codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
         codeIndexOpenAiKey?: string | undefined;
@@ -458,6 +476,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         modelMaxTokens?: number | undefined;
         modelMaxThinkingTokens?: number | undefined;
         verbosity?: "low" | "medium" | "high" | undefined;
+        toolProtocol?: "xml" | "native" | undefined;
         apiModelId?: string | undefined;
         apiKey?: string | undefined;
         anthropicBaseUrl?: string | undefined;
@@ -505,12 +524,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -519,12 +540,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -626,7 +649,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
     currentApiConfigName: string;
     apiConfigs: Record<string, {
         id?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
         codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
         codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
         codeIndexOpenAiKey?: string | undefined;
@@ -648,6 +671,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         modelMaxTokens?: number | undefined;
         modelMaxThinkingTokens?: number | undefined;
         verbosity?: "low" | "medium" | "high" | undefined;
+        toolProtocol?: "xml" | "native" | undefined;
         apiModelId?: string | undefined;
         apiKey?: string | undefined;
         anthropicBaseUrl?: string | undefined;
@@ -695,12 +719,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -709,12 +735,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -804,7 +832,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
     currentApiConfigName: string;
     apiConfigs: Record<string, {
         id?: string | undefined;
-        reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+        reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
         codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
         codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
         codeIndexOpenAiKey?: string | undefined;
@@ -826,6 +854,7 @@ export declare const providerProfilesSchema: z.ZodObject<{
         modelMaxTokens?: number | undefined;
         modelMaxThinkingTokens?: number | undefined;
         verbosity?: "low" | "medium" | "high" | undefined;
+        toolProtocol?: "xml" | "native" | undefined;
         apiModelId?: string | undefined;
         apiKey?: string | undefined;
         anthropicBaseUrl?: string | undefined;
@@ -873,12 +902,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -887,12 +918,14 @@ export declare const providerProfilesSchema: z.ZodObject<{
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;
@@ -1055,7 +1088,7 @@ export declare class ProviderSettingsManager {
         currentApiConfigName: string;
         apiConfigs: Record<string, {
             id?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | "minimal" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | "disable" | undefined;
             codebaseIndexOpenAiCompatibleBaseUrl?: string | undefined;
             codebaseIndexOpenAiCompatibleModelDimension?: number | undefined;
             codeIndexOpenAiKey?: string | undefined;
@@ -1077,6 +1110,7 @@ export declare class ProviderSettingsManager {
             modelMaxTokens?: number | undefined;
             modelMaxThinkingTokens?: number | undefined;
             verbosity?: "low" | "medium" | "high" | undefined;
+            toolProtocol?: "xml" | "native" | undefined;
             apiModelId?: string | undefined;
             apiKey?: string | undefined;
             anthropicBaseUrl?: string | undefined;
@@ -1124,12 +1158,14 @@ export declare class ProviderSettingsManager {
                 maxTokens?: number | null | undefined;
                 maxThinkingTokens?: number | null | undefined;
                 supportsImages?: boolean | undefined;
+                promptCacheRetention?: "in_memory" | "24h" | undefined;
                 supportsVerbosity?: boolean | undefined;
                 supportsReasoningBudget?: boolean | undefined;
                 supportsReasoningBinary?: boolean | undefined;
                 supportsTemperature?: boolean | undefined;
+                defaultTemperature?: number | undefined;
                 requiredReasoningBudget?: boolean | undefined;
-                supportsReasoningEffort?: boolean | undefined;
+                supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
                 requiredReasoningEffort?: boolean | undefined;
                 preserveReasoning?: boolean | undefined;
                 supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -1138,12 +1174,14 @@ export declare class ProviderSettingsManager {
                 cacheWritesPrice?: number | undefined;
                 cacheReadsPrice?: number | undefined;
                 description?: string | undefined;
-                reasoningEffort?: "low" | "medium" | "high" | undefined;
+                reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
                 minTokensPerCachePoint?: number | undefined;
                 maxCachePoints?: number | undefined;
                 cachableFields?: string[] | undefined;
                 deprecated?: boolean | undefined;
                 isFree?: boolean | undefined;
+                supportsNativeTools?: boolean | undefined;
+                defaultToolProtocol?: "xml" | "native" | undefined;
                 tiers?: {
                     contextWindow: number;
                     name?: "default" | "flex" | "priority" | undefined;

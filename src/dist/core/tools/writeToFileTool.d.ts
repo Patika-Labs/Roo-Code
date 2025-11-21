@@ -1,3 +1,16 @@
 import { Task } from "../task/Task";
-import { ToolUse, AskApproval, HandleError, PushToolResult, RemoveClosingTag } from "../../shared/tools";
-export declare function writeToFileTool(cline: Task, block: ToolUse, askApproval: AskApproval, handleError: HandleError, pushToolResult: PushToolResult, removeClosingTag: RemoveClosingTag): Promise<void>;
+import { BaseTool, ToolCallbacks } from "./BaseTool";
+import type { ToolUse } from "../../shared/tools";
+interface WriteToFileParams {
+    path: string;
+    content: string;
+    line_count: number;
+}
+export declare class WriteToFileTool extends BaseTool<"write_to_file"> {
+    readonly name: "write_to_file";
+    parseLegacy(params: Partial<Record<string, string>>): WriteToFileParams;
+    execute(params: WriteToFileParams, task: Task, callbacks: ToolCallbacks): Promise<void>;
+    handlePartial(task: Task, block: ToolUse<"write_to_file">): Promise<void>;
+}
+export declare const writeToFileTool: WriteToFileTool;
+export {};

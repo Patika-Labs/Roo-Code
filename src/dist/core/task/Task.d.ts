@@ -1,6 +1,6 @@
 import EventEmitter from "events";
 import { Anthropic } from "@anthropic-ai/sdk";
-import { type TaskLike, type TaskMetadata, type TaskEvents, type ProviderSettings, type TokenUsage, type ToolUsage, type ToolName, type ContextCondense, type ClineMessage, type ClineSay, type ClineAsk, type ToolProgressStatus, type HistoryItem, type CreateTaskOptions, TaskStatus, TodoItem, QueuedMessage } from "@roo-code/types";
+import { type TaskLike, type TaskMetadata, type TaskEvents, type ProviderSettings, type TokenUsage, type ToolUsage, type ToolName, type ContextCondense, type ClineMessage, type ClineSay, type ClineAsk, type ToolProgressStatus, type HistoryItem, type CreateTaskOptions, type ModelInfo, TaskStatus, TodoItem, QueuedMessage } from "@roo-code/types";
 import { ApiHandler } from "../../api";
 import { ApiStream } from "../../api/transform/stream";
 import { ClineApiReqCancelReason } from "../../shared/ExtensionMessage";
@@ -109,7 +109,7 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
     isPaused: boolean;
     pausedModeSlug: string;
     private pauseInterval;
-    readonly apiConfiguration: ProviderSettings;
+    apiConfiguration: ProviderSettings;
     api: ApiHandler;
     private static lastGlobalApiRequestTime?;
     private autoApprovalHandler;
@@ -154,17 +154,20 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
     assistantMessageContent: AssistantMessageContent[];
     presentAssistantMessageLocked: boolean;
     presentAssistantMessageHasPendingUpdates: boolean;
-    userMessageContent: (Anthropic.TextBlockParam | Anthropic.ImageBlockParam)[];
+    userMessageContent: (Anthropic.TextBlockParam | Anthropic.ImageBlockParam | Anthropic.ToolResultBlockParam)[];
     userMessageContentReady: boolean;
     didRejectTool: boolean;
     didAlreadyUseTool: boolean;
     didCompleteReadingStream: boolean;
-    assistantMessageParser: AssistantMessageParser;
-    private lastUsedInstructions?;
-    private skipPrevResponseIdOnce;
+    assistantMessageParser?: AssistantMessageParser;
+    private providerProfileChangeListener?;
+    cachedStreamingModel?: {
+        id: string;
+        info: ModelInfo;
+    };
     private tokenUsageSnapshot?;
     private tokenUsageSnapshotAt?;
-    constructor({ provider, apiConfiguration, enableDiff, enableCheckpoints, checkpointTimeout, enableBridge, fuzzyMatchThreshold, consecutiveMistakeLimit, task, images, historyItem, startTask, rootTask, parentTask, taskNumber, onCreated, initialTodos, workspacePath, }: TaskOptions);
+    constructor({ provider, apiConfiguration, enableDiff, enableCheckpoints, checkpointTimeout, enableBridge, fuzzyMatchThreshold, consecutiveMistakeLimit, task, images, historyItem, experiments: experimentsConfig, startTask, rootTask, parentTask, taskNumber, onCreated, initialTodos, workspacePath, }: TaskOptions);
     /**
      * Initialize the task mode from the provider state.
      * This method handles async initialization with proper error handling.
@@ -187,6 +190,14 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
      * @returns Promise that resolves when initialization is complete
      */
     private initializeTaskMode;
+    /**
+     * Sets up a listener for provider profile changes to automatically update the parser state.
+     * This ensures the XML/native protocol parser stays synchronized with the current model.
+     *
+     * @private
+     * @param provider - The ClineProvider instance to listen to
+     */
+    private setupProviderProfileChangeListener;
     /**
      * Wait for the task mode to be initialized before proceeding.
      * This method ensures that any operations depending on the task mode
@@ -279,7 +290,6 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
         text?: string;
         images?: string[];
     }>;
-    setMessageResponse(text: string, images?: string[]): void;
     handleWebviewAskResponse(askResponse: ClineAskResponse, text?: string, images?: string[]): void;
     approveAsk({ text, images }?: {
         text?: string;
@@ -289,12 +299,19 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
         text?: string;
         images?: string[];
     }): void;
+    /**
+     * Updates the API configuration and reinitializes the parser based on the new tool protocol.
+     * This should be called when switching between models/profiles with different tool protocols
+     * to prevent the parser from being left in an inconsistent state.
+     *
+     * @param newApiConfiguration - The new API configuration to use
+     */
+    updateApiConfiguration(newApiConfiguration: ProviderSettings): Promise<void>;
     submitUserMessage(text: string, images?: string[], mode?: string, providerProfile?: string): Promise<void>;
     handleTerminalOperation(terminalOperation: "continue" | "abort"): Promise<void>;
     condenseContext(): Promise<void>;
     say(type: ClineSay, text?: string, images?: string[], partial?: boolean, checkpoint?: Record<string, unknown>, progressStatus?: ToolProgressStatus, options?: {
         isNonInteractive?: boolean;
-        metadata?: Record<string, unknown>;
     }, contextCondense?: ContextCondense): Promise<undefined>;
     sayAndCreateMissingParamError(toolName: ToolName, paramName: string, relPath?: string): Promise<string>;
     private startTask;
@@ -312,6 +329,7 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
     attemptApiRequest(retryAttempt?: number): ApiStream;
     private backoffAndAnnounce;
     checkpointSave(force?: boolean, suppressMessage?: boolean): Promise<void | import("../../services/checkpoints/types").CheckpointResult>;
+    private buildCleanConversationHistory;
     checkpointRestore(options: CheckpointRestoreOptions): Promise<void>;
     checkpointDiff(options: CheckpointDiffOptions): Promise<void>;
     combineMessages(messages: ClineMessage[]): {
@@ -338,22 +356,10 @@ export declare class Task extends EventEmitter<TaskEvents> implements TaskLike {
         isProtected?: boolean | undefined;
         apiProtocol?: "openai" | "anthropic" | undefined;
         isAnswered?: boolean | undefined;
-        metadata?: {
-            gpt5?: {
-                previous_response_id?: string | undefined;
-            } | undefined;
-        } | undefined;
     }[];
     getTokenUsage(): TokenUsage;
     recordToolUsage(toolName: ToolName): void;
     recordToolError(toolName: ToolName, error?: string): void;
-    /**
-     * Persist GPT-5 per-turn metadata (previous_response_id only)
-     * onto the last complete assistant say("text") message.
-     *
-     * Note: We do not persist system instructions or reasoning summaries.
-     */
-    private persistGpt5Metadata;
     get taskStatus(): TaskStatus;
     get taskAsk(): ClineMessage | undefined;
     get queuedMessages(): QueuedMessage[];

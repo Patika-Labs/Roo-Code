@@ -37,7 +37,7 @@ export interface LanguageModelChatSelector {
     id?: string;
 }
 export interface ExtensionMessage {
-    type: "action" | "state" | "selectedImages" | "theme" | "workspaceUpdated" | "invoke" | "messageUpdated" | "mcpServers" | "enhancedPrompt" | "commitSearchResults" | "listApiConfig" | "routerModels" | "openAiModels" | "ollamaModels" | "lmStudioModels" | "vsCodeLmModels" | "huggingFaceModels" | "vsCodeLmApiAvailable" | "updatePrompt" | "systemPrompt" | "autoApprovalEnabled" | "updateCustomMode" | "deleteCustomMode" | "exportModeResult" | "importModeResult" | "checkRulesDirectoryResult" | "deleteCustomModeCheck" | "currentCheckpointUpdated" | "checkpointInitWarning" | "showHumanRelayDialog" | "humanRelayResponse" | "humanRelayCancel" | "browserToolEnabled" | "browserConnectionResult" | "remoteBrowserEnabled" | "ttsStart" | "ttsStop" | "maxReadFileLine" | "fileSearchResults" | "toggleApiConfigPin" | "acceptInput" | "setHistoryPreviewCollapsed" | "commandExecutionStatus" | "mcpExecutionStatus" | "vsCodeSetting" | "authenticatedUser" | "condenseTaskContextResponse" | "singleRouterModelFetchResponse" | "indexingStatusUpdate" | "indexCleared" | "codebaseIndexConfig" | "marketplaceInstallResult" | "marketplaceRemoveResult" | "marketplaceData" | "shareTaskSuccess" | "codeIndexSettingsSaved" | "codeIndexSecretStatus" | "showDeleteMessageDialog" | "showEditMessageDialog" | "commands" | "insertTextIntoTextarea" | "dismissedUpsells" | "organizationSwitchResult";
+    type: "action" | "state" | "selectedImages" | "theme" | "workspaceUpdated" | "invoke" | "messageUpdated" | "mcpServers" | "enhancedPrompt" | "commitSearchResults" | "listApiConfig" | "routerModels" | "openAiModels" | "ollamaModels" | "lmStudioModels" | "vsCodeLmModels" | "huggingFaceModels" | "vsCodeLmApiAvailable" | "updatePrompt" | "systemPrompt" | "autoApprovalEnabled" | "updateCustomMode" | "deleteCustomMode" | "exportModeResult" | "importModeResult" | "checkRulesDirectoryResult" | "deleteCustomModeCheck" | "currentCheckpointUpdated" | "checkpointInitWarning" | "showHumanRelayDialog" | "humanRelayResponse" | "humanRelayCancel" | "browserToolEnabled" | "browserConnectionResult" | "remoteBrowserEnabled" | "ttsStart" | "ttsStop" | "maxReadFileLine" | "fileSearchResults" | "toggleApiConfigPin" | "acceptInput" | "setHistoryPreviewCollapsed" | "commandExecutionStatus" | "mcpExecutionStatus" | "vsCodeSetting" | "authenticatedUser" | "condenseTaskContextResponse" | "singleRouterModelFetchResponse" | "rooCreditBalance" | "indexingStatusUpdate" | "indexCleared" | "codebaseIndexConfig" | "marketplaceInstallResult" | "marketplaceRemoveResult" | "marketplaceData" | "shareTaskSuccess" | "codeIndexSettingsSaved" | "codeIndexSecretStatus" | "showDeleteMessageDialog" | "showEditMessageDialog" | "commands" | "insertTextIntoTextarea" | "dismissedUpsells" | "organizationSwitchResult" | "interactionRequired";
     text?: string;
     payload?: any;
     checkpointWarning?: {
@@ -120,7 +120,7 @@ export interface ExtensionMessage {
     list?: string[];
     organizationId?: string | null;
 }
-export type ExtensionState = Pick<GlobalSettings, "currentApiConfigName" | "listApiConfigMeta" | "pinnedApiConfigs" | "customInstructions" | "dismissedUpsells" | "autoApprovalEnabled" | "alwaysAllowReadOnly" | "alwaysAllowReadOnlyOutsideWorkspace" | "alwaysAllowWrite" | "alwaysAllowWriteOutsideWorkspace" | "alwaysAllowWriteProtected" | "alwaysAllowBrowser" | "alwaysApproveResubmit" | "alwaysAllowMcp" | "alwaysAllowModeSwitch" | "alwaysAllowSubtasks" | "alwaysAllowFollowupQuestions" | "alwaysAllowExecute" | "alwaysAllowUpdateTodoList" | "followupAutoApproveTimeoutMs" | "allowedCommands" | "deniedCommands" | "allowedMaxRequests" | "allowedMaxCost" | "browserToolEnabled" | "browserViewportSize" | "screenshotQuality" | "remoteBrowserEnabled" | "cachedChromeHostUrl" | "remoteBrowserHost" | "ttsEnabled" | "ttsSpeed" | "soundEnabled" | "soundVolume" | "maxConcurrentFileReads" | "terminalOutputLineLimit" | "terminalOutputCharacterLimit" | "terminalShellIntegrationTimeout" | "terminalShellIntegrationDisabled" | "terminalCommandDelay" | "terminalPowershellCounter" | "terminalZshClearEolMark" | "terminalZshOhMy" | "terminalZshP10k" | "terminalZdotdir" | "terminalCompressProgressBar" | "diagnosticsEnabled" | "diffEnabled" | "fuzzyMatchThreshold" | "language" | "modeApiConfigs" | "customModePrompts" | "customSupportPrompts" | "enhancementApiConfigId" | "condensingApiConfigId" | "customCondensingPrompt" | "codebaseIndexConfig" | "codebaseIndexModels" | "profileThresholds" | "includeDiagnosticMessages" | "maxDiagnosticMessages" | "openRouterImageGenerationSelectedModel" | "includeTaskHistoryInEnhance" | "reasoningBlockCollapsed" | "includeCurrentTime" | "includeCurrentCost"> & {
+export type ExtensionState = Pick<GlobalSettings, "currentApiConfigName" | "listApiConfigMeta" | "pinnedApiConfigs" | "customInstructions" | "dismissedUpsells" | "autoApprovalEnabled" | "alwaysAllowReadOnly" | "alwaysAllowReadOnlyOutsideWorkspace" | "alwaysAllowWrite" | "alwaysAllowWriteOutsideWorkspace" | "alwaysAllowWriteProtected" | "alwaysAllowBrowser" | "alwaysApproveResubmit" | "alwaysAllowMcp" | "alwaysAllowModeSwitch" | "alwaysAllowSubtasks" | "alwaysAllowFollowupQuestions" | "alwaysAllowExecute" | "alwaysAllowUpdateTodoList" | "followupAutoApproveTimeoutMs" | "allowedCommands" | "deniedCommands" | "allowedMaxRequests" | "allowedMaxCost" | "browserToolEnabled" | "browserViewportSize" | "screenshotQuality" | "remoteBrowserEnabled" | "cachedChromeHostUrl" | "remoteBrowserHost" | "ttsEnabled" | "ttsSpeed" | "soundEnabled" | "soundVolume" | "maxConcurrentFileReads" | "terminalOutputLineLimit" | "terminalOutputCharacterLimit" | "terminalShellIntegrationTimeout" | "terminalShellIntegrationDisabled" | "terminalCommandDelay" | "terminalPowershellCounter" | "terminalZshClearEolMark" | "terminalZshOhMy" | "terminalZshP10k" | "terminalZdotdir" | "terminalCompressProgressBar" | "diagnosticsEnabled" | "diffEnabled" | "fuzzyMatchThreshold" | "language" | "modeApiConfigs" | "customModePrompts" | "customSupportPrompts" | "enhancementApiConfigId" | "condensingApiConfigId" | "customCondensingPrompt" | "codebaseIndexConfig" | "codebaseIndexModels" | "profileThresholds" | "includeDiagnosticMessages" | "maxDiagnosticMessages" | "openRouterImageGenerationSelectedModel" | "includeTaskHistoryInEnhance" | "reasoningBlockCollapsed" | "includeCurrentTime" | "includeCurrentCost" | "maxGitStatusFiles"> & {
     version: string;
     clineMessages: ClineMessage[];
     currentTaskItem?: HistoryItem;
@@ -181,10 +181,14 @@ export type ExtensionState = Pick<GlobalSettings, "currentApiConfigName" | "list
     featureRoomoteControlEnabled: boolean;
 };
 export interface ClineSayTool {
-    tool: "editedExistingFile" | "appliedDiff" | "newFileCreated" | "codebaseSearch" | "readFile" | "fetchInstructions" | "listFilesTopLevel" | "listFilesRecursive" | "listCodeDefinitionNames" | "searchFiles" | "switchMode" | "newTask" | "finishTask" | "insertContent" | "generateImage" | "imageGenerated" | "runSlashCommand";
+    tool: "editedExistingFile" | "appliedDiff" | "newFileCreated" | "codebaseSearch" | "readFile" | "fetchInstructions" | "listFilesTopLevel" | "listFilesRecursive" | "listCodeDefinitionNames" | "searchFiles" | "switchMode" | "newTask" | "finishTask" | "insertContent" | "generateImage" | "imageGenerated" | "runSlashCommand" | "updateTodoList";
     path?: string;
     diff?: string;
     content?: string;
+    diffStats?: {
+        added: number;
+        removed: number;
+    };
     regex?: string;
     filePattern?: string;
     mode?: string;
@@ -206,6 +210,10 @@ export interface ClineSayTool {
         changeCount: number;
         key: string;
         content: string;
+        diffStats?: {
+            added: number;
+            removed: number;
+        };
         diffs?: Array<{
             content: string;
             startLine?: number;

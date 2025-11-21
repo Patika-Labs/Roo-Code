@@ -52,3 +52,10 @@ export declare function checkGitInstalled(): Promise<boolean>;
 export declare function searchCommits(query: string, cwd: string): Promise<GitCommit[]>;
 export declare function getCommitInfo(hash: string, cwd: string): Promise<string>;
 export declare function getWorkingState(cwd: string): Promise<string>;
+/**
+ * Gets git status output with configurable file limit
+ * @param cwd The working directory to check git status in
+ * @param maxFiles Maximum number of file entries to include (0 = disabled)
+ * @returns Git status string or null if not a git repository
+ */
+export declare function getGitStatus(cwd: string, maxFiles?: number): Promise<string | null>;

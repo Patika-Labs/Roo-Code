@@ -17,9 +17,10 @@ export declare class OpenAiHandler extends BaseProvider implements SingleComplet
         reasoning: import("../transform/reasoning").OpenAiReasoningParams | undefined;
         maxTokens: number | undefined;
         temperature: number | undefined;
-        reasoningEffort: import("@roo-code/types").ReasoningEffortWithMinimal | undefined;
+        reasoningEffort: import("@roo-code/types").ReasoningEffortExtended | undefined;
         reasoningBudget: number | undefined;
         verbosity: import("@roo-code/types").VerbosityLevel | undefined;
+        tools?: boolean;
         id: string;
         info: {
             contextWindow: number;
@@ -27,12 +28,14 @@ export declare class OpenAiHandler extends BaseProvider implements SingleComplet
             maxTokens?: number | null | undefined;
             maxThinkingTokens?: number | null | undefined;
             supportsImages?: boolean | undefined;
+            promptCacheRetention?: "in_memory" | "24h" | undefined;
             supportsVerbosity?: boolean | undefined;
             supportsReasoningBudget?: boolean | undefined;
             supportsReasoningBinary?: boolean | undefined;
             supportsTemperature?: boolean | undefined;
+            defaultTemperature?: number | undefined;
             requiredReasoningBudget?: boolean | undefined;
-            supportsReasoningEffort?: boolean | undefined;
+            supportsReasoningEffort?: boolean | ("low" | "medium" | "high" | "minimal" | "none" | "disable")[] | undefined;
             requiredReasoningEffort?: boolean | undefined;
             preserveReasoning?: boolean | undefined;
             supportedParameters?: ("reasoning" | "max_tokens" | "temperature" | "include_reasoning")[] | undefined;
@@ -41,12 +44,14 @@ export declare class OpenAiHandler extends BaseProvider implements SingleComplet
             cacheWritesPrice?: number | undefined;
             cacheReadsPrice?: number | undefined;
             description?: string | undefined;
-            reasoningEffort?: "low" | "medium" | "high" | undefined;
+            reasoningEffort?: "low" | "medium" | "high" | "minimal" | "none" | undefined;
             minTokensPerCachePoint?: number | undefined;
             maxCachePoints?: number | undefined;
             cachableFields?: string[] | undefined;
             deprecated?: boolean | undefined;
             isFree?: boolean | undefined;
+            supportsNativeTools?: boolean | undefined;
+            defaultToolProtocol?: "xml" | "native" | undefined;
             tiers?: {
                 contextWindow: number;
                 name?: "default" | "flex" | "priority" | undefined;

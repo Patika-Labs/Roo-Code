@@ -1,4 +1,4 @@
-import { type ModelInfo, type ProviderSettings, type VerbosityLevel, type ReasoningEffortWithMinimal } from "@roo-code/types";
+import { type ModelInfo, type ProviderSettings, type VerbosityLevel, type ReasoningEffortExtended } from "@roo-code/types";
 import { type AnthropicReasoningParams, type OpenAiReasoningParams, type GeminiReasoningParams, type OpenRouterReasoningParams } from "./reasoning";
 type Format = "anthropic" | "openai" | "gemini" | "openrouter";
 type GetModelParamsOptions<T extends Format> = {
@@ -11,9 +11,10 @@ type GetModelParamsOptions<T extends Format> = {
 type BaseModelParams = {
     maxTokens: number | undefined;
     temperature: number | undefined;
-    reasoningEffort: ReasoningEffortWithMinimal | undefined;
+    reasoningEffort: ReasoningEffortExtended | undefined;
     reasoningBudget: number | undefined;
     verbosity: VerbosityLevel | undefined;
+    tools?: boolean;
 };
 type AnthropicModelParams = {
     format: "anthropic";

@@ -1,3 +1,14 @@
-import { ToolUse, AskApproval, HandleError, PushToolResult, RemoveClosingTag } from "../../shared/tools";
 import { Task } from "../task/Task";
-export declare function listCodeDefinitionNamesTool(cline: Task, block: ToolUse, askApproval: AskApproval, handleError: HandleError, pushToolResult: PushToolResult, removeClosingTag: RemoveClosingTag): Promise<void>;
+import { BaseTool, ToolCallbacks } from "./BaseTool";
+import type { ToolUse } from "../../shared/tools";
+interface ListCodeDefinitionNamesParams {
+    path: string;
+}
+export declare class ListCodeDefinitionNamesTool extends BaseTool<"list_code_definition_names"> {
+    readonly name: "list_code_definition_names";
+    parseLegacy(params: Partial<Record<string, string>>): ListCodeDefinitionNamesParams;
+    execute(params: ListCodeDefinitionNamesParams, task: Task, callbacks: ToolCallbacks): Promise<void>;
+    handlePartial(task: Task, block: ToolUse<"list_code_definition_names">): Promise<void>;
+}
+export declare const listCodeDefinitionNamesTool: ListCodeDefinitionNamesTool;
+export {};

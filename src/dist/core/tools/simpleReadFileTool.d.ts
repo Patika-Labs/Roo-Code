@@ -1,5 +1,6 @@
 import { Task } from "../task/Task";
 import { ToolUse, AskApproval, HandleError, PushToolResult, RemoveClosingTag } from "../../shared/tools";
+import { ToolProtocol } from "@roo-code/types";
 /**
  * Simplified read file tool for models that only support single file reads
  * Uses the format: <read_file><path>file/path.ext</path></read_file>
@@ -10,7 +11,7 @@ import { ToolUse, AskApproval, HandleError, PushToolResult, RemoveClosingTag } f
  * - Does not support line ranges
  * - Has simpler XML parsing
  */
-export declare function simpleReadFileTool(cline: Task, block: ToolUse, askApproval: AskApproval, handleError: HandleError, pushToolResult: PushToolResult, _removeClosingTag: RemoveClosingTag): Promise<void>;
+export declare function simpleReadFileTool(cline: Task, block: ToolUse, askApproval: AskApproval, handleError: HandleError, pushToolResult: PushToolResult, _removeClosingTag: RemoveClosingTag, toolProtocol?: ToolProtocol): Promise<void>;
 /**
  * Get description for the simple read file tool
  * @param blockName The name of the tool block

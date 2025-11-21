@@ -19,4 +19,12 @@ export declare const getModels: (options: GetModelsOptions) => Promise<ModelReco
  * @param router - The router to flush models for.
  */
 export declare const flushModels: (router: RouterName) => Promise<void>;
+/**
+ * Get models from cache, checking memory first, then disk.
+ * This ensures providers always have access to last known good data,
+ * preventing fallback to hardcoded defaults on startup.
+ *
+ * @param provider - The provider to get models for.
+ * @returns Models from memory cache, disk cache, or undefined if not cached.
+ */
 export declare function getModelsFromCache(provider: ProviderName): ModelRecord | undefined;

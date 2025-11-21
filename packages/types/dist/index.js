@@ -45,6 +45,10 @@ var interactiveAsks = [
 function isInteractiveAsk(ask) {
   return interactiveAsks.includes(ask);
 }
+var nonBlockingAsks = ["command_output"];
+function isNonBlockingAsk(ask) {
+  return nonBlockingAsks.includes(ask);
+}
 var clineSays = [
   "error",
   "api_req_started",
@@ -99,12 +103,7 @@ var clineMessageSchema = z.object({
   contextCondense: contextCondenseSchema.optional(),
   isProtected: z.boolean().optional(),
   apiProtocol: z.union([z.literal("openai"), z.literal("anthropic")]).optional(),
-  isAnswered: z.boolean().optional(),
-  metadata: z.object({
-    gpt5: z.object({
-      previous_response_id: z.string().optional()
-    }).optional()
-  }).optional()
+  isAnswered: z.boolean().optional()
 });
 var tokenUsageSchema = z.object({
   totalTokensIn: z.number(),
@@ -155,6 +154,16 @@ var toolUsageSchema = z2.record(
     failures: z2.number()
   })
 );
+var TOOL_PROTOCOL = {
+  XML: "xml",
+  NATIVE: "native"
+};
+function isNativeProtocol(protocol) {
+  return protocol === TOOL_PROTOCOL.NATIVE;
+}
+function getEffectiveProtocol(toolProtocol) {
+  return toolProtocol || TOOL_PROTOCOL.XML;
+}
 
 // src/events.ts
 var RooCodeEventName = /* @__PURE__ */ ((RooCodeEventName2) => {
@@ -354,6 +363,10 @@ import { z as z5 } from "zod";
 var reasoningEfforts = ["low", "medium", "high"];
 var reasoningEffortsSchema = z5.enum(reasoningEfforts);
 var reasoningEffortWithMinimalSchema = z5.union([reasoningEffortsSchema, z5.literal("minimal")]);
+var reasoningEffortsExtended = ["none", "minimal", "low", "medium", "high"];
+var reasoningEffortExtendedSchema = z5.enum(reasoningEffortsExtended);
+var reasoningEffortSettingValues = ["disable", "none", "minimal", "low", "medium", "high"];
+var reasoningEffortSettingSchema = z5.enum(reasoningEffortSettingValues);
 var verbosityLevels = ["low", "medium", "high"];
 var verbosityLevelsSchema = z5.enum(verbosityLevels);
 var serviceTiers = ["default", "flex", "priority"];
@@ -367,6 +380,10 @@ var modelInfoSchema = z5.object({
   contextWindow: z5.number(),
   supportsImages: z5.boolean().optional(),
   supportsPromptCache: z5.boolean(),
+  // Optional default prompt cache retention policy for providers that support it.
+  // When set to "24h", extended prompt caching will be requested; when omitted
+  // or set to "in_memory", the default in‑memory cache is used.
+  promptCacheRetention: z5.enum(["in_memory", "24h"]).optional(),
   // Capability flag to indicate whether the model supports an output verbosity parameter
   supportsVerbosity: z5.boolean().optional(),
   supportsReasoningBudget: z5.boolean().optional(),
@@ -374,8 +391,9 @@ var modelInfoSchema = z5.object({
   supportsReasoningBinary: z5.boolean().optional(),
   // Capability flag to indicate whether the model supports temperature parameter
   supportsTemperature: z5.boolean().optional(),
+  defaultTemperature: z5.number().optional(),
   requiredReasoningBudget: z5.boolean().optional(),
-  supportsReasoningEffort: z5.boolean().optional(),
+  supportsReasoningEffort: z5.union([z5.boolean(), z5.array(z5.enum(["disable", "none", "minimal", "low", "medium", "high"]))]).optional(),
   requiredReasoningEffort: z5.boolean().optional(),
   preserveReasoning: z5.boolean().optional(),
   supportedParameters: z5.array(modelParametersSchema).optional(),
@@ -384,7 +402,8 @@ var modelInfoSchema = z5.object({
   cacheWritesPrice: z5.number().optional(),
   cacheReadsPrice: z5.number().optional(),
   description: z5.string().optional(),
-  reasoningEffort: reasoningEffortsSchema.optional(),
+  // Default effort value for models that support reasoning effort
+  reasoningEffort: reasoningEffortExtendedSchema.optional(),
   minTokensPerCachePoint: z5.number().optional(),
   maxCachePoints: z5.number().optional(),
   cachableFields: z5.array(z5.string()).optional(),
@@ -392,6 +411,10 @@ var modelInfoSchema = z5.object({
   deprecated: z5.boolean().optional(),
   // Flag to indicate if the model is free (no cost)
   isFree: z5.boolean().optional(),
+  // Flag to indicate if the model supports native tool calling (OpenAI-style function calling)
+  supportsNativeTools: z5.boolean().optional(),
+  // Default tool protocol preferred by this model (if not specified, falls back to capability/provider defaults)
+  defaultToolProtocol: z5.enum(["xml", "native"]).optional(),
   /**
    * Service tiers with pricing information.
    * Each tier can have a name (for OpenAI service tiers) and pricing overrides.
@@ -1904,133 +1927,68 @@ var fireworksModels = {
 };
 
 // src/providers/gemini.ts
-var geminiDefaultModelId = "gemini-2.0-flash-001";
+var geminiDefaultModelId = "gemini-2.5-pro";
 var geminiModels = {
-  // Latest models (pointing to the most recent stable versions)
-  "gemini-flash-latest": {
+  "gemini-3-pro-preview": {
     maxTokens: 65536,
     contextWindow: 1048576,
     supportsImages: true,
+    supportsNativeTools: true,
     supportsPromptCache: true,
-    inputPrice: 0.3,
-    outputPrice: 2.5,
-    cacheReadsPrice: 0.075,
-    cacheWritesPrice: 1,
-    maxThinkingTokens: 24576,
-    supportsReasoningBudget: true
-  },
-  "gemini-flash-lite-latest": {
-    maxTokens: 65536,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: true,
-    inputPrice: 0.1,
-    outputPrice: 0.4,
-    cacheReadsPrice: 0.025,
-    cacheWritesPrice: 1,
-    supportsReasoningBudget: true,
-    maxThinkingTokens: 24576
-  },
-  // 2.5 Flash models (09-2025 versions - most recent)
-  "gemini-2.5-flash-preview-09-2025": {
-    maxTokens: 65536,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: true,
-    inputPrice: 0.3,
-    outputPrice: 2.5,
-    cacheReadsPrice: 0.075,
-    cacheWritesPrice: 1,
-    maxThinkingTokens: 24576,
-    supportsReasoningBudget: true
-  },
-  "gemini-2.5-flash-lite-preview-09-2025": {
-    maxTokens: 65536,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: true,
-    inputPrice: 0.1,
-    outputPrice: 0.4,
-    cacheReadsPrice: 0.025,
-    cacheWritesPrice: 1,
-    supportsReasoningBudget: true,
-    maxThinkingTokens: 24576
-  },
-  // 2.5 Flash models (06-17 version)
-  "gemini-2.5-flash-lite-preview-06-17": {
-    maxTokens: 64e3,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: true,
-    inputPrice: 0.1,
-    outputPrice: 0.4,
-    cacheReadsPrice: 0.025,
-    cacheWritesPrice: 1,
-    supportsReasoningBudget: true,
-    maxThinkingTokens: 24576
-  },
-  // 2.5 Flash models (05-20 versions)
-  "gemini-2.5-flash-preview-05-20:thinking": {
-    maxTokens: 65535,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: true,
-    inputPrice: 0.15,
-    outputPrice: 3.5,
-    cacheReadsPrice: 0.0375,
-    cacheWritesPrice: 1,
-    maxThinkingTokens: 24576,
-    supportsReasoningBudget: true,
-    requiredReasoningBudget: true
-  },
-  "gemini-2.5-flash-preview-05-20": {
-    maxTokens: 65535,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: true,
-    inputPrice: 0.15,
-    outputPrice: 0.6,
-    cacheReadsPrice: 0.0375,
-    cacheWritesPrice: 1
-  },
-  // 2.5 Flash models (04-17 versions)
-  "gemini-2.5-flash-preview-04-17:thinking": {
-    maxTokens: 65535,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0.15,
-    outputPrice: 3.5,
-    maxThinkingTokens: 24576,
-    supportsReasoningBudget: true,
-    requiredReasoningBudget: true
-  },
-  "gemini-2.5-flash-preview-04-17": {
-    maxTokens: 65535,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0.15,
-    outputPrice: 0.6
-  },
-  // 2.5 Flash stable
-  "gemini-2.5-flash": {
-    maxTokens: 64e3,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: true,
-    inputPrice: 0.3,
-    outputPrice: 2.5,
-    cacheReadsPrice: 0.075,
-    cacheWritesPrice: 1,
-    maxThinkingTokens: 24576,
-    supportsReasoningBudget: true
+    supportsReasoningEffort: ["low", "high"],
+    reasoningEffort: "low",
+    supportsTemperature: true,
+    defaultTemperature: 1,
+    inputPrice: 4,
+    outputPrice: 18,
+    tiers: [
+      {
+        contextWindow: 2e5,
+        inputPrice: 2,
+        outputPrice: 12
+      },
+      {
+        contextWindow: Infinity,
+        inputPrice: 4,
+        outputPrice: 18
+      }
+    ]
   },
   // 2.5 Pro models
+  "gemini-2.5-pro": {
+    maxTokens: 64e3,
+    contextWindow: 1048576,
+    supportsImages: true,
+    supportsNativeTools: true,
+    supportsPromptCache: true,
+    inputPrice: 2.5,
+    // This is the pricing for prompts above 200k tokens.
+    outputPrice: 15,
+    cacheReadsPrice: 0.625,
+    cacheWritesPrice: 4.5,
+    maxThinkingTokens: 32768,
+    supportsReasoningBudget: true,
+    requiredReasoningBudget: true,
+    tiers: [
+      {
+        contextWindow: 2e5,
+        inputPrice: 1.25,
+        outputPrice: 10,
+        cacheReadsPrice: 0.31
+      },
+      {
+        contextWindow: Infinity,
+        inputPrice: 2.5,
+        outputPrice: 15,
+        cacheReadsPrice: 0.625
+      }
+    ]
+  },
   "gemini-2.5-pro-preview-06-05": {
     maxTokens: 65535,
     contextWindow: 1048576,
     supportsImages: true,
+    supportsNativeTools: true,
     supportsPromptCache: true,
     inputPrice: 2.5,
     // This is the pricing for prompts above 200k tokens.
@@ -2058,6 +2016,7 @@ var geminiModels = {
     maxTokens: 65535,
     contextWindow: 1048576,
     supportsImages: true,
+    supportsNativeTools: true,
     supportsPromptCache: true,
     inputPrice: 2.5,
     // This is the pricing for prompts above 200k tokens.
@@ -2083,6 +2042,7 @@ var geminiModels = {
     maxTokens: 65535,
     contextWindow: 1048576,
     supportsImages: true,
+    supportsNativeTools: true,
     supportsPromptCache: true,
     inputPrice: 2.5,
     // This is the pricing for prompts above 200k tokens.
@@ -2106,161 +2066,72 @@ var geminiModels = {
       }
     ]
   },
-  "gemini-2.5-pro-exp-03-25": {
-    maxTokens: 65535,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0,
-    outputPrice: 0
-  },
-  "gemini-2.5-pro": {
-    maxTokens: 64e3,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: true,
-    inputPrice: 2.5,
-    // This is the pricing for prompts above 200k tokens.
-    outputPrice: 15,
-    cacheReadsPrice: 0.625,
-    cacheWritesPrice: 4.5,
-    maxThinkingTokens: 32768,
-    supportsReasoningBudget: true,
-    requiredReasoningBudget: true,
-    tiers: [
-      {
-        contextWindow: 2e5,
-        inputPrice: 1.25,
-        outputPrice: 10,
-        cacheReadsPrice: 0.31
-      },
-      {
-        contextWindow: Infinity,
-        inputPrice: 2.5,
-        outputPrice: 15,
-        cacheReadsPrice: 0.625
-      }
-    ]
-  },
-  // 2.0 Flash models
-  "gemini-2.0-flash-lite-preview-02-05": {
-    maxTokens: 8192,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0,
-    outputPrice: 0
-  },
-  "gemini-2.0-flash-thinking-exp-01-21": {
+  // 2.5 Flash models
+  "gemini-flash-latest": {
     maxTokens: 65536,
     contextWindow: 1048576,
     supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0,
-    outputPrice: 0
+    supportsNativeTools: true,
+    supportsPromptCache: true,
+    inputPrice: 0.3,
+    outputPrice: 2.5,
+    cacheReadsPrice: 0.075,
+    cacheWritesPrice: 1,
+    maxThinkingTokens: 24576,
+    supportsReasoningBudget: true
   },
-  "gemini-2.0-flash-thinking-exp-1219": {
-    maxTokens: 8192,
-    contextWindow: 32767,
-    supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0,
-    outputPrice: 0
-  },
-  "gemini-2.0-flash-exp": {
-    maxTokens: 8192,
+  "gemini-2.5-flash-preview-09-2025": {
+    maxTokens: 65536,
     contextWindow: 1048576,
     supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0,
-    outputPrice: 0
+    supportsNativeTools: true,
+    supportsPromptCache: true,
+    inputPrice: 0.3,
+    outputPrice: 2.5,
+    cacheReadsPrice: 0.075,
+    cacheWritesPrice: 1,
+    maxThinkingTokens: 24576,
+    supportsReasoningBudget: true
   },
-  "gemini-2.0-flash-001": {
-    maxTokens: 8192,
+  "gemini-2.5-flash": {
+    maxTokens: 64e3,
     contextWindow: 1048576,
     supportsImages: true,
+    supportsNativeTools: true,
+    supportsPromptCache: true,
+    inputPrice: 0.3,
+    outputPrice: 2.5,
+    cacheReadsPrice: 0.075,
+    cacheWritesPrice: 1,
+    maxThinkingTokens: 24576,
+    supportsReasoningBudget: true
+  },
+  // 2.5 Flash Lite models
+  "gemini-flash-lite-latest": {
+    maxTokens: 65536,
+    contextWindow: 1048576,
+    supportsImages: true,
+    supportsNativeTools: true,
     supportsPromptCache: true,
     inputPrice: 0.1,
     outputPrice: 0.4,
     cacheReadsPrice: 0.025,
-    cacheWritesPrice: 1
-  },
-  // 2.0 Pro models
-  "gemini-2.0-pro-exp-02-05": {
-    maxTokens: 8192,
-    contextWindow: 2097152,
-    supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0,
-    outputPrice: 0
-  },
-  // 1.5 Flash models
-  "gemini-1.5-flash-002": {
-    maxTokens: 8192,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: true,
-    inputPrice: 0.15,
-    // This is the pricing for prompts above 128k tokens.
-    outputPrice: 0.6,
-    cacheReadsPrice: 0.0375,
     cacheWritesPrice: 1,
-    tiers: [
-      {
-        contextWindow: 128e3,
-        inputPrice: 0.075,
-        outputPrice: 0.3,
-        cacheReadsPrice: 0.01875
-      },
-      {
-        contextWindow: Infinity,
-        inputPrice: 0.15,
-        outputPrice: 0.6,
-        cacheReadsPrice: 0.0375
-      }
-    ]
+    supportsReasoningBudget: true,
+    maxThinkingTokens: 24576
   },
-  "gemini-1.5-flash-exp-0827": {
-    maxTokens: 8192,
+  "gemini-2.5-flash-lite-preview-09-2025": {
+    maxTokens: 65536,
     contextWindow: 1048576,
     supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0,
-    outputPrice: 0
-  },
-  "gemini-1.5-flash-8b-exp-0827": {
-    maxTokens: 8192,
-    contextWindow: 1048576,
-    supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0,
-    outputPrice: 0
-  },
-  // 1.5 Pro models
-  "gemini-1.5-pro-002": {
-    maxTokens: 8192,
-    contextWindow: 2097152,
-    supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0,
-    outputPrice: 0
-  },
-  "gemini-1.5-pro-exp-0827": {
-    maxTokens: 8192,
-    contextWindow: 2097152,
-    supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0,
-    outputPrice: 0
-  },
-  // Experimental models
-  "gemini-exp-1206": {
-    maxTokens: 8192,
-    contextWindow: 2097152,
-    supportsImages: true,
-    supportsPromptCache: false,
-    inputPrice: 0,
-    outputPrice: 0
+    supportsNativeTools: true,
+    supportsPromptCache: true,
+    inputPrice: 0.1,
+    outputPrice: 0.4,
+    cacheReadsPrice: 0.025,
+    cacheWritesPrice: 1,
+    supportsReasoningBudget: true,
+    maxThinkingTokens: 24576
   }
 };
 
@@ -2589,6 +2460,28 @@ var moonshotModels = {
     cacheReadsPrice: 0.6,
     // $0.60 per million tokens (cache hit)
     description: `Kimi K2 Turbo is a high-speed version of the state-of-the-art Kimi K2 mixture-of-experts (MoE) language model, with the same 32 billion activated parameters and 1 trillion total parameters, optimized for output speeds of up to 60 tokens per second, peaking at 100 tokens per second.`
+  },
+  "kimi-k2-thinking": {
+    maxTokens: 16e3,
+    // Recommended ≥ 16,000
+    contextWindow: 262144,
+    // 262,144 tokens
+    supportsImages: false,
+    // Text-only (no image/vision support)
+    supportsPromptCache: true,
+    inputPrice: 0.6,
+    // $0.60 per million tokens (cache miss)
+    outputPrice: 2.5,
+    // $2.50 per million tokens
+    cacheWritesPrice: 0,
+    // $0 per million tokens (cache miss)
+    cacheReadsPrice: 0.15,
+    // $0.15 per million tokens (cache hit)
+    supportsTemperature: true,
+    // Default temperature: 1.0
+    preserveReasoning: true,
+    defaultTemperature: 1,
+    description: `The kimi-k2-thinking model is a general-purpose agentic reasoning model developed by Moonshot AI. Thanks to its strength in deep reasoning and multi-turn tool use, it can solve even the hardest problems.`
   }
 };
 var MOONSHOT_DEFAULT_TEMPERATURE = 0.6;
@@ -2608,89 +2501,143 @@ var ollamaDefaultModelInfo = {
 };
 
 // src/providers/openai.ts
-var openAiNativeDefaultModelId = "gpt-5-2025-08-07";
+var openAiNativeDefaultModelId = "gpt-5.1";
 var openAiNativeModels = {
-  "gpt-5-chat-latest": {
+  "gpt-5.1": {
     maxTokens: 128e3,
     contextWindow: 4e5,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
-    supportsReasoningEffort: false,
-    inputPrice: 1.25,
-    outputPrice: 10,
-    cacheReadsPrice: 0.13,
-    description: "GPT-5 Chat Latest: Optimized for conversational AI and non-reasoning tasks",
-    supportsVerbosity: true
-  },
-  "gpt-5-2025-08-07": {
-    maxTokens: 128e3,
-    contextWindow: 4e5,
-    supportsImages: true,
-    supportsPromptCache: true,
-    supportsReasoningEffort: true,
+    promptCacheRetention: "24h",
+    supportsReasoningEffort: ["none", "low", "medium", "high"],
     reasoningEffort: "medium",
     inputPrice: 1.25,
     outputPrice: 10,
-    cacheReadsPrice: 0.13,
-    description: "GPT-5: The best model for coding and agentic tasks across domains",
-    // supportsVerbosity is a new capability; ensure ModelInfo includes it
+    cacheReadsPrice: 0.125,
     supportsVerbosity: true,
     supportsTemperature: false,
     tiers: [
       { name: "flex", contextWindow: 4e5, inputPrice: 0.625, outputPrice: 5, cacheReadsPrice: 0.0625 },
       { name: "priority", contextWindow: 4e5, inputPrice: 2.5, outputPrice: 20, cacheReadsPrice: 0.25 }
-    ]
+    ],
+    description: "GPT-5.1: The best model for coding and agentic tasks across domains"
   },
-  "gpt-5-mini-2025-08-07": {
+  "gpt-5.1-codex": {
     maxTokens: 128e3,
     contextWindow: 4e5,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
-    supportsReasoningEffort: true,
+    promptCacheRetention: "24h",
+    supportsReasoningEffort: ["low", "medium", "high"],
+    reasoningEffort: "medium",
+    inputPrice: 1.25,
+    outputPrice: 10,
+    cacheReadsPrice: 0.125,
+    supportsTemperature: false,
+    tiers: [{ name: "priority", contextWindow: 4e5, inputPrice: 2.5, outputPrice: 20, cacheReadsPrice: 0.25 }],
+    description: "GPT-5.1 Codex: A version of GPT-5.1 optimized for agentic coding in Codex"
+  },
+  "gpt-5.1-codex-mini": {
+    maxTokens: 128e3,
+    contextWindow: 4e5,
+    supportsNativeTools: true,
+    supportsImages: true,
+    supportsPromptCache: true,
+    promptCacheRetention: "24h",
+    supportsReasoningEffort: ["low", "medium", "high"],
     reasoningEffort: "medium",
     inputPrice: 0.25,
     outputPrice: 2,
-    cacheReadsPrice: 0.03,
-    description: "GPT-5 Mini: A faster, more cost-efficient version of GPT-5 for well-defined tasks",
+    cacheReadsPrice: 0.025,
+    supportsTemperature: false,
+    description: "GPT-5.1 Codex mini: A version of GPT-5.1 optimized for agentic coding in Codex"
+  },
+  "gpt-5": {
+    maxTokens: 128e3,
+    contextWindow: 4e5,
+    supportsNativeTools: true,
+    supportsImages: true,
+    supportsPromptCache: true,
+    supportsReasoningEffort: ["minimal", "low", "medium", "high"],
+    reasoningEffort: "medium",
+    inputPrice: 1.25,
+    outputPrice: 10,
+    cacheReadsPrice: 0.125,
+    supportsVerbosity: true,
+    supportsTemperature: false,
+    tiers: [
+      { name: "flex", contextWindow: 4e5, inputPrice: 0.625, outputPrice: 5, cacheReadsPrice: 0.0625 },
+      { name: "priority", contextWindow: 4e5, inputPrice: 2.5, outputPrice: 20, cacheReadsPrice: 0.25 }
+    ],
+    description: "GPT-5: The best model for coding and agentic tasks across domains"
+  },
+  "gpt-5-mini": {
+    maxTokens: 128e3,
+    contextWindow: 4e5,
+    supportsNativeTools: true,
+    supportsImages: true,
+    supportsPromptCache: true,
+    supportsReasoningEffort: ["minimal", "low", "medium", "high"],
+    reasoningEffort: "medium",
+    inputPrice: 0.25,
+    outputPrice: 2,
+    cacheReadsPrice: 0.025,
     supportsVerbosity: true,
     supportsTemperature: false,
     tiers: [
       { name: "flex", contextWindow: 4e5, inputPrice: 0.125, outputPrice: 1, cacheReadsPrice: 0.0125 },
       { name: "priority", contextWindow: 4e5, inputPrice: 0.45, outputPrice: 3.6, cacheReadsPrice: 0.045 }
-    ]
-  },
-  "gpt-5-nano-2025-08-07": {
-    maxTokens: 128e3,
-    contextWindow: 4e5,
-    supportsImages: true,
-    supportsPromptCache: true,
-    supportsReasoningEffort: true,
-    reasoningEffort: "medium",
-    inputPrice: 0.05,
-    outputPrice: 0.4,
-    cacheReadsPrice: 0.01,
-    description: "GPT-5 Nano: Fastest, most cost-efficient version of GPT-5",
-    supportsVerbosity: true,
-    supportsTemperature: false,
-    tiers: [{ name: "flex", contextWindow: 4e5, inputPrice: 0.025, outputPrice: 0.2, cacheReadsPrice: 25e-4 }]
+    ],
+    description: "GPT-5 Mini: A faster, more cost-efficient version of GPT-5 for well-defined tasks"
   },
   "gpt-5-codex": {
     maxTokens: 128e3,
     contextWindow: 4e5,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
-    supportsReasoningEffort: true,
+    supportsReasoningEffort: ["low", "medium", "high"],
     reasoningEffort: "medium",
     inputPrice: 1.25,
     outputPrice: 10,
-    cacheReadsPrice: 0.13,
-    description: "GPT-5-Codex: A version of GPT-5 optimized for agentic coding in Codex",
+    cacheReadsPrice: 0.125,
+    supportsTemperature: false,
+    tiers: [{ name: "priority", contextWindow: 4e5, inputPrice: 2.5, outputPrice: 20, cacheReadsPrice: 0.25 }],
+    description: "GPT-5-Codex: A version of GPT-5 optimized for agentic coding in Codex"
+  },
+  "gpt-5-nano": {
+    maxTokens: 128e3,
+    contextWindow: 4e5,
+    supportsNativeTools: true,
+    supportsImages: true,
+    supportsPromptCache: true,
+    supportsReasoningEffort: ["minimal", "low", "medium", "high"],
+    reasoningEffort: "medium",
+    inputPrice: 0.05,
+    outputPrice: 0.4,
+    cacheReadsPrice: 5e-3,
     supportsVerbosity: true,
-    supportsTemperature: false
+    supportsTemperature: false,
+    tiers: [{ name: "flex", contextWindow: 4e5, inputPrice: 0.025, outputPrice: 0.2, cacheReadsPrice: 25e-4 }],
+    description: "GPT-5 Nano: Fastest, most cost-efficient version of GPT-5"
+  },
+  "gpt-5-chat-latest": {
+    maxTokens: 128e3,
+    contextWindow: 4e5,
+    supportsNativeTools: true,
+    supportsImages: true,
+    supportsPromptCache: true,
+    inputPrice: 1.25,
+    outputPrice: 10,
+    cacheReadsPrice: 0.125,
+    description: "GPT-5 Chat: Optimized for conversational AI and non-reasoning tasks"
   },
   "gpt-4.1": {
     maxTokens: 32768,
     contextWindow: 1047576,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 2,
@@ -2704,6 +2651,7 @@ var openAiNativeModels = {
   "gpt-4.1-mini": {
     maxTokens: 32768,
     contextWindow: 1047576,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 0.4,
@@ -2717,6 +2665,7 @@ var openAiNativeModels = {
   "gpt-4.1-nano": {
     maxTokens: 32768,
     contextWindow: 1047576,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 0.1,
@@ -2730,12 +2679,13 @@ var openAiNativeModels = {
   o3: {
     maxTokens: 1e5,
     contextWindow: 2e5,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 2,
     outputPrice: 8,
     cacheReadsPrice: 0.5,
-    supportsReasoningEffort: true,
+    supportsReasoningEffort: ["low", "medium", "high"],
     reasoningEffort: "medium",
     supportsTemperature: false,
     tiers: [
@@ -2746,6 +2696,7 @@ var openAiNativeModels = {
   "o3-high": {
     maxTokens: 1e5,
     contextWindow: 2e5,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 2,
@@ -2757,6 +2708,7 @@ var openAiNativeModels = {
   "o3-low": {
     maxTokens: 1e5,
     contextWindow: 2e5,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 2,
@@ -2768,12 +2720,13 @@ var openAiNativeModels = {
   "o4-mini": {
     maxTokens: 1e5,
     contextWindow: 2e5,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 1.1,
     outputPrice: 4.4,
     cacheReadsPrice: 0.275,
-    supportsReasoningEffort: true,
+    supportsReasoningEffort: ["low", "medium", "high"],
     reasoningEffort: "medium",
     supportsTemperature: false,
     tiers: [
@@ -2784,6 +2737,7 @@ var openAiNativeModels = {
   "o4-mini-high": {
     maxTokens: 1e5,
     contextWindow: 2e5,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 1.1,
@@ -2795,6 +2749,7 @@ var openAiNativeModels = {
   "o4-mini-low": {
     maxTokens: 1e5,
     contextWindow: 2e5,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 1.1,
@@ -2806,18 +2761,20 @@ var openAiNativeModels = {
   "o3-mini": {
     maxTokens: 1e5,
     contextWindow: 2e5,
+    supportsNativeTools: true,
     supportsImages: false,
     supportsPromptCache: true,
     inputPrice: 1.1,
     outputPrice: 4.4,
     cacheReadsPrice: 0.55,
-    supportsReasoningEffort: true,
+    supportsReasoningEffort: ["low", "medium", "high"],
     reasoningEffort: "medium",
     supportsTemperature: false
   },
   "o3-mini-high": {
     maxTokens: 1e5,
     contextWindow: 2e5,
+    supportsNativeTools: true,
     supportsImages: false,
     supportsPromptCache: true,
     inputPrice: 1.1,
@@ -2829,6 +2786,7 @@ var openAiNativeModels = {
   "o3-mini-low": {
     maxTokens: 1e5,
     contextWindow: 2e5,
+    supportsNativeTools: true,
     supportsImages: false,
     supportsPromptCache: true,
     inputPrice: 1.1,
@@ -2840,6 +2798,7 @@ var openAiNativeModels = {
   o1: {
     maxTokens: 1e5,
     contextWindow: 2e5,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 15,
@@ -2850,6 +2809,7 @@ var openAiNativeModels = {
   "o1-preview": {
     maxTokens: 32768,
     contextWindow: 128e3,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 15,
@@ -2860,6 +2820,7 @@ var openAiNativeModels = {
   "o1-mini": {
     maxTokens: 65536,
     contextWindow: 128e3,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 1.1,
@@ -2870,6 +2831,7 @@ var openAiNativeModels = {
   "gpt-4o": {
     maxTokens: 16384,
     contextWindow: 128e3,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 2.5,
@@ -2883,6 +2845,7 @@ var openAiNativeModels = {
   "gpt-4o-mini": {
     maxTokens: 16384,
     contextWindow: 128e3,
+    supportsNativeTools: true,
     supportsImages: true,
     supportsPromptCache: true,
     inputPrice: 0.15,
@@ -2896,13 +2859,69 @@ var openAiNativeModels = {
   "codex-mini-latest": {
     maxTokens: 16384,
     contextWindow: 2e5,
+    supportsNativeTools: true,
     supportsImages: false,
     supportsPromptCache: false,
     inputPrice: 1.5,
     outputPrice: 6,
-    cacheReadsPrice: 0,
+    cacheReadsPrice: 0.375,
     supportsTemperature: false,
     description: "Codex Mini: Cloud-based software engineering agent powered by codex-1, a version of o3 optimized for coding tasks. Trained with reinforcement learning to generate human-style code, adhere to instructions, and iteratively run tests."
+  },
+  // Dated clones (snapshots) preserved for backward compatibility
+  "gpt-5-2025-08-07": {
+    maxTokens: 128e3,
+    contextWindow: 4e5,
+    supportsNativeTools: true,
+    supportsImages: true,
+    supportsPromptCache: true,
+    supportsReasoningEffort: ["minimal", "low", "medium", "high"],
+    reasoningEffort: "medium",
+    inputPrice: 1.25,
+    outputPrice: 10,
+    cacheReadsPrice: 0.125,
+    supportsVerbosity: true,
+    supportsTemperature: false,
+    tiers: [
+      { name: "flex", contextWindow: 4e5, inputPrice: 0.625, outputPrice: 5, cacheReadsPrice: 0.0625 },
+      { name: "priority", contextWindow: 4e5, inputPrice: 2.5, outputPrice: 20, cacheReadsPrice: 0.25 }
+    ],
+    description: "GPT-5: The best model for coding and agentic tasks across domains"
+  },
+  "gpt-5-mini-2025-08-07": {
+    maxTokens: 128e3,
+    contextWindow: 4e5,
+    supportsNativeTools: true,
+    supportsImages: true,
+    supportsPromptCache: true,
+    supportsReasoningEffort: ["minimal", "low", "medium", "high"],
+    reasoningEffort: "medium",
+    inputPrice: 0.25,
+    outputPrice: 2,
+    cacheReadsPrice: 0.025,
+    supportsVerbosity: true,
+    supportsTemperature: false,
+    tiers: [
+      { name: "flex", contextWindow: 4e5, inputPrice: 0.125, outputPrice: 1, cacheReadsPrice: 0.0125 },
+      { name: "priority", contextWindow: 4e5, inputPrice: 0.45, outputPrice: 3.6, cacheReadsPrice: 0.045 }
+    ],
+    description: "GPT-5 Mini: A faster, more cost-efficient version of GPT-5 for well-defined tasks"
+  },
+  "gpt-5-nano-2025-08-07": {
+    maxTokens: 128e3,
+    contextWindow: 4e5,
+    supportsNativeTools: true,
+    supportsImages: true,
+    supportsPromptCache: true,
+    supportsReasoningEffort: ["minimal", "low", "medium", "high"],
+    reasoningEffort: "medium",
+    inputPrice: 0.05,
+    outputPrice: 0.4,
+    cacheReadsPrice: 5e-3,
+    supportsVerbosity: true,
+    supportsTemperature: false,
+    tiers: [{ name: "flex", contextWindow: 4e5, inputPrice: 0.025, outputPrice: 0.2, cacheReadsPrice: 25e-4 }],
+    description: "GPT-5 Nano: Fastest, most cost-efficient version of GPT-5"
   }
 };
 var openAiModelInfoSaneDefaults = {
@@ -2911,11 +2930,11 @@ var openAiModelInfoSaneDefaults = {
   supportsImages: true,
   supportsPromptCache: false,
   inputPrice: 0,
-  outputPrice: 0
+  outputPrice: 0,
+  supportsNativeTools: true
 };
 var azureOpenAiDefaultApiVersion = "2024-08-01-preview";
 var OPENAI_NATIVE_DEFAULT_TEMPERATURE = 0;
-var GPT5_DEFAULT_TEMPERATURE = 1;
 var OPENAI_AZURE_AI_INFERENCE_PATH = "/models/chat/completions";
 
 // src/providers/openrouter.ts
@@ -2925,6 +2944,7 @@ var openRouterDefaultModelInfo = {
   contextWindow: 2e5,
   supportsImages: true,
   supportsPromptCache: true,
+  supportsNativeTools: true,
   inputPrice: 3,
   outputPrice: 15,
   cacheWritesPrice: 3.75,
@@ -3170,6 +3190,30 @@ var unboundDefaultModelInfo = {
 // src/providers/vertex.ts
 var vertexDefaultModelId = "claude-sonnet-4-5@20250929";
 var vertexModels = {
+  "gemini-3-pro-preview": {
+    maxTokens: 65536,
+    contextWindow: 1048576,
+    supportsImages: true,
+    supportsPromptCache: true,
+    supportsReasoningEffort: ["low", "high"],
+    reasoningEffort: "low",
+    supportsTemperature: true,
+    defaultTemperature: 1,
+    inputPrice: 4,
+    outputPrice: 18,
+    tiers: [
+      {
+        contextWindow: 2e5,
+        inputPrice: 2,
+        outputPrice: 12
+      },
+      {
+        contextWindow: Infinity,
+        inputPrice: 4,
+        outputPrice: 18
+      }
+    ]
+  },
   "gemini-2.5-flash-preview-05-20:thinking": {
     maxTokens: 65535,
     contextWindow: 1048576,
@@ -4144,15 +4188,31 @@ var minimaxModels = {
     maxTokens: 16384,
     contextWindow: 192e3,
     supportsImages: false,
-    supportsPromptCache: false,
+    supportsPromptCache: true,
+    supportsNativeTools: true,
+    preserveReasoning: true,
     inputPrice: 0.3,
     outputPrice: 1.2,
-    cacheWritesPrice: 0,
-    cacheReadsPrice: 0,
-    preserveReasoning: true,
+    cacheWritesPrice: 0.375,
+    cacheReadsPrice: 0.03,
     description: "MiniMax M2, a model born for Agents and code, featuring Top-tier Coding Capabilities, Powerful Agentic Performance, and Ultimate Cost-Effectiveness & Speed."
+  },
+  "MiniMax-M2-Stable": {
+    maxTokens: 16384,
+    contextWindow: 192e3,
+    supportsImages: false,
+    supportsPromptCache: true,
+    supportsNativeTools: true,
+    preserveReasoning: true,
+    inputPrice: 0.3,
+    outputPrice: 1.2,
+    cacheWritesPrice: 0.375,
+    cacheReadsPrice: 0.03,
+    description: "MiniMax M2 Stable (High Concurrency, Commercial Use), a model born for Agents and code, featuring Top-tier Coding Capabilities, Powerful Agentic Performance, and Ultimate Cost-Effectiveness & Speed."
   }
 };
+var minimaxDefaultModelInfo = minimaxModels[minimaxDefaultModelId];
+var MINIMAX_DEFAULT_MAX_TOKENS = 16384;
 var MINIMAX_DEFAULT_TEMPERATURE = 1;
 
 // src/providers/index.ts
@@ -4307,11 +4367,13 @@ var baseProviderSettingsSchema = z8.object({
   consecutiveMistakeLimit: z8.number().min(0).optional(),
   // Model reasoning.
   enableReasoningEffort: z8.boolean().optional(),
-  reasoningEffort: reasoningEffortWithMinimalSchema.optional(),
+  reasoningEffort: reasoningEffortSettingSchema.optional(),
   modelMaxTokens: z8.number().optional(),
   modelMaxThinkingTokens: z8.number().optional(),
   // Model verbosity.
-  verbosity: verbosityLevelsSchema.optional()
+  verbosity: verbosityLevelsSchema.optional(),
+  // Tool protocol override for this profile.
+  toolProtocol: z8.enum(["xml", "native"]).optional()
 });
 var apiModelIdProviderModelSchema = baseProviderSettingsSchema.extend({
   apiModelId: z8.string().optional()
@@ -4651,7 +4713,7 @@ var modelIdKeysByProvider = {
   roo: "apiModelId",
   "vercel-ai-gateway": "vercelAiGatewayModelId"
 };
-var ANTHROPIC_STYLE_PROVIDERS = ["anthropic", "claude-code", "bedrock"];
+var ANTHROPIC_STYLE_PROVIDERS = ["anthropic", "claude-code", "bedrock", "minimax"];
 var getApiProtocol = (provider, modelId) => {
   if (provider && ANTHROPIC_STYLE_PROVIDERS.includes(provider)) {
     return "anthropic";
@@ -5189,6 +5251,12 @@ var globalSettingsSchema = z14.object({
    */
   includeCurrentCost: z14.boolean().optional(),
   /**
+   * Maximum number of git status file entries to include in the environment details.
+   * Set to 0 to disable git status. The header (branch, commits) is always included when > 0.
+   * @default 0
+   */
+  maxGitStatusFiles: z14.number().optional(),
+  /**
    * Whether to include diagnostic messages (errors, warnings) in tool outputs
    * @default true
    */
@@ -5355,6 +5423,7 @@ var EVALS_SETTINGS = {
   rateLimitSeconds: 0,
   maxOpenTabsContext: 20,
   maxWorkspaceFiles: 200,
+  maxGitStatusFiles: 20,
   showRooIgnoredFiles: true,
   maxReadFileLine: -1,
   // -1 to enable full file reading.
@@ -5819,6 +5888,15 @@ var followUpDataSchema = z17.object({
   suggest: z17.array(suggestionItemSchema).optional()
 });
 
+// src/image-generation.ts
+var IMAGE_GENERATION_MODELS = [
+  { value: "google/gemini-2.5-flash-image", label: "Gemini 2.5 Flash Image" },
+  { value: "google/gemini-3-pro-image-preview", label: "Gemini 3 Pro Image Preview" },
+  { value: "openai/gpt-5-image", label: "GPT-5 Image" },
+  { value: "openai/gpt-5-image-mini", label: "GPT-5 Image Mini" }
+];
+var IMAGE_GENERATION_MODEL_IDS = IMAGE_GENERATION_MODELS.map((m) => m.value);
+
 // src/ipc.ts
 import { z as z18 } from "zod";
 var IpcMessageType = /* @__PURE__ */ ((IpcMessageType2) => {
@@ -5844,6 +5922,7 @@ var TaskCommandName = /* @__PURE__ */ ((TaskCommandName2) => {
   TaskCommandName2["CancelTask"] = "CancelTask";
   TaskCommandName2["CloseTask"] = "CloseTask";
   TaskCommandName2["ResumeTask"] = "ResumeTask";
+  TaskCommandName2["SendMessage"] = "SendMessage";
   return TaskCommandName2;
 })(TaskCommandName || {});
 var taskCommandSchema = z18.discriminatedUnion("commandName", [
@@ -5867,6 +5946,13 @@ var taskCommandSchema = z18.discriminatedUnion("commandName", [
   z18.object({
     commandName: z18.literal("ResumeTask" /* ResumeTask */),
     data: z18.string()
+  }),
+  z18.object({
+    commandName: z18.literal("SendMessage" /* SendMessage */),
+    data: z18.object({
+      text: z18.string().optional(),
+      images: z18.array(z18.string()).optional()
+    })
   })
 ]);
 var ipcMessageSchema = z18.discriminatedUnion("type", [
@@ -5989,7 +6075,6 @@ export {
   GLOBAL_SECRET_KEYS,
   GLOBAL_SETTINGS_KEYS,
   GLOBAL_STATE_KEYS,
-  GPT5_DEFAULT_TEMPERATURE,
   HEARTBEAT_INTERVAL_MS,
   HUGGINGFACE_API_URL,
   HUGGINGFACE_CACHE_DURATION,
@@ -5999,12 +6084,15 @@ export {
   HUGGINGFACE_SLIDER_MIN,
   HUGGINGFACE_SLIDER_STEP,
   HUGGINGFACE_TEMPERATURE_MAX_VALUE,
+  IMAGE_GENERATION_MODELS,
+  IMAGE_GENERATION_MODEL_IDS,
   INSTANCE_TTL_SECONDS,
   IO_INTELLIGENCE_CACHE_DURATION,
   IpcMessageType,
   IpcOrigin,
   LMSTUDIO_DEFAULT_TEMPERATURE,
   MAX_CHECKPOINT_TIMEOUT_SECONDS,
+  MINIMAX_DEFAULT_MAX_TOKENS,
   MINIMAX_DEFAULT_TEMPERATURE,
   MIN_CHECKPOINT_TIMEOUT_SECONDS,
   MISTRAL_DEFAULT_TEMPERATURE,
@@ -6024,6 +6112,7 @@ export {
   RooModelsResponseSchema,
   RooPricingSchema,
   SECRET_STATE_KEYS,
+  TOOL_PROTOCOL,
   TaskBridgeCommandName,
   TaskBridgeEventName,
   TaskCommandName,
@@ -6095,6 +6184,7 @@ export {
   geminiModels,
   getApiProtocol,
   getClaudeCodeModelId,
+  getEffectiveProtocol,
   getModelId,
   getProviderDefaultModelId,
   gitPropertiesSchema,
@@ -6126,6 +6216,8 @@ export {
   isLanguage,
   isLocalProvider,
   isModelParameter,
+  isNativeProtocol,
+  isNonBlockingAsk,
   isProviderName,
   isResumableAsk,
   isSecretStateKey,
@@ -6146,6 +6238,7 @@ export {
   mcpMarketplaceItemSchema,
   mcpParameterSchema,
   minimaxDefaultModelId,
+  minimaxDefaultModelInfo,
   minimaxModels,
   mistralDefaultModelId,
   mistralModels,
@@ -6158,6 +6251,7 @@ export {
   modelParametersSchema,
   moonshotDefaultModelId,
   moonshotModels,
+  nonBlockingAsks,
   ollamaDefaultModelId,
   ollamaDefaultModelInfo,
   openAiModelInfoSaneDefaults,
@@ -6180,8 +6274,12 @@ export {
   queuedMessageSchema,
   qwenCodeDefaultModelId,
   qwenCodeModels,
+  reasoningEffortExtendedSchema,
+  reasoningEffortSettingSchema,
+  reasoningEffortSettingValues,
   reasoningEffortWithMinimalSchema,
   reasoningEfforts,
+  reasoningEffortsExtended,
   reasoningEffortsSchema,
   requestyDefaultModelId,
   requestyDefaultModelInfo,

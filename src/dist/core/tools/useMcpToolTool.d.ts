@@ -1,3 +1,21 @@
 import { Task } from "../task/Task";
-import { ToolUse, AskApproval, HandleError, PushToolResult, RemoveClosingTag } from "../../shared/tools";
-export declare function useMcpToolTool(cline: Task, block: ToolUse, askApproval: AskApproval, handleError: HandleError, pushToolResult: PushToolResult, removeClosingTag: RemoveClosingTag): Promise<void>;
+import { BaseTool, ToolCallbacks } from "./BaseTool";
+import type { ToolUse } from "../../shared/tools";
+interface UseMcpToolParams {
+    server_name: string;
+    tool_name: string;
+    arguments?: Record<string, unknown>;
+}
+export declare class UseMcpToolTool extends BaseTool<"use_mcp_tool"> {
+    readonly name: "use_mcp_tool";
+    parseLegacy(params: Partial<Record<string, string>>): UseMcpToolParams;
+    execute(params: UseMcpToolParams, task: Task, callbacks: ToolCallbacks): Promise<void>;
+    handlePartial(task: Task, block: ToolUse<"use_mcp_tool">): Promise<void>;
+    private validateParams;
+    private validateToolExists;
+    private sendExecutionStatus;
+    private processToolContent;
+    private executeToolAndProcessResult;
+}
+export declare const useMcpToolTool: UseMcpToolTool;
+export {};
