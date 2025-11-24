@@ -47,8 +47,8 @@ export async function generateImageWithProvider(options: ImageGenerationOptions)
 			headers: {
 				Authorization: `Bearer ${authToken}`,
 				"Content-Type": "application/json",
-				"HTTP-Referer": "https://github.com/RooVetGit/Roo-Code",
-				"X-Title": "Roo Code",
+				"HTTP-Referer": "https://multi.dev",
+				"X-Title": "multi",
 			},
 			body: JSON.stringify({
 				model,

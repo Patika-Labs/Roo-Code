@@ -72,8 +72,8 @@ export class RooEmbedder implements IEmbedder {
 				baseURL,
 				apiKey: sessionToken,
 				defaultHeaders: {
-					"HTTP-Referer": "https://github.com/RooCodeInc/Roo-Code",
-					"X-Title": "Roo Code",
+					"HTTP-Referer": "https://multi.dev",
+					"X-Title": "multi",
 				},
 			})
 		} catch (error) {
