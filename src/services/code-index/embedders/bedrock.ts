@@ -41,7 +41,7 @@ export class BedrockEmbedder implements IEmbedder {
 		const credentials = this.profile ? fromIni({ profile: this.profile }) : fromEnv()
 
 		this.bedrockClient = new BedrockRuntimeClient({
-			userAgentAppId: `RooCode#${Package.version}`,
+			userAgentAppId: `Multi#${Package.version}`,
 			region: this.region,
 			credentials,
 		})
