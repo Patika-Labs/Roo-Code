@@ -1,4 +1,4 @@
-import { Anthropic } from "@anthropic-ai/sdk"
+import { Anthropic, ClientOptions } from "@anthropic-ai/sdk"
 import { Stream as AnthropicStream } from "@anthropic-ai/sdk/streaming"
 import { CacheControlEphemeral } from "@anthropic-ai/sdk/resources"
 import OpenAI from "openai"
@@ -35,7 +35,7 @@ export class AnthropicHandler extends BaseProvider implements SingleCompletionHa
 	private client: Anthropic
 	private readonly providerName = "Anthropic"
 
-	constructor(options: ApiHandlerOptions) {
+	constructor(options: ApiHandlerOptions, extras?: ClientOptions) {
 		super()
 		this.options = options
 
@@ -45,6 +45,7 @@ export class AnthropicHandler extends BaseProvider implements SingleCompletionHa
 		this.client = new Anthropic({
 			baseURL: this.options.anthropicBaseUrl || undefined,
 			[apiKeyFieldName]: this.options.apiKey,
+      ...extras,
 		})
 	}
 
@@ -131,7 +132,7 @@ export class AnthropicHandler extends BaseProvider implements SingleCompletionHa
 							temperature,
 							thinking,
 							// Setting cache breakpoint for system prompt so new tasks can reuse it.
-							system: [{ text: systemPrompt, type: "text", cache_control: cacheControl }],
+							system: this.buildSystemPrompt(systemPrompt, cacheControl),
 							messages: sanitizedMessages.map((message, index) => {
 								if (index === lastUserMsgIndex || index === secondLastMsgUserIndex) {
 									return {
@@ -339,6 +340,13 @@ export class AnthropicHandler extends BaseProvider implements SingleCompletionHa
 				totalCost,
 			}
 		}
+	}
+
+	protected buildSystemPrompt(
+		systemPrompt: string,
+		cache_control?: CacheControlEphemeral,
+	): string | Array<Anthropic.TextBlockParam> {
+		return [{ text: systemPrompt, type: "text", cache_control }]
 	}
 
 	getModel() {
