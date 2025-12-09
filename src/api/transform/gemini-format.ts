@@ -72,6 +72,7 @@ export function convertAnthropicContentToGemini(
 			case "tool_use":
 				return {
 					functionCall: {
+						id: block.id,
 						name: block.name,
 						args: block.input as Record<string, unknown>,
 					},
@@ -96,9 +97,17 @@ export function convertAnthropicContentToGemini(
 					)
 				}
 
+				const outputField = block.is_error ? "error" : "output"
+
 				if (typeof block.content === "string") {
+					let output: unknown = block.content
+					if (!block.is_error) {
+						try {
+							output = JSON.parse(block.content)
+						} catch {}
+					}
 					return {
-						functionResponse: { name: toolName, response: { name: toolName, content: block.content } },
+						functionResponse: { id: block.tool_use_id, name: toolName, response: { [outputField]: output } },
 					}
 				}
 
@@ -124,7 +133,7 @@ export function convertAnthropicContentToGemini(
 
 				// Return function response followed by any images
 				return [
-					{ functionResponse: { name: toolName, response: { name: toolName, content: contentText } } },
+					{ functionResponse: { name: toolName, response: { [outputField]: contentText } } },
 					...imageParts,
 				]
 			}
