@@ -96,9 +96,11 @@ export function convertAnthropicContentToGemini(
 					)
 				}
 
+				const outputField = block.is_error ? "error" : "output"
+
 				if (typeof block.content === "string") {
 					return {
-						functionResponse: { name: toolName, response: { name: toolName, content: block.content } },
+						functionResponse: { name: toolName, response: { [outputField]: block.content } },
 					}
 				}
 
@@ -124,7 +126,7 @@ export function convertAnthropicContentToGemini(
 
 				// Return function response followed by any images
 				return [
-					{ functionResponse: { name: toolName, response: { name: toolName, content: contentText } } },
+					{ functionResponse: { name: toolName, response: { [outputField]: contentText } } },
 					...imageParts,
 				]
 			}
