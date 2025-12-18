@@ -12,6 +12,7 @@ export type ApiStreamChunk =
 	| ApiStreamToolCallEndChunk
 	| ApiStreamToolCallPartialChunk
 	| ApiStreamError
+	| ApiStreamStatusChunk
 
 export interface ApiStreamError {
 	type: "error"
@@ -111,4 +112,14 @@ export interface GroundingSource {
 	title: string
 	url: string
 	snippet?: string
+}
+
+/**
+ * Status chunk for provider-specific status updates (e.g., authentication, credential refresh).
+ * Sent as a partial message to inform the client of ongoing operations.
+ */
+export interface ApiStreamStatusChunk {
+	type: "status"
+	status: "authenticating" | "refreshing_credentials" | "waiting_for_input"
+	message: string
 }
