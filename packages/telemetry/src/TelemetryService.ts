@@ -272,7 +272,7 @@ export class TelemetryService {
 		this.clients.forEach((client) => client.shutdown())
 	}
 
-	private static _instance: TelemetryService | null = null
+	private static _instance: TelemetryService | null = TelemetryService.createInstance()
 
 	static createInstance(clients: TelemetryClient[] = []) {
 		if (this._instance) {
